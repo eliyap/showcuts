@@ -1,0 +1,16 @@
+{
+  "short_name": "Showcuts",
+  "name": "Showcuts",
+  "icons": [
+    {
+      "src": "/assets/icons/192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+  ],
+  "start_url": "",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "scope": "",
+  "theme_color": "#FFFFFF"
+}

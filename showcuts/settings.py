@@ -23,13 +23,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'bnphip=1c_tmjei*$%qk4a2v4(o8+svyokq!9e7m!$d0ak(xw#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = False # debug
 
-ALLOWED_HOSTS = ['167.172.247.158']
+ALLOWED_HOSTS = ['127.0.0.1','167.172.247.158']
 
 # Application definition
 
 INSTALLED_APPS = [
+    #'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -117,7 +118,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
 STATIC_URL = '/static/'
 
 def skip_static_requests(record):
@@ -164,4 +164,4 @@ LOGGING = {
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
