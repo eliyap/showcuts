@@ -1,0 +1,31 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block sidebar %}
+{% include 'sidebar.html' with menu_icon='assets/ui/menu-white.svg' hidden=True %}
+{% endblock %}
+
+{% block content %}
+<!-- open Sidebar -->
+<span id='open-fixed' onclick="openNav()">
+  {% if menu_icon %}
+  <img src="{% static menu_icon %}" />
+  {% else %}
+  <img src="{% static 'assets/ui/menu.svg' %}" />
+  {% endif %}
+</span>
+
+<div class="background-index">&nbsp;</div>
+
+<a href="{% url 'submit' %}" class="centralize top">
+  <img id="splash" src="{% static 'assets/logo/named-white.png' %}" />
+</a>
+<form action="" method="post" class="centralize">
+  {% csrf_token %}
+  {% for field in form %}
+  {{field}}
+  {% endfor %}
+  <input type="submit" value="Submit">
+</form>
+<div class="centralize form-error">{{form.errors.iCloudLink}}</div>
+{% endblock %}

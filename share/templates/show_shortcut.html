@@ -1,0 +1,74 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block title %}
+<title>{{name}}</title>
+{% endblock %}
+
+{% block sidebar %}
+{% include 'sidebar.html' with hidden=False %}
+{% endblock %}
+
+{% block content %}
+<div class="content">
+  <!-- header -->
+  <div class="header" id='SCtitle'>
+    <div class='floater'></div>
+    <span id='open' onclick="openNav()">
+      {% if menu_icon %}
+      <img src="{% static menu_icon %}" />
+      {% else %}
+      <img src="{% static 'assets/ui/menu.svg' %}" />
+      {% endif %}
+    </span>
+
+    <div id="glyph-bg" style="background-color:rgb{{color_code}}">
+      <img src="{% static 'assets/glyphs/wand.svg' %}" />
+    </div>
+    <div class="sc-title" title="{{name}}">
+      {{name}}
+    </div>
+    <div class='floater'></div>
+    <div class="align-5"></div>
+  </div>
+  <div class='floater'></div>
+  <!-- header -->
+  <!-- action container -->
+  <div id="action-container" class="article-container">
+    <div class="dummy">
+      <!-- action extention accepted types -->
+      {% if accepted_types %}
+      <div class='action'><div id='accepts'>Accepts</div><div id='accepted-types'>{{accepted_types}}</div></div>
+      {% endif %}
+      {% for action in action_blocks|slice:":15" %}
+      {% include 'action.html' with action=action UUID_glyphs=UUID_glyphs %}
+      {% endfor %}
+    </div>
+  </div>
+  <!-- margin -->
+  <div class='floater'></div>
+  <!-- other links -->
+  <a href="{{iCloud_link}}" id='ios-download' title='iOS Download'>
+    <div class='tool-btn'>
+      <img src="{% static 'assets/ui/cloud-download-outline.svg' %}" />
+    </div>
+  </a>
+  <a href="{{download_link}}" id='web-download' title='Computer Download'>
+    <div class='tool-btn'>
+      <img src="{% static 'assets/ui/download-outline.svg' %}" />
+    </div>
+  </a>
+  <a href="" id='info' title = 'Refresh Page (not implemented)'>
+    <div class='tool-btn'>
+      <img src="{% static 'assets/ui/info.svg' %}" />
+    </div>
+  </a>
+  {% if action_blocks|length > 15 %}
+  {% with remainder=action_blocks|length|add:-15 %}
+  <div class='fade-out'>
+    <div class='gate-text'>{{remainder}} more action{{remainder|pluralize}}</div>
+  </div>
+  {% endwith %}
+  {% endif %}
+</div>
+{% endblock %}

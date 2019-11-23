@@ -1,0 +1,15 @@
+{% extends "base-generic.html"%}
+
+{% block content %}
+<div class="background-index">&nbsp;</div></div>
+<div class="inherit-white">
+
+  <a href="{% url 'submit' %}" class="centralize">
+    <img id="logo" src="{% static 'assets/logo/named-white.png' %}" />
+  </a>
+  <h1 class="centralize">404</h1>
+  <p class="centralize">Something broke. Sorry about that.</p>
+  <p class="centralize">Try submitting a new iCloud link, or contact the developer.</p>
+  
+</div>
+{% endblock %}

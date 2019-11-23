@@ -1,0 +1,33 @@
+{% load static %}
+{% load lookup %}
+
+{% if elem.UUID %}
+<a href="#{{elem.UUID}}">
+  {% endif %}
+
+  <div class="{{elem.class}}">
+    {% if elem.glyph %}
+    <img class="inline-glyph" src="{% static elem.glyph %}" />
+    {% elif elem.UUID %}
+    <img class="inline-glyph" src="{% static UUID_glyphs|get_item:elem.UUID %}" />
+    {% endif %}
+
+    {% if 'inline' in elem.class %}
+      {% for i in elem.value %}
+        {% include 'inline.html' with elem=i %}
+      {% endfor%}
+    {% elif 'pill' in elem.class%}
+      {% for i in elem.value %}
+        <div class='{{i.selected|yesno:"pill-on,pill-off,"}}'>{{i.value}}</div>
+      {% endfor %}
+    {% elif 'counter' in elem.class%}
+      <img src="{% static 'assets/ui/counter-minus.svg' %}"/>
+      <img src="{% static 'assets/ui/counter-plus.svg' %}"/>
+    {% else %}
+      {{elem.value}}
+    {% endif %}
+  </div>
+
+  {% if elem.UUID %}
+</a>
+{% endif %}

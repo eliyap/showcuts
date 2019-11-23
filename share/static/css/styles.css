@@ -1,0 +1,352 @@
+:root {
+    --action-corner: 1.25rem;
+    --action-padding: 1.2rem;
+    --sc-grey: rgba(238, 239, 243);
+    --magic-ink: rgb(13, 71, 216);
+    --magic-empty: rgb(143, 172, 236);
+    --deep-blue: rgb(27,31,91);
+    /* --magic-bg: rgb(239, 244, 252); */
+    --magic-bg: rgba(160, 190, 250, .2);
+    --indent: 1rem;
+    --indent1: calc(var(--indent) * 1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+.floater{
+    flex:auto;
+    z-index: -1;
+    background-color: var(--sc-grey);
+}
+.align-5{
+    width:3rem;
+    flex: initial;
+}
+.article-container {
+    position: relative;
+    background-color: var(--sc-grey);
+    padding:7rem 2rem 2rem 2rem;
+    font-size: 130%;
+    line-height: normal;
+    max-width: 35rem;
+    /* 5rems spacing for the header */
+    min-height: 100vh;
+}
+
+.header {
+    font-size: 130%;
+    z-index: 3;
+    background-color: var(--sc-grey);
+    display: flex;
+    position: fixed;
+    top: 0;
+    padding: 1rem 0rem;
+}
+.header.no-sidebar{
+    width: calc(100%);
+}
+.header.with-sidebar{
+    width: calc(100% - 250px);
+}
+/* The side navigation menu */
+
+.sidenav {
+    height: 100%;
+    /* 100% Full-height */
+    width: 250px;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 5;
+    /* Stay on top */
+    top: 0;
+    /* Stay at the top */
+    left: 0;
+    background-color: rgb(250, 250, 250);
+    /* Black*/
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 60px;
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidenav */
+    border-right: 1px solid gray;
+}
+
+/* The navigation menu links */
+
+.sidenav .sidebar-link {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav .btn-container {
+    padding: 0!important;
+    height: 1.1rem;
+    width: 1.1rem;
+}
+
+/* When you mouse over the navigation links, change their color */
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+#mySidenavHidden {
+    margin-left: -250px!important;
+}
+
+/* Position and style the close button (top right corner) */
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+
+.sidenav.closed {
+    margin-left: -250px;
+}
+
+.sidenav.opened {
+    margin-left: 0px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
+.content {
+    margin-left: 250px;
+    -moz-transition: .5s;
+    -o-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+    display: flex;
+    position: relative;
+    background-color: var(--sc-grey);
+}
+
+#open, #closebtn {
+    visibility: hidden;
+}
+#open, #open-fixed{
+    width: 0rem;
+    height: 1rem;
+    z-index: 4;
+}
+#open-fixed {
+    top: 1.9rem;
+    right:38rem;
+    position: fixed;
+}
+#open {
+    margin: auto 0;
+    line-height: 1rem;
+}
+.always-on {
+    visibility: visible!important;
+    width: 1rem!important;
+}
+
+#close {
+    width: 1rem;
+    height: 1rem;
+}
+
+#logo {
+    width: 200px;
+    margin: 25px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .content {
+        margin-left: 0;
+    }
+    #open, #closebtn {
+        visibility: visible;
+        width:1rem;
+    }
+    .sidenav {
+        margin-left: -250px;
+    }
+}
+
+.background-index {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: linear-gradient(rgba(30, 30, 90, 0.9), rgba(30, 30, 90, 0.9)), url("../assets/background/devices.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.inherit-white div, p, h1, h2, li {
+    color: white;
+}
+
+/* prevents the header covering the action on hash links */
+
+.hash {
+    position: relative;
+    top: -6.5rem;
+}
+
+.sc-title {
+    color: black;
+    font-size: 2.7rem;
+    font-weight: bold;
+    height: 3rem;
+    line-height: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    flex:initial;
+}
+
+#glyph-bg{
+    width: 3rem;
+    height:3rem;
+    border-radius: .7rem;
+    background-color: black;
+    display: inline-block;
+    padding:.65rem;
+    margin:0 1rem ;
+}
+
+/* submit page styling */
+
+.centralize {
+    margin: 2rem auto;
+    display: block;
+    width: fit-content;
+}
+.centralize.top{
+    margin-top: 20%;
+}
+
+.helptext {
+    visibility: hidden;
+}
+
+#id_iCloudLink::placeholder {
+    content:'test';
+    color:gainsboro;
+}
+
+input {
+    border-radius: .3rem;
+    border: 1px solid darkgray;
+}
+
+input[type=submit] {
+    color: white;
+    background-color: rgba(30, 30, 90, 0.9);
+}
+
+#splash {
+    width: 20rem;
+    margin: 0;
+}
+.form-error ul{
+    list-style: none;
+    padding:0;
+    margin-top: -1.5rem;
+}
+
+.tool-container{
+    float: right;
+    width:3rem;
+    background-color: var(--sc-grey);
+    z-index: 5;
+}
+.tool-container ul{
+    list-style: none;
+    padding:0;
+}
+.tool-btn{
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: var(--deep-blue);
+    padding:.25rem;
+    border-radius: .5rem;
+    margin:.25rem;
+}
+.tool-btn:hover{
+    background-color: black;
+}
+.tool-btn>img{
+    height: 2rem;
+    width: 2rem;
+}
+#ios-download, #web-download,#info{
+    z-index: 6;
+    position: fixed;
+}
+#ios-download{
+    top: 0;
+    right: 0;
+}
+#web-download{
+    top: 3rem;
+    right: 0;
+}
+#info{
+    top: 6rem;
+    right: 0;   
+}
+.fade-out{
+    height:20rem;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 5;
+    background-image: linear-gradient( rgba(255, 255, 255, 0),white);
+}
+.gate-text{
+    position: absolute;
+    text-align: center;
+    bottom: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    font-size: 1.5rem;
+}
+#accepts{
+    margin-right: 1.5rem;
+    display: inline;
+    font-weight: 500;
+}
+#accepted-types{
+    display: inline;
+    color: gray;
+}

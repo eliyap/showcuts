@@ -1,0 +1,15 @@
+{% load static %}
+<div class="line-elems">
+  {% for line in items %}
+  <div class="lower-line">
+    <img class="minus" src="{% static 'assets/ui/minus.svg' %}" />
+    <!-- key -->
+    <div class="dict-key">
+      {% include 'inline.html' with elem=line.key %}
+    </div>
+    <div class="dict-value">
+      {% include 'inline.html' with elem=line.value %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
