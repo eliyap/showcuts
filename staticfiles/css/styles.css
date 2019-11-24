@@ -147,17 +147,17 @@ html {
     visibility: hidden;
 }
 #open, #open-fixed{
-    width: 0rem;
+    width: 1rem;
     height: 1rem;
     z-index: 4;
 }
 #open-fixed {
     top: 1.9rem;
-    right:38rem;
+    left:1.9rem;
     position: fixed;
 }
 #open {
-    margin: auto 0;
+    margin: auto 0 auto 1rem;
     line-height: 1rem;
 }
 .always-on {

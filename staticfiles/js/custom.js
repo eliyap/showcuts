@@ -1,14 +1,19 @@
-/* Set sidenav margin to 0px */
-function openNav() {
-    $("#mySidenav").removeClass("closed").addClass("opened");
-}
-
-/* Set sidenav width to -250px */
-function closeNav() {
-    $("#mySidenav").removeClass("opened").addClass("closed");
-}
 
 $(document).ready(function () {
+    /* Set sidenav margin to 0px */
+    function openNav() {
+        $("#mySidenav").removeClass("closed").addClass("opened");
+    }
+    
+    /* Set sidenav width to -250px */
+    function closeNav() {
+        $("#mySidenav").removeClass("opened").addClass("closed");
+    }
+
+    $("#open").click(openNav)
+    $("#open-fixed").click(openNav)
+    $("#close").click(closeNav)
+
     // Store references outside event handler:
     let $window = $(window);
     let $sidebar = $(mySidenav);
