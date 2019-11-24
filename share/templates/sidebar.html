@@ -2,7 +2,7 @@
 <script src="{% static 'js/custom.js' %}"></script>
 
 <div id="mySidenav" class="sidenav closed {{ hidden|yesno:"hidden,," }}">
-  <a href="javascript:void(0)" class="closebtn btn-container" id='closebtn' onclick="closeNav()">
+  <a href="javascript:void(0)" class="closebtn btn-container" id='closebtn'>
     <img id='close' src="{% static 'assets/ui/x.svg' %}" />
   </a>
   <a href="{% url 'submit' %}">
