@@ -2,3 +2,4 @@
 *.sqlite3
 *.pyc
 db.sqlite3
+**.pyc
