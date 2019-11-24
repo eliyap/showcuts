@@ -25,7 +25,7 @@ SECRET_KEY = 'bnphip=1c_tmjei*$%qk4a2v4(o8+svyokq!9e7m!$d0ak(xw#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False # debug
 
-ALLOWED_HOSTS = ['127.0.0.1','167.172.247.158']
+ALLOWED_HOSTS = ['127.0.0.1','167.172.247.158','showcuts.app']
 
 # Application definition
 
@@ -165,3 +165,5 @@ LOGGING = {
 # https://warehouse.python.org/project/whitenoise/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+DEBUG_PROPAGATE_EXCEPTIONS = True # SHOW ME THE ERRORS
