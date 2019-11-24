@@ -2,20 +2,15 @@
 {% load static %}
 
 {% block sidebar %}
-{% include 'sidebar.html' with menu_icon='assets/ui/menu-white.svg' hidden=True %}
+{% include 'sidebar.html' with hidden=True %}
 {% endblock %}
+<!-- open btn -->
 
 {% block content %}
-<!-- open Sidebar -->
-<span id='open-fixed' onclick="openNav()">
-  {% if menu_icon %}
-  <img src="{% static menu_icon %}" />
-  {% else %}
-  <img src="{% static 'assets/ui/menu.svg' %}" />
-  {% endif %}
-</span>
-
 <div class="background-index">&nbsp;</div>
+<span id='open-fixed' onclick="openNav()">
+  <img src="{% static 'assets/ui/menu-white.svg' %}" />
+</span>
 
 <a href="{% url 'submit' %}" class="centralize top">
   <img id="splash" src="{% static 'assets/logo/named-white.png' %}" />
