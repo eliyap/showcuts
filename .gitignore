@@ -1,9 +1,14 @@
+# a server socket file?
 8001
+
+# debug settings and private keys
 showcuts/local_settings.py
 
+# SQLite database
 *.sqlite3
 db.sqlite3
 
+# pycache files
 __pycache__/
 **.pyc
 *.pyc
