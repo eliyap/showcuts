@@ -1,7 +1,9 @@
 8001
+showcuts/local_settings.py
 
 *.sqlite3
-*.pyc
 db.sqlite3
+
+__pycache__/
 **.pyc
-showcuts/local_settings.py
+*.pyc
