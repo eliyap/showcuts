@@ -322,3 +322,6 @@ div {
     border-left: thin lightgray solid;
 }
 
+a:hover{
+    text-decoration: none;
+}
