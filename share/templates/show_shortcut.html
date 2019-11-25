@@ -49,21 +49,23 @@
   <!-- margin -->
   <div class='floater'></div>
   <!-- other links -->
-  <a href="{{iCloud_link}}" id='ios-download' title='iOS Download'>
-    <div class='tool-btn'>
-      <img src="{% static 'assets/ui/cloud-download-outline.svg' %}" />
-    </div>
-  </a>
-  <a href="{{download_link}}" id='web-download' title='Computer Download'>
-    <div class='tool-btn'>
-      <img src="{% static 'assets/ui/download-outline.svg' %}" />
-    </div>
-  </a>
-  <a href="" id='info' title = 'Refresh Page (not implemented)'>
-    <div class='tool-btn'>
-      <img src="{% static 'assets/ui/info.svg' %}" />
-    </div>
-  </a>
+  <div class='tool-container'>
+    <a href="{{iCloud_link}}" id='ios-download' title='iOS Download'>
+      <div class='tool-btn'>
+        <img src="{% static 'assets/ui/cloud-download-outline.svg' %}" />
+      </div>
+    </a>
+    <a href="{{download_link}}" id='web-download' title='Computer Download'>
+      <div class='tool-btn'>
+        <img src="{% static 'assets/ui/download-outline.svg' %}" />
+      </div>
+    </a>
+    <a href="" id='info' title = 'Refresh Page (not implemented)'>
+      <div class='tool-btn'>
+        <img src="{% static 'assets/ui/info.svg' %}" />
+      </div>
+    </a>
+  </div>
   {% if action_blocks|length > 15 %}
   {% with remainder=action_blocks|length|add:-15 %}
   <div class='fade-out'>
