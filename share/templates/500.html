@@ -1,21 +1,21 @@
 {% extends "base_generic.html"%}
 {% load static %}
-{% block content %}
-<div class="background-index">&nbsp;</div></div>
-<div class="inherit-white">
 
-  <a href="{% url 'submit' %}" class="centralize">
-    <img id="logo" src="{% static 'assets/logo/named-white.png' %}" />
+{% block content %}
+{% include 'background.html' %}
+<div class="inherit-white">
+  <a href="{% url 'submit' %}" class="centralize top">
+    <img id="splash" src="{% static 'assets/logo/named-white.png' %}" />
   </a>
   {% if messages %}
-    {% for message in messages %}
-    <h1 class="centralize">Error: {{message}}</h1>
-    {% endfor %}
+  {% for message in messages %}
+  <h1 class="centralize">Error: {{message}}</h1>
+  {% endfor %}
   {% else %}
-    <h1 class="centralize">Error. Something went wrong</h1>
+  <h1 class="centralize">Error. Something went wrong</h1>
   {% endif %}
   <p class="centralize">Something broke. Sorry about that.</p>
   <p class="centralize">Try submitting a new iCloud link, or contact the developer.</p>
-  
+
 </div>
 {% endblock %}

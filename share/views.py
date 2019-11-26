@@ -81,7 +81,7 @@ def show_shortcut(request, hxid:str):
     return render(request, 'show_shortcut.html', context)
 
 def error(request): # possible unncessary
-    return render(request, 'error.html')
+    return render(request, '404.html')
 
 class users_submitted(LoginRequiredMixin, ListView):
     model = Shortcut

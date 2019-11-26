@@ -8,4 +8,5 @@ urlpatterns = [
     path('view',views.submit_iCloud, name='submit'),# could later become a browsing page
     path('view/<str:hxid>',views.show_shortcut, name='view'),
     path('submitted/', views.users_submitted.as_view(), name='user-submitted'),
+    path('show-me-an-error/', views.error, name='error'),
 ]
