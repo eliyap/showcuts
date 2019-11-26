@@ -1,8 +1,12 @@
+# boilerplate
+from django.contrib.auth.models import User
 from django.db import models
 
-from django.db import models
+# JSONField
 from django.core.serializers.json import DjangoJSONEncoder
 import json
+
+# social auth
 
 class JSONField(models.TextField):
     def to_python(self, value):
@@ -93,11 +97,20 @@ class Shortcut(models.Model):
         max_length=1000, # there are a lot of possible inputs, typical length ~600char
         default='',
     )
+    owner = models.ForeignKey(
+        User, 
+        on_delete=models.SET_NULL, 
+        null=True, 
+        blank=True,
+    )
+    # add date submitted field
+    # add number of likes field
+    # add bookmarks field
     def __str__(self):
         return f'{self.name}, ID {self.iCloudID}'
 
     def get_absolute_url(self):
-        # TODO: IMPLEMENT URL LOOKUP!
+        # URL is linked to hexademical ID, nothing needed here
         pass
 
 # I think this will help search by category?
@@ -126,3 +139,4 @@ class Tag(models.Model):
     )
     def __str__(self):
         return self.name
+
