@@ -78,6 +78,3 @@ def index(request):
 
 def error(request):
     return render(request, 'error.html')
-    
-def login(request):
-    return render(request)
