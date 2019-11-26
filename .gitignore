@@ -10,6 +10,8 @@ db.sqlite3
 
 # pycache files
 __pycache__/
+share/process/__pycache__/
+**/__pycache__/
 **.pyc
 *.pyc
 
