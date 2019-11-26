@@ -3,10 +3,16 @@
     --action-padding: 1.2rem;
     --sc-grey: rgba(238, 239, 243);
     --magic-ink: rgb(13, 71, 216);
+    --dark-magic-ink: rgb(70, 158, 251);
     --magic-empty: rgb(143, 172, 236);
-    --deep-blue: rgb(27,31,91);
+    --dark-magic-empty: rgb(50,90,130);
+    --deep-blue: rgb(27, 31, 91);
     /* --magic-bg: rgb(239, 244, 252); */
     --magic-bg: rgba(160, 190, 250, .2);
+    --dark-magic-bg:rgb(39,43,51);
+    --option-grey:rgb(90, 58, 58);
+    --dark-option-grey:rgb(61,62,66);
+    --dark-light-grey:rgb(124,128,136);
     --indent: 1rem;
     --indent1: calc(var(--indent) * 1);
 }
@@ -20,19 +26,22 @@ html {
     padding: 0;
     list-style: none;
 }
-.floater{
-    flex:auto;
+
+.floater {
+    flex: auto;
     z-index: -1;
     background-color: var(--sc-grey);
 }
-.align-5{
-    width:3rem;
+
+.align-5 {
+    width: 3rem;
     flex: initial;
 }
+
 .article-container {
     position: relative;
     background-color: var(--sc-grey);
-    padding:7rem 2rem 2rem 2rem;
+    padding: 7rem 2rem 2rem 2rem;
     font-size: 130%;
     line-height: normal;
     max-width: 35rem;
@@ -49,12 +58,15 @@ html {
     top: 0;
     padding: 1rem 0rem;
 }
-.header.no-sidebar{
+
+.header.no-sidebar {
     width: calc(100%);
 }
-.header.with-sidebar{
+
+.header.with-sidebar {
     width: calc(100% - 250px);
 }
+
 /* The side navigation menu */
 
 .sidenav {
@@ -83,12 +95,21 @@ html {
 /* The navigation menu links */
 
 .sidenav .sidebar-link {
-    padding: 8px 8px 8px 32px;
+    padding: .5rem .5rem .5rem 1.5rem;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 1.5rem;
     color: #818181;
     display: block;
     transition: 0.3s;
+}
+
+.sidebar-heading {
+    padding: .5rem .5rem .5rem 1rem;
+    color: rgb(80, 80, 80);
+    display: block;
+    transition: 0.3s;
+    font-size: 25px;
+    font-size: 1.7rem;
 }
 
 .sidenav .btn-container {
@@ -123,6 +144,24 @@ html {
     margin-left: 0px;
 }
 
+#sidenav-logo{
+    display:flex;
+}
+#sidenav-logo img,#sidenav-logo p{
+    display: block;
+}
+#sidenav-logo img{
+    max-width: 30%;
+    margin: 1rem;
+    flex:initial;
+}
+#sidenav-logo p{
+    margin: auto 1rem auto 0;
+    flex:auto;
+    font-size: 1.7rem;
+    color: black;
+}
+
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 
 #main {
@@ -145,21 +184,36 @@ html {
 
 #open, #closebtn {
     visibility: hidden;
+    z-index: 6;
 }
-#open, #open-fixed{
+
+#open{
     width: 1rem;
     height: 1rem;
-    z-index: 4;
 }
+
 #open-fixed {
-    top: 1.9rem;
-    left:1.9rem;
+    top: 1.4rem;
+    left: 1.4rem;
     position: fixed;
+    width:2.5rem;
+    height: 2.5rem;
+    z-index: 6;
+    background-color: black;
+    border-radius: 25%;
+    border: 1px solid white
 }
+#open-fixed img{
+    width:1rem;
+    height:1rem;
+    margin:.75rem;
+}
+
 #open {
     margin: auto 0 auto 1rem;
     line-height: 1rem;
 }
+
 .always-on {
     visibility: visible!important;
     width: 1rem!important;
@@ -168,11 +222,6 @@ html {
 #close {
     width: 1rem;
     height: 1rem;
-}
-
-#logo {
-    width: 200px;
-    margin: 25px;
 }
 
 @media screen and (max-height: 450px) {
@@ -190,26 +239,17 @@ html {
     }
     #open, #closebtn {
         visibility: visible;
-        width:1rem;
+        width: 1rem;
     }
     .sidenav {
         margin-left: -250px;
     }
+    #splash{
+        max-width: 90vw!important;
+    }
 }
 
-.background-index {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-image: linear-gradient(rgba(30, 30, 90, 0.9), rgba(30, 30, 90, 0.9)), url("../assets/background/devices.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.inherit-white div, p, h1, h2, li {
+.inherit-white div, .inherit-white p, .inherit-white h1, .inherit-white h2, .inherit-white li {
     color: white;
 }
 
@@ -230,17 +270,17 @@ html {
     white-space: nowrap;
     overflow: hidden;
     display: inline-block;
-    flex:initial;
+    flex: initial;
 }
 
-#glyph-bg{
+#glyph-bg {
     width: 3rem;
-    height:3rem;
+    height: 3rem;
     border-radius: .7rem;
     background-color: black;
     display: inline-block;
-    padding:.65rem;
-    margin:0 1rem ;
+    padding: .65rem;
+    margin: 0 1rem;
 }
 
 /* submit page styling */
@@ -250,8 +290,9 @@ html {
     display: block;
     width: fit-content;
 }
-.centralize.top{
-    margin-top: 20%;
+
+.centralize.top {
+    margin-top: 20vh;
 }
 
 .helptext {
@@ -259,8 +300,8 @@ html {
 }
 
 #id_iCloudLink::placeholder {
-    content:'test';
-    color:gainsboro;
+    content: 'test';
+    color: gainsboro;
 }
 
 input {
@@ -274,65 +315,80 @@ input[type=submit] {
 }
 
 #splash {
-    width: 20rem;
+    max-width: 20rem;
     margin: 0;
 }
-.form-error ul{
+
+.form-error ul {
     list-style: none;
-    padding:0;
+    padding: 0;
     margin-top: -1.5rem;
 }
 
-.tool-container{
+/* right side buttons */
+
+.tool-container {
     float: right;
-    width:3rem;
+    width: 3rem;
     background-color: var(--sc-grey);
     z-index: 5;
 }
-.tool-container ul{
+
+.tool-container ul {
     list-style: none;
-    padding:0;
+    padding: 0;
 }
-.tool-btn{
+
+.tool-btn {
     height: 2.5rem;
     width: 2.5rem;
     background-color: var(--deep-blue);
-    padding:.25rem;
+    padding: .25rem;
     border-radius: .5rem;
-    margin:.25rem;
+    margin: .25rem;
 }
-.tool-btn:hover{
+
+.tool-btn:hover {
     background-color: black;
 }
-.tool-btn>img{
+
+.tool-btn>img {
     height: 2rem;
     width: 2rem;
 }
-#ios-download, #web-download,#info{
+
+#ios-download, #web-download, #info {
     z-index: 6;
     position: fixed;
 }
-#ios-download{
+
+#ios-download {
     top: 0;
     right: 0;
 }
-#web-download{
+
+#web-download {
     top: 3rem;
     right: 0;
 }
-#info{
+
+#info {
     top: 6rem;
-    right: 0;   
+    right: 0;
 }
-.fade-out{
-    height:20rem;
+
+/* blocked content for free users */
+
+.fade-out {
+    height: 20rem;
     width: 100%;
     position: absolute;
     bottom: 0;
     z-index: 5;
-    background-image: linear-gradient( rgba(255, 255, 255, 0),white);
+    background-image: linear-gradient( rgba(255, 255, 255, 0), white);
 }
-.gate-text{
+
+.gate-text {
     position: absolute;
     text-align: center;
     bottom: 1rem;
@@ -341,12 +397,138 @@ input[type=submit] {
     width: 100%;
     font-size: 1.5rem;
 }
-#accepts{
+
+/* action extensions */
+
+#accepts {
     margin-right: 1.5rem;
     display: inline;
     font-weight: 500;
 }
-#accepted-types{
+
+#accepted-types {
     display: inline;
     color: gray;
+}
+
+/* icon background */
+
+.gridiron {
+    position: fixed;
+    top: -30rem;
+    left: -30rem;
+    display: grid;
+    grid-template-columns: repeat(40, 5rem);
+    grid-template-rows: repeat(40, 5rem);
+    transform: rotate(-45deg);
+    z-index: -2;
+}
+
+.bg-icon {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 20%;
+    grid-row-end: span 2;
+    grid-column-end: span 2;
+    margin: auto;
+}
+
+.grid-padding {
+    grid-row-end: span 2;
+    grid-column-start: 1;
+}
+
+#gp1 {
+    grid-row-start: 1;
+}
+
+#gp2 {
+    grid-row-start: 5;
+}
+
+#gp3 {
+    grid-row-start: 9;
+}
+
+#gp4 {
+    grid-row-start: 13;
+}
+
+#gp5 {
+    grid-row-start: 17;
+}
+
+#gp6 {
+    grid-row-start: 21;
+}
+
+#gp7 {
+    grid-row-start: 25;
+}
+
+#gp8 {
+    grid-row-start: 29;
+}
+
+#gp9 {
+    grid-row-start: 33;
+}
+
+#gp10 {
+    grid-row-start: 37;
+}
+
+.bg-blue, .bg-darkmode {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.bg-darkmode {
+    z-index: -3;
+}
+.bg-blue {
+    z-index: -1;
+}
+
+@media (prefers-color-scheme: dark) {
+    .bg-darkmode {
+        background: #333;
+    }
+    .bg-blue {
+        background-color: rgba(10, 10, 45, 0.6);
+    }
+    #mySidenav{
+        background-color: #353535;
+        border-right:1px solid white;
+    }
+    .sidebar-heading{
+        color: aliceblue;
+    }
+    .sidebar-link{
+        color: #f1f1f1 !important;
+    }
+    #sidenav-logo p, .sc-title{
+        color: white;
+    }
+    .floater, .header, .article-container, .content,.tool-container{
+        background-color: black;
+    }
+    #open, #close{
+        filter: invert(1);
+    }
+    .tool-btn{
+        border: 1px solid white;
+    }
+}
+@media (prefers-color-scheme: light) {
+
+    .bg-darkmode {
+        background: none;
+    }
+    .bg-blue {
+        background-color: rgba(30, 30, 90, 0.8);
+    }
 }

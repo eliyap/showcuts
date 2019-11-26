@@ -58,7 +58,7 @@ div {
     color:lightgray;
 }
 .magic.empty {
-    color: var(--magic-empty)!important;
+    color: var(--magic-empty);
 }
 
 .comment {
@@ -177,7 +177,7 @@ div {
     margin: auto 0 auto 0;
 }
 .lower-line:first-child, .list-line:first-child {
-    border-top: 0px solid rgba(0, 0, 0, .125)!important;
+    border-top: none!important;
 }
 .line-label {
     /* expands, unless the line elem needs to be aligned left */
@@ -275,7 +275,7 @@ div {
     display: inline-block;
 }
 .pill{
-    background-color: rgb(235, 235, 235);
+    background-color: var(--option-grey);
     margin:auto 0;
     border-radius: .4rem;
     display: flex;
@@ -284,7 +284,7 @@ div {
     overflow: hidden;
 }
 .counter{
-    background-color: rgb(235, 235, 235);
+    background-color: var(--option-grey);
     margin:auto 0;
     border-radius: .4rem;
     display: flex;
@@ -324,4 +324,32 @@ div {
 
 a:hover{
     text-decoration: none;
+}
+
+
+/* dark mode settings */
+@media (prefers-color-scheme: dark) {
+    .action{
+        background-color: rgb(35,35,35);
+        color: white;
+    }   
+    .magic.empty{
+        color: var(--dark-magic-empty);
+    }
+    .magic{
+        color:var(--dark-magic-ink);
+        background-color: var(--dark-magic-bg);
+    }
+    .toggle.off{
+        background-color: rgb(67,68,72);
+    }
+    .line-elems,.lower-line{
+        border-top: 1px solid rgb(50, 50, 50);
+    }
+    .pill,.counter{
+        background-color: var(--dark-option-grey);
+    }
+    .pill-on{
+        background-color: var(--dark-light-grey);
+    }
 }
