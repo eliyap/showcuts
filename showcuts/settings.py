@@ -176,5 +176,23 @@ LOGGING = {
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/'
+
+# overrides default social auth pipeline
+SOCIAL_AUTH_DISCONNECT_PIPELINE = (
+    # Verifies that user login is not compromised by disconnection
+    #'social_core.pipeline.disconnect.allowed_to_disconnect',
+
+    # Collects the social associations to disconnect.
+    'social_core.pipeline.disconnect.get_entries',
+
+    # Revoke any access_token when possible.
+    'social_core.pipeline.disconnect.revoke_tokens',
+
+    # Removes the social associations.
+    'social_core.pipeline.disconnect.disconnect',
+
+    # deletes associated user account.
+    'showcuts.user_util.del_user'
+)
