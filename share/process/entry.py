@@ -8,10 +8,14 @@ from ..models import Shortcut
 from .action_html import make_html
 from .pieces import extension_lookup
 
+## Dependency: user
+from django.contrib.auth.models import User, AnonymousUser
+
+
 class noActionsError(ValueError):
     pass
 
-def add_shortcut(url:str):
+def add_shortcut(url:str, user:User):
     try:
         _id = re.findall(r'[0-9a-f]{32}',url)[0]
     except IndexError:
@@ -36,6 +40,9 @@ def add_shortcut(url:str):
     type_list = WFdct.get('WFWorkflowInputContentItemClasses',[])
     accepted_types = ','.join([extension_lookup.get(i,i) for i in type_list])
 
+    # anon user
+    if isinstance(user, AnonymousUser): user = None
+
     record = Shortcut(
         iCloud=url,
         iCloudID=_id,
@@ -49,6 +56,7 @@ def add_shortcut(url:str):
         colorID=dct['colorID'],
         shortcut_types=shortcut_types,
         accepted_types=accepted_types,
+        owner=user,
     )
     try:
         record.save()
