@@ -1,0 +1,17 @@
+{% load static %}
+{% load shuffle %}
+
+<div class="bg-darkmode">&nbsp;</div>
+<div class="bg-blue">&nbsp;</div>
+<div class="gridiron">
+
+  {% for icon in 12|shuffle_icons %}
+    <img class="bg-icon" src="{% static icon %}">
+  {% endfor %}
+
+  {% with ''|center:10 as range %}
+    {% for _ in range %}
+      <div id="gp{{forloop.counter}}" class="grid-padding"></div>
+    {% endfor %}
+  {% endwith %}
+</div>
