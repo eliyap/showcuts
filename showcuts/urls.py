@@ -1,12 +1,17 @@
+## Dependency: boilerplate
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
 from django.views.generic import RedirectView
 from django.conf.urls import url
 
-from django.contrib.auth import views as auth_views
 # import keys
 from .local_settings import SOCIAL_AUTH_GITHUB_KEY, SOCIAL_AUTH_GITHUB_SECRET, SOCIAL_AUTH_TWITTER_KEY, SOCIAL_AUTH_TWITTER_SECRET
+
+from django.contrib.auth import views as auth_views
+
+# user settings
+from share.views import users_settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -16,6 +21,7 @@ urlpatterns = [
     url(r'^logout/$',
         auth_views.LogoutView.as_view(), 
         name='logout'),
+    path('settings/', users_settings, name='user-settings'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
     path('share/', include('share.urls')),
     path('', RedirectView.as_view(url='share/', permanent=True)),
@@ -30,4 +36,3 @@ urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 # social auth
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'home'
