@@ -15,14 +15,14 @@
   {% if 'comment' in action.special or 'text' in action.special %}
   <div class="row {{action.special}}">
     {% for i in action.title %}
-    {% include 'inline.html' with elem=i %}
+    {% include 'elements/inline.html' with elem=i %}
     {% endfor%}
   </div>
   {% else %}
   <div class="action-title {{action.special}}">
     <div class="row">
       {% for i in action.title %}
-      {% include 'inline.html' with elem=i %}
+      {% include 'elements/inline.html' with elem=i %}
       {% endfor%}
       </div>
     <!-- line elements -->
@@ -36,18 +36,18 @@
           <div class="lower-line">
         {% endif %}
           <div class="line-label">{{line.label}}</div>
-        {% include 'inline.html' with elem=line UUID_glyphs=UUID_glyphs %}
+        {% include 'elements/inline.html' with elem=line UUID_glyphs=UUID_glyphs %}
       </div>
       {% endfor %}
     </div>
     {% endif %}
     <!-- item elements -->
     {% if action.list_items %}
-    {% include 'list.html' with list_items=action.list_items %}
+    {% include 'elements/list.html' with list_items=action.list_items %}
     {% endif %}
     <!-- dict elements -->
     {% if action.dct %}
-    {% include 'dict.html' with items=action.dct %}
+    {% include 'elements/dict.html' with items=action.dct %}
     {% endif %}
   </div>
   {% endif %}

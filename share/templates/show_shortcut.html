@@ -42,7 +42,7 @@
       <div class='action'><div id='accepts'>Accepts</div><div id='accepted-types'>{{accepted_types}}</div></div>
       {% endif %}
       {% for action in action_blocks|slice:":15" %}
-      {% include 'action.html' with action=action UUID_glyphs=UUID_glyphs %}
+      {% include 'elements/action.html' with action=action UUID_glyphs=UUID_glyphs %}
       {% endfor %}
     </div>
   </div>

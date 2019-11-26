@@ -5,10 +5,10 @@
     <img class="minus" src="{% static 'assets/ui/minus.svg' %}" />
     <!-- key -->
     <div class="dict-key">
-      {% include 'inline.html' with elem=line.key %}
+      {% include 'elements/inline.html' with elem=line.key %}
     </div>
     <div class="dict-value">
-      {% include 'inline.html' with elem=line.value %}
+      {% include 'elements/inline.html' with elem=line.value %}
     </div>
   </div>
   {% endfor %}
