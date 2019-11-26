@@ -26,15 +26,15 @@ SECRET_KEY = 'bnphip=1c_tmjei*$%qk4a2v4(o8+svyokq!9e7m!$d0ak(xw#'
 # Application definition
 
 INSTALLED_APPS = [
+    'social_django', # must be ABOVE django.contrib.admin to override templates
+    'share',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    'social_django',
-    'share',
 ]
 
 MIDDLEWARE = [
@@ -175,3 +175,6 @@ LOGGING = {
 # https://warehouse.python.org/project/whitenoise/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = '/'
