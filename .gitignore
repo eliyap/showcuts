@@ -12,6 +12,3 @@ db.sqlite3
 __pycache__/
 **.pyc
 *.pyc
-
-# dev static files
-share/static/
