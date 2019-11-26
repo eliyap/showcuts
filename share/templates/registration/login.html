@@ -2,6 +2,6 @@
 
 {% block content %}
   <br>
-  <a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
-  <a href="{% url 'social:begin' 'twitter' %}">Login with Twitter</a><br>
+  <a href="{% url 'social:begin' 'github' %}?next={{ request.GET.next }}">Login with GitHub</a><br>
+  <a href="{% url 'social:begin' 'twitter' %}?next={{ request.GET.next }}">Login with Twitter</a><br>
 {% endblock %}
