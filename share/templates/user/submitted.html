@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block content %}
+<!-- testing for new bg -->
+{% include 'background.html' %}
+
+    <h1>Your Shortcuts</h1>
+    {% if object_list %}
+    <ul>
+
+      {% for shortcut in object_list %} 
+      <li class="null">
+        <a href="{% url 'submit' %}/{{shortcut.iCloudID}}">{{shortcut.name}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no books borrowed.</p>
+    {% endif %}       
+{% endblock %}
