@@ -7,6 +7,9 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import render, render_to_response
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView
+from django.contrib.auth.decorators import login_required
 
 ## Dependency: local
 from .models import Shortcut
@@ -14,6 +17,9 @@ from .forms import iCloudForm
 from .process.entry import add_shortcut, noActionsError
 from .process.pieces import color_dict
 from django.template import RequestContext
+
+## Dependency: social auth
+from social_django.models import UserSocialAuth
 
 def submit_iCloud(request):
     from django.http import Http404
@@ -31,7 +37,7 @@ def submit_iCloud(request):
                 # duplicate detected, direct to the existing record with some extra indicator?
                 # TODO: known issue: if bad data is saved to this link, resubmitting it will not help (need to delete the shortcut). see if this affects users in production
             try:
-                add_shortcut(iCloudLink)
+                add_shortcut(iCloudLink, request.user)
             except noActionsError:
                 #raise # debug
                 messages.error(request, 'Could not get actions from Shortcut file')
@@ -69,12 +75,40 @@ def show_shortcut(request, hxid:str):
         'iCloud_link':shortcut_instance.iCloud,
         'download_link':shortcut_instance.download_link,
         'accepted_types':accepts,
-        'types':types
+        'types':types,
+        'owner':shortcut_instance.owner,
     }
     return render(request, 'show_shortcut.html', context)
 
-def index(request):
-    return render(request, 'index.html')
-
-def error(request):
+def error(request): # possible unncessary
     return render(request, 'error.html')
+
+class users_submitted(LoginRequiredMixin, ListView):
+    model = Shortcut
+    template_name = 'user/submitted.html'
+    paginate_by = 20
+
+    def get_queryset(self):
+        return Shortcut.objects.filter(owner=self.request.user)
+        # TODO: add sorting options? default: date submitted
+
+@login_required
+def users_settings(request):
+    user = request.user
+
+    try:
+        github_login = user.social_auth.get(provider='github')
+    except UserSocialAuth.DoesNotExist:
+        github_login = None
+
+    try:
+        twitter_login = user.social_auth.get(provider='twitter')
+    except UserSocialAuth.DoesNotExist:
+        twitter_login = None
+
+    return render(request, 'user/settings.html', {
+        'github_login': github_login,
+        'twitter_login': twitter_login,
+        #'google': google,
+    })
+
