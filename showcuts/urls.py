@@ -15,12 +15,12 @@ from share.views import users_settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # url(r'^login/$', 
-    #     auth_views.LoginView.as_view(),
-    #     name='login'),
-    # url(r'^logout/$',
-    #     auth_views.LogoutView.as_view(), 
-    #     name='logout'),
+    url(r'^login/$', 
+        auth_views.LoginView.as_view(),
+        name='login'),
+    url(r'^logout/$',
+        auth_views.LogoutView.as_view(), 
+        name='logout'),
     path('settings/', users_settings, name='user-settings'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
     path('share/', include('share.urls')),
@@ -34,5 +34,5 @@ from django.conf.urls.static import static
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 # social auth
-# LOGIN_URL = 'login'
-# LOGOUT_URL = 'logout'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
