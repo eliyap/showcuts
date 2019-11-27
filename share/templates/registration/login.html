@@ -1,6 +1,8 @@
 {% extends "base_generic.html" %}
 {% load static %}
 
+{% block extra_static %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">{% endblock %}
 
 {% block sidebar %}
 {% include 'sidebar.html' with hidden=True %}
@@ -16,8 +18,27 @@
   <h1>Login</h1>
 
   {% block incard %}
-  <a href="{% url 'social:begin' 'github' %}?next={{ request.GET.next }}">Login with GitHub</a><br>
-  <a href="{% url 'social:begin' 'twitter' %}?next={{ request.GET.next }}">Login with Twitter</a><br>
+  <div class='flex'>
+    <div class='brand-container'>
+      <a href="{% url 'social:begin' 'github' %}?next={{ request.GET.next }}">
+        <img class="brand-logo" src="{% static 'assets/branding/github.svg' %}" alt="Github" />
+        <p>Github Login</p>
+      </a>
+    </div>
+    <div class='brand-container'>
+      <a href="{% url 'social:begin' 'twitter' %}?next={{ request.GET.next }}">
+        <img class="brand-logo" src="{% static 'assets/branding/twitter.svg' %}" alt="Twitter" />
+        <p>Twitter Login</p>
+      </a>
+    </div>
+    <div class='brand-container'>
+        <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.GET.next }}">
+          <img class="brand-logo" src="{% static 'assets/branding/google.svg' %}" alt="Google" />
+          <p>Google Login</p>
+        </a>
+      </div>
+  </div>
+
   {% endblock %}
 </div>
 {% endblock %}
