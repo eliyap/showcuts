@@ -11,7 +11,7 @@ from .local_settings import SOCIAL_AUTH_GITHUB_KEY, SOCIAL_AUTH_GITHUB_SECRET, S
 from django.contrib.auth import views as auth_views
 
 # user settings
-from share.views import users_settings, wallpaper
+from share.views import users_settings, wallpaper, wallpaper_huge
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,7 +24,8 @@ urlpatterns = [
     path('settings/', users_settings, name='user-settings'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
     path('share/', include('share.urls')),
-    path('wallpaper', wallpaper, name='wallpaper'),
+    path('wallpaper/', wallpaper, name='wallpaper'),
+    path('wallpaper/huge', wallpaper_huge, name='wallpaper'),
     path('', RedirectView.as_view(url='share/', permanent=True)),
 ]
 

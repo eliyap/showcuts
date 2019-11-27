@@ -6,15 +6,30 @@
 {% else %}
 <div class="bg-blue">&nbsp;</div>
 {% endif %}
-<div class="gridiron">
+
+{% if repeat %}
+  <div class="gridiron huge">
+{% else %}
+  <div class="gridiron">
+{% endif %}
+
+  {% if repeat %}
+  {% for icon in repeat|shuffle_icons %}
+  <img class="bg-icon" src="{% static icon %}">
+  {% endfor %}
+  {% else %}
+  {% for icon in 12|shuffle_icons %}
+  <img class="bg-icon" src="{% static icon %}">
+  {% endfor %}
+  {% endif %}
 
   {% for icon in 12|shuffle_icons %}
-    <img class="bg-icon" src="{% static icon %}">
+  <img class="bg-icon" src="{% static icon %}">
   {% endfor %}
 
   {% with ''|center:10 as range %}
-    {% for _ in range %}
-      <div id="gp{{forloop.counter}}" class="grid-padding"></div>
-    {% endfor %}
+  {% for _ in range %}
+  <div id="gp{{forloop.counter}}" class="grid-padding"></div>
+  {% endfor %}
   {% endwith %}
 </div>

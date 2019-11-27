@@ -119,3 +119,6 @@ def users_settings(request):
 
 def wallpaper(request):
     return render(request, 'wallpaper.html')
+
+def wallpaper_huge(request):
+    return render(request, 'wallpaper_huge.html')

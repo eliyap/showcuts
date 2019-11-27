@@ -1,0 +1,9 @@
+{% extends 'base_generic.html' %}
+
+{% block sidebar %}
+<!-- no sidebar -->
+{% endblock %}
+
+{% block content %}
+{% include 'background.html' with no_filter=True repeat=25 %}
+{% endblock %}
