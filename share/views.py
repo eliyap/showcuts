@@ -106,9 +106,16 @@ def users_settings(request):
     except UserSocialAuth.DoesNotExist:
         twitter_login = None
 
+    try:
+        google_login = user.social_auth.get(provider='google-oauth2')
+    except UserSocialAuth.DoesNotExist:
+        google_login = None
+
     return render(request, 'user/settings.html', {
         'github_login': github_login,
         'twitter_login': twitter_login,
-        #'google': google,
+        'google_login': google_login,
     })
 
+def wallpaper(request):
+    return render(request, 'wallpaper.html')
