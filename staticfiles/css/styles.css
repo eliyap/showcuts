@@ -10,7 +10,7 @@
     /* --magic-bg: rgb(239, 244, 252); */
     --magic-bg: rgba(160, 190, 250, .2);
     --dark-magic-bg:rgb(39,43,51);
-    --option-grey:rgb(90, 58, 58);
+    --option-grey:rgb(230, 230, 230);
     --dark-option-grey:rgb(61,62,66);
     --dark-light-grey:rgb(124,128,136);
     --indent: 1rem;
@@ -71,21 +71,16 @@ html {
 
 .sidenav {
     height: 100%;
-    /* 100% Full-height */
     width: 250px;
-    /* 0 width - change this with JavaScript */
     position: fixed;
-    /* Stay in place */
-    z-index: 5;
-    /* Stay on top */
     top: 0;
-    /* Stay at the top */
     left: 0;
-    background-color: rgb(250, 250, 250);
+    z-index: 5;
+    background-color: rgba(250, 250, 250, .8);
     /* Black*/
     overflow-x: hidden;
     /* Disable horizontal scroll */
-    padding-top: 60px;
+    padding-top: 3rem;
     /* Place content 60px from the top */
     transition: 0.5s;
     /* 0.5 second transition effect to slide in the sidenav */
@@ -94,7 +89,7 @@ html {
 
 /* The navigation menu links */
 
-.sidenav .sidebar-link {
+.sidebar-link {
     padding: .5rem .5rem .5rem 1.5rem;
     text-decoration: none;
     font-size: 1.5rem;
@@ -152,7 +147,7 @@ html {
 }
 #sidenav-logo img{
     max-width: 30%;
-    margin: 1rem;
+    margin: .5rem 1rem;
     flex:initial;
 }
 #sidenav-logo p{
@@ -184,10 +179,10 @@ html {
 
 #open, #closebtn {
     visibility: hidden;
-    z-index: 6;
+    z-index: 4;
 }
 
-#open{
+#open, #page-next, #page-prev{
     width: 1rem;
     height: 1rem;
 }
@@ -198,12 +193,12 @@ html {
     position: fixed;
     width:2.5rem;
     height: 2.5rem;
-    z-index: 6;
+    z-index: 4;
     background-color: black;
     border-radius: 25%;
-    border: 1px solid white
+    border: 1px solid white;
 }
-#open-fixed img{
+#open-fixed img, #open.oncard img{
     width:1rem;
     height:1rem;
     margin:.75rem;
@@ -214,40 +209,35 @@ html {
     line-height: 1rem;
 }
 
+#open.oncard{
+    width:2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    margin:0;
+    top:-.5rem;
+    left:-.5rem;
+    background-color: black;
+    border-radius: 25%;
+    border: 1px solid white;
+}
+
+#open img{
+    width: 1rem;
+}
+
 .always-on {
     visibility: visible!important;
-    width: 1rem!important;
 }
 
 #close {
     width: 1rem;
     height: 1rem;
 }
-
-@media screen and (max-height: 450px) {
-    .sidenav {
-        padding-top: 15px;
-    }
-    .sidenav a {
-        font-size: 18px;
-    }
+.transparent{
+    background: none!important;
 }
 
-@media only screen and (max-width: 768px) {
-    .content {
-        margin-left: 0;
-    }
-    #open, #closebtn {
-        visibility: visible;
-        width: 1rem;
-    }
-    .sidenav {
-        margin-left: -250px;
-    }
-    #splash{
-        max-width: 90vw!important;
-    }
-}
+
 
 .inherit-white div, .inherit-white p, .inherit-white h1, .inherit-white h2, .inherit-white li {
     color: white;
@@ -318,6 +308,7 @@ input[type=submit] {
 #splash {
     max-width: 20rem;
     margin: 0;
+    filter: drop-shadow(0 0 20px rgba(0,0,0,.7));
 }
 
 .form-error ul {
@@ -497,6 +488,38 @@ input[type=submit] {
     z-index: -1;
 }
 
+/* big card container */
+.big-card{
+    background-color: white;
+    margin:2rem auto;
+    border-radius: 2rem;
+    padding: 2rem;
+    max-width: 26rem;
+    flex: auto;
+    position: relative;
+}
+
+/* pagination */
+#paginate{
+    width: fit-content;
+    width: -moz-fit-content;
+    margin: 0 auto;
+}
+#page-prev{
+    transform: rotate(180deg);
+}
+#page-current{
+    margin:0 1rem;
+}
+
+/* list of shortcuts */
+.shortcut-list{
+    list-style:none;
+    padding:0;
+}
+.shortcut-link{
+    font-size: 1.2rem;
+}
 @media (prefers-color-scheme: dark) {
     .bg-darkmode {
         background: #333;
@@ -505,7 +528,7 @@ input[type=submit] {
         background-color: rgba(10, 10, 45, 0.6);
     }
     #mySidenav{
-        background-color: #353535;
+        background-color: rgba(40, 40, 40, .9);
         border-right:1px solid white;
     }
     .sidebar-heading{
@@ -514,23 +537,20 @@ input[type=submit] {
     .sidebar-link{
         color: #f1f1f1 !important;
     }
-    #sidenav-logo p, .sc-title{
+    #sidenav-logo p, .sc-title,.gate-text,.big-card{
         color: white;
     }
-    .floater, .header, .article-container, .content,.tool-container{
+    .floater, .header, .article-container, .content,.tool-container,.big-card{
         background-color: black;
     }
     #open, #close{
         filter: invert(1);
     }
-    .tool-btn{
+    .tool-btn, .big-card{
         border: 1px solid white;
     }
     .fade-out{
         background-image: linear-gradient( rgba(0, 0, 0, 0), black);
-    }
-    .gate-text{
-        color: white;
     }
 }
 @media (prefers-color-scheme: light) {
@@ -540,5 +560,38 @@ input[type=submit] {
     }
     .bg-blue {
         background-color: rgba(30, 30, 90, 0.8);
+    }
+}
+@media only screen and (max-width: 768px) {
+    .content {
+        margin-left: 0;
+    }
+    #open, #closebtn {
+        visibility: visible;
+        width: 1rem;
+    }
+    .sidenav {
+        margin-left: -250px;
+    }
+    #splash{
+        max-width: 90vw;
+    }
+    .big-card{
+        max-width: 90vw;
+    }
+}
+
+@media screen and (max-height:450px){
+    #closebtn{
+        top:1rem;
+        right:1rem;
+    }
+    .sidenav{
+        padding-top: 2rem;
+    }
+    .sidebar-heading, .sidebar-link{
+        font-size: 1.2rem;
+        padding-top: 0;
+        padding-bottom: 0;
     }
 }
