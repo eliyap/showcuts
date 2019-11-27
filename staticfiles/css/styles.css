@@ -289,6 +289,7 @@ html {
     margin: 2rem auto;
     display: block;
     width: fit-content;
+    width: -moz-fit-content;
 }
 
 .centralize.top {
@@ -323,6 +324,9 @@ input[type=submit] {
     list-style: none;
     padding: 0;
     margin-top: -1.5rem;
+}
+.form-error li{
+    color: white;
 }
 
 /* right side buttons */
@@ -521,6 +525,12 @@ input[type=submit] {
     }
     .tool-btn{
         border: 1px solid white;
+    }
+    .fade-out{
+        background-image: linear-gradient( rgba(0, 0, 0, 0), black);
+    }
+    .gate-text{
+        color: white;
     }
 }
 @media (prefers-color-scheme: light) {

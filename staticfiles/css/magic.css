@@ -27,6 +27,9 @@ div {
     margin-bottom: 0.3rem;
     border-radius: 0.7rem;
     font-weight: normal!important;
+/* super long URLs and text: */
+    overflow-wrap: break-word;
+    word-break: break-all;
 }
 /* keep line height consistent */
 .toggle{
@@ -62,7 +65,7 @@ div {
 }
 
 .comment {
-    background-color: rgb(251, 244, 232)!important;
+    background-color: rgb(251, 244, 232);
 }
 
 .comment>.row.category {
@@ -74,6 +77,12 @@ div {
     margin: -1.2rem -1.2rem 1rem -1.2rem;
     /* 1.2 - 0.25 = 0.95 to bring it in-line with other blocks */
     padding: 0.95rem;border-bottom: 1px solid lightgray;
+}
+.text div{
+    overflow-wrap: break-word;
+    word-break: break-all;
+    max-height: 60vh;
+    overflow-y: scroll;
 }
 .indent1{
     margin-left: calc(var(--indent) * 1);
@@ -352,4 +361,9 @@ a:hover{
     .pill-on{
         background-color: var(--dark-light-grey);
     }
+    .comment,.comment>.row.category {
+        background-color: rgb(39, 37, 23);
+        border-bottom: none;
+    }
+    
 }
