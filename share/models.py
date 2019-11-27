@@ -103,6 +103,12 @@ class Shortcut(models.Model):
         null=True, 
         blank=True,
     )
+    created_on = models.DateTimeField(
+        'Created On',
+        'created_on',
+        auto_now=False,
+        auto_now_add=True,
+    )
     # add date submitted field
     # add number of likes field
     # add bookmarks field
