@@ -2,7 +2,10 @@
 {% load shuffle %}
 
 <div class="bg-darkmode">&nbsp;</div>
+{% if no_filter %}
+{% else %}
 <div class="bg-blue">&nbsp;</div>
+{% endif %}
 <div class="gridiron">
 
   {% for icon in 12|shuffle_icons %}

@@ -6,12 +6,12 @@ from django.views.generic import RedirectView
 from django.conf.urls import url
 
 # import keys
-from .local_settings import SOCIAL_AUTH_GITHUB_KEY, SOCIAL_AUTH_GITHUB_SECRET, SOCIAL_AUTH_TWITTER_KEY, SOCIAL_AUTH_TWITTER_SECRET
+from .local_settings import SOCIAL_AUTH_GITHUB_KEY, SOCIAL_AUTH_GITHUB_SECRET, SOCIAL_AUTH_TWITTER_KEY, SOCIAL_AUTH_TWITTER_SECRET, SOCIAL_AUTH_GOOGLE_KEY, SOCIAL_AUTH_GOOGLE_SECRET
 
 from django.contrib.auth import views as auth_views
 
 # user settings
-from share.views import users_settings
+from share.views import users_settings, wallpaper
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,6 +24,7 @@ urlpatterns = [
     path('settings/', users_settings, name='user-settings'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
     path('share/', include('share.urls')),
+    path('wallpaper', wallpaper, name='wallpaper'),
     path('', RedirectView.as_view(url='share/', permanent=True)),
 ]
 
