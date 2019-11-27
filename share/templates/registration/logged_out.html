@@ -1,6 +1,21 @@
 {% extends "base_generic.html" %}
+{% load static %}
+
+
+{% block sidebar %}
+{% include 'sidebar.html' with hidden=True %}
+{% endblock %}
 
 {% block content %}
-  <p>Logged out!</p>  
+{% include 'background.html' %}
+<div class='big-card'>
+
+  <span id='open' class='oncard'">
+      <img src=" {% static 'assets/ui/menu-white.svg' %}" />
+  </span>
+  <h1>Logged out!</h1>
+
   <a href="{% url 'login'%}">Click here to login again.</a>
+
+</div>
 {% endblock %}
