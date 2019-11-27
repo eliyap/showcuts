@@ -609,6 +609,14 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 'to',
                 places,
             ]
+        elif 'adjustdate' == sub_name:
+            title_elem = [
+                make_magic(component.parameters, 'WFAdjustOperation', 'Add', default_blank=False),
+                'from',
+                make_magic(component.parameters, 'WFDate', 'Date'),
+            ]
+            if component.parameters.get('WFAdjustOperation','Add') in ['Add', 'Subtract']:
+                title_elem = title_elem[:1] + get_duration(component.parameters, 0, 'second') + title_elem[1:]
         elif 'format.date' == sub_name:
             title_elem = [
                 'Format',
@@ -1388,18 +1396,7 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 make_magic(component.parameters, 'WFInput', 'Note'),
             ]
         elif "timer.start"== sub_name: 
-            try:
-                duration = component.parameters['WFDuration']['Value']
-                if isinstance(duration['Magnitude'],dict):
-                    mag_elem = classify_magic({},duration['Magnitude']['Type'],ask_text='Duration')
-                else: 
-                    magnitude = re.sub(r'\.0','',str(duration['Magnitude']))
-                    mag_elem = magic(magnitude)
-                duration_elems = [mag_elem, magic(duration['Unit'])]
-            except KeyError:
-                duration_elems = [magic('30',True),magic('minutes')]
-                raise
-            title_elem=['Start timer for'] + duration_elems
+            title_elem=['Start timer for'] + get_duration(component.parameters, 30, 'minute')
         elif "instapaper.add"== sub_name: 
             title_elem=[
                 'Add',

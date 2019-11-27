@@ -587,6 +587,10 @@ categorize = {
         "glyph": "Date.svg",
         "category": "CALENDAR"
     },
+    "is.workflow.actions.adjustdate": {
+        "glyph": "Date.svg",
+        "category": "CALENDAR"
+    },
     "is.workflow.actions.detect.number": {
         "glyph": "Math.svg",
         "category": "SCRIPTING"
@@ -1344,4 +1348,10 @@ extension_lookup = {
     'WFSafariWebPageContentItem':'Safari Web Pages',
     'WFStringContentItem':'Text',
     'WFURLContentItem':'URLs',
+}
+
+time_codes = {
+    'sec':'second',
+    'min':'minute',
+    'hr':'hour',
 }

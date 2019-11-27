@@ -1,6 +1,8 @@
 ## Dependency: sys
 import logging, re
 
+from .pieces import time_codes
+
 def make_specify(parameters:dict, key:str, default:str, align_left:bool=False)->dict:
     val = parameters.get(key, None)
     if not val: 
@@ -310,3 +312,20 @@ def make_counter(parameters:dict, key:str, label:str, default:int, magic_label:s
     label += ('' if count == '1' else 's')
     return make_line(label, {'class':'counter','value':'placeholder',})
 
+def get_duration(parameters:dict, default_magnitude:int=0, default_unit:str='minute')->[dict]:
+    try:
+        duration = parameters['WFDuration']['Value']
+        if isinstance(duration['Magnitude'],dict):
+            mag_elem = classify_magic({},duration['Magnitude']['Type'],ask_text='Duration')
+        else: 
+            magnitude = re.sub(r'\.0','',str(duration['Magnitude']))
+            mag_elem = magic(magnitude)
+        duration_elems = [mag_elem, magic(duration['Unit'])]
+    except KeyError:
+        duration_elems = [magic(str(default_magnitude),True),magic(default_unit)]
+    # convert time short forms
+    duration_elems[1]['value'] = time_codes.get(duration_elems[1]['value'], duration_elems[1]['value'])
+    duration_elems[1]['value'] += '' if duration_elems[0]['value']=='1' else 's'
+    # sometimes this results in 'weekss', correct that:
+    duration_elems[1]['value'] = re.sub('ss$','s',duration_elems[1]['value'])
+    return duration_elems
