@@ -1,7 +1,23 @@
-{% extends 'base_generic.html' %}
+{% extends "base_generic.html" %}
+{% load static %}
+
+
+{% block sidebar %}
+{% include 'sidebar.html' with hidden=True %}
+{% endblock %}
 
 {% block content %}
-  <br>
+{% include 'background.html' %}
+<div class='big-card'>
+
+  <span id='open' class='oncard'">
+      <img src=" {% static 'assets/ui/menu-white.svg' %}" />
+  </span>
+  <h1>Login</h1>
+
+  {% block incard %}
   <a href="{% url 'social:begin' 'github' %}?next={{ request.GET.next }}">Login with GitHub</a><br>
   <a href="{% url 'social:begin' 'twitter' %}?next={{ request.GET.next }}">Login with Twitter</a><br>
+  {% endblock %}
+</div>
 {% endblock %}
