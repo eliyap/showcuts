@@ -420,6 +420,12 @@ input[type=submit] {
     transform: rotate(-45deg);
     z-index: -2;
 }
+.gridiron.huge{
+    top: -60rem;
+    left: -60rem;
+    grid-template-columns: repeat(80, 5rem);
+    grid-template-rows: repeat(80, 5rem);
+}
 
 .bg-icon {
     width: 8rem;

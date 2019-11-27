@@ -14,3 +14,12 @@
 .brand-container a{
     color: black;
 }
+/* dark mode settings */
+@media (prefers-color-scheme: dark) {
+    .brand-container a{
+        color: white;
+    }
+    #github{
+        filter: invert(1);
+    }
+}
