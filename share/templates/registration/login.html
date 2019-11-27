@@ -21,7 +21,7 @@
   <div class='flex'>
     <div class='brand-container'>
       <a href="{% url 'social:begin' 'github' %}?next={{ request.GET.next }}">
-        <img class="brand-logo" src="{% static 'assets/branding/github.svg' %}" alt="Github" />
+        <img id="github" class="brand-logo" src="{% static 'assets/branding/github.svg' %}" alt="Github" />
         <p>Github Login</p>
       </a>
     </div>
