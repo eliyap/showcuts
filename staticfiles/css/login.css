@@ -1,0 +1,16 @@
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+.brand-logo{
+    width: 5rem;
+}
+.brand-container{
+    flex: 1 1 10rem;
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+}
+.brand-container a{
+    color: black;
+}
