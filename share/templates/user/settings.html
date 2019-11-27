@@ -1,9 +1,11 @@
-{% extends 'base_generic.html' %}
+{% extends "bigcard.html" %}
+{% load static %}
 
-{% block content %}
-<h2>Settings</h2>
-<h3>{{user.username}} Account Settings</h3>
+{% block card-title %}
+{{user.username}} Account Settings
+{% endblock %}
 
+{% block incard %}
 {% if github_login %}
 <h3>GitHub</h3>
 <p>Connected as GitHub User <a href="https://github.com/{{ github_login.extra_data.login }}/" target="_blank">{{ github_login.extra_data.login }}</a></p>
@@ -22,4 +24,12 @@
 </form>
 {% endif %}
 
+{% if google_login %}
+<h3>Google</h3>
+<p>Connected as Google User <a href="https://google.com/{{ google_login.extra_data.access_token.screen_name }}/" target="_blank">{{ google_login }}</a></p>
+<form method="post" action="{% url 'social:disconnect' 'google' %}">
+  {% csrf_token %}
+  <button type="submit">Delete Associated Account</button>
+</form>
+{% endif %}
 {% endblock %}
