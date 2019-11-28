@@ -288,11 +288,11 @@ categorize = {
         "category": "BOOKS"
     },
     "is.workflow.actions.appendnote": {
-        "glyph": "system/Notes.jpg",
+        "glyph": "system/Notes.png",
         "category": "NOTES"
     },
     "is.workflow.actions.shownote": {
-        "glyph": "system/Notes.jpg",
+        "glyph": "system/Notes.png",
         "category": "NOTES"
     },
     "com.apple.mobilephone.call": {
@@ -360,7 +360,7 @@ categorize = {
         "category": "REMINDERS"
     },
     "is.workflow.actions.filter.notes": {
-        "glyph": "system/Notes.jpg",
+        "glyph": "system/Notes.png",
         "category": "NOTES"
     },
     "is.workflow.actions.filter.contacts": {
@@ -590,6 +590,10 @@ categorize = {
     "is.workflow.actions.format.number": {
         "glyph": "Math.svg",
         "category": "MATHS"
+    },
+    "is.workflow.actions.date": {
+        "glyph": "Date.svg",
+        "category": "DATE"
     },
     "is.workflow.actions.format.date": {
         "glyph": "Date.svg",
@@ -1124,7 +1128,7 @@ categorize = {
         "category": "MESSAGES"
     },
     "com.apple.mobilenotes.SharingExtension": {
-        "glyph": "system/Notes.jpg",
+        "glyph": "system/Notes.png",
         "category": "NOTES"
     },
     "com.apple.mobileslideshow.StreamShareService": {
