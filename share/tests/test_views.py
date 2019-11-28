@@ -32,7 +32,7 @@ class submit_iCloud_Test(TestCase):
         response = self.client.get('/share') # redirects
         self.assertTrue(response.status_code in [200, 301])
         response = self.client.get('/share/submit')
-        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.status_code in [200, 301])
         response = self.client.get('/share/view')
         self.assertEqual(response.status_code, 200)
 
