@@ -42,7 +42,7 @@ def make_magic(
     ask_text: str = 'Ask Each Time',
 ) -> dict:
     val = parameters.get(key, None)
-    if val == None:  # do NOT use falsy values here, as 0 is sometimes passed
+    if val == None or val == '':  # do NOT use falsy values here, as 0 is sometimes passed
         if force_magic:
             return magic(default, default_blank)
         return{
@@ -140,8 +140,14 @@ def classify_magic(val: dict, var_type: str, ask_text: str = 'Ask Each Time') ->
     elif 'ExtensionInput' == var_type:
         return magic('Shortcut Input', False, glyph='Input.svg')
     elif 'ActionOutput' == var_type:
-        # more handling here
-        return magic(val['OutputName'], False, UUID=val['OutputUUID'])
+        try:
+            assert 'Dictionary' == val['OutputName']
+            aggr0 = val['Aggrandizements'][0]
+            assert aggr0['Type'] == 'WFDictionaryValueVariableAggrandizement'
+            logging.error(aggr0['DictionaryKey'])
+            return magic(aggr0['DictionaryKey'], False, UUID=val['OutputUUID'])
+        except:
+            return magic(val['OutputName'], False, UUID=val['OutputUUID'])
 
 
 def make_line(label: str, var_elem: dict) -> dict:
