@@ -21,6 +21,6 @@
     <a class='sidebar-link' href="{% url 'login'%}?next={{request.path}}">Login</a>
   {% endif %}
   {% if user.username == owner.username %}
-  this is your shortcut! we should probably allow you to delete it!
+  this is your shortcut!
   {% endif %}
 </div>
