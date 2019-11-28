@@ -50,21 +50,31 @@
   <div class='floater'></div>
   <!-- other links -->
   <div class='tool-container'>
-    <a href="{{iCloud_link}}" id='ios-download' title='iOS Download'>
-      <div class='tool-btn'>
+    <a href="{{iCloud_link}}" id='ios-download' title='Download from iCloud'>
+      <div class='tool-btn expand'>
         <img src="{% static 'assets/ui/cloud-download-outline.svg' %}" />
+        <p>iCloud</p>
       </div>
     </a>
-    <a href="{{download_link}}" id='web-download' title='Computer Download'>
-      <div class='tool-btn'>
+    <a href="{{download_link}}" id='web-download' title='Download as file'>
+      <div class='tool-btn expand'>
         <img src="{% static 'assets/ui/download-outline.svg' %}" />
+        <p>Download Files</p>
       </div>
     </a>
-    <a href="" id='info' title = 'Refresh Page (not implemented)'>
-      <div class='tool-btn'>
+    <div id='info' title = 'Shortcut Info'>
+      <div class='tool-btn' id='info-expand'>
         <img src="{% static 'assets/ui/info.svg' %}" />
+        {% if owner.username == user.username %}
+        <p>Submitted
+        {% elif owner.username %}
+        <p>Submitted by {{owner.username}}
+        {% else %}
+        <p>Submitted Anonymously
+        {% endif %}
+         {{sc_age}} ago</p>
       </div>
-    </a>
+    </div>
   </div>
   {% if action_blocks|length > 100 %}
   {% with remainder=action_blocks|length|add:-100 %}
