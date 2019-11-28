@@ -1,5 +1,6 @@
 ## Dependency: sys
-import json, re, logging
+import json, re, logging, datetime
+from django.utils import timezone
 
 ## Dependency: django boilerplate
 from django.shortcuts import get_object_or_404
@@ -67,6 +68,9 @@ def show_shortcut(request, hxid:str):
         accepts = ", ".join(_[:-2] + [" and ".join(_[-2:])])
     else:
         accepts = None
+
+    sc_age = reddit_time(timezone.now() - shortcut_instance.created_on)
+
     context = {
         'name':shortcut_instance.name,
         'action_blocks':actions_blocks,
@@ -77,6 +81,7 @@ def show_shortcut(request, hxid:str):
         'accepted_types':accepts,
         'types':types,
         'owner':shortcut_instance.owner,
+        'sc_age':sc_age,
     }
     return render(request, 'show_shortcut.html', context)
 
@@ -122,3 +127,32 @@ def wallpaper(request):
 
 def wallpaper_huge(request):
     return render(request, 'wallpaper_huge.html')
+
+def reddit_time(delta):
+    years = int(delta.days / 365)
+    months = int(delta.days / 30.5)
+    days = delta.days
+    hours = int(delta.seconds / 3600)
+    minutes = int(delta.seconds / 60)
+    seconds = delta.seconds
+    if years > 1:
+        return f'{years} years'
+    elif years ==1:
+        return r'over a year'
+    if months > 1:
+        return f'{months} years'
+    elif months ==1:
+        return r'a month'
+    elif days > 1:
+        return f'{days} days'
+    elif days == 1:
+        return f'a day'
+    elif hours > 1:
+        return f'{hours} hours'
+    elif hours == 1:
+        return f'an hour'
+    elif minutes > 1:
+        return f'{minutes} minutes'
+    elif minutes == 1:
+        return 'just one minute'
+    else: return 'mere seconds'
