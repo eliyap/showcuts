@@ -611,6 +611,13 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 'to',
                 places,
             ]
+        elif 'date' == sub_name:
+            title_elem = [make_magic(component.parameters, 'WFDateActionMode', 'Current Date', default_blank=False)]
+            if 'Specified Date' == title_elem[0]['value']:
+                title_elem += [make_magic(component.parameters, 'WFDateActionDate', '29 June 2007')]
+            elif 'Ask Each Time' == title_elem[0]['value']:
+                line_elems = [{**{'label':'Use'},**title_elem[0]}]
+                title_elem = []
         elif 'adjustdate' == sub_name:
             title_elem = [
                 make_magic(component.parameters, 'WFAdjustOperation', 'Add', default_blank=False),
