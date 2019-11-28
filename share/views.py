@@ -32,7 +32,7 @@ def submit_iCloud(request):
         
             if Shortcut.objects.filter(iCloudID__iexact=_id):
                 
-                add_shortcut(iCloudLink, request.user) # DEBUG: ALLOWs LIVE RELOADING OF SHORTCUTS
+                #add_shortcut(iCloudLink, request.user) # DEBUG: ALLOWs LIVE RELOADING OF SHORTCUTS
 
                 return HttpResponseRedirect(reverse('view',kwargs={'hxid':_id}))
                 # duplicate detected, direct to the existing record with some extra indicator?
