@@ -39,7 +39,10 @@
     <div class="dummy">
       <!-- action extention accepted types -->
       {% if accepted_types %}
-      <div class='action'><div id='accepts'>Accepts</div><div id='accepted-types'>{{accepted_types}}</div></div>
+      <div class='action'>
+        <div id='accepts'>Accepts</div>
+        <div id='accepted-types'>{{accepted_types}}</div>
+      </div>
       {% endif %}
       {% for action in action_blocks|slice:":100" %}
       {% include 'elements/action.html' with action=action UUID_glyphs=UUID_glyphs %}
@@ -62,19 +65,25 @@
         <p>Download Files</p>
       </div>
     </a>
-    <div id='info' title = 'Shortcut Info'>
+    <div id='info' title='Shortcut Info'>
       <div class='tool-btn' id='info-expand'>
         <img src="{% static 'assets/ui/info.svg' %}" />
         {% if owner.username == user.username %}
         <p>Submitted
-        {% elif owner.username %}
-        <p>Submitted by {{owner.username}}
-        {% else %}
-        <p>Submitted Anonymously
-        {% endif %}
-         {{sc_age}} ago</p>
+          {% elif owner.username %}
+          <p>Submitted by {{owner.username}}
+            {% else %}
+            <p>Submitted Anonymously
+              {% endif %}
+              {{sc_age}} ago</p>
       </div>
     </div>
+    <a href="javascript:void(0)" id='show-magic' title='Magic Variables'>
+      <div class='tool-btn expand'>
+        <img src="{% static 'assets/ui/download-outline.svg' %}" />
+        <p>Magic Vars</p>
+      </div>
+    </a>
   </div>
   {% if action_blocks|length > 100 %}
   {% with remainder=action_blocks|length|add:-100 %}
