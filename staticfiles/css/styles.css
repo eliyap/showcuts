@@ -436,8 +436,8 @@ input[type=submit] {
 
 .gridiron {
     position: fixed;
-    top: -30rem;
-    left: -30rem;
+    top: -100rem;
+    left: -10rem;
     display: grid;
     grid-template-columns: repeat(40, 5rem);
     grid-template-rows: repeat(40, 5rem);
