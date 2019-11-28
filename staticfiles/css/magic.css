@@ -111,7 +111,7 @@ div {
 
 
 .action {
-    width: auto;
+    width: 31rem;
     border-radius: var(--action-corner);
     padding: var(--action-padding);
     background-color: white;
@@ -335,7 +335,11 @@ a:hover{
     text-decoration: none;
 }
 
-
+@media only screen and (max-width: 768px) {
+    .action{
+        width: auto;
+    }
+}
 /* dark mode settings */
 @media (prefers-color-scheme: dark) {
     .action{
