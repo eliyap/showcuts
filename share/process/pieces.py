@@ -227,6 +227,14 @@ categorize = {
         "glyph": "others/Instapaper.png",
         "category": "INSTAPAPER"
     },
+    "is.workflow.actions.properties.trello": {
+        "glyph": "others/Trello.png",
+        "category": "TRELLO"
+    },
+    "is.workflow.actions.properties.ulysses.sheet": {
+        "glyph": "others/Ulysses.png",
+        "category": "ULYSSES"
+    },
     "is.workflow.actions.instapaper.get": {
         "glyph": "others/Instapaper.png",
         "category": "INSTAPAPER"
