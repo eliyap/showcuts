@@ -1635,13 +1635,13 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                     app_elem = magic(component.parameters['application']['displayString'])
                 except KeyError:
                     app_elem = magic('TV')
-                title_elem = ['Open',app_elem,'in']
+                title_elem = ['Open',app_elem,'on']
             else:
-                title_elem = ['Open App in']
+                title_elem = ['Open App on']
             title_elem += [tv_elem]
         elif 'PauseContentIntent' == sub_name:
             title_elem = [
-                make_magic(component.parameters, 'mediaCommand', 'Play/Pause',default_blank=False),
+                make_magic(component.parameters, 'mediaCommand', 'Play/Pause',default_blank=False,ask_text='Media Command'),
                 tv_elem,
             ]
         elif 'LaunchRemoteIntent' == sub_name:
