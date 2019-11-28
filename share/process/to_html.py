@@ -43,7 +43,7 @@ def format_action(component: action, indent_level: int) -> (dict, int):
         info = property_actions[sub_name]
         title_elem = [
             'Get',
-            make_magic(component.parameters, 'WFContentItemPropertyName', info.get('default','Detail'), default_blank=('default' not in info)),
+            make_magic(component.parameters, 'WFContentItemPropertyName', info.get('default','Detail'), default_blank=('default' not in info), ask_text='Detail'),
             'from',
             make_magic(component.parameters, 'WFInput', info['name']),
         ]
@@ -438,12 +438,12 @@ def format_action(component: action, indent_level: int) -> (dict, int):
         elif "getepisodesforpodcast" == sub_name:
             title_elem = [
                 'Get episodes of',
-                make_magic(component.parameters, 'WFInput', 'Podcast'),
+                get_podcast(component.parameters, 'WFInput', 'Podcast'),
             ]
         elif "playpodcast" == sub_name:
             title_elem = [
                 'Play',
-                make_magic(component.parameters, 'WFPodcastShow', 'Podcast'),
+                get_podcast(component.parameters, 'WFPodcastShow', 'Podcast'),
             ]
         elif "searchpodcasts" == sub_name:
             title_elem = ['Search Podcasts']
@@ -459,9 +459,11 @@ def format_action(component: action, indent_level: int) -> (dict, int):
             podcasts = component.parameters.get('WFInput',[])
             if isinstance(podcasts, dict):
                 title_elem += [make_magic(component.parameters, 'WFInput', 'Podcast URL'),]
-            else: # parse list of magic vars
+            elif podcasts: # parse list of magic vars
                 for elem in podcasts:
-                    title_elem += [make_magic({'elem':elem}, 'elem', 'Podcast URL'),]
+                    title_elem += [get_podcast({'elem':elem}, 'elem', 'Podcast URL'),]
+            else: # unspecified
+                title_elem += [magic('Podcast URL',True)]
         elif 'getitemfromlist' == sub_name:
             # cannot be a magic var, except 'Ask'
             specifier = component.parameters.get('WFItemSpecifier','First Item')
@@ -1580,7 +1582,7 @@ def format_action(component: action, indent_level: int) -> (dict, int):
     elif accessibility_re.fullmatch(component.name):
         sub_name = accessibility_re.fullmatch(component.name)[1]
         if sub_name in accessibility_toggles:
-            turn_elem = make_magic(component.parameters, 'operation', 'Turn', default_blank=False)
+            turn_elem = make_magic(component.parameters, 'operation', 'Turn', default_blank=False, ask_text='Operation')
             turn_elem['value'] = turn_elem['value'].title()
             setting = accessibility_toggles[sub_name]
             title_elem = [
@@ -1588,14 +1590,40 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 setting,
             ]
             if turn_elem['value'] == 'Turn':
-                on_elem = make_magic(component.parameters, 'state', 1, ask_text='State')
-                on_elem['value'] = {1:'On',0:'Off'}.get(on_elem['value'],on_elem['value'])
+                if sub_name in [
+                    'AXToggleAudioDescriptionsIntent',
+                    'AXToggleAssistiveTouchIntent',
+                    'AXToggleCaptionsIntent',
+                    'AXToggleContrastIntent',
+                    'AXToggleLEDFlashIntent',
+                    'AXToggleMonoAudioIntent',
+                    'AXToggleTransparencyIntent',
+                    'AXToggleSmartInvertIntent',
+                    'AXToggleVoiceControlIntent',
+                    'AXToggleVoiceOverIntent',
+                    'AXToggleWhitePointIntent',
+                    'AXToggleZoomIntent',
+                    'AXToggleSwitchControlIntent',
+                ]: on_elem = make_magic(component.parameters, 'state', 1, ask_text='State', default_blank=False)
+                elif sub_name in [
+                    'AXToggleClassicInvertIntent',
+                    'AXToggleReduceMotionIntent',
+                ]: on_elem = make_magic(component.parameters, 'state', 0, ask_text='State', default_blank=False)
+                else: on_elem = make_magic(component.parameters, 'state', 1, ask_text='State') # if you see a blank, it means something is unhandled
+                
+                on_elem['value'] = {1:'on',0:'off'}.get(on_elem['value'],on_elem['value'])
                 title_elem += [on_elem]
         elif 'AXSetLargeTextIntent' == sub_name:
             title_elem = [
                 'Set text size to',
-                make_magic(component.parameters, 'textSize', 'extra small'),
+                make_magic(component.parameters, 'textSize', 'extra small', default_blank=False, ask_text='Text Size'),
             ]
+            try:
+                title_elem[1]['value'] = re.sub('Extra','extra ',title_elem[1]['value'])
+                title_elem[1]['value'] = re.sub('AX','accessibility ',title_elem[1]['value'])
+                if title_elem[1]['value'] != 'Text Size':
+                    title_elem[1]['value'] = title_elem[1]['value'].lower()
+            except: pass
         else:
             impl = False
     elif clock_re.fullmatch(component.name):
@@ -1781,7 +1809,7 @@ def format_action(component: action, indent_level: int) -> (dict, int):
     title_elem = [({'class': '', 'value': i, } if isinstance(i, str) else i) for i in title_elem]
     # silence to restore inline elems, the styling for which is very hard
     title_elem = flatten(title_elem)
-
+    title_elem = [i for i in title_elem if i['value']]
     # ppost Processing:
     if not options_impl:
         line_elems += [not_implemented_options()]
