@@ -103,4 +103,16 @@ $(document).ready(function () {
             });
         }
     })
+
+    // account deleting warning
+    $("#safety-glass").unbind('click').click(function (){
+        let elem=$(this);
+        $("#disconnect-warning").addClass("show");
+        $("h1,h2,h3,h4,h5,h6,p,form").addClass("blurred");
+        elem.hide();
+    })
+    $("#accept-delete").unbind('click').click(function (){
+        $("#disconnect-warning").removeClass("show");
+        $(".blurred").removeClass("blurred");
+    })
 });
