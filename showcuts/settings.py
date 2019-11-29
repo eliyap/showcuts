@@ -64,7 +64,7 @@ ROOT_URLCONF = 'showcuts.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR + '/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,9 +132,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 def skip_static_requests(record):
-    if record.args[0].startswith('GET /static/'):  # filter whatever you want
-        return False
-    return True
+    try:
+        if record.args[0].startswith('GET /static/'):  # filter whatever you want
+            return False
+        return True
+    except:
+        return True
 # disable logging of static files  (thanks StackExchange)
 LOGGING = {
     'version': 1,
