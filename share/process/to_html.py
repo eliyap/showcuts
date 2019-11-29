@@ -35,7 +35,8 @@ def format_action(component: action, indent_level: int) -> (dict, int):
     if not cat_info:
         cat_info = categorize.get(component.name, {'glyph': '', 'category': 'MISSING'})
     category, glyph = cat_info['category'], cat_info['glyph']
-    
+    result = cat_info.get('result', None)
+
     if component.name in no_params:
         title_elem = [no_params.get(component.name)]
     elif property_re.fullmatch(component.name):
@@ -47,6 +48,9 @@ def format_action(component: action, indent_level: int) -> (dict, int):
             'from',
             make_magic(component.parameters, 'WFInput', info['name']),
         ]
+        result = title_elem[1]['value']
+        if result == 'Detail':
+            result = f"Details of {info['name']}"
     elif filter_re.fullmatch(component.name):
         sub_name = filter_re.fullmatch(component.name)[1]
         info = filter_actions[sub_name]
@@ -59,13 +63,14 @@ def format_action(component: action, indent_level: int) -> (dict, int):
         elif "music" == sub_name:
             options_impl = False
         elif "articles" == sub_name:
+            options_impl = False
             line_elems
         elif "images" == sub_name:
             options_impl = False
         elif "locations" == sub_name:
-            options_impl=False
+            options_impl = False
         elif "eventattendees" == sub_name:
-            options_impl= False
+            options_impl = False
         elif "calendarevents" == sub_name:
             options_impl = False
         elif "reminders" == sub_name:
@@ -1701,6 +1706,7 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 {**{'label':'Note Identifier'},**make_specify(component.parameters,'BearIdentifier','7A544B90-3B94-4...')},
                 {**{'label':'Return to Shortcuts'},**make_toggle(component.parameters,'BearReturn',True)},
             ]
+            result = 'Bear Note'
         elif 'create' == sub_name:
             title_elem = [
                 'Create',
@@ -1712,6 +1718,7 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 {**{'label':'Tags'},**make_specify(component.parameters, 'BearTags', 'cats, dogs')},
                 {**{'label':'Return to Shortcuts'},**make_toggle(component.parameters,'BearReturn',True)},
             ]
+            result = 'Bear Note from URL'
         elif 'grab' == sub_name:
             title_elem = [
                 'Create note from',
@@ -1728,6 +1735,7 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 make_magic(component.parameters, 'BearIdentifier', 'Note Title'),
             ]
             line_elems = [{**{'label':'Note Identifier'},**make_specify(component.parameters,'BearIdentifier','7A544B90-3B94-4...')}]
+            result = 'Contents of Bear Note'
         elif 'open' == sub_name:
             title_elem = [
                 'Open',
@@ -1834,7 +1842,8 @@ def format_action(component: action, indent_level: int) -> (dict, int):
             'lines':line_elems,
             'list_items':list_items,
             'dct':dict_items,
-            'UUID':component.UUID
+            'UUID':component.UUID,
+            'result':result,
         }
     return action_dct, indent
 
