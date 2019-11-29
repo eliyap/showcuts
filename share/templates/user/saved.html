@@ -1,0 +1,23 @@
+{% extends "bigcard.html" %}
+{% load static %}
+
+{% block card-title %}
+Saved Shortcuts
+{% endblock %}
+
+{% block incard %}
+    {% if object_list %}
+    <ul class='shortcut-list'>
+
+      {% for shortcut in object_list %} 
+      <li class="shortcut-link">
+        <a href="{% url 'submit' %}/{{shortcut.iCloudID}}">{{shortcut.name}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>No saved shortcuts.</p>
+      <p><a href="{% url 'submit' %}">Browse Shortcuts</a>!</p>
+    {% endif %}       
+{% endblock %}
