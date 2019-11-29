@@ -4,7 +4,7 @@ from django.utils import timezone
 
 ## Dependency: django boilerplate
 from django.shortcuts import get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.shortcuts import render, render_to_response
 from django.contrib import messages
@@ -80,11 +80,21 @@ def show_shortcut(request, hxid:str):
         'download_link':shortcut_instance.download_link,
         'accepted_types':accepts,
         'types':types,
-        'owner':shortcut_instance.owner,
         'sc_age':sc_age,
+        "hxid":shortcut_instance.iCloudID,
     }
     return render(request, 'show_shortcut.html', context)
 
+def like_shortcut(request):
+    if 'GET' == request.method:
+        hxid = request.GET['hxid']
+        logging.error(hxid)
+        shortcut_instance = get_object_or_404(Shortcut, pk=hxid)
+
+        # something else...
+        return HttpResponse('success')
+    else:
+        return HttpResponse('fail')
 def error(request): # possible unncessary
     return render(request, '404.html')
 
