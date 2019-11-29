@@ -465,6 +465,7 @@ input[type=submit] {
     font-size: 1.2rem;
 }
 
+
 @media (prefers-color-scheme: dark) {
     .bg-darkmode {
         background: #333;
