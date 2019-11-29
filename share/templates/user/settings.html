@@ -1,7 +1,8 @@
 {% extends "bigcard.html" %}
 {% load static %}
 
-{% block extra_static %}<link rel="stylesheet" href="{% static 'css/settings.css' %}">{% endblock %}
+{% block extra_static %}
+<link rel="stylesheet" href="{% static 'css/settings.css' %}">{% endblock %}
 
 {% block card-title %}
 {{user.username}}'s Account
@@ -19,11 +20,14 @@
     target="_blank">{{ github_login.extra_data.login }}</a></p>
 <form method="post" action="{% url 'social:disconnect' 'github' %}">
   {% csrf_token %}
-  <button id="delete-account" type="submit">
-    <img src="{% static 'assets/ui/warning.svg' %}" />
-    <span>Disconnect My Account</span>
-    <img src="{% static 'assets/ui/warning.svg' %}" />
-  </button>
+  <div id="delete-container">
+    <button id="delete-account" type="submit">
+      <img src="{% static 'assets/ui/warning.svg' %}" />
+      <span>Disconnect My Account</span>
+      <img src="{% static 'assets/ui/warning.svg' %}" />
+    </button>
+    <div id="safety-glass"></div>
+  </div>
 </form>
 {% endif %}
 
@@ -33,7 +37,6 @@
 <form method="post" action="{% url 'social:disconnect' 'twitter' %}">
   {% csrf_token %}
   <div id="delete-container">
-
     <button id="delete-account" type="submit">
       <img src="{% static 'assets/ui/warning.svg' %}" />
       <span>Disconnect My Account</span>
@@ -49,13 +52,17 @@
     target="_blank">{{ google_login }}</a></p>
 <form method="post" action="{% url 'social:disconnect' 'google' %}">
   {% csrf_token %}
-  <button id="delete-account" type="submit">
-    <img src="{% static 'assets/ui/warning.svg' %}" />
-    <span>Disconnect My Account</span>
-    <img src="{% static 'assets/ui/warning.svg' %}" />
-  </button>
+  <div id="delete-container">
+    <button id="delete-account" type="submit">
+      <img src="{% static 'assets/ui/warning.svg' %}" />
+      <span>Disconnect My Account</span>
+      <img src="{% static 'assets/ui/warning.svg' %}" />
+    </button>
+    <div id="safety-glass"></div>
+  </div>
 </form>
 {% endif %}
+<!-- disconnect warning, initially hidden -->
 <div id="disconnect-warning">
   <ul>Before you go, please note...</ul>
   <ul>Disconnecting <b>will</b>:
@@ -68,4 +75,3 @@
   <button id="accept-delete">I Understand</button>
 </div>
 {% endblock %}
-
