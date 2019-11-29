@@ -127,7 +127,25 @@ class users_submitted(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return Shortcut.objects.filter(owner=self.request.user)
+        # TODO: add sorting options?
+
+class users_saved(LoginRequiredMixin, ListView):
+    model = Shortcut
+    template_name = 'user/saved.html'
+    paginate_by = 20
+
+    def get_queryset(self):
+        return self.request.user.liked.all()
         # TODO: add sorting options? default: date submitted
+
+class users_liked(LoginRequiredMixin, ListView):
+    model = Shortcut
+    template_name = 'user/liked.html'
+    paginate_by = 20
+
+    def get_queryset(self):
+        return self.request.user.saved.all()
+        # TODO: add sorting options? default: date saved
 
 @login_required
 def users_settings(request):
