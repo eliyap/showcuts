@@ -52,6 +52,7 @@
   <!-- margin -->
   <div class='floater'></div>
   <!-- other links -->
+  <div class="align-5"></div>
   <div class='tool-container'>
     <a href="{{iCloud_link}}" id='ios-download' title='Download from iCloud'>
       <div class='tool-btn expand'>
@@ -59,29 +60,29 @@
         <p>iCloud</p>
       </div>
     </a>
-    <a href="{{download_link}}" id='web-download' title='Download as file'>
+    <a href="javascript:void(0)" id='show-magic' title='Magic Variables'>
       <div class='tool-btn expand'>
-        <img src="{% static 'assets/ui/download-outline.svg' %}" />
-        <p>Download Files</p>
+        <img src="{% static 'assets/ui/wand.svg' %}" />
+        <p>Magic Vars</p>
       </div>
     </a>
     <div id='info' title='Shortcut Info'>
       <div class='tool-btn' id='info-expand'>
         <img src="{% static 'assets/ui/info.svg' %}" />
-        {% if owner.username == user.username %}
-        <p>Submitted
-          {% elif owner.username %}
-          <p>Submitted by {{owner.username}}
-            {% else %}
-            <p>Submitted Anonymously
-              {% endif %}
-              {{sc_age}} ago</p>
       </div>
     </div>
-    <a href="javascript:void(0)" id='show-magic' title='Magic Variables'>
+    {% if owner.username == user.username %}
+      <p>Submitted
+    {% elif owner.username %}
+      <p>Submitted by {{owner.username}}
+    {% else %}
+      <p>Submitted Anonymously
+    {% endif %}
+    {{sc_age}} ago</p>
+      <a href="javascript:void(0)" id="like" class="{{user.username|yesno:',disabled,'}}" title='Like' hxid="{{hxid}}">
       <div class='tool-btn expand'>
-        <img src="{% static 'assets/ui/download-outline.svg' %}" />
-        <p>Magic Vars</p>
+        <img src="{% static 'assets/ui/cloud-download-outline.svg' %}" />
+        <p>Like</p>
       </div>
     </a>
   </div>
