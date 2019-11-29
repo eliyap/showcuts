@@ -5,6 +5,10 @@
 <title>{{name}}</title>
 {% endblock %}
 
+{% block extra_static %}
+<link rel="stylesheet" href="{% static 'css/view.css' %}">
+{% endblock %}
+
 {% block sidebar %}
 {% include 'sidebar.html' with hidden=False %}
 {% endblock %}
@@ -60,7 +64,7 @@
         <p>iCloud</p>
       </div>
     </a>
-    <a href="javascript:void(0)" id='show-magic' title='Magic Variables'>
+    <a id='show-magic' title='Magic Variables'>
       <div class='tool-btn expand'>
         <img src="{% static 'assets/ui/wand.svg' %}" />
         <p>Magic Vars</p>
@@ -79,12 +83,13 @@
       <p>Submitted Anonymously
     {% endif %}
     {{sc_age}} ago</p>
-      <a href="javascript:void(0)" id="like" class="{{user.username|yesno:',disabled,'}}" title='Like' hxid="{{hxid}}">
-      <div class='tool-btn expand'>
-        <img src="{% static 'assets/ui/cloud-download-outline.svg' %}" />
-        <p>Like</p>
-      </div>
-    </a>
+    <div id="like" class="tool-btn line-art {{user.username|yesno:',disabled,'}} {{liked|yesno:'clicked,,'}}" title="{{user.username|yesno:'Like,Login to Like,'}}" hxid="{{hxid}}">
+      <img src="{% static 'assets/ui/heart-fill.svg' %}" />
+    </div>
+    <p id="likes">{{likes}}</p>
+    <div id="save" class='tool-btn line-art {{user.username|yesno:',disabled,'}}' title='{{user.username|yesno:'Save,Login to Save,'}}' hxid="{{hxid}}">
+      <img src="{% static 'assets/ui/bookmark-fill.svg' %}" />
+    </div>
   </div>
   {% if action_blocks|length > 100 %}
   {% with remainder=action_blocks|length|add:-100 %}
