@@ -64,7 +64,7 @@ div {
     color: var(--magic-empty);
 }
 
-.comment {
+.action.comment {
     background-color: rgb(251, 244, 232);
 }
 
@@ -111,17 +111,25 @@ div {
 
 
 .action {
-    width: 31rem;
+    width: 29rem;
     border-radius: var(--action-corner);
     padding: var(--action-padding);
     background-color: white;
-    margin-bottom: 1rem;
     box-shadow: 0 0 1rem rgba(0, 0, 0, .2);
     z-index: 2;
     position: relative;
+    margin-bottom: var(--action-padding);
     line-height: 1.6;
+    transition: .5s;
+    -moz-transition: .5s;
 }
-.action-glyph,.inline-glyph{
+.action.show-output{
+    /* margin-bottom: 4rem; */
+}
+.action.no-output{
+    margin-bottom: var(--action-padding);
+}
+.action-glyph,.inline-glyph,.output-glyph{
     border-radius: 0.3em;
     height: 1.5rem;
     width: 1.5rem;
@@ -129,7 +137,7 @@ div {
 .action-glyph {
     margin-right: 0.4rem;
 }
-.row .inline-glyph {
+.row .inline-glyph, .output-glyph {
     position: relative;
     top:.2rem;
     margin-left: -.15rem;
@@ -335,6 +343,30 @@ a:hover{
     text-decoration: none;
 }
 
+/* show magic var output */
+.output{
+    background-color: var(--output-blue);
+    bottom:-3rem;
+    margin:0 0 var(--action-padding) 50%;
+    transform: translate(-50%, 0);
+    border-radius: .5rem;
+    padding:.1rem .4rem .2rem .4rem;
+    transition: .5s;
+    -moz-transition: .5s;
+    width: fit-content;
+    width: -moz-fit-content;
+    white-space: nowrap;
+}
+.shown.output{
+    visibility: visible;
+    opacity: 100%;
+}
+.hidden.output{
+    visibility: hidden;
+    opacity: 0%;
+    height:0!important;
+    margin-bottom: 0!important;
+}
 @media only screen and (max-width: 768px) {
     .action{
         width: auto;
@@ -368,6 +400,9 @@ a:hover{
     .comment,.comment>.row.category {
         background-color: rgb(39, 37, 23);
         border-bottom: none;
+    }
+    .output{
+        background-color: var(--dark-output-blue);
     }
     
 }
