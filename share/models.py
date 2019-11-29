@@ -109,6 +109,16 @@ class Shortcut(models.Model):
         auto_now=False,
         auto_now_add=True,
     )
+    liked_by = models.ManyToManyField(
+        User,
+        related_name="liked",
+        related_query_name="liked",
+    )
+    saved_by = models.ManyToManyField(
+        User,
+        related_name="saved",
+        related_query_name="saved",
+    )
     # add date submitted field
     # add number of likes field
     # add bookmarks field
@@ -118,6 +128,9 @@ class Shortcut(models.Model):
     def get_absolute_url(self):
         # URL is linked to hexademical ID, nothing needed here
         pass
+
+    class Meta:
+        ordering = ['-created_on']
 
 # I think this will help search by category?
 class Category(models.Model):
