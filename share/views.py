@@ -81,20 +81,42 @@ def show_shortcut(request, hxid:str):
         'accepted_types':accepts,
         'types':types,
         'sc_age':sc_age,
-        "hxid":shortcut_instance.iCloudID,
+        'hxid':shortcut_instance.iCloudID,
+        'likes':shortcut_instance.liked_by.count(),
+        'liked':request.user in shortcut_instance.liked_by.all(),
     }
     return render(request, 'show_shortcut.html', context)
 
 def like_shortcut(request):
     if 'GET' == request.method:
+        user = request.user
         hxid = request.GET['hxid']
-        logging.error(hxid)
         shortcut_instance = get_object_or_404(Shortcut, pk=hxid)
 
-        # something else...
+        if user in shortcut_instance.liked_by.all():
+            shortcut_instance.liked_by.remove(user)
+        else:
+            shortcut_instance.liked_by.add(user)
+
         return HttpResponse('success')
     else:
         return HttpResponse('fail')
+
+def save_shortcut(request):
+    if 'GET' == request.method:
+        user = request.user
+        hxid = request.GET['hxid']
+        shortcut_instance = get_object_or_404(Shortcut, pk=hxid)
+
+        if user in shortcut_instance.saved_by.all():
+            shortcut_instance.saved_by.remove(user)
+        else:
+            shortcut_instance.saved_by.add(user)
+
+        return HttpResponse('success')
+    else:
+        return HttpResponse('fail')
+
 def error(request): # possible unncessary
     return render(request, '404.html')
 

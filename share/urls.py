@@ -9,5 +9,6 @@ urlpatterns = [
     path('view/<str:hxid>',views.show_shortcut, name='view'),
     path('submitted/', views.users_submitted.as_view(), name='user-submitted'),
     path('show-me-an-error/', views.error, name='error'),
-    path('like/',views.like_shortcut, name='like'),
+    path('like/',views.like_shortcut, name='like-shortcut'),
+    path('save/',views.save_shortcut, name='save-shortcut'),
 ]

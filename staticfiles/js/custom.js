@@ -38,4 +38,69 @@ $(document).ready(function () {
     checkWidth();// Execute on load
     $(window).resize(checkWidth)// Bind event listener
     $("#id_iCloudLink").focus()// place cursor (on form page)
+
+
+    // Magic Variable Toggle
+    let output_shown = false;
+    function toggleOutput(){
+        if (output_shown){
+            $(".output").removeClass("shown").addClass("hidden");
+            output_shown = false;
+        }
+        else{
+            $(".output").removeClass("hidden").addClass("shown");
+            output_shown = true;
+        }
+    }
+    
+    $("#show-magic").click(toggleOutput)
+    
+    // Like Button AJAX
+    $("#like").unbind('click').click(function toggleLike(){
+        let elem = $(this);
+        if (!elem.hasClass('disabled')){
+            let likes = elem.next();
+            let num_likes = parseInt(likes.text());
+            let hxid = elem.attr("hxid");
+            $.ajax({
+                type:"GET",
+                url:window.location.origin+"/share/like",
+                data:{
+                    hxid: hxid,
+                },
+                success: function (){
+                    if (elem.hasClass("clicked")){
+                        elem.removeClass("clicked");
+                        likes.text(num_likes - 1);
+                    }
+                    else{
+                        elem.addClass("clicked");
+                        likes.text(num_likes + 1);
+                    }
+                }
+            });
+        }
+    })
+    // Save Button AJAX
+    $("#save").unbind('click').click(function toggleSave(){
+        let elem = $(this);
+        if (!elem.hasClass('disabled')){
+            let hxid = elem.attr("hxid");
+            $.ajax({
+                type:"GET",
+                url:window.location.origin+"/share/save",
+                data:{
+                    hxid: hxid,
+                },
+                success: function (){
+                    if (elem.hasClass("clicked")){
+                        elem.removeClass("clicked");
+                    }
+                    else{
+                        elem.addClass("clicked");
+                    }
+                }
+            });
+        }
+    })
 });
