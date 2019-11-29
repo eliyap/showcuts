@@ -7,14 +7,14 @@
     --magic-empty: rgb(143, 172, 236);
     --dark-magic-empty: rgb(50, 90, 130);
     --deep-blue: rgb(27, 31, 91);
-    /* --magic-bg: rgb(239, 244, 252); */
     --magic-bg: rgba(160, 190, 250, .2);
     --dark-magic-bg: rgb(39, 43, 51);
     --option-grey: rgb(230, 230, 230);
     --dark-option-grey: rgb(61, 62, 66);
     --dark-light-grey: rgb(124, 128, 136);
+    --output-blue: rgb(223, 228, 242);
+    --dark-output-blue: rgb(3, 9, 14);
     --indent: 1rem;
-    --indent1: calc(var(--indent) * 1);
 }
 
 html {
@@ -25,17 +25,6 @@ html {
     margin-top: 20px;
     padding: 0;
     list-style: none;
-}
-
-.floater {
-    flex: auto;
-    z-index: -1;
-    background-color: var(--sc-grey);
-}
-
-.align-5 {
-    width: 3rem;
-    flex: initial;
 }
 
 .article-container {
@@ -255,19 +244,6 @@ html {
     top: -6.5rem;
 }
 
-.sc-title {
-    color: black;
-    font-size: 2.7rem;
-    font-weight: bold;
-    height: 3rem;
-    line-height: 1;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
-    flex: initial;
-}
-
 #glyph-bg {
     width: 3rem;
     height: 3rem;
@@ -324,78 +300,6 @@ input[type=submit] {
 
 .form-error li {
     color: white;
-}
-
-/* right side buttons */
-
-.tool-container {
-    float: right;
-    width: 3rem;
-    background-color: var(--sc-grey);
-    z-index: 5;
-}
-
-.tool-btn {
-    height: 2.5rem;
-    width: 2.5rem;
-    background-color: var(--deep-blue);
-    padding: .25rem;
-    border-radius: .5rem;
-    margin: .25rem;
-    overflow: hidden;
-}
-
-.tool-btn img {
-    height: 2rem;
-    min-width: 2rem;
-    margin-right: .5rem;
-}
-
-#ios-download {
-    --n:0;
-}
-
-#web-download {
-    --n:1;
-}
-
-#info {
-    --n:2;
-}
-
-#ios-download, #web-download, #info {
-    z-index: 6;
-    position: fixed;
-    right: 0;
-    top:calc(var(--n) * 3rem);
-}
-
-#ios-download, #web-download {
-    white-space: nowrap;
-}
-
-#info-expand:hover {
-    height: auto;
-    width: 10rem;
-}
-
-#info-expand {
-    height: 2.5rem;
-    width: 2.5rem;
-    transition: width .5s, height .5s;
-    -moz-transition: width .5s, height .5s;
-    color: white;
-}
-
-.tool-btn.expand:hover {
-    width: 10rem;
-}
-
-.tool-btn.expand {
-    transition: width .5s;
-    -moz-transition: width .5s;
-    color: white;
-    display: flex;
 }
 
 /* blocked content for free users */
@@ -578,20 +482,17 @@ input[type=submit] {
     .sidebar-link {
         color: #f1f1f1;
     }
-    #sidenav-logo p, .sc-title, .gate-text, .big-card {
+    #sidenav-logo p, .big-card {
         color: white;
     }
-    .floater, .header, .article-container, .content, .tool-container, .big-card {
+    .header, .article-container, .content, .tool-container, .big-card {
         background-color: black;
     }
     #open, #close {
         filter: invert(1);
     }
-    .tool-btn, .big-card {
+    .big-card {
         border: 1px solid white;
-    }
-    .fade-out {
-        background-image: linear-gradient( rgba(0, 0, 0, 0), black);
     }
 }
 

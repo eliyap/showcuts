@@ -1,0 +1,206 @@
+.sc-title {
+    color: black;
+    font-size: 2.7rem;
+    font-weight: bold;
+    height: 3rem;
+    line-height: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    flex: initial;
+}
+/* arrangement elements */
+.floater {
+    flex: auto;
+    z-index: -1;
+    background-color: var(--sc-grey);
+}
+.align-5 {
+    width: 3rem;
+    flex: initial;
+}
+
+/* right side buttons */
+
+.tool-container {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 3rem;
+    background-color: var(--sc-grey);
+    z-index: 5;
+}
+
+.tool-btn {
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: black;
+    padding: .25rem;
+    border-radius: .5rem;
+    margin: .25rem;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: calc(3rem*var(--n))
+}
+
+.tool-btn img {
+    height: 2rem;
+    min-width: 2rem;
+    margin-right: .5rem;
+}
+
+.tool-btn.expand:hover {
+    width: 10rem;
+}
+
+.tool-btn.expand {
+    transition: width .5s;
+    -moz-transition: width .5s;
+    color: white;
+    display: flex;
+}
+
+.tool-btn p {
+    margin: auto 0 auto .5rem;
+}
+
+/* disabled buttons */
+
+div.disabled {
+    opacity: .3;
+}
+
+
+/* button specific stylings */
+
+/* -- indexes */
+
+#ios-download {
+    --n: 0;
+}
+
+#show-magic {
+    --n: 1;
+}
+
+#info {
+    --n: 2;
+}
+
+#like {
+    --n: 3;
+}
+
+#save {
+    --n: 4;
+}
+
+#ios-download>div {
+    padding: .05rem;
+}
+
+#ios-download img {
+    height: 2.4rem;
+    min-width: 2.4rem;
+    margin-right: .2rem;
+}
+
+#info img {
+    height: 2.6rem;
+    min-width: 2.6rem;
+    margin: -.3rem;
+}
+
+#info+p, #like+p {
+    position: absolute;
+    right: -13rem;
+    transition: .5s;
+    -moz-transition: .5s;
+    border-radius: .5rem;
+    padding: .3rem;
+    margin: .25rem;
+    z-index: 4;
+}
+#info+p{
+    top:6rem;
+    width: 10rem;
+    height: auto;
+    border: 1px solid black;
+}
+#like+p{
+    top:9rem;
+    width:2.5rem;
+    height:2.5rem;
+    background-color:black;
+    color:white;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+#info:hover+p, #like:hover+p {
+    right: 3rem;
+    pointer-events: none;
+}
+
+/* line art buttons */
+.tool-btn.line-art{
+    background: none;
+    padding:.4rem;
+}
+.tool-btn.line-art:active{
+    padding:.3rem;
+}
+.tool-btn.line-art:active img{
+    height: 2rem;
+    width: 2rem;
+}
+.tool-btn.line-art p{
+    color: black;
+}
+.tool-btn.line-art img{
+    min-width: 1.8rem;
+    height:1.8rem;
+    transition: .2s;
+    -moz-transition: .2s;
+}
+
+
+#like.clicked img{
+    filter:invert(41%) sepia(19%) saturate(2576%) hue-rotate(310deg) brightness(97%) contrast(98%);
+}
+#save.clicked img{
+    filter: invert(45%) sepia(43%) saturate(7372%) hue-rotate(201deg) brightness(100%) contrast(98%);
+}
+#ios-download, #show-magic, #like {
+    white-space: nowrap;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    .tool-btn {
+        background-color: var(--sc-grey);
+    }
+    .tool-btn img {
+        filter: invert(1);
+    }
+    .tool-btn p {
+        color: black;
+    }
+    .tool-btn.line-art p,#info+p {
+        color: white;
+    }
+    #info+p {
+        border:1px solid white;
+    }
+    .fade-out {
+        background-image: linear-gradient( rgba(0, 0, 0, 0), black);
+    }
+    .floater {
+        background-color: black;
+    }
+    .sc-title, .gate-text {
+        color: white;
+    }
+}
