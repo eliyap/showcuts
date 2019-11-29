@@ -32,7 +32,6 @@ class test_specify_date(TestCase):
     def test_categoryies_correct(self):
         [self.assertEqual(action['category'], 'DATE') for action in self.actions]
 
-
     def test_titles_correct(self):
         compare_titles(self, 0, [
             {'class':'magic', 'value':'Current Date'},
