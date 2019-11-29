@@ -1,35 +1,71 @@
 {% extends "bigcard.html" %}
 {% load static %}
 
+{% block extra_static %}<link rel="stylesheet" href="{% static 'css/settings.css' %}">{% endblock %}
+
 {% block card-title %}
-{{user.username}} Account Settings
+{{user.username}}'s Account
 {% endblock %}
 
 {% block incard %}
+<h3>Shortcuts</h3>
+<a href="{% url 'user-liked'%}">
+  <h6>Liked Shortcuts</h6>
+</a>
+
+<h3>Connected Account</h3>
 {% if github_login %}
-<h3>GitHub</h3>
-<p>Connected as GitHub User <a href="https://github.com/{{ github_login.extra_data.login }}/" target="_blank">{{ github_login.extra_data.login }}</a></p>
+<p>Logged in with Github Account <a href="https://github.com/{{ github_login.extra_data.login }}/"
+    target="_blank">{{ github_login.extra_data.login }}</a></p>
 <form method="post" action="{% url 'social:disconnect' 'github' %}">
   {% csrf_token %}
-  <button type="submit">Delete Associated Account</button>
+  <button id="delete-account" type="submit">
+    <img src="{% static 'assets/ui/warning.svg' %}" />
+    <span>Disconnect My Account</span>
+    <img src="{% static 'assets/ui/warning.svg' %}" />
+  </button>
 </form>
 {% endif %}
 
 {% if twitter_login %}
-<h3>Twitter</h3>
-<p>Connected as Twitter User <a href="https://twitter.com/{{ twitter_login.extra_data.access_token.screen_name }}/" target="_blank">@{{ twitter_login.extra_data.access_token.screen_name }}</a></p>
+<p>Logged in with Twitter Account <a href="https://twitter.com/{{ twitter_login.extra_data.access_token.screen_name }}/"
+    target="_blank">@{{ twitter_login.extra_data.access_token.screen_name }}</a></p>
 <form method="post" action="{% url 'social:disconnect' 'twitter' %}">
   {% csrf_token %}
-  <button type="submit">Delete Associated Account</button>
+  <div id="delete-container">
+
+    <button id="delete-account" type="submit">
+      <img src="{% static 'assets/ui/warning.svg' %}" />
+      <span>Disconnect My Account</span>
+      <img src="{% static 'assets/ui/warning.svg' %}" />
+    </button>
+    <div id="safety-glass"></div>
+  </div>
 </form>
 {% endif %}
 
 {% if google_login %}
-<h3>Google</h3>
-<p>Connected as Google User <a href="https://google.com/{{ google_login.extra_data.access_token.screen_name }}/" target="_blank">{{ google_login }}</a></p>
+<p>Logged in with Google Account <a href="https://google.com/{{ google_login.extra_data.access_token.screen_name }}/"
+    target="_blank">{{ google_login }}</a></p>
 <form method="post" action="{% url 'social:disconnect' 'google' %}">
   {% csrf_token %}
-  <button type="submit">Delete Associated Account</button>
+  <button id="delete-account" type="submit">
+    <img src="{% static 'assets/ui/warning.svg' %}" />
+    <span>Disconnect My Account</span>
+    <img src="{% static 'assets/ui/warning.svg' %}" />
+  </button>
 </form>
 {% endif %}
+<div id="disconnect-warning">
+  <ul>Before you go, please note...</ul>
+  <ul>Disconnecting <b>will</b>:
+    <li>delete your lists of Likes, Saves, and Submitted Shortcuts (reconnecting will not recover this information)</li>
+  </ul>
+  <ul>Disconnecting <b>will not</b>:
+    <li>delete your submitted Shortcuts (they will be listed as anonymous submissions)</li>
+  </ul>
+  <ul>Showcuts does not store emails, names, or other personal data.</ul>
+  <button id="accept-delete">I Understand</button>
+</div>
 {% endblock %}
+
