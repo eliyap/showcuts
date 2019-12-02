@@ -22,6 +22,9 @@ from django.template import RequestContext
 ## Dependency: social auth
 from social_django.models import UserSocialAuth
 
+## Dependency: debug settings
+from showcuts.local_settings import LIVE_RELOADING, DEBUG
+
 def submit_iCloud(request):
     from django.http import Http404
     if request.method == 'POST':
@@ -32,7 +35,10 @@ def submit_iCloud(request):
         
             if Shortcut.objects.filter(iCloudID__iexact=_id):
                 
-                #add_shortcut(iCloudLink, request.user) # DEBUG: ALLOWs LIVE RELOADING OF SHORTCUTS
+                if LIVE_RELOADING:
+                    shortcut_instance = get_object_or_404(Shortcut, pk=_id)
+                    shortcut_instance.delete()
+                    add_shortcut(iCloudLink, request.user) # DEBUG: ALLOWs LIVE RELOADING OF SHORTCUTS
 
                 return HttpResponseRedirect(reverse('view',kwargs={'hxid':_id}))
                 # duplicate detected, direct to the existing record with some extra indicator?
@@ -40,12 +46,13 @@ def submit_iCloud(request):
             try:
                 add_shortcut(iCloudLink, request.user)
             except noActionsError:
-                #raise # debug
+                if DEBUG:
+                    raise # debug
                 messages.error(request, 'Could not get actions from Shortcut file')
                 return HttpResponseRedirect(reverse('error'))
             except:
-                #raise # debug
-                # generic error
+                if DEBUG:
+                    raise # debug
                 return HttpResponseRedirect(reverse('error'))
             return HttpResponseRedirect(reverse('view',kwargs={'hxid':_id}))
     else:
@@ -118,7 +125,7 @@ def save_shortcut(request):
         return HttpResponse('fail')
 
 def error(request): # possible unncessary
-    return render(request, '404.html')
+    return render(request, '500.html')
 
 class users_submitted(LoginRequiredMixin, ListView):
     model = Shortcut
