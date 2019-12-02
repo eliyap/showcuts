@@ -1164,31 +1164,31 @@ def format_action(component: action, indent_level: int) -> (dict, int):
         elif "getmapslink" == sub_name:
             title_elem = [
                 'Get maps URL from',
-                make_magic(component.parameters, 'WFInput', 'Location'),
+                make_location(component.parameters, 'WFInput', 'Location'),
             ] 
         elif "getdirections" == sub_name:
             title_elem = [
                 'Show',
-                make_magic(component.parameters, 'WFGetDirectionsActionMode', 'Driving', default_blank=False),
+                make_magic(component.parameters, 'WFGetDirectionsActionMode', 'Driving', default_blank=False, ask_text='Mode'),
                 'directions to',
-                make_magic(component.parameters, 'WFInput', 'Destination'),
+                make_location(component.parameters, 'WFDestination', 'Destination', ask_text='Destination'),
             ] 
         elif "searchmaps" == sub_name:
             title_elem = [
                 'Show',
-                make_magic(component.parameters, 'WFInput', 'Location'),
+                make_location(component.parameters, 'WFInput', 'Location'),
                 'in Maps',
             ] 
         elif "getdistance" == sub_name:
             title_elem = [
                 'Get distance from',
-                make_location(component.parameters, 'WFGetDirectionsCustomLocation', 'Current Location', default_blank=False),
+                make_location(component.parameters, 'WFGetDirectionsCustomLocation', 'Current Location', default_blank=False, ask_text='Start Location'),
                 'to',
-                make_location(component.parameters, 'WFGetDistanceDestination', 'End Location', default_blank=False),
+                make_location(component.parameters, 'WFGetDistanceDestination', 'End Location', ask_text='End Location'),
             ] 
             line_elems = [
                 {**{'label':'Route Type'},**make_pill(component.parameters, 'WFGetDirectionsActionMode', ['Direct','Driving', 'Walking'], default='Direct')},
-                {**{'label':'Unit'},**make_pill(component.parameters, 'WFDistanceUnit', ['Miles','Kilometers'], default='Kilometres')},
+                {**{'label':'Unit'},**make_pill(component.parameters, 'WFDistanceUnit', ['Miles','Kilometers'], default='Kilometers')},
             ]
         elif "gethalfwaypoint" == sub_name:
             title_elem = [
@@ -1200,11 +1200,11 @@ def format_action(component: action, indent_level: int) -> (dict, int):
         elif "gettraveltime" == sub_name:
             title_elem = [
                 'Get',
-                make_magic(component.parameters, 'WFGetDirectionsActionMode', 'Driving', default_blank=False),
+                make_magic(component.parameters, 'WFGetDirectionsActionMode', 'Driving', default_blank=False, ask_text='Mode'),
                 'time from',
-                make_location(component.parameters, 'WFGetDirectionsCustomLocation', 'Current Location', default_blank=False),
+                make_location(component.parameters, 'WFGetDirectionsCustomLocation', 'Current Location', default_blank=False, ask_text='Start Location'),
                 'to',
-                make_location(component.parameters, 'WFDestination', 'Destination'),
+                make_location(component.parameters, 'WFDestination', 'End Location',  ask_text='End Location'),
             ] 
         elif "searchlocalbusinesses" == sub_name:
             title_elem = [
@@ -1842,7 +1842,7 @@ def format_action(component: action, indent_level: int) -> (dict, int):
     # silence to restore inline elems, the styling for which is very hard
     title_elem = flatten(title_elem)
     title_elem = [i for i in title_elem if i['value']]
-    # ppost Processing:
+    # © Processing:
     if not options_impl:
         line_elems += [not_implemented_options()]
     

@@ -75,10 +75,10 @@ def make_magic(
     #raise ValueError(f'No magic var {key}!',val)
 
 
-def make_location(parameters: dict, key: str, default: str, default_blank: bool = True):
+def make_location(parameters: dict, key: str, default: str, default_blank: bool = True, ask_text:str='Ask Each Time'):
     val = parameters.get(key, None)
     if not val:
-        return{'value': default, 'class': 'magic', }
+        return{'value': default, 'class': 'magic' + (' empty' if default_blank else ''), }
 
     # under construction, need to see what ways to get location names
     try:  # there are surely more ways to get a location name than this
@@ -98,8 +98,7 @@ def make_location(parameters: dict, key: str, default: str, default_blank: bool 
     except KeyError:
         if 'isCurrentLocation' in parameters[key] and parameters[key]['isCurrentLocation'] == True:
             return magic('Current Location')
-        location_elem = make_magic(
-            parameters, key, default, default_blank=default_blank, force_magic=True)
+        location_elem = make_magic(parameters, key, default, default_blank=default_blank, force_magic=True, ask_text=ask_text)
     return location_elem
 
 
@@ -124,6 +123,7 @@ def get_inline(val: dict, magic_wrapper=True, ask_text: str = 'Ask Each Time') -
         import json
         logging.error(json.dumps(val))
         return [magic('<inline variable>')]
+    title_elems = [i for i in title_elems if i['value']] # purge empty elements
     return {
         'class': 'inline' + (' magic' if magic_wrapper else ''),
         'value': title_elems,
@@ -342,8 +342,6 @@ def make_pill(parameters: dict, key: str, options: [str], default: str) -> dict:
     selection = selection.title()  # vars are often lowercased
     pill_elems = []
     [pill_elems.append({'selected': option == selection, 'value': option, }) for option in options]
-    logging.error(options[1])
-    logging.error(selection)
     return {'class': 'pill', 'value': pill_elems, }
 
 
