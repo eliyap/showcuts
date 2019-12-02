@@ -33,18 +33,18 @@ class test_specify_date(TestCase):
         [self.assertEqual(action['category'], 'DATE') for action in self.actions]
 
     def test_titles_correct(self):
-        compare_titles(self, 0, [
+        compare_elements(self, 'title', 0, [
             {'class':'magic', 'value':'Current Date'},
         ])
-        compare_titles(self, 1, [
+        compare_elements(self, 'title', 1, [
             {'class':'magic', 'value':'Specified Date'},
             {'class':'magic', 'value':'29th June 1700'},
         ])
-        compare_titles(self, 2, [
+        compare_elements(self, 'title', 2, [
             {'class':'magic', 'value':'Specified Date'},
             {'class':'magic empty', 'value':'29 June 2007'},
         ])
-        compare_titles(self, 3, [
+        compare_elements(self, 'title', 3, [
             # no title elems
             #TODO: test line elems
         ])

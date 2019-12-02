@@ -69,115 +69,115 @@ class test_properties_blank(TestCase):
         self.assertEqual(self.actions[18]['category'], 'SAFARI')
 
     def test_titles_correct(self):
-        compare_titles(self, 0, [
+        compare_elements(self, 'title', 0, [
             {'class':'', 'value':'Get'},
             {'class':'magic empty', 'value':'Detail'},
             {'class':'', 'value':'from'},
             {'class':'magic empty', 'value':'Trello item'},
         ])
-        compare_titles(self, 1, [
+        compare_elements(self, 'title', 1, [
             {'class':'', 'value':'Get'},
             {'class':'magic empty', 'value':'Detail'},
             {'class':'', 'value':'from'},
             {'class':'magic empty', 'value':'File'},
         ])
-        compare_titles(self, 2, [
+        compare_elements(self, 'title', 2, [
             {'class':'', 'value':'Get'},
             {'class':'magic empty', 'value':'Detail'},
             {'class':'', 'value':'from'},
             {'class':'magic empty', 'value':'iTunes product'},
         ])
-        compare_titles(self, 3, [
+        compare_elements(self, 'title', 3, [
             {'class':'', 'value':'Get'},
             {'class':'magic empty', 'value':'Detail'},
             {'class':'', 'value':'from'},
             {'class':'magic empty', 'value':'iTunes artist'},
         ])
-        compare_titles(self, 4, [
+        compare_elements(self, 'title', 4, [
             {'class':'', 'value':'Get'},
             {'class':'magic empty', 'value':'Detail'},
             {'class':'', 'value':'from'},
             {'class':'magic empty', 'value':'Podcast episode'},
         ])
-        compare_titles(self, 5, [
+        compare_elements(self, 'title', 5, [
             {'class':'', 'value':'Get'},
             {'class':'magic empty', 'value':'Detail'},
             {'class':'', 'value':'from'},
             {'class':'magic empty', 'value':'App Store app'},
         ])
-        compare_titles(self, 6, [
+        compare_elements(self, 'title', 6, [
             {'class':'', 'value':'Get'},
             {'class':'magic empty', 'value':'Detail'},
             {'class':'', 'value':'from'},
             {'class':'magic empty', 'value':'Image'},
         ])
-        compare_titles(self, 7, [
+        compare_elements(self, 'title', 7, [
             {'class':'', 'value':'Get'},
             {'class':'magic empty', 'value':'Detail'},
             {'class':'', 'value':'from'},
             {'class':'magic empty', 'value':'Ulysses sheet'},
         ])
-        compare_titles(self, 8, [
+        compare_elements(self, 'title', 8, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'Artist'},
             {'class':'', 'value':'from'},
             {'class':'magic empty', 'value':'Music'},
         ])
-        compare_titles(self, 9, [
+        compare_elements(self, 'title', 9, [
             {'class':'', 'value':'Get'},
             {'class':'magic empty', 'value':'Detail'},
             {'class':'', 'value':'from'},
             {'class':'magic empty', 'value':'Podcast'},
         ])
-        compare_titles(self, 10, [
+        compare_elements(self, 'title', 10, [
             {'class':'', 'value':'Get'},
             {'class':'magic empty', 'value':'Detail'},
             {'class':'', 'value':'from'},
             {'class':'magic empty', 'value':'Weather Conditions'},
         ])
-        compare_titles(self, 11, [
+        compare_elements(self, 'title', 11, [
             {'class':'', 'value':'Get'},
             {'class':'magic empty', 'value':'Detail'},
             {'class':'', 'value':'from'},
             {'class':'magic empty', 'value':'Location'},
         ])
-        compare_titles(self, 12, [
+        compare_elements(self, 'title', 12, [
             {'class':'', 'value':'Get'},
             {'class':'magic empty', 'value':'Detail'},
             {'class':'', 'value':'from'},
             {'class':'magic empty', 'value':'Event Attendee'},
         ])
-        compare_titles(self, 13, [
+        compare_elements(self, 'title', 13, [
             {'class':'', 'value':'Get'},
             {'class':'magic empty', 'value':'Detail'},
             {'class':'', 'value':'from'},
             {'class':'magic empty', 'value':'Calendar Event'},
         ])
-        compare_titles(self, 14, [
+        compare_elements(self, 'title', 14, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'List'},
             {'class':'', 'value':'from'},
             {'class':'magic empty', 'value':'Reminder'},
         ])
-        compare_titles(self, 15, [
+        compare_elements(self, 'title', 15, [
             {'class':'', 'value':'Get'},
             {'class':'magic empty', 'value':'Detail'},
             {'class':'', 'value':'from'},
             {'class':'magic empty', 'value':'Health Sample'},
         ])
-        compare_titles(self, 16, [
+        compare_elements(self, 'title', 16, [
             {'class':'', 'value':'Get'},
             {'class':'magic empty', 'value':'Detail'},
             {'class':'', 'value':'from'},
             {'class':'magic empty', 'value':'Contact'},
         ])
-        compare_titles(self, 17, [
+        compare_elements(self, 'title', 17, [
             {'class':'', 'value':'Get'},
             {'class':'magic empty', 'value':'Detail'},
             {'class':'', 'value':'from'},
             {'class':'magic empty', 'value':'Article'},
         ])
-        compare_titles(self, 18, [
+        compare_elements(self, 'title', 18, [
             {'class':'', 'value':'Get'},
             {'class':'magic empty', 'value':'Detail'},
             {'class':'', 'value':'from'},
@@ -246,115 +246,115 @@ class test_properties_magic(TestCase):
         self.assertEqual(self.actions[18]['category'], 'SAFARI')
 
     def test_titles_correct(self):
-        compare_titles(self, 0, [
+        compare_elements(self, 'title', 0, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'Detail', 'glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'from'},
             {'class':'magic', 'value':'Clipboard', 'glyph':'assets/cat/Clipboard.svg'},
         ])
-        compare_titles(self, 1, [
+        compare_elements(self, 'title', 1, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'Detail', 'glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'from'},
             {'class':'magic', 'value':'Clipboard', 'glyph':'assets/cat/Clipboard.svg'},
         ])
-        compare_titles(self, 2, [
+        compare_elements(self, 'title', 2, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'Detail', 'glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'from'},
             {'class':'magic', 'value':'Clipboard', 'glyph':'assets/cat/Clipboard.svg'},
         ])
-        compare_titles(self, 3, [
+        compare_elements(self, 'title', 3, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'Detail', 'glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'from'},
             {'class':'magic', 'value':'Clipboard', 'glyph':'assets/cat/Clipboard.svg'},
         ])
-        compare_titles(self, 4, [
+        compare_elements(self, 'title', 4, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'Detail', 'glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'from'},
             {'class':'magic', 'value':'Clipboard', 'glyph':'assets/cat/Clipboard.svg'},
         ])
-        compare_titles(self, 5, [
+        compare_elements(self, 'title', 5, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'Detail', 'glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'from'},
             {'class':'magic', 'value':'Clipboard', 'glyph':'assets/cat/Clipboard.svg'},
         ])
-        compare_titles(self, 6, [
+        compare_elements(self, 'title', 6, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'Detail', 'glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'from'},
             {'class':'magic', 'value':'Clipboard', 'glyph':'assets/cat/Clipboard.svg'},
         ])
-        compare_titles(self, 7, [
+        compare_elements(self, 'title', 7, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'Detail', 'glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'from'},
             {'class':'magic', 'value':'Clipboard', 'glyph':'assets/cat/Clipboard.svg'},
         ])
-        compare_titles(self, 8, [
+        compare_elements(self, 'title', 8, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'Detail', 'glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'from'},
             {'class':'magic', 'value':'Clipboard', 'glyph':'assets/cat/Clipboard.svg'},
         ])
-        compare_titles(self, 9, [
+        compare_elements(self, 'title', 9, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'Detail', 'glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'from'},
             {'class':'magic', 'value':'Clipboard', 'glyph':'assets/cat/Clipboard.svg'},
         ])
-        compare_titles(self, 10, [
+        compare_elements(self, 'title', 10, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'Detail', 'glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'from'},
             {'class':'magic', 'value':'Clipboard', 'glyph':'assets/cat/Clipboard.svg'},
         ])
-        compare_titles(self, 11, [
+        compare_elements(self, 'title', 11, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'Detail', 'glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'from'},
             {'class':'magic', 'value':'Clipboard', 'glyph':'assets/cat/Clipboard.svg'},
         ])
-        compare_titles(self, 12, [
+        compare_elements(self, 'title', 12, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'Detail', 'glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'from'},
             {'class':'magic', 'value':'Clipboard', 'glyph':'assets/cat/Clipboard.svg'},
         ])
-        compare_titles(self, 13, [
+        compare_elements(self, 'title', 13, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'Detail', 'glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'from'},
             {'class':'magic', 'value':'Clipboard', 'glyph':'assets/cat/Clipboard.svg'},
         ])
-        compare_titles(self, 14, [
+        compare_elements(self, 'title', 14, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'Detail', 'glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'from'},
             {'class':'magic', 'value':'Clipboard', 'glyph':'assets/cat/Clipboard.svg'},
         ])
-        compare_titles(self, 15, [
+        compare_elements(self, 'title', 15, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'Detail', 'glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'from'},
             {'class':'magic', 'value':'Clipboard', 'glyph':'assets/cat/Clipboard.svg'},
         ])
-        compare_titles(self, 16, [
+        compare_elements(self, 'title', 16, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'Detail', 'glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'from'},
             {'class':'magic', 'value':'Clipboard', 'glyph':'assets/cat/Clipboard.svg'},
         ])
-        compare_titles(self, 17, [
+        compare_elements(self, 'title', 17, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'Detail', 'glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'from'},
             {'class':'magic', 'value':'Clipboard', 'glyph':'assets/cat/Clipboard.svg'},
         ])
-        compare_titles(self, 18, [
+        compare_elements(self, 'title', 18, [
             {'class':'', 'value':'Get'},
             {'class':'magic', 'value':'Detail', 'glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'from'},

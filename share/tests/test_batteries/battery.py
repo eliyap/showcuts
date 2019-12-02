@@ -32,11 +32,11 @@ def test_correct_glyph(self, action, glyph_name):
     action_glyph = re.findall('.+/(.+)',action['glyph'])[0]
     self.assertEqual(action_glyph, glyph_name)
 
-def compare_titles(self, idx:int, expected_elems:[dict]):
-    title = self.actions[idx]['title']
-    self.assertEqual(len(title),len(expected_elems))
-    for i in list(range(0,len(title))):
-        compare_dicts(self,title[i],expected_elems[i])
+def compare_elements(self, key:str, idx:int, expected_elems:[dict]):
+    elements = self.actions[idx][key]
+    self.assertEqual(len(elements),len(expected_elems))
+    for i in list(range(0,len(elements))):
+        compare_dicts(self,elements[i],expected_elems[i])
 
 def compare_dicts(self, title_elem, dct):
     for k,v in dct.items():

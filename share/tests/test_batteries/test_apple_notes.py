@@ -35,53 +35,53 @@ class test_apple_notes(TestCase):
 
     def test_titles_correct(self):
         # Append X to Y
-        compare_titles(self, 0, [
+        compare_elements(self, 'title', 0, [
             {'class':'', 'value':'Append'},
             {'class':'magic empty', 'value':'Text'},
             {'class':'', 'value':'to'},
             {'class':'magic empty', 'value':'Note'},
         ])
-        compare_titles(self, 1, [
+        compare_elements(self, 'title', 1, [
             {'class':'', 'value':'Append'},
             {'class':'magic', 'value':'Clipboard','glyph':'assets/cat/Clipboard.svg'},
             {'class':'', 'value':'to'},
             {'class':'magic', 'value':'Clipboard','glyph':'assets/cat/Clipboard.svg'},
         ])
-        compare_titles(self, 2, [
+        compare_elements(self, 'title', 2, [
             {'class':'', 'value':'Append'},
             {'class':'magic', 'value':'Text','glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'to'},
             {'class':'magic', 'value':'Clipboard','glyph':'assets/cat/Clipboard.svg'},
         ])
         # Create note with X (in Y)
-        compare_titles(self, 3, [
+        compare_elements(self, 'title', 3, [
             {'class':'', 'value':'Create note with'},
             {'class':'magic empty', 'value':'Body'},
             {'class':'', 'value':'in'},
             {'class':'magic empty', 'value':'Folder'},
         ])
-        compare_titles(self, 4, [
+        compare_elements(self, 'title', 4, [
             {'class':'', 'value':'Create note with'},
             {'class':'magic', 'value':'Clipboard','glyph':'assets/cat/Clipboard.svg'},
             {'class':'', 'value':'in'},
             {'class':'magic empty', 'value':'Folder'},
         ])
-        compare_titles(self, 5, [
+        compare_elements(self, 'title', 5, [
             {'class':'', 'value':'Create note with'},
             {'class':'magic', 'value':'Text','glyph':'assets/cat/Ask.svg'},
             {'class':'', 'value':'in'},
             {'class':'magic', 'value':'Folder','glyph':'assets/cat/Ask.svg'},
         ])
-        compare_titles(self, 6, [
+        compare_elements(self, 'title', 6, [
             {'class':'', 'value':'Create note with'},
             {'class':'magic empty', 'value':'Body'},
         ])
         # Show Note
-        compare_titles(self, 7, [
+        compare_elements(self, 'title', 7, [
             {'class':'', 'value':'Show'},
             {'class':'magic empty', 'value':'Note'},
         ])
-        compare_titles(self, 8, [
+        compare_elements(self, 'title', 8, [
             {'class':'', 'value':'Show'},
             {'class':'magic', 'value':'Clipboard','glyph':'assets/cat/Clipboard.svg'},
         ])
