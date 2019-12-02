@@ -205,6 +205,11 @@ app_categorize = {
         "category": "BEAR",
         'name':'Bear',
     },
+    'net.shinyfrog.bear-iOS':{
+        "glyph": "others/Bear.png",
+        "category": "BEAR",
+        'name':'Bear',
+    },
     'com.apple.AccessibilityUtilities.AXSettingsShortcuts': {
         "glyph": "system/Settings.png",
         "category": "SETTINGS",
