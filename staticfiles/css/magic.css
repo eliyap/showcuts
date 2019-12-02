@@ -152,6 +152,8 @@ div {
     font-size: 1.5rem;
     margin-top: 0.5rem;
     margin-bottom: 0rem;
+    overflow-wrap: break-word;
+    word-break: break-all;
 }
 .action-title.flow{
     margin-top: -.7rem;
@@ -397,7 +399,7 @@ a:hover{
     .pill-on{
         background-color: var(--dark-light-grey);
     }
-    .comment,.comment>.row.category {
+    .action.comment,.comment>.row.category {
         background-color: rgb(39, 37, 23);
         border-bottom: none;
     }
