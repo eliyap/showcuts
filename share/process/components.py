@@ -341,8 +341,7 @@ def make_pill(parameters: dict, key: str, options: [str], default: str) -> dict:
         return make_magic(parameters, key)
     selection = selection.title()  # vars are often lowercased
     pill_elems = []
-    [pill_elems.append({'selected': option == selection,
-                        'value': option, }) for option in options]
+    [pill_elems.append({'selected': option == selection, 'value': option, }) for option in options]
     logging.error(options[1])
     logging.error(selection)
     return {'class': 'pill', 'value': pill_elems, }
