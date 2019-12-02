@@ -10,7 +10,7 @@ urlpatterns = [
     path('submitted/', views.users_submitted.as_view(), name='user-submitted'),
     path('liked/', views.users_liked.as_view(), name='user-liked'),
     path('saved/', views.users_saved.as_view(), name='user-saved'),
-    path('show-me-an-error/', views.error, name='error'),
+    path('error/', views.error, name='error'),
     path('like/',views.like_shortcut, name='like-shortcut'),
     path('save/',views.save_shortcut, name='save-shortcut'),
 ]
