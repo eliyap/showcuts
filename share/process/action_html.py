@@ -7,6 +7,7 @@ from django.template import engines, TemplateSyntaxError
 ## Dependency: local
 from . import action, to_html
 from .pieces import error_action
+from showcuts.local_settings import DEBUG
 
 def make_html(action_dct: [dict]) -> [dict]:
     indent_level = 0
@@ -19,7 +20,7 @@ def make_html(action_dct: [dict]) -> [dict]:
             (action_elem, indent) = to_html.format_action(comp, indent_level)
         except:
             (action_elem, indent) = (error_action(), 0)
-            #raise #for debugging
+            if DEBUG:raise
         UUID_glyphs[comp.UUID] = action_elem['glyph']
         indent_level += indent # modify indentation for future actions
         action_blocks.append(action_elem)
