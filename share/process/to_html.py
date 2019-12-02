@@ -6,6 +6,7 @@ import warnings, logging
 from .action import action
 from .pieces import *
 from .components import *
+from .intent import *
 
 # app URLs
 filter_re = re.compile(r'is\.workflow\.actions\.filter\.(.+)')
@@ -33,7 +34,7 @@ def format_action(component: action, indent_level: int) -> (dict, int):
     for (app_url, info) in app_categorize.items():
         if app_url in component.name: cat_info = info
     if not cat_info:
-        cat_info = categorize.get(component.name, {'glyph': '', 'category': 'MISSING'})
+        cat_info = categorize.get(component.name, {'glyph': 'missing', 'category': 'MISSING'})
     category, glyph = cat_info['category'], cat_info['glyph']
     result = cat_info.get('result', None)
 
@@ -105,6 +106,20 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 turn_text,
                 on_off(component.parameters),
             ]
+
+        # APP DONATED SHORTCUTS
+        elif "sirikit.donation.handle" == sub_name:
+            intent_info = get_intent(component.parameters)
+            category, glyph = intent_info['category'], intent_info['glyph']
+            title_elem = [text_elem(intent_info.get('remainder','Donated Action'))]
+            special += "donated"
+        elif "useractivity.open" == sub_name:
+            info = app_categorize.get(component.parameters['AppBundleIdentifier'], {'glyph': 'missing', 'category': 'MISSING'})
+            category, glyph = info['category'], info['glyph']
+            title_elem = [text_elem(get_useractivity(component.parameters))]
+            special += "donated"
+            get_useractivity(component.parameters)
+        # CASE BY CASE
         elif "reminders.showlist" == sub_name:
             title_elem = [
                 'Show',
@@ -270,10 +285,12 @@ def format_action(component: action, indent_level: int) -> (dict, int):
             if 0 == mode:
                 title_elem = conditional(component)# special handler for 'If' head block
                 indent = +1
+                result = None
             elif 1 == mode:
                 indent_level -= 1
                 title_elem = ['Otherwise']
                 special += ' flow'
+                result = None
             elif 2 == mode:
                 indent_level -= 1
                 indent = -1
