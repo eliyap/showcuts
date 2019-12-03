@@ -2,8 +2,8 @@
 import requests, plistlib, logging, unittest, re
 
 ## Dependency: local
-from ...process.entry import request_details, byte_catcher
-from ...process.action_html import make_html
+from share.process.entry import request_details, byte_catcher
+from share.process.action_html import make_html
 
 error_title = [{'value': 'Error Loading Action', 'class': 'error'}]
     
