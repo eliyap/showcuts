@@ -3,10 +3,10 @@ import copy, re
 import warnings, logging
 
 ## Dependency: local
-from .action import action
-from .pieces import *
-from .components import *
-from .intent import *
+from share.process.action import action
+from share.process.pieces import *
+from share.process.components import *
+from share.process.intent import *
 
 # app URLs
 filter_re = re.compile(r'is\.workflow\.actions\.filter\.(.+)')
