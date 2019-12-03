@@ -7,7 +7,8 @@ div {
     content:"";
     background-color: rgb(145, 150, 157);
     width: 3px;
-    height: 100%;
+    /* shorten the tail, due to hidden result elements */
+    height: calc(100% - 2rem);
     top: 0;
     left: 50%;
     z-index: 0;
@@ -125,12 +126,6 @@ div {
     line-height: 1.6;
     transition: .5s;
     -moz-transition: .5s;
-}
-.action.show-output{
-    /* margin-bottom: 4rem; */
-}
-.action.no-output{
-    margin-bottom: var(--action-padding);
 }
 .action-glyph,.inline-glyph,.output-glyph{
     border-radius: 0.3em;
