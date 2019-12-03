@@ -1063,12 +1063,12 @@ categorize = {
         "result":None,
     },
     "is.workflow.actions.encodemedia": {
-        "glyph": "Quicktime",
+        "glyph": "QuickTime.png",
         "category": "MEDIA",
         "result":'Encoded Media',
     },
     "is.workflow.actions.trimvideo": {
-        "glyph": "Quicktime",
+        "glyph": "QuickTime.png",
         "category": "MEDIA",
         "result":'Trimmed Media',
     },
@@ -1113,7 +1113,7 @@ categorize = {
         "result":'File of Type',
     },
     "is.workflow.actions.getrichtextfrommarkdown": {
-        "glyph": "Richtext",
+        "glyph": "RichText.png",
         "category": "DOCUMENTS",
         'result':'Rich Text from Markdown',
     },
@@ -1123,17 +1123,17 @@ categorize = {
         "result":None,
     },
     "is.workflow.actions.getrichtextfromhtml": {
-        "glyph": "Richtext",
+        "glyph": "RichText.png",
         "category": "DOCUMENTS",
         'result':'Rich Text from HTML',
     },
     "is.workflow.actions.gethtmlfromrichtext": {
-        "glyph": "Richtext",
+        "glyph": "RichText.png",
         "category": "DOCUMENTS",
         'result':'HTML from Rich Text',
     },
     "is.workflow.actions.getmarkdownfromrichtext": {
-        "glyph": "Richtext",
+        "glyph": "RichText.png",
         "category": "DOCUMENTS",
         'result':'Markdown from Rich Text',
     },
