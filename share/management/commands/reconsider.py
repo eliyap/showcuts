@@ -25,4 +25,5 @@ def redo_HTML(hxid:str) -> None:
     owner, url = shortcut_instance.owner, shortcut_instance.iCloud
     fresh_record = make_record(url, owner)
     shortcut_instance.action_blocks = fresh_record.action_blocks
+    shortcut_instance.UUID_glyphs = fresh_record.UUID_glyphs
     shortcut_instance.save()
