@@ -4,9 +4,9 @@ from json import JSONDecodeError
 import plistlib
 
 ## Dependency: local
-from ..models import Shortcut
-from .action_html import make_html
-from .pieces import extension_lookup
+from share.models import Shortcut
+from share.process.action_html import make_html
+from share.process.pieces import extension_lookup
 
 ## Dependency: user
 from django.contrib.auth.models import User, AnonymousUser
@@ -15,7 +15,7 @@ from django.contrib.auth.models import User, AnonymousUser
 class noActionsError(ValueError):
     pass
 
-def add_shortcut(url:str, user:User):
+def make_record(url:str, user:User):
     try:
         _id = re.findall(r'[0-9a-f]{32}',url)[0]
     except IndexError:
@@ -58,6 +58,10 @@ def add_shortcut(url:str, user:User):
         accepted_types=accepted_types,
         owner=user,
     )
+    return record
+
+def add_shortcut(url:str, user:User):
+    record = make_record(url, user)
     try:
         record.save()
     except TypeError:
