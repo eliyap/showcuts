@@ -7,6 +7,9 @@
 
 {% block extra_static %}
 <link rel="stylesheet" href="{% static 'css/view.css' %}">
+<script defer src="{% static 'js/FileSaver.min.js' %}"></script>
+<script defer src="{% static 'js/dom-to-image.min.js' %}"></script>
+<script defer src="{% static 'js/screenshot.js' %}"></script>
 {% endblock %}
 
 {% block sidebar %}
@@ -52,6 +55,10 @@
       {% include 'elements/action.html' with action=action UUID_glyphs=UUID_glyphs %}
       {% endfor %}
     </div>
+    <div id='screenshot-mark'>
+      <img src="{% static 'assets/logo/line.svg' %}" />
+      <p>Showcuts</p>
+    </div>
   </div>
   <!-- margin -->
   <div class='floater'></div>
@@ -70,24 +77,35 @@
         <p>Magic Vars</p>
       </div>
     </a>
+    <a id='screenshot' title='Export Image'>
+      <div class='tool-btn expand'>
+        <img src="{% static 'assets/ui/photo-square-white.svg' %}" />
+        <p>Screenshot</p>
+      </div>
+    </a>
     <div id='info' title='Shortcut Info'>
       <div class='tool-btn' id='info-expand'>
         <img src="{% static 'assets/ui/info.svg' %}" />
       </div>
     </div>
+
+    <!-- submission timestamp -->
     {% if owner.username == user.username %}
-      <p>Submitted
+    <p>Submitted {{sc_age}} ago</p>
     {% elif owner.username %}
-      <p>Submitted by {{owner.username}}
+    <p>Submitted by {{owner.username}} {{sc_age}} ago</p>
     {% else %}
-      <p>Submitted Anonymously
+    <p>Submitted Anonymously {{sc_age}} ago</p>
     {% endif %}
-    {{sc_age}} ago</p>
-    <div id="like" class="tool-btn line-art {{user.username|yesno:',disabled,'}} {{liked|yesno:'clicked,,'}}" title="{{user.username|yesno:'Like,Login to Like,'}}" hxid="{{hxid}}">
+
+    <!-- logged in buttons -->
+    <div id="like" class="tool-btn line-art {{user.username|yesno:',disabled,'}} {{liked|yesno:'clicked,,'}}"
+      title="{{user.username|yesno:'Like,Login to Like,'}}" hxid="{{hxid}}">
       <img src="{% static 'assets/ui/heart-fill.svg' %}" />
     </div>
     <p id="likes">{{likes}}</p>
-    <div id="save" class='tool-btn line-art {{user.username|yesno:',disabled,'}}' title='{{user.username|yesno:'Save,Login to Save,'}}' hxid="{{hxid}}">
+    <div id="save" class='tool-btn line-art {{user.username|yesno:',disabled,'}}'
+      title='{{user.username|yesno:'Save,Login to Save,'}}' hxid="{{hxid}}">
       <img src="{% static 'assets/ui/bookmark-fill.svg' %}" />
     </div>
   </div>

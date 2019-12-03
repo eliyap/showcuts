@@ -84,17 +84,19 @@ div.disabled {
 #show-magic {
     --n: 1;
 }
-
-#info {
-    --n: 2;
+#screenshot{
+    --n:2;
 }
-
-#like {
+#info {
     --n: 3;
 }
 
-#save {
+#like {
     --n: 4;
+}
+
+#save {
+    --n: 5;
 }
 
 #ios-download>div {
@@ -105,6 +107,12 @@ div.disabled {
     height: 2.4rem;
     min-width: 2.4rem;
     margin-right: .2rem;
+}
+#screenshot img{
+    height: 1.8rem;
+    min-width: 1.8rem;
+    margin: .1rem;
+    
 }
 
 #info img {
@@ -124,7 +132,7 @@ div.disabled {
     z-index: 4;
 }
 #info+p{
-    top:6rem;
+    top:9rem;
     width: 10rem;
     height: auto;
     border: 1px solid black;
@@ -177,18 +185,73 @@ div.disabled {
     white-space: nowrap;
 }
 
+/* blocked content for free users */
 
+.fade-out {
+    height: 20rem;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 5;
+    background-image: linear-gradient( rgba(255, 255, 255, 0), white);
+}
+
+.gate-text {
+    position: absolute;
+    text-align: center;
+    bottom: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+/* action extensions */
+
+#accepts {
+    margin-right: 1.5rem;
+    display: inline;
+    font-weight: 500;
+}
+
+#accepted-types {
+    display: inline;
+    color: gray;
+}
+
+/* screenshot watermark */
+#screenshot-mark {
+    width:fit-content;
+    width:-moz-fit-content;
+    height: 5rem;
+    position: relative;
+    left:50%;
+    transform: translateX(-50%);
+    display: none;
+    margin-top: 1rem;
+}
+#screenshot-mark img{
+    display: inline-block;
+    height: 5rem;
+}
+#screenshot-mark p{
+    display: inline-block;
+    position: relative;
+    bottom:50%;
+    transform: translateY(50%);
+    font-size: 2rem;
+}
 @media (prefers-color-scheme: dark) {
     .tool-btn {
         background-color: var(--sc-grey);
     }
-    .tool-btn img {
+    .tool-btn img,#screenshot-mark img {
         filter: invert(1);
     }
     .tool-btn p {
         color: black;
     }
-    .tool-btn.line-art p,#info+p {
+    .tool-btn.line-art p,#info+p,#screenshot-mark p {
         color: white;
     }
     #info+p {

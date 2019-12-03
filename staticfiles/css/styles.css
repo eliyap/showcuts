@@ -302,39 +302,7 @@ input[type=submit] {
     color: white;
 }
 
-/* blocked content for free users */
 
-.fade-out {
-    height: 20rem;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    z-index: 5;
-    background-image: linear-gradient( rgba(255, 255, 255, 0), white);
-}
-
-.gate-text {
-    position: absolute;
-    text-align: center;
-    bottom: 1rem;
-    margin-right: auto;
-    margin-left: auto;
-    width: 100%;
-    font-size: 1.5rem;
-}
-
-/* action extensions */
-
-#accepts {
-    margin-right: 1.5rem;
-    display: inline;
-    font-weight: 500;
-}
-
-#accepted-types {
-    display: inline;
-    color: gray;
-}
 
 /* icon background */
 
