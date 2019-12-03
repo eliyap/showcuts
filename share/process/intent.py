@@ -1,12 +1,15 @@
+## Dependency: sys
 import re, logging
 from os import system
 from os.path import expanduser
 import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import ParseError
 from base64 import b64decode, binascii
-from share.process.pieces import app_categorize
 
+## Dependency: local
+from share.process.pieces import app_categorize
 from showcuts.local_settings import sys_os
+from share.process.pieces import infoless
 
 ## Function: extract glyph and stuff from Siri Intent
 temp_plist_path = '/temporary.plist'
@@ -35,7 +38,7 @@ def get_intent(parameters:dict) -> dict:
     
     matching_apps = [app for app in app_categorize if app in intent_str]
     if not matching_apps:
-        return {}
+        return infoless
     else:
         if len(matching_apps) > 1:
             logging.error('More than 1 app found!', matching_apps)

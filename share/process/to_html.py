@@ -34,7 +34,7 @@ def format_action(component: action, indent_level: int) -> (dict, int):
     for (app_url, info) in app_categorize.items():
         if app_url in component.name: cat_info = info
     if not cat_info:
-        cat_info = categorize.get(component.name, {'glyph': 'missing', 'category': 'MISSING'})
+        cat_info = categorize.get(component.name, infoless)
     category, glyph = cat_info['category'], cat_info['glyph']
     result = cat_info.get('result', None)
 
@@ -114,7 +114,7 @@ def format_action(component: action, indent_level: int) -> (dict, int):
             title_elem = [text_elem(intent_info.get('remainder','Donated Action'))]
             special += "donated"
         elif "useractivity.open" == sub_name:
-            info = app_categorize.get(component.parameters['AppBundleIdentifier'], {'glyph': 'missing', 'category': 'MISSING'})
+            info = app_categorize.get(component.parameters['AppBundleIdentifier'], infoless)
             category, glyph = info['category'], info['glyph']
             title_elem = [text_elem(get_useractivity(component.parameters))]
             special += "donated"

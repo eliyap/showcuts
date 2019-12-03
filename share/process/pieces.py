@@ -1588,3 +1588,5 @@ time_codes = {
     'min':'minute',
     'hr':'hour',
 }
+
+infoless = {'glyph': 'missing', 'category': 'MISSING'}
