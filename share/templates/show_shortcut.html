@@ -99,13 +99,11 @@
     {% endif %}
 
     <!-- logged in buttons -->
-    <div id="like" class="tool-btn line-art {{user.username|yesno:',disabled,'}} {{liked|yesno:'clicked,,'}}"
-      title="{{user.username|yesno:'Like,Login to Like,'}}" hxid="{{hxid}}">
+    <div id="like" class="tool-btn line-art {{user.username|yesno:',disabled,'}} {{liked|yesno:'clicked,,'}}" title="{{user.username|yesno:'Like,Login to Like,'}}" hxid="{{hxid}}">
       <img src="{% static 'assets/ui/heart-fill.svg' %}" />
     </div>
     <p id="likes">{{likes}}</p>
-    <div id="save" class='tool-btn line-art {{user.username|yesno:',disabled,'}}'
-      title='{{user.username|yesno:'Save,Login to Save,'}}' hxid="{{hxid}}">
+    <div id="save" class="tool-btn line-art {{user.username|yesno:',disabled,'}}  {{saved|yesno:'clicked,,'}}" title='{{user.username|yesno:'Save,Login to Save,'}}' hxid="{{hxid}}">
       <img src="{% static 'assets/ui/bookmark-fill.svg' %}" />
     </div>
   </div>

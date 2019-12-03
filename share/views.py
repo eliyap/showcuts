@@ -91,6 +91,7 @@ def show_shortcut(request, hxid:str):
         'hxid':shortcut_instance.iCloudID,
         'likes':shortcut_instance.liked_by.count(),
         'liked':request.user in shortcut_instance.liked_by.all(),
+        'saved':request.user in shortcut_instance.saved_by.all(),
     }
     return render(request, 'show_shortcut.html', context)
 
