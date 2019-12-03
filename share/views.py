@@ -13,10 +13,10 @@ from django.views.generic import ListView
 from django.contrib.auth.decorators import login_required
 
 ## Dependency: local
-from .models import Shortcut
-from .forms import iCloudForm
-from .process.entry import add_shortcut, noActionsError
-from .process.pieces import color_dict
+from share.models import Shortcut
+from share.forms import iCloudForm
+from share.process.entry import add_shortcut, noActionsError
+from share.process.pieces import color_dict
 from django.template import RequestContext
 
 ## Dependency: social auth

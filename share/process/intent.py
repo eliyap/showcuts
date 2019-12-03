@@ -4,7 +4,7 @@ from os.path import expanduser
 import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import ParseError
 from base64 import b64decode, binascii
-from .pieces import app_categorize
+from share.process.pieces import app_categorize
 
 from showcuts.local_settings import sys_os
 

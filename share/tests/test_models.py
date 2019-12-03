@@ -2,7 +2,7 @@
 from django.test import TestCase
 
 ## Dependency: models for testing
-from ..models import Shortcut
+from share.models import Shortcut
 
 pk='ffffffffffffffffffffffffffffffff'
 

@@ -6,7 +6,7 @@ from django.test import TestCase
 import logging
 
 ## Dependency: forms for testing
-from ..forms import iCloudForm
+from share.forms import iCloudForm
 
 def check_iCloud_error_message(self, data:dict, expected_error:str):
     form = iCloudForm(data=data)

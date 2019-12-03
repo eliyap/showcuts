@@ -8,7 +8,7 @@ from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as ug
 
 ## Dependency: local
-from .process.entry import api_request
+from share.process.entry import api_request
 
 class iCloudForm(forms.Form):
 

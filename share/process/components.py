@@ -2,7 +2,7 @@
 import logging
 import re
 
-from .pieces import time_codes
+from share.process.pieces import time_codes
 
 
 def make_specify(parameters: dict, key: str, default: str, align_left: bool = False) -> dict:

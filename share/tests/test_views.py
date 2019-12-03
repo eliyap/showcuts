@@ -3,10 +3,10 @@ from django.test import TestCase
 from django.urls import reverse
 
 ## Dependency: views for testing
-from ..views import submit_iCloud
+from share.views import submit_iCloud
 
 ## Dependency: shortcut to populate
-from ..models import Shortcut
+from share.models import Shortcut
 
 pk='ffffffffffffffffffffffffffffffff'
 
