@@ -29,7 +29,7 @@ div {
     font-weight: normal!important;
 /* super long URLs and text: */
     overflow-wrap: break-word;
-    word-break: break-all;
+    word-break: break-word;
 }
 /* keep line height consistent */
 .toggle{
@@ -40,6 +40,9 @@ div {
 }
 .specify{
     font-weight: 300;
+    overflow-wrap: normal;
+    white-space: nowrap;
+    overflow-x: scroll;
 }
 .empty{
     color: lightgray;
@@ -80,7 +83,7 @@ div {
 }
 .text div{
     overflow-wrap: break-word;
-    word-break: break-all;
+    word-break: break-word;
     max-height: 60vh;
     overflow-y: scroll;
 }
@@ -111,7 +114,7 @@ div {
 
 
 .action {
-    width: 29rem;
+    max-width: 31rem;
     border-radius: var(--action-corner);
     padding: var(--action-padding);
     background-color: white;
@@ -153,7 +156,7 @@ div {
     margin-top: 0.5rem;
     margin-bottom: 0rem;
     overflow-wrap: break-word;
-    word-break: break-all;
+    word-break: break-word;
 }
 .action-title.flow{
     margin-top: -.7rem;
@@ -371,7 +374,12 @@ a:hover{
 }
 @media only screen and (max-width: 768px) {
     .action{
-        width: auto;
+        max-width: auto;
+    }
+    #action-container{
+        max-width: calc(100vw - 5rem);
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 /* dark mode settings */
@@ -405,6 +413,7 @@ a:hover{
     }
     .output{
         background-color: var(--dark-output-blue);
+        color: white;
     }
     
 }
