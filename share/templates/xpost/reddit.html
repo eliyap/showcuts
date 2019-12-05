@@ -1,0 +1,37 @@
+{% extends "bigcard.html" %}
+{% load static %}
+
+{% block extra_static %}
+<link rel="stylesheet" href="{% static 'css/view.css' %}">
+{% endblock %}
+
+{% block card-title %}
+Post Link to Shortcut
+{% endblock %}
+
+{% block incard %}
+<a href="https://www.reddit.com" title="Reddit">
+  <img id="reddit-light" src="{% static 'assets/branding/reddit-light.svg' %}" alt="Reddit" />
+  <img id="reddit-dark" src="{% static 'assets/branding/reddit-dark.svg' %}" alt="Reddit" />
+</a>
+<a href="http://{{request.get_host}}/share/view/{{hxid}}" title="Reddit">
+  <div class="hack-centre">
+    <div id="glyph-bg" style="background-color:rgb{{color_code}};margin:0 .5rem 0 0;">
+      <img src="{% static 'assets/glyphs/wand.svg' %}" />
+    </div>
+    <div class="sc-title" title="{{name}}" style="position: relative;top:.75rem;">
+      {{name}}
+    </div>
+  </div>
+</a>
+<form id="reddit-post" action="" method="post" class="centralize">
+  {% csrf_token %}
+  {% for field in form %}
+  {{field}}
+  {% endfor %}
+  <input type="submit" value="Submit">
+</form>
+{% if error %}
+<p class="hack-centre">Error: {{error}}</p>
+{% endif %}
+{% endblock %}
