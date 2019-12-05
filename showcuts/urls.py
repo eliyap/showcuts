@@ -11,7 +11,9 @@ from showcuts.local_settings import SOCIAL_AUTH_GITHUB_KEY, SOCIAL_AUTH_GITHUB_S
 from django.contrib.auth import views as auth_views
 
 # user settings
-from share.views import users_settings, wallpaper, wallpaper_huge
+from share.views import user, misc
+
+from showcuts.redir import front_with_query
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -21,12 +23,12 @@ urlpatterns = [
     url(r'^logout/$',
         auth_views.LogoutView.as_view(), 
         name='logout'),
-    path('settings/', users_settings, name='user-settings'),
+    path('settings/', user.users_settings, name='user-settings'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
     path('share/', include('share.urls')),
-    path('wallpaper/', wallpaper, name='wallpaper'),
-    path('wallpaper/huge', wallpaper_huge, name='wallpaper'),
-    path('', RedirectView.as_view(url='share/', permanent=True)),
+    path('wallpaper/', misc.wallpaper, name='wallpaper'),
+    path('wallpaper/huge', misc.wallpaper_huge, name='wallpaper'),
+    path('', front_with_query.as_view()),
 ]
 
 # Use static() to add url mapping to serve static files during development (only)
