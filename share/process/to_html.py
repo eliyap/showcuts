@@ -1462,6 +1462,19 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 {**{'label':'Service'},**service_elem},
                 {**{'label':'Path'},**path_elem},
             ]
+        elif "file.append"== sub_name: 
+            service_elem = make_choose(component.parameters, 'WFFileStorageService', 'iCloud Drive')
+            path_elem = make_specify(component.parameters, 'WFFilePath', '/example.txt',align_left=True)
+            title_elem=[
+                make_magic(component.parameters, 'WFAppendFileWriteMode', 'Append', default_blank=False, ask_text='Mode'),
+                make_magic(component.parameters, 'WFInput', 'Text'),
+            ]
+            
+            line_elems = [
+                {**{'label':'Service'},**service_elem},
+                {**{'label':'File Path'},**path_elem},
+                {**{'label':'Make New Line'},**make_toggle(component.parameters, 'WFAppendOnNewLine', True)},
+            ]
         elif "file.delete"== sub_name: 
             title_elem=[
                 'Delete',
@@ -1578,6 +1591,53 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 'Make Markdown from',
                 make_magic(component.parameters, 'WFInput', 'Rich Text'),
             ]
+        elif 'gettimebetweendates' == sub_name:
+            title_elem = [
+                'Get time between',
+                make_magic(component.parameters, 'WFTimeUntilFromDate', 'First Date', ask_text='Date'),
+                'and',
+                make_magic(component.parameters, 'WFInput', 'Second Date', ask_text='Date'),
+                'in',
+                make_magic(component.parameters, 'WFTimeUntilUnit', 'Minutes', default_blank=False, ask_text='In'),
+            ]
+        elif "speaktext"== sub_name: 
+            title_elem=[
+                'Speak',
+                make_magic(component.parameters, 'WFText', 'Text', ask_text='Text'),
+            ]
+            lang_elem = make_choose(component.parameters, 'WFSpeakTextLanguage', 'en-US')
+            lang_elem['value'] = lang_codes.get(lang_elem['value'],lang_elem['value'])
+            line_elems = [
+                {**{'label':'Wait Until Finished'},**make_toggle(component.parameters, 'WFSpeakTextWait', True)},
+                {**{'label':'Rate'},**{}}, #TODO slider from 0.0 -> 2.0
+                {**{'label':'Pitch'},**{}},#TODO slider from 0.0 -> 2.0
+                {**{'label':'Language'},**lang_elem},
+                {**{'label':'Voice'},**{}},
+            ]
+        elif "text.translate"== sub_name: 
+            title_elem=[
+                'Translate',
+                make_magic(component.parameters, 'WFInputText', 'Text', ask_text='Text'),
+                'from',
+                make_magic(component.parameters, 'WFSelectedFromLanguage', 'Detected Language', default_blank=False, ask_text='Language'),
+                'to',
+                make_magic(component.parameters, 'WFSelectedLanguage', 'English', default_blank=False, ask_text='To'),
+            ]
+        elif "listeningmode.set" == sub_name:
+            title_elem = ['No AirPods in Developer Inventory 😞'] # literally blocked if you don't own airpods pro. thanks apple
+        elif "imgur.upload" == sub_name: 
+            title_elem=[
+                'Upload',
+                make_magic(component.parameters, 'WFInput', 'Images'),
+            ]
+            direct_elem = {**{'label':'Direct Link'},**make_toggle(component.parameters, 'WFImgurDirectLink', False)}
+            album_elems = [{**{'label':'Create Album'},**make_toggle(component.parameters, 'WFImgurAlbum', False)},]
+            line_elems = [
+                {**{'label':'Upload Anonymously'},**make_toggle(component.parameters, 'WFImgurAnonymous', True)},
+            ] + album_elems + [
+                {**{'label':'Title'},**make_specify(component.parameters, 'WFImgurTitle', 'optional')},
+                # description - awaiting notes field 'WFImgurDescription'
+            ] # TODO: finish the logic in this shortcut!
         elif "runextension"== sub_name: 
             title_elem=[]
         elif "postonfacebook"== sub_name: 
