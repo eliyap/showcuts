@@ -38,6 +38,7 @@ $(document).ready(function () {
     checkWidth();// Execute on load
     $(window).resize(checkWidth)// Bind event listener
     $("#id_iCloudLink").focus()// place cursor (on form page)
+    $("#id_subreddit").focus()// place cursor (on form page)
 
 
     // Magic Variable Toggle
@@ -103,7 +104,15 @@ $(document).ready(function () {
             });
         }
     })
-
+    $("#xpost,#info").unbind('click').click(function (){
+        let elem = $(this);
+        if (elem.hasClass("clicked")){
+            elem.removeClass("clicked");
+        }
+        else{
+            elem.addClass("clicked");
+        }
+    });
     // account deleting warning
     $("#safety-glass").unbind('click').click(function (){
         let elem=$(this);

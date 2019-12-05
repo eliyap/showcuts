@@ -106,6 +106,15 @@
     <div id="save" class="tool-btn line-art {{user.username|yesno:',disabled,'}}  {{saved|yesno:'clicked,,'}}" title='{{user.username|yesno:'Save,Login to Save,'}}' hxid="{{hxid}}">
       <img src="{% static 'assets/ui/bookmark-fill.svg' %}" />
     </div>
+    <div id="xpost" class="tool-btn line-art" title='Share Shortcut'>
+      <img src="{% static 'assets/ui/share.svg' %}" />
+    </div>
+    <a id="reddit" href='http://{{request.get_host}}/share/reddit/{{hxid}}' class='xpost-wrapper' title=''>
+      <img src="{% static 'assets/branding/reddit.svg' %}" />
+    </a>
+    <a id="twitter" href='https://twitter.com/intent/tweet?text=https://showcuts.app/share/view/{{hxid}}%0ACheck%20out%20this%20Shortcut!' class='xpost-wrapper' title='Tweet' target="_blank">
+      <img src="{% static 'assets/branding/twitter.svg' %}" />
+    </a>
   </div>
   {% if action_blocks|length > 100 %}
   {% with remainder=action_blocks|length|add:-100 %}

@@ -10,12 +10,15 @@
     display: inline-block;
     flex: initial;
 }
+
 /* arrangement elements */
+
 .floater {
     flex: auto;
     z-index: -1;
     background-color: var(--sc-grey);
 }
+
 .align-5 {
     width: 3rem;
     flex: initial;
@@ -72,7 +75,6 @@ div.disabled {
     opacity: .3;
 }
 
-
 /* button specific stylings */
 
 /* -- indexes */
@@ -84,9 +86,11 @@ div.disabled {
 #show-magic {
     --n: 1;
 }
-#screenshot{
-    --n:2;
+
+#screenshot {
+    --n: 2;
 }
+
 #info {
     --n: 3;
 }
@@ -99,6 +103,51 @@ div.disabled {
     --n: 5;
 }
 
+#xpost {
+    --n: 6;
+}
+
+#xpost>img {
+    height: 1.5rem;
+    min-width: 1.5rem;
+    margin: 0rem;
+}
+
+#xpost:hover>img, #xpost.clicked>img,#xpost:active>img {
+    filter: invert(60%) sepia(19%) saturate(2576%) hue-rotate(110deg) brightness(97%) contrast(98%);
+}
+
+a.xpost-wrapper {
+    --n: 6;
+    position: absolute;
+    padding: .2rem;
+    top: calc(var(--n) * 3rem);
+    right:0;
+    transition: .25s;
+    -moz-transition: .25s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+a.xpost-wrapper img{
+    min-width: 2.5rem;
+    height: 2.5rem;
+}
+#xpost.clicked~a.xpost-wrapper{
+    visibility: visible!important;
+    opacity: 1;
+}
+
+#xpost.clicked~#reddit {
+    top: calc(var(--n) * 3rem - 1.5rem);
+    right: 3rem;
+}
+
+#xpost.clicked~#twitter {
+    top: calc(var(--n) * 3rem + 1.5rem);
+    right: 3rem;
+}
+
 #ios-download>div {
     padding: .05rem;
 }
@@ -108,11 +157,11 @@ div.disabled {
     min-width: 2.4rem;
     margin-right: .2rem;
 }
-#screenshot img{
+
+#screenshot img {
     height: 1.8rem;
     min-width: 1.8rem;
     margin: .1rem;
-    
 }
 
 #info img {
@@ -131,56 +180,70 @@ div.disabled {
     margin: .25rem;
     z-index: 4;
 }
-#info+p{
-    top:9rem;
+
+#info+p {
+    top: 9rem;
     width: 10rem;
     height: auto;
     border: 1px solid black;
 }
-#like+p{
-    top:12rem;
-    width:2.5rem;
-    height:2.5rem;
-    background-color:black;
-    color:white;
+
+#like+p {
+    top: 12rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: black;
+    color: white;
     text-align: center;
     font-size: 1.3rem;
     font-weight: 600;
 }
-#info:hover+p, #like:hover+p {
+
+#info.clicked+p {
+    right: 3rem;
+    pointer-events: none;
+}
+
+#like:hover+p {
     right: 3rem;
     pointer-events: none;
 }
 
 /* line art buttons */
-.tool-btn.line-art{
+
+.tool-btn.line-art {
     background: none;
-    padding:.4rem;
+    padding: .4rem;
 }
-.tool-btn.line-art:active{
-    padding:.3rem;
+
+.tool-btn.line-art:active {
+    padding: .3rem;
 }
-.tool-btn.line-art:active img{
+
+.tool-btn.line-art:active img {
     height: 2rem;
     width: 2rem;
 }
-.tool-btn.line-art p{
+
+.tool-btn.line-art p {
     color: black;
 }
-.tool-btn.line-art img{
+
+.tool-btn.line-art img {
     min-width: 1.8rem;
-    height:1.8rem;
+    height: 1.8rem;
     transition: .2s;
     -moz-transition: .2s;
 }
 
-
-#like.clicked img{
-    filter:invert(41%) sepia(19%) saturate(2576%) hue-rotate(310deg) brightness(97%) contrast(98%);
+#like.clicked img {
+    filter: invert(41%) sepia(19%) saturate(2576%) hue-rotate(310deg) brightness(97%) contrast(98%);
 }
-#save.clicked img{
+
+#save.clicked img {
     filter: invert(45%) sepia(43%) saturate(7372%) hue-rotate(201deg) brightness(100%) contrast(98%);
 }
+
 #ios-download, #show-magic, #like {
     white-space: nowrap;
 }
@@ -220,42 +283,46 @@ div.disabled {
 }
 
 /* screenshot watermark */
+
 #screenshot-mark {
-    width:fit-content;
-    width:-moz-fit-content;
+    width: fit-content;
+    width: -moz-fit-content;
     height: 5rem;
     position: relative;
-    left:50%;
+    left: 50%;
     transform: translateX(-50%);
     display: none;
     margin-top: 1rem;
 }
-#screenshot-mark img{
+
+#screenshot-mark img {
     display: inline-block;
     height: 5rem;
 }
-#screenshot-mark p{
+
+#screenshot-mark p {
     display: inline-block;
     position: relative;
-    bottom:50%;
+    bottom: 50%;
     transform: translateY(50%);
     font-size: 2rem;
 }
+
 @media (prefers-color-scheme: dark) {
     .tool-btn {
         background-color: var(--sc-grey);
     }
-    .tool-btn img,#screenshot-mark img {
+    .tool-btn img, #screenshot-mark img {
         filter: invert(1);
     }
     .tool-btn p {
         color: black;
     }
-    .tool-btn.line-art p,#info+p,#screenshot-mark p {
+    .tool-btn.line-art p, #info+p, #screenshot-mark p {
         color: white;
     }
     #info+p {
-        border:1px solid white;
+        border: 1px solid white;
     }
     .fade-out {
         background-image: linear-gradient( rgba(0, 0, 0, 0), black);
