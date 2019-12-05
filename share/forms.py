@@ -35,6 +35,12 @@ class iCloudForm(forms.Form):
         
         return url
         
-        
-
- 
+class redditForm(forms.Form):
+    subreddit = forms.CharField(
+        help_text='Subreddit',
+        widget=forms.TextInput(attrs={'placeholder': 'Subreddit'})
+    )
+    title = forms.CharField(
+        help_text='Post Title',
+        widget=forms.TextInput(attrs={'placeholder': 'Post Title'})
+    )
