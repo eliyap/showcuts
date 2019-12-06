@@ -367,7 +367,8 @@ a:hover{
     height:0!important;
     margin-bottom: 0!important;
 }
-@media only screen and (max-width: 768px) {
+/* modded from 768 due to 35 rem default */
+@media only screen and (max-width: 600px) {
     .action{
         max-width: auto;
     }

@@ -291,7 +291,7 @@ a.xpost-wrapper img{
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    display: none;
+    /* display: none; */
     margin-top: 1rem;
 }
 
