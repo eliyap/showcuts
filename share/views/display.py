@@ -3,11 +3,13 @@
 from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 from django.http import HttpResponse
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 ## Dependency: local
 from ..process.pieces import color_dict
 from ..models import Shortcut
 
+@xframe_options_exempt
 def show_shortcut(request, hxid:str):
     shortcut_instance = get_object_or_404(Shortcut, pk=hxid)
     # should only receive GET calls
