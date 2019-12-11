@@ -28,12 +28,13 @@ html {
 }
 
 /* general styling */
-.hack-centre{
-    width:fit-content;
-    width:-moz-fit-content;
+
+.hack-centre {
+    width: fit-content;
+    width: -moz-fit-content;
     position: relative;
     transform: translate(-50%, 0);
-    left:50%;
+    left: 50%;
 }
 
 /* big elements */
@@ -261,7 +262,7 @@ html {
     border-radius: .7rem;
     background-color: black;
     display: inline-block;
-    padding: .65rem;
+    padding: .45rem;
     margin: 0 1rem;
 }
 
@@ -456,6 +457,52 @@ input[type=submit] {
     max-height: 15rem;
 }
 
+/* loading image */
+
+#loading {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 30vh;
+    width: 30vh;
+    padding: 5vh;
+    background-color: rgba(255, 255, 255, .9);
+    border-radius: 50%;
+    box-shadow: 0 0 10px white;
+    display: none;
+}
+
+#path1 {
+    stroke-dasharray: 325, 50,325, 50;
+    stroke-dashoffset: 750;
+    animation: dash1 4s linear -2.8s infinite;
+}
+
+#path2 {
+    stroke-dasharray: 325, 50,325, 50;
+    stroke-dashoffset: 770;
+    animation: dash2 4s linear 0s infinite;
+}
+
+@keyframes dash1 {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 1500;
+    }
+}
+
+@keyframes dash2 {
+    0% {
+        stroke-dashoffset: 1500;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
 @media (prefers-color-scheme: dark) {
     .bg-darkmode {
         background: #333;
@@ -538,11 +585,11 @@ input[type=submit] {
 }
 
 @media only screen and (max-width: 1280px) {
-    #reddit-post::before{
-        content:'';
+    #reddit-post::before {
+        content: '';
     }
-    #reddit-post *{
+    #reddit-post * {
         display: block;
-        margin:0 auto .5rem auto;
+        margin: 0 auto .5rem auto;
     }
 }

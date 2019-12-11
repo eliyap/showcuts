@@ -119,9 +119,20 @@ $(document).ready(function () {
         $("#disconnect-warning").addClass("show");
         $("h1,h2,h3,h4,h5,h6,p,form").addClass("blurred");
         elem.hide();
-    })
+    });
+
     $("#accept-delete").unbind('click').click(function (){
         $("#disconnect-warning").removeClass("show");
         $(".blurred").removeClass("blurred");
+    });
+    
+    $("#icloud-submit").click(function (){
+        $(this).addClass("clicked");
     })
 });
+$(window).bind('beforeunload', function(){
+    if ($("#icloud-submit").hasClass('clicked')){
+        $("#loading").css({'display':'block','opacity':'100%'});
+    }
+});
+  
