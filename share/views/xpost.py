@@ -8,13 +8,13 @@ from django.http import HttpResponseRedirect
 
 ## Dependency: local
 from ..forms import redditForm
-from ..process.pieces import color_dict
+from ..process.pieces import *
 from showcuts.user_util import post_reddit, request_token
 from ..models import Shortcut
 
 def reddit(request, hxid:str):
     shortcut_instance = get_object_or_404(Shortcut, pk=hxid)
-    glyph_color = color_dict.get(shortcut_instance.colorID, '(0,0,0)')
+    glyph_color = color_codes.get(shortcut_instance.colorID, '(0,0,0)')
     error = None
     
     if request.method == 'POST':
