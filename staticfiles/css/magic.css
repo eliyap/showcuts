@@ -33,12 +33,7 @@ div {
     word-break: break-word;
 }
 /* keep line height consistent */
-.toggle{
-    height: 2.4rem;
-    margin-top: .5rem;
-    margin-bottom: .5rem;
-    overflow: hidden;
-}
+
 .specify{
     font-weight: 300;
     overflow-wrap: normal;
@@ -184,8 +179,8 @@ div {
 
 .lower-line{
     border-top: 1px solid rgba(0, 0, 0, .125);
-    padding-right: 1.2rem;
-    height: 3.4rem;
+    padding:.5rem 1.2rem .5rem 0;
+    /* height: 3.4rem; */
     font-size: 1.2rem;
     display: flex;
 }
@@ -214,8 +209,9 @@ div {
     width: 4rem;
     flex: initial;
     border-radius: 999rem;
+    height: 2.4rem;
+    overflow: hidden;
 }
-
 .toggle.on {
     background-color: rgb(60, 197, 94);
 }
@@ -367,6 +363,28 @@ a:hover{
     height:0!important;
     margin-bottom: 0!important;
 }
+
+/* inline blocks */
+.inline *{
+    display: inline-block;
+}
+/* filters for filter action */
+.filter-property,.filter-operator,.filter-benchmark,.filter-unit{
+    margin:auto 0;
+}
+.filter-property{
+    color:rgb(120,115,230);
+}
+.filter-operator{
+    color:rgb(216,75,216);
+}
+.filter-benchmark{
+    color:rgb(254,68,84);
+}
+.filter-unit{
+    color:rgb(255,102,52);
+}
+
 /* modded from 768 due to 35 rem default */
 @media only screen and (max-width: 600px) {
     .action{
@@ -391,6 +409,9 @@ a:hover{
         color:var(--dark-magic-ink);
         background-color: var(--dark-magic-bg);
     }
+    .choose-var{
+        color:var(--dark-magic-ink);
+    }
     .toggle.off{
         background-color: rgb(67,68,72);
     }
@@ -402,6 +423,9 @@ a:hover{
     }
     .pill-on{
         background-color: var(--dark-light-grey);
+    }
+    .counter img{
+        filter: invert(1);
     }
     .action.comment,.comment>.row.category {
         background-color: rgb(39, 37, 23);

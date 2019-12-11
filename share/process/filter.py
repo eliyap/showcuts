@@ -18,7 +18,12 @@ def filtration(filter_dct:dict):
     for fltr in filters:
 
         filter_lines += [{**{'label':''},**{
-            'value': fltr['Property'] + ' ' + condition_map.get(fltr['Operator'],'Condition'), 
-            'class': 'choose-var', 
+            'value': [
+                {'class':'filter-property','value':fltr['Property']},
+                {'class':'filter-operator','value':condition_map.get(fltr['Operator'],'Condition')},
+                {'class':'filter-benchmark','value':'very long test string'},
+                {'class':'filter-unit','value':'Lorem Ipsum Dolor Sit Amet'},
+            ],
+            'class': 'inline', 
         }}]
     return filter_lines
