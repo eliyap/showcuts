@@ -22,8 +22,7 @@ def make_choose(parameters: dict, key: str, default: str) -> dict:
     if not val:
         return{'value': default, 'class': 'choose-var', }
 
-    elem = make_magic(parameters, key, default,
-                      default_blank=False, force_magic=False)
+    elem = make_magic(parameters, key, default, default_blank=False, force_magic=False)
     elem['class'] += ' choose-var'
     return elem
 
@@ -339,7 +338,11 @@ def make_pill(parameters: dict, key: str, options: [str], default: str) -> dict:
         selection = default
     if isinstance(selection, dict):  # I CAST DETECT MAGIC
         return make_magic(parameters, key)
+    
+    # TODO: replace this duct tape
     selection = selection.title()  # vars are often lowercased
+    selection = re.sub('To','to', selection) # 'A to Z' is the exception
+
     pill_elems = []
     [pill_elems.append({'selected': option == selection, 'value': option, }) for option in options]
     return {'class': 'pill', 'value': pill_elems, }
@@ -375,8 +378,7 @@ def get_duration(parameters: dict, default_magnitude: int = 0, default_unit: str
         duration_elems = [
             magic(str(default_magnitude), True), magic(default_unit)]
     # convert time short forms
-    duration_elems[1]['value'] = time_codes.get(
-        duration_elems[1]['value'], duration_elems[1]['value'])
+    duration_elems[1]['value'] = time_codes.get(duration_elems[1]['value'], duration_elems[1]['value'])
     duration_elems[1]['value'] += '' if duration_elems[0]['value'] == '1' else 's'
     # sometimes this results in 'weekss', correct that:
     duration_elems[1]['value'] = re.sub('ss$', 's', duration_elems[1]['value'])
