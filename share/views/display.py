@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.views.decorators.clickjacking import xframe_options_exempt
 
 ## Dependency: local
-from ..process.pieces import color_dict
+from ..process.pieces import *
 from ..models import Shortcut
 
 @xframe_options_exempt
@@ -14,7 +14,8 @@ def show_shortcut(request, hxid:str):
     shortcut_instance = get_object_or_404(Shortcut, pk=hxid)
     # should only receive GET calls
     actions_blocks, UUID_glyphs = shortcut_instance.action_blocks['blocks'], shortcut_instance.UUID_glyphs
-    glyph_color = color_dict.get(shortcut_instance.colorID, '(0,0,0)')
+    glyph_color = color_codes.get(shortcut_instance.colorID, '(0,0,0)')
+    glyph_icon = icon_codes.get(shortcut_instance.glyphID, 'skull.svg')
     types = shortcut_instance.shortcut_types.split(',')
     if 'ActionExtension' in types:
         _ = shortcut_instance.accepted_types.split(',')
@@ -29,6 +30,7 @@ def show_shortcut(request, hxid:str):
         'action_blocks':actions_blocks,
         'UUID_glyphs': UUID_glyphs,
         'color_code':glyph_color,
+        'glyph_icon':f'assets/glyphs/{glyph_icon}',
         'iCloud_link':shortcut_instance.iCloud,
         'accepted_types':accepts,
         'types':types,
