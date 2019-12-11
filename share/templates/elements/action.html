@@ -1,7 +1,8 @@
 {% load static %}
-<!-- comment blocks styled differently -->
+
 <div class="action {{action.indent}} {{action.special}}">
   <div class="hash" id="{{action.UUID}}"></div>
+
   <!-- flow controls ('menu', 'if', etc. have no category) -->
   {% if 'flow' not in action.special %}
   <div class="row category">
@@ -11,51 +12,57 @@
     </div>
   </div>
   {% endif %}
-  <!-- /category info -->
+
   {% if 'comment' in action.special or 'text' in action.special %}
+  <!-- special styling for text / comment actions -->
   <div class="row {{action.special}}">
     {% for i in action.title %}
     {% include 'elements/inline.html' with elem=i %}
     {% endfor%}
   </div>
+
   {% else %}
   <div class="action-title {{action.special}}">
+    <!-- title -->
     <div class="row">
       {% for i in action.title %}
       {% include 'elements/inline.html' with elem=i %}
       {% endfor%}
     </div>
+
     <!-- line elements -->
     {% if action.lines %}
     <div class="line-elems">
       {% for line in action.lines %}
-      <!-- modifies class so that 'specify' content aligns left -->
-      {% if 'leftify' in line.class %}
-      <div class="lower-line leftify">
-        {% else %}
-        <div class="lower-line">
-          {% endif %}
-          <div class="line-label">{{line.label}}</div>
-          {% include 'elements/inline.html' with elem=line UUID_glyphs=UUID_glyphs %}
-        </div>
-        {% endfor %}
+      
+      <!-- align 'specify' content -->
+      <div class="lower-line {% if 'leftify' in line.class %}leftify{% endif %}">
+      
+        <div class="line-label">{{line.label}}</div>
+        {% include 'elements/inline.html' with elem=line UUID_glyphs=UUID_glyphs %}
       </div>
-      {% endif %}
-      <!-- item elements -->
-      {% if action.list_items %}
-      {% include 'elements/list.html' with list_items=action.list_items %}
-      {% endif %}
-      <!-- dict elements -->
-      {% if action.dct %}
-      {% include 'elements/dict.html' with items=action.dct %}
-      {% endif %}
+      {% endfor %}
     </div>
     {% endif %}
-    <!-- output -->
-  </div>
-  {% if action.result %}
-  <div class="output hidden">
-    <img class="output-glyph" src="{% static action.glyph %}" />
-    {{action.result}}
+
+    <!-- item elements -->
+    {% if action.list_items %}
+    {% include 'elements/list.html' with list_items=action.list_items %}
+    {% endif %}
+
+    <!-- dict elements -->
+    {% if action.dct %}
+    {% include 'elements/dict.html' with items=action.dct %}
+    {% endif %}
   </div>
   {% endif %}
+  <!-- output -->
+</div>
+
+<!-- output magic var -->
+{% if action.result %}
+<div class="output hidden">
+  <img class="output-glyph" src="{% static action.glyph %}" />
+  {{action.result}}
+</div>
+{% endif %}
