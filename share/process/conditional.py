@@ -14,8 +14,8 @@ condition_map = { # (*) => there's an alternate form of this condition
     1:'is less than or equal to',
     2:'is greater than', # *
     3:'is greater than or equal to',
-    4:'is exactly', # *
-    5:'is not exactly', # *
+    4:'is', # *
+    5:'is not', # *
     8:'begins with',
     9:'ends with',
     99:'contains',
@@ -51,7 +51,7 @@ def cond_mapper(parameters, condition, var_type):
     
     elif condition in [1, 3]:
         return [
-            magic(condition_map(condition)),
+            magic(condition_map[condition]),
             make_magic(parameters, 'WFNumberValue', 'Number'),
         ]
     
@@ -77,29 +77,29 @@ def cond_mapper(parameters, condition, var_type):
     
     elif condition in [8, 9]:
         return [
-            magic(condition_map(condition)),
+            magic(condition_map[condition]),
             make_magic(parameters, 'WFConditionalActionString', 'Text'),
         ]
     
     elif condition in [99, 999]:
         return [
-            magic(condition_map(condition)),
+            magic(condition_map[condition]),
             make_magic(parameters, 'WFConditionalActionString', 'Text'),
         ]
     
     elif condition in [100, 101]:
-        return [condition_map(condition)]
+        return [condition_map[condition]]
     
     elif condition in [1000, 1001]:
         return [
-            magic(condition_map(condition)),
+            magic(condition_map[condition]),
             make_magic(parameters, 'WFDuration', 'Number', False, 'Magnitude'),
             # no blank, 'minutes' is chosen by default
             make_magic(parameters, 'WFDuration','unit', False, 'Unit')
         ]
     
     elif 1002 == condition:
-        return [magic(condition_map(condition))]
+        return [magic(condition_map[condition])]
     
     elif 1003 == condition:
         if 'WFDate' in parameters and 'WFAnotherDate' in parameters:
@@ -112,7 +112,7 @@ def cond_mapper(parameters, condition, var_type):
             test_elem_1 = magic('Value', True)
             test_elem_2 = magic('Value', True)
         return [
-            magic(condition_map(condition)),
+            magic(condition_map[condition]),
             test_elem_1,
             'and',
             test_elem_2,
