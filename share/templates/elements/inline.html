@@ -12,19 +12,26 @@
     <img class="inline-glyph" src="{% static UUID_glyphs|get_item:elem.UUID %}" />
     {% endif %}
 
+    <!-- inline magic vars -->
     {% if 'inline' in elem.class %}
-      {% for i in elem.value %}
-        {% include 'elements/inline.html' with elem=i %}
-      {% endfor%}
+    {% for i in elem.value %}
+    {% include 'elements/inline.html' with elem=i %}
+    {% endfor%}
+
+    <!-- pill menu -->
     {% elif 'pill' in elem.class%}
-      {% for i in elem.value %}
-        <div class='{{i.selected|yesno:"pill-on,pill-off,"}}'>{{i.value}}</div>
-      {% endfor %}
+    {% for i in elem.value %}
+    <div class='{{i.selected|yesno:"pill-on,pill-off,"}}'>{{i.value}}</div>
+    {% endfor %}
+
+    <!-- counter (-|+) -->
     {% elif 'counter' in elem.class%}
-      <img src="{% static 'assets/ui/counter-minus.svg' %}"/>
-      <img src="{% static 'assets/ui/counter-plus.svg' %}"/>
+    <img src="{% static 'assets/ui/counter-minus.svg' %}" />
+    <img src="{% static 'assets/ui/counter-plus.svg' %}" />
+    
+    <!-- catchall -->
     {% else %}
-      {{elem.value}}
+    {{elem.value}}
     {% endif %}
   </div>
 
