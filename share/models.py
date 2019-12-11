@@ -1,3 +1,6 @@
+## Dependency: sys
+from datetime import datetime
+
 # boilerplate
 from django.contrib.auth.models import User
 from django.db import models
@@ -7,6 +10,12 @@ from django.core.serializers.json import DjangoJSONEncoder
 import json
 
 # social auth
+
+def byt_catcher(o):
+    if isinstance(o, datetime):
+        return o.__str__()
+    else:
+        return o.decode('UTF-8')
 
 class JSONField(models.TextField):
     def to_python(self, value):
@@ -26,7 +35,7 @@ class JSONField(models.TextField):
         if value == "":
             return None
         if isinstance(value, dict):
-            value = json.dumps(value, cls=DjangoJSONEncoder)
+            value = json.dumps(value, cls=DjangoJSONEncoder, default=byt_catcher)
         return value
 
 class Shortcut(models.Model):

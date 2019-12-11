@@ -33,7 +33,7 @@ def make_record(url:str, user:User):
         raise noActionsError('Could not get actions from Shortcut file!')
     
     action_blocks, UUID_glyphs = make_html(raw_actions)
-    byte_catcher(action_blocks) # clean VCard bytes
+    # byte_catcher(action_blocks) # clean VCard bytes # obsolete method
     wrapped_blocks = {'blocks':action_blocks} # JSONField doesn't accept list of dict
     
     shortcut_types = ','.join(WFdct.get('WFWorkflowTypes',[]))
@@ -110,7 +110,7 @@ def api_request(url:str) -> dict:
             file.close()
         raise JSONDecodeError()
 
-
+# OBSOLETE, can be deleted if nothing breaks
 def byte_catcher(actions:(dict,list)):
     if isinstance(actions, dict):
         for key in actions:
@@ -121,7 +121,6 @@ def byte_catcher(actions:(dict,list)):
                     json.dumps(actions[key])
                 except TypeError:
                     actions[key] = actions[key].decode('UTF-8')
-                    logging.error(actions[key])
     elif isinstance(actions, list):
         for val in actions:
             if isinstance(val, (dict,list)):
@@ -131,5 +130,4 @@ def byte_catcher(actions:(dict,list)):
                     json.dumps(val)
                 except TypeError:
                     val = val.decode('UTF-8')
-                    logging.error(val)
     return actions
