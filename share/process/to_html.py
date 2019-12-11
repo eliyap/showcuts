@@ -7,6 +7,9 @@ from share.process.action import action
 from share.process.pieces import *
 from share.process.components import *
 from share.process.intent import *
+from .control_flow import control_flow
+from .conditional import conditional
+from .filter import filtration # "filter" is a protected word
 
 # app URLs
 filter_re = re.compile(r'is\.workflow\.actions\.filter\.(.+)')
@@ -59,39 +62,30 @@ def format_action(component: action, indent_level: int) -> (dict, int):
             info['title'],
             make_magic(component.parameters, 'WFContentItemInputParameter', info['default'], default_blank=info['default_blank']),
         ]
-        if 'files' == sub_name:
-            options_impl = False
-        elif "music" == sub_name:
-            options_impl = False
-        elif "articles" == sub_name:
-            options_impl = False
-            line_elems
-        elif "images" == sub_name:
-            options_impl = False
-        elif "locations" == sub_name:
-            options_impl = False
-        elif "eventattendees" == sub_name:
-            options_impl = False
-        elif "calendarevents" == sub_name:
-            options_impl = False
-        elif "reminders" == sub_name:
-            options_impl = False
-        elif "notes" == sub_name:
-            options_impl = False
-        elif "contacts" == sub_name:
-            options_impl = False
-        elif "health.quantity" == sub_name:
-            options_impl = False
-        elif "photos" == sub_name:
-            options_impl = False
+        if 'WFContentItemFilter' in component.parameters:
+            title_elem += ['where']
+            filters = filtration(component.parameters['WFContentItemFilter']['Value'])
         else:
-            impl=False
-        #TODO: add generalized handling
-        # if any filters, title_elem += ['where']
+            filters = []
+
+        if sub_name not in ['files', "music", "articles", "images", "locations", "eventattendees", "calendarevents", "reminders", "notes", "contacts", "health.quantity", "photos"]:
+            impl = False
+        
+        sort_elem = make_choose(component.parameters, 'WFContentItemSortProperty', 'None')
+        sort_lines = [{**{'label':'Sort by'},**sort_elem}]
+        if sort_elem['value'] not in ['None','Random']:
+            # sort_lines += [{**{'label':'Order'},**make_pill(component.parameters, 'WFContentItemSortOrder', ['A to Z','Z to A'],'A to Z')}]
+            # TODO
+            # as of 19.12.09, it is possible to sort Name by "Oldest First", and date by "A to Z"
+            # "order" elem abandoned until fixed (should be pill)
+            sort_lines += [{**{'label':'Order'},**make_choose(component.parameters, 'WFContentItemSortOrder', '�')}]
+
         limit_elem = make_toggle(component.parameters,'WFContentItemLimitEnabled',False)
-        line_elems += [{**{'label':'Limit'},**limit_elem}]
+        limit_lines = [{**{'label':'Limit'},**limit_elem}]
         if 'on' in limit_elem['class']:#content limited
-            line_elems += [make_counter(component.parameters,'WFContentItemLimitNumber','Get # File',5,'Files'),]
+            limit_lines += [make_counter(component.parameters,'WFContentItemLimitNumber','Get # File',5,'Files'),]
+
+        line_elems = filters + sort_lines + limit_lines
     elif workflow_re.fullmatch(component.name):
         sub_name = workflow_re.fullmatch(component.name)[1]
         if sub_name in uni_params:
@@ -283,7 +277,12 @@ def format_action(component: action, indent_level: int) -> (dict, int):
         elif 'conditional' == sub_name:  # aka 'If'
             (UUID, group, mode) = control_flow(component.parameters)
             if 0 == mode:
-                title_elem = conditional(component)# special handler for 'If' head block
+                title_elem = [
+                    'If', 
+                    make_magic(component.parameters, 'WFInput', 'Input'),
+                ]
+
+                title_elem += conditional(component.parameters)# special handler for 'If' head block
                 indent = +1
                 result = None
             elif 1 == mode:
@@ -1652,6 +1651,8 @@ def format_action(component: action, indent_level: int) -> (dict, int):
             title_elem=[]
         else:
             impl = False
+    
+    # # Editorial App
     elif editorial_re.fullmatch(component.name):
         sub_name = editorial_re.fullmatch(component.name)[1]
         if 'editscript' == sub_name:
@@ -1660,6 +1661,8 @@ def format_action(component: action, indent_level: int) -> (dict, int):
             impl = False
         else:
             impl = False
+    
+    # # Tally App
     elif tally_re.fullmatch(component.name):
         sub_name = tally_re.fullmatch(component.name)[1]
         if 'get' == sub_name:
@@ -1668,6 +1671,8 @@ def format_action(component: action, indent_level: int) -> (dict, int):
             impl = False
         else:
             impl = False
+    
+    # # Accessibility in Settings App
     elif accessibility_re.fullmatch(component.name):
         sub_name = accessibility_re.fullmatch(component.name)[1]
         if sub_name in accessibility_toggles:
@@ -1715,6 +1720,8 @@ def format_action(component: action, indent_level: int) -> (dict, int):
             except: pass
         else:
             impl = False
+    
+    # # System Clock App
     elif clock_re.fullmatch(component.name):
         sub_name = clock_re.fullmatch(component.name)[1]
         if 'MTCreateAlarmIntent' == sub_name:
@@ -1743,6 +1750,8 @@ def format_action(component: action, indent_level: int) -> (dict, int):
             title_elem = [turn_elem,'alarm \"',alarm_elem,'\"',state_elem,]
         else:
             impl = False
+    
+    # # Apple TV Remote App
     elif remote_re.fullmatch(component.name):
         sub_name = remote_re.fullmatch(component.name)[1]
         tv_elem = make_magic(component.parameters, 'device', 'Apple TV')
@@ -1772,6 +1781,8 @@ def format_action(component: action, indent_level: int) -> (dict, int):
         # custom 'Ask Each Time'
         for elem in [i for i in title_elem if isinstance(i,dict)]:
             if 'Ask Each Time' == elem.get('value',''): elem['value'] = 'Apple TV'
+    
+    # # Bear for iOS App
     elif bear_re.fullmatch(component.name):
         sub_name = bear_re.fullmatch(component.name)[1]
         if 'add' == sub_name:
@@ -1827,12 +1838,16 @@ def format_action(component: action, indent_level: int) -> (dict, int):
             line_elems = [{**{'label':'Tag'},**make_specify(component.parameters, 'BearTag', 'optional')}]
         else:
             impl = False
+    
+    # # Apple Photos Shared Album
     elif 'com.apple.mobileslideshow.StreamShareService' == component.name:
         title_elem = [
             'Post',
             make_magic(component.parameters, 'ImageInput', 'Images'),
             'to Shared Album',
         ]
+    
+    # # Apple Notes App
     elif 'com.apple.mobilenotes.SharingExtension' == component.name:
         title_elem = [
             'Create note with',
@@ -1844,18 +1859,24 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 'in',
                 make_magic(component.parameters, 'WFNoteGroup', 'Folder',ask_text='Folder'),
             ]
+    
+    # # System Phone App
     elif 'com.apple.mobilephone.call' == component.name:
         title_elem = [
             'Call',
             #vcard handling 'WFCallContact'
             magic('<contacts>'),
         ]
+    
+    # # Apple Books App
     elif 'com.apple.iBooks.openin' == component.name:
         title_elem = [
             'Add',
             make_magic(component.parameters, 'BooksInput', 'File'),
             'to Books',
         ]
+    
+    # # System Numbers App
     elif 'com.apple.Numbers.TNiOSAddValueIntent' == component.name:
         title_elem = ['Add to',make_magic(component.parameters, 'file', 'Spreadsheet'),]
         values = component.parameters.get('values',{})
@@ -1872,9 +1893,13 @@ def format_action(component: action, indent_level: int) -> (dict, int):
         ]
     elif 'com.apple.Numbers.TNiOSOpenAnyDocumentIntent' == component.name:
         title_elem = ['Open',make_magic(component.parameters, 'file', 'Spreadsheet'),]
+    
+    # # Instagram App
     elif 'com.burbn.instagram.openin' == component.name:
         title_elem = ['Post',make_magic(component.parameters, 'InstagramInput', 'Photo'),]
         line_elems = [{**{'label':'Caption'},**make_specify(component.parameters, 'InstagramCaption', 'optional',align_left=True)}]
+    
+    # # Jayson App
     elif 'dk.simonbs.Jayson.GetFileIntent' == component.name:
         title_elem = [
             'Get',
@@ -1902,163 +1927,28 @@ def format_action(component: action, indent_level: int) -> (dict, int):
     # silence to restore inline elems, the styling for which is very hard
     title_elem = flatten(title_elem)
     title_elem = [i for i in title_elem if i['value']]
-    # © Processing:
+    
+    # PPost Processing:
     if not options_impl:
         line_elems += [not_implemented_options()]
     
     if not impl:
         action_dct = not_implemented_action(category, indent_level, sub_name, glyph)
     else:
-        action_dct = {
-            'title': title_elem,
-            'line': line_elems,
-            'glyph': f'assets/cat/{glyph}',
-            'category': category,
-            'indent': f'indent{indent_level}' if indent_level else '',
-            'special':special,
-            'lines':line_elems,
-            'list_items':list_items,
-            'dct':dict_items,
-            'UUID':component.UUID,
-            'result':result,
-        }
+        action_dct = dict(
+            title      = title_elem,
+            line       = line_elems,
+            glyph      = f'assets/cat/{glyph}',
+            category   = category,
+            indent     = f'indent{indent_level}' if indent_level else '',
+            special    = special,
+            lines      = line_elems,
+            list_items = list_items,
+            dct        = dict_items,
+            UUID       = component.UUID,
+            result     = result,
+        )
     return action_dct, indent
-
-def control_flow(parameters: dict) -> (str, str, int):
-    UUID = parameters.get('UUID', None)
-    group = parameters.get('GroupingIdentifier')
-    mode = parameters.get('WFControlFlowMode')
-    return (UUID, group, mode)
-
-def conditional(component: action) -> list:
-    (UUID, group, mode) = control_flow(component.parameters)
-    condition = component.parameters.get('WFCondition', None)
-    input_elem = make_magic(component.parameters, 'WFInput', 'Input')
-    title_elem = []
-
-    # condensed check for 'Current Date' / 'Clipboard' Magic Var
-    try:
-        var_type = component.parameters['WFInput']['Type']
-    except KeyError:
-        var_type = None
-
-    if None == condition:
-        title_elem = [
-            'If',
-            input_elem,
-            magic('Condition', True),
-        ]
-    elif condition in [0, 2]:
-        if 'CurrentDate' == var_type:
-            condition_elem = magic('is after' if condition == 0 else 'is before')
-            test_elem = make_magic(component.parameters, 'WFDate', 'Date')
-        elif 'WFNumberValue' in component.parameters:  # can't detect number?
-            condition_elem = magic(
-                'is less than' if condition == 0 else 'is greater than')
-            test_elem = make_magic(component.parameters, 'WFNumberValue', 'Number')
-        else:  # catch all
-            condition_elem = magic('is less than' if condition == 0 else 'is greater than')
-            test_val = component.parameters.get('WFDate', component.parameters.get('WFConditionalActionString', component.parameters.get('Number', None)))
-            test_elem = magic(test_val) if test_val else magic('Value', True)
-        title_elem = [
-            'If',
-            input_elem,
-            condition_elem,
-            test_elem,
-        ]
-    elif condition in [1, 3]:
-        title_elem = [
-            'If',
-            input_elem,
-            magic('is greater than or equal to' if condition == 3 else 'is less than or equal to'),
-            make_magic(component.parameters, 'WFNumberValue', 'Number'),
-        ]
-    elif condition in [4, 5]:
-        if 'CurrentDate' == var_type:
-            condition_elem = magic(
-                'is exactly' if condition == 4 else 'is not exactly')
-            test_elem = make_magic(component.parameters, 'WFDate', 'Date')
-        elif 'Clipboard' == var_type:
-            condition_elem = magic('is' if condition == 4 else 'is not')
-            test_elem = make_magic(component.parameters, 'WFConditionalActionString', 'Text')
-        # can't detect number?
-        elif 'WFNumberValue' in component.parameters:
-            condition_elem = magic('is' if condition == 4 else 'is not')
-            test_elem = make_magic(component.parameters, 'WFNumberValue', 'Number')
-        else:  # catch all
-            condition_elem = magic('is' if condition == 4 else 'is not')
-            test_val = component.parameters.get('WFDate', component.parameters.get('WFConditionalActionString', component.parameters.get('Number', None)))
-            test_elem = magic(test_val) if test_val else magic('Value', True)
-        title_elem = [
-            'If',
-            input_elem,
-            condition_elem,
-            test_elem,
-        ]
-    elif condition in [8, 9]:
-        title_elem = [
-            'If',
-            input_elem,
-            magic('begins with' if condition == 8 else 'ends with'),
-            make_magic(component.parameters, 'WFConditionalActionString', 'Text'),
-        ]
-    elif condition in [99, 999]:
-        title_elem = [
-            'If',
-            input_elem,
-            magic('contains' if condition == 99 else 'does not contain'),
-            make_magic(component.parameters, 'WFConditionalActionString', 'Text'),
-        ]
-    elif condition in [100, 101]:
-        title_elem = [
-            'If',
-            input_elem,
-            magic('has any value' if condition ==
-                  100 else 'does not have any value'),
-        ]
-    elif condition in [1000, 1001]:
-        title_elem = [
-            'If',
-            input_elem,
-            magic('is in the next' if condition == 1000 else 'is in the last'),
-            make_magic(component.parameters, 'WFDuration', 'Number', False, 'Magnitude'),
-            # no blank, 'minutes' is chosen by default
-            make_magic(component.parameters, 'WFDuration','unit', False, 'Unit')
-        ]
-    elif 1002 == condition:
-        title_elem = [
-            'If',
-            input_elem,
-            magic('is today'),
-        ]
-    elif 1003 == condition:
-        if 'WFDate' in component.parameters and 'WFAnotherDate' in component.parameters:
-            test_elem_1 = make_magic(component.parameters, 'WFDate', 'Date')
-            test_elem_2 = make_magic(
-                component.parameters, 'WFAnotherDate', 'Date')
-        elif 'WFNumberValue' in component.parameters and 'WFAnotherNumber' in component.parameters:
-            test_elem_1 = make_magic(
-                component.parameters, 'WFNumberValue', 'Date')
-            test_elem_2 = make_magic(
-                component.parameters, 'WFAnotherNumber', 'Date')
-        else:  # catch all
-            test_elem_1 = magic('Value', True)
-            test_elem_2 = magic('Value', True)
-        title_elem = [
-            'If',
-            input_elem,
-            magic('is between'),
-            test_elem_1,
-            'and',
-            test_elem_2,
-        ]
-    else:
-        title_elem = [
-            'If',
-            input_elem,
-            magic('Condition', True),
-        ]
-    return title_elem
 
 # flattens nested lists
 def flatten(title_elem:list)->list:
