@@ -308,9 +308,6 @@ a.xpost-wrapper img{
     font-size: 2rem;
 }
 
-#glyph_icon{
-    filter: invert(1);
-}
 
 @media (prefers-color-scheme: dark) {
     .tool-btn {

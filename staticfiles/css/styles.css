@@ -262,8 +262,16 @@ html {
     border-radius: .7rem;
     background-color: black;
     display: inline-block;
-    padding: .45rem;
     margin: 0 1rem;
+}
+#glyph_icon{
+    width:70%;
+    height:auto;
+    filter: invert(1);
+    position: relative;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
 }
 
 /* submit page styling */
@@ -476,7 +484,7 @@ input[type=submit] {
 #path1 {
     stroke-dasharray: 325, 50,325, 50;
     stroke-dashoffset: 750;
-    animation: dash1 4s linear -2.8s infinite;
+    animation: dash1 4s linear -2.75s infinite;
 }
 
 #path2 {
