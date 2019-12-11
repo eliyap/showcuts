@@ -6,9 +6,13 @@
 {% endblock %}
 
 {% block extra_static %}
+<!-- show-shortcut specific CSS -->
 <link rel="stylesheet" href="{% static 'css/view.css' %}">
+<!-- save-file-to-device library -->
 <script defer src="{% static 'js/FileSaver.min.js' %}"></script>
+<!-- DOM => Image library -->
 <script defer src="{% static 'js/dom-to-image.min.js' %}"></script>
+<!-- implementation of libraries to take "screenshot" -->
 <script defer src="{% static 'js/screenshot.js' %}"></script>
 {% endblock %}
 
@@ -18,10 +22,12 @@
 
 {% block content %}
 <div class="content">
-  <!-- header -->
+  <!-- # header -->
   <div class="header" id='SCtitle'>
+    
     <div class='floater'></div>
-    <!-- open btn -->
+    
+    <!-- ## open btn -->
     <span id='open'>
       {% if menu_icon %}
       <img src="{% static menu_icon %}" />
@@ -30,41 +36,54 @@
       {% endif %}
     </span>
 
+    <!-- ## Shortcut Icon -->
     <div id="glyph-bg" style="background-color:rgb{{color_code}}">
-      <img src="{% static 'assets/glyphs/wand.svg' %}" />
+      <img id='glyph_icon' src="{% static glyph_icon %}" />
     </div>
+
+    <!-- ## Shortcut Name -->
     <div class="sc-title" title="{{name}}">
       {{name}}
     </div>
+
     <div class='floater'></div>
     <div class="align-5"></div>
   </div>
   <div class='floater'></div>
-  <!-- header -->
-  <!-- action container -->
+  
+  <!-- # Shortcut Actions -->
   <div id="action-container" class="article-container">
+    <!-- secondary name element, hidden behind the header, appears in screenshots -->
     <div class="sc-title" title="{{name}}" style="position:absolute;top:1.5rem;left:2rem">{{name}}</div>
+    <!-- # Dummy Container contains grey line pseudo-element (see CSS) -->
     <div class="dummy">
-      <!-- action extention accepted types -->
+      <!-- ## Shows "Accepts: Images, Text, ..." if Shortcut is an action extension -->
       {% if accepted_types %}
       <div class='action'>
         <div id='accepts'>Accepts</div>
         <div id='accepted-types'>{{accepted_types}}</div>
       </div>
       {% endif %}
+      
+      <!-- ACTIONS -->
+      <!-- limited to 100 for free users -->
       {% for action in action_blocks|slice:":100" %}
       {% include 'elements/action.html' with action=action UUID_glyphs=UUID_glyphs %}
       {% endfor %}
+
     </div>
+
+    <!-- line art logo -->
     <div id='screenshot-mark'>
       <img src="{% static 'assets/logo/line.svg' %}" />
       <p>Showcuts</p>
     </div>
+
   </div>
-  <!-- margin -->
   <div class='floater'></div>
-  <!-- other links -->
   <div class="align-5"></div>
+
+  <!-- # Right Sidebar -->
   <div class='tool-container'>
     <a href="{{iCloud_link}}" id='ios-download' title='Download from iCloud'>
       <div class='tool-btn expand'>
@@ -72,6 +91,7 @@
         <p>iCloud</p>
       </div>
     </a>
+    <!-- Magic Var: toggles visibility of magic variables -->
     <a id='show-magic' title='Magic Variables'>
       <div class='tool-btn expand'>
         <img src="{% static 'assets/ui/wand.svg' %}" />
@@ -107,6 +127,8 @@
     <div id="save" class="tool-btn line-art {{user.username|yesno:',disabled,'}}  {{saved|yesno:'clicked,,'}}" title='{{user.username|yesno:'Save,Login to Save,'}}' hxid="{{hxid}}">
       <img src="{% static 'assets/ui/bookmark-fill.svg' %}" />
     </div>
+
+    <!-- buttons for sharing to other sites -->
     <div id="xpost" class="tool-btn line-art" title='Share Shortcut'>
       <img src="{% static 'assets/ui/share.svg' %}" />
     </div>
