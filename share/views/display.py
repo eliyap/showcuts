@@ -12,13 +12,7 @@ from ..models import Shortcut
 ## Dependency: config setting
 from showcuts.settings import WORKFLOW_MINIMUM_VERSION
 
-@xframe_options_exempt
-def show_shortcut(request, hxid:str):
-    shortcut_instance = get_object_or_404(Shortcut, pk=hxid)
-    # should only receive GET calls
-    actions_blocks, UUID_glyphs = shortcut_instance.action_blocks['blocks'], shortcut_instance.UUID_glyphs
-    glyph_color = color_codes.get(shortcut_instance.colorID, '(0,0,0)')
-    glyph_icon = icon_codes.get(shortcut_instance.glyphID, 'skull.svg')
+def shortcut_details(request, shortcut_instance):
     types = shortcut_instance.shortcut_types.split(',')
     if 'ActionExtension' in types:
         _ = shortcut_instance.accepted_types.split(',')
@@ -26,25 +20,23 @@ def show_shortcut(request, hxid:str):
     else:
         accepts = None
 
-    sc_age = reddit_time(timezone.now() - shortcut_instance.created_on)
-
-    context = {
+    return {
         # Aesthetic Metadata
         'name':shortcut_instance.name,
-        'color_code':glyph_color,
-        'glyph_icon':f'assets/glyphs/{glyph_icon}',
+        'color_code':color_codes.get(shortcut_instance.colorID, '(0,0,0)'),
+        'glyph_icon':'assets/glyphs/' + icon_codes.get(shortcut_instance.glyphID, 'skull.svg'),
         'workflow_version':shortcut_instance.workflow_version,
         'min_version':WORKFLOW_MINIMUM_VERSION,
         
         # Core Action Dictionaries
-        'action_blocks':actions_blocks,
-        'UUID_glyphs': UUID_glyphs,
+        'action_blocks':shortcut_instance.action_blocks['blocks'],
+        'UUID_glyphs': shortcut_instance.UUID_glyphs,
         
         # Functional Metadata
         'iCloud_link':shortcut_instance.iCloud,
         'accepted_types':accepts,
         'types':types,
-        'sc_age':sc_age,
+        'sc_age':reddit_time(timezone.now() - shortcut_instance.created_on),
         'hxid':shortcut_instance.iCloudID,
         'likes':shortcut_instance.liked_by.count(),
         
@@ -53,7 +45,17 @@ def show_shortcut(request, hxid:str):
         'liked':request.user in shortcut_instance.liked_by.all(),
         'saved':request.user in shortcut_instance.saved_by.all(),
     }
-    return render(request, 'show_shortcut.html', context)
+
+@xframe_options_exempt
+def show_shortcut(request, hxid:str):
+    return render(
+        request, 
+        'show_shortcut.html', 
+        context=shortcut_details(
+            request, 
+            shortcut_instance=get_object_or_404(Shortcut, pk=hxid),
+        )
+    )
 
 def like_shortcut(request):
     if 'GET' == request.method:

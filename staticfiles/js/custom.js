@@ -57,8 +57,9 @@ $(document).ready(function () {
     $("#show-magic").click(toggleOutput)
     
     // Like Button AJAX
-    $("#like").unbind('click').click(function toggleLike(){
+    function toggleLike(){
         let elem = $(this);
+        // alert('hi!');
         if (!elem.hasClass('disabled')){
             let likes = elem.next();
             let num_likes = parseInt(likes.text());
@@ -81,7 +82,9 @@ $(document).ready(function () {
                 }
             });
         }
-    })
+    }
+    $("#like").unbind('click').click(toggleLike)
+    $(".like-btn").unbind('click').click(toggleLike)
     // Save Button AJAX
     $("#save").unbind('click').click(function toggleSave(){
         let elem = $(this);

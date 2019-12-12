@@ -260,6 +260,7 @@ html {
 }
 
 #glyph-bg {
+    min-width: 3rem;
     width: 3rem;
     height: 3rem;
     border-radius: .7rem;

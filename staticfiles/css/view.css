@@ -218,7 +218,7 @@ a.xpost-wrapper img{
     background: none;
     padding: .4rem;
 }
-.tool-btn.line-art:hover {
+.line-art:hover {
     animation: shake .5s linear 0s;
 
 }
@@ -245,7 +245,7 @@ a.xpost-wrapper img{
         transform: rotate(0deg);
     }
 }
-.tool-btn.line-art:active {
+.line-art:active {
     animation: shake2 .5s linear 0s;
 }
 @keyframes shake2{
@@ -292,7 +292,7 @@ a.xpost-wrapper img{
     -moz-transition: .2s;
 }
 
-#like.clicked img {
+#like.clicked img,.like-btn.clicked img {
     filter: invert(41%) sepia(19%) saturate(2576%) hue-rotate(310deg) brightness(97%) contrast(98%);
 }
 

@@ -1,5 +1,5 @@
 from django.urls import path
-from share.views import submit, misc, display, user, xpost
+from share.views import submit, misc, display, user, xpost, collections
 
 urlpatterns = [
     # aliases for home view
@@ -13,7 +13,9 @@ urlpatterns = [
     path('liked/', user.users_liked.as_view(), name='user-liked'),
     path('saved/', user.users_saved.as_view(), name='user-saved'),
     
-    # share showcuts online
+    # gallery views
+    path('gallery/', collections.gallery, name='coll-gallery'),
+    # post links
     path('reddit/<str:hxid>', xpost.reddit, name = 'reddit'),
 
     # misc paths

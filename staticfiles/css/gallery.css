@@ -1,0 +1,72 @@
+a * {
+    /* remove default coloring */
+    color: black;
+}
+
+.masonry {
+    /* Masonry container */
+    column-gap: 1rem;
+}
+
+.sideby {
+    width: fit-content;
+    width: -moz-fit-content;
+    display: flex;
+    margin: 0 auto .5rem auto;
+}
+
+.sc-card {
+    /* Masonry bricks or child elements */
+    background-color: var(--sc-grey);
+    display: inline-block;
+    margin: 0 0 2rem;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.sc-card #glyph-bg {
+    margin: auto .5rem auto 0;
+}
+
+.card-title {
+    margin: auto 0 auto 0;
+    color: black;
+    font-size: 1.7rem;
+    font-weight: bold;
+    line-height: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.like-btn {
+    height: 3rem;
+    width: 3rem;
+    padding: .5rem;
+}
+
+.like-btn~p {
+    margin: auto 0;
+    font-size: 1.5rem;
+}
+
+#flow {
+    height: 2rem;
+    width: 2rem;
+    margin: .5rem .5rem .5rem 1.5rem;
+    position: relative;
+    top: .1rem;
+}
+
+@media only screen and (min-width: 64rem) {
+    .masonry {
+        column-count: 2;
+    }
+}
+
+@media only screen and (min-width: 90rem) {
+    .masonry {
+        column-count: 3;
+    }
+}

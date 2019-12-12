@@ -17,7 +17,8 @@
     <a class='sidebar-link' href="{% url 'user-saved'%}">Saved</a>
     <a class='sidebar-link' href="{% url 'user-submitted'%}">Submitted</a>
     <a class='sidebar-link' href="{% url 'logout'%}?next=/">Logout</a>
-  {% else %}
+    {% else %}
     <a class='sidebar-link' href="{% url 'login'%}?next={{request.path}}">Login</a>
-  {% endif %}
+    {% endif %}
+  <a class='sidebar-heading' href="{% url 'about'%}">About</a>
 </div>

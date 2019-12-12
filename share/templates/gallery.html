@@ -1,0 +1,68 @@
+{% extends "bigcard.html" %}
+{% load static %}
+
+{% block extra_static %}
+<link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+<link rel="stylesheet" href="{% static 'css/view.css' %}">
+<link rel="stylesheet" href="{% static 'css/magic.css' %}">
+{% endblock %}
+
+{% block title %}
+<title>All Shortcuts</title>
+{% endblock %}
+
+{% block card-title %}
+All Shortcuts
+{% endblock %}
+
+{% block incard %}
+<div class="masonry">
+  {% for shortcut in shortcuts %}
+  <div class="sc-card">
+    <!-- title & glyph -->
+    <a href="{% url 'submit' %}/{{shortcut.iCloudID}}">
+      <div class="sideby">
+        <div id="glyph-bg" style="background-color:rgb{{shortcut.context.color_code}}">
+          <img id='glyph_icon' src="{% static shortcut.context.glyph_icon %}" />
+        </div>
+        <div class='card-title'>{{shortcut.name}}</div>
+      </div>
+      <div class="sideby">
+    </a>
+    <div class="like-btn inline-btn line-art {{user.username|yesno:',disabled,'}} {{liked|yesno:'clicked,,'}}"
+      title="{{user.username|yesno:'Like,Login to Like,'}}" hxid="{{shortcut.context.hxid}}">
+      <img src="{% static 'assets/ui/heart-fill.svg' %}" />
+    </div>
+    <p id="likes">{{shortcut.context.likes}}</p>
+    <img id="flow" src="{% static 'assets/ui/flow.svg' %}" />
+    <p id="likes">{{shortcut.context.action_blocks|length}}</p>
+
+
+  </div>
+  <!-- 3 actions -->
+  <a href="{% url 'submit' %}/{{shortcut.iCloudID}}">
+    {% for action in shortcut.context.action_blocks|slice:":3" %}
+    {% include 'elements/action.html' with action=action UUID_glyphs=shortcut.context.UUID_glyphs %}
+    {% endfor %}
+  </a>
+</div>
+{% endfor %}
+</div>
+{% if shortcuts.has_other_pages %}
+<div id="paginate">
+  <span class="page-links">
+    {% if shortcuts.has_previous %}
+    <a href="{{ request.path }}?page={{ shortcuts.previous_page_number }}"><img id='page-prev'
+        src="{% static 'assets/ui/arrow-right.svg' %}" /></a>
+    {% endif %}
+    <span id="page-current">
+      Page {{ shortcuts.number }} / {{ shortcuts.paginator.num_pages }}
+    </span>
+    {% if shortcuts.has_next %}
+    <a href="{{ request.path }}?page={{ shortcuts.next_page_number }}"><img id='page-next'
+        src="{% static 'assets/ui/arrow-right.svg' %}" /></a>
+    {% endif %}
+  </span>
+</div>
+{% endif %}
+{% endblock %}
