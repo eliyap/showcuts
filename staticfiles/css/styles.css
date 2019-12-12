@@ -37,6 +37,9 @@ html {
     left: 50%;
 }
 
+.danger{
+    background-color: rgb(255, 75, 75)!important;
+}
 /* big elements */
 
 .article-container {
@@ -60,12 +63,12 @@ html {
     padding: 1rem 0rem;
 }
 
-.header.no-sidebar {
-    width: calc(100%);
+.header.no-sidebar, .sc-title {
+    width: calc(100vw);
 }
 
-.header.with-sidebar {
-    width: calc(100% - 250px);
+.header.with-sidebar, .sc-title {
+    width: calc(100vw - 250px);
 }
 
 /* The side navigation menu */
