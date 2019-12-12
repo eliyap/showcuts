@@ -79,7 +79,7 @@ class Shortcut(models.Model):
     tags = models.ManyToManyField(
         'Tag',
         blank=True,
-        null=True,
+        # null=True,
         help_text='Tag your Shortcut to help others find it',
     )
     name = models.CharField(
@@ -93,6 +93,10 @@ class Shortcut(models.Model):
     colorID = models.PositiveIntegerField(
         'Color ID',
         default=431817727, # some valid color
+    )
+    workflow_version = models.IntegerField(
+        'Workflow Version',
+        default=0,
     )
     shortcut_types = models.CharField(
         'Shortcut Types',
