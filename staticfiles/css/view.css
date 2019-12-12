@@ -183,7 +183,7 @@ a.xpost-wrapper img{
 
 #info+p {
     top: 9rem;
-    width: 10rem;
+    width: 12rem;
     height: auto;
     border: 1px solid black;
 }
@@ -307,7 +307,11 @@ a.xpost-wrapper img{
     transform: translateY(50%);
     font-size: 2rem;
 }
-
+@media (prefers-color-scheme: light) {
+    #info+p{
+        background-color: white;
+    }
+}
 
 @media (prefers-color-scheme: dark) {
     .tool-btn {
@@ -324,6 +328,7 @@ a.xpost-wrapper img{
     }
     #info+p {
         border: 1px solid white;
+        background-color: black;
     }
     .fade-out {
         background-image: linear-gradient( rgba(0, 0, 0, 0), black);
