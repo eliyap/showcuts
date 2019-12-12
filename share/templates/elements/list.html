@@ -22,6 +22,7 @@
 {% if elem.UUID %}
 <a href="#{{elem.UUID}}">
   {% endif %}
+  
   <div class="{{elem.class}}">
     {% if elem.glyph %}
     <img class="inline-glyph" src="{% static elem.glyph %}" />
@@ -30,6 +31,7 @@
     {% endif %}
     {{elem.value}}
   </div>
+
   {% if elem.UUID %}
 </a>
 {% endif %}

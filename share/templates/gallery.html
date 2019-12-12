@@ -5,6 +5,8 @@
 <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
 <link rel="stylesheet" href="{% static 'css/view.css' %}">
 <link rel="stylesheet" href="{% static 'css/magic.css' %}">
+<script defer src="{% static 'js/gallery.js' %}"></script>
+
 {% endblock %}
 
 {% block title %}
@@ -40,11 +42,11 @@ All Shortcuts
 
   </div>
   <!-- 3 actions -->
-  <a href="{% url 'submit' %}/{{shortcut.iCloudID}}">
-    {% for action in shortcut.context.action_blocks|slice:":3" %}
-    {% include 'elements/action.html' with action=action UUID_glyphs=shortcut.context.UUID_glyphs %}
-    {% endfor %}
-  </a>
+<!-- no <a> tags here, as the inline-links will mess them up -->
+  {% for action in shortcut.context.action_blocks|slice:":3" %}
+  {% include 'elements/action.html' with action=action UUID_glyphs=shortcut.context.UUID_glyphs %}
+  {% endfor %}
+  <div class="mini-fade"></div>
 </div>
 {% endfor %}
 </div>
