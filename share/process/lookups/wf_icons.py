@@ -241,4 +241,5 @@ codes = {
     59808:'run.svg',  # simpaticon version, not accurate
     59846:'sync.svg',
     59797:'peace.svg',
+    59577:'youtube-rectangle.svg',
 }
