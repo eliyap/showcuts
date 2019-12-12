@@ -140,10 +140,9 @@ def classify_magic(val: dict, var_type: str, ask_text: str = 'Ask Each Time') ->
         return magic('Shortcut Input', False, glyph='Input.svg')
     elif 'ActionOutput' == var_type:
         try:
-            assert 'Dictionary' == val['OutputName']
+            # assert 'Dictionary' == val['OutputName']
             aggr0 = val['Aggrandizements'][0]
-            assert aggr0['Type'] == 'WFDictionaryValueVariableAggrandizement'
-            logging.error(aggr0['DictionaryKey'])
+            # assert aggr0['Type'] == 'WFDictionaryValueVariableAggrandizement'
             return magic(aggr0['DictionaryKey'], False, UUID=val['OutputUUID'])
         except:
             return magic(val['OutputName'], False, UUID=val['OutputUUID'])
