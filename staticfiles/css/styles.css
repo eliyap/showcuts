@@ -63,11 +63,11 @@ html {
     padding: 1rem 0rem;
 }
 
-.header.no-sidebar, .sc-title {
+.header.no-sidebar{
     width: calc(100vw);
 }
 
-.header.with-sidebar, .sc-title {
+.header.with-sidebar{
     width: calc(100vw - 250px);
 }
 
