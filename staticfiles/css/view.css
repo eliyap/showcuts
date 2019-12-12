@@ -218,15 +218,68 @@ a.xpost-wrapper img{
     background: none;
     padding: .4rem;
 }
+.tool-btn.line-art:hover {
+    animation: shake .5s linear 0s;
 
+}
+@keyframes shake{
+    0%{
+        transform: rotate(0deg);
+    }
+    16%{
+        transform: rotate(-10deg);
+    }
+    32%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(8deg);
+    }
+    66%{
+        transform: rotate(0deg);
+    }
+    82%{
+        transform: rotate(-5deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
 .tool-btn.line-art:active {
+    animation: shake2 .5s linear 0s;
+}
+@keyframes shake2{
+    0%{
+        transform: rotate(0deg) scale(1);
+    }
+    16%{
+        transform: rotate(-10deg) scale(1.05);
+    }
+    32%{
+        transform: rotate(0deg) scale(1.1);
+    }
+    50%{
+        transform: rotate(8deg) scale(1.08);
+    }
+    66%{
+        transform: rotate(0deg) scale(1.05);
+    }
+    82%{
+        transform: rotate(-5deg) scale(1.02);
+    }
+    100%{
+        transform: rotate(0deg) scale(1);
+    }
+}
+/* shaky old animation, being replaced */
+/* .tool-btn.line-art:active {
     padding: .3rem;
 }
 
 .tool-btn.line-art:active img {
     height: 2rem;
     width: 2rem;
-}
+} */
 
 .tool-btn.line-art p {
     color: black;
