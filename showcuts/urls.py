@@ -16,7 +16,15 @@ from share.views import user, misc
 from showcuts.redir import front_with_query
 
 urlpatterns = [
+    # # #
+    # this view forwards get requests to the Reddit View with the get QueryDict
+    # this structure is because of Reddit's restrictions on return URI (only base URLs accepted)
+    # # #
+    path('', front_with_query.as_view()),
+    
     path('admin/', admin.site.urls),
+    
+    # Account Views
     url(r'^login/$', 
         auth_views.LoginView.as_view(),
         name='login'),
@@ -25,10 +33,13 @@ urlpatterns = [
         name='logout'),
     path('settings/', user.users_settings, name='user-settings'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
+    
     path('share/', include('share.urls')),
+    
+    # misc static pages
+    path('about/', misc.about, name='about'),
     path('wallpaper/', misc.wallpaper, name='wallpaper'),
     path('wallpaper/huge', misc.wallpaper_huge, name='wallpaper'),
-    path('', front_with_query.as_view()),
 ]
 
 # Use static() to add url mapping to serve static files during development (only)

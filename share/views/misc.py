@@ -9,3 +9,6 @@ def wallpaper(request):
 
 def wallpaper_huge(request):
     return render(request, 'wallpaper_huge.html')
+
+def about(request):
+    return render(request, 'about.html')

@@ -1,0 +1,44 @@
+{% extends "bigcard.html" %}
+{% load static %}
+
+{% block title %}
+<title>About</title>
+{% endblock %}
+
+{% block card-title %}
+About
+{% endblock %}
+
+{% block incard %}
+    <h3>What is Showcuts?</h3>    
+    <p>Showcuts is a web app that displays Siri Shortcuts. It aims to mimic the iOS display of Shortcuts.</p>
+    <br/>
+    
+    <h3>Why did you make Showcuts?</h3>    
+    <p>Shortcuts has attracted a few web communities (<a href='https://www.macstories.net/shortcuts/'>MacStories</a> and <a href='https://reddit.com/r/shortcuts'>r/Shortcuts</a>, to name two).</p>
+    <p>However, Shortcuts are iOS based, so they can be hard to discuss online. As a web-native Shortcut viewer, Showcuts aims to foster Shortcuts discussion and communities.</p>
+    <br/>
+    
+    <h3>How are Shortcuts shared?</h3>
+    <p>The easiest way is to copy the Showcuts URL, or use the screenshot button.</p>
+    <p>You can post the link to Reddit or Twitter using the side menu, if you prefer!</p>
+    <p>To keep users on your site, you can embed the viewer <a href='https://jsfiddle.net/7ok5xfgd/1/'>like so</a>.</p>
+    <br/>
+    
+    <h3>What does Apple think of this?</h3>
+    <p>They are not aware of this project, as far as I know.</p>
+    <p>To make my viewer as close as possible to iOS, I use a <i>lot</i> of Apple assets, including (but not limited to):</p>
+    <ul>
+      <li><a href="https://developer.apple.com/design/human-interface-guidelines/sf-symbols/overview/">SF Symbols</a></li>
+      <li>a modified Shortcuts icon</li>
+      <li>the "Apple-y" visual style of Shortcuts</li>
+    </ul>
+    <p>As a high school student, I have no idea if that is OK (I Am Not A Lawyer)!</p>
+    <br/>
+    
+    <h3>Developer</h3>
+    <p>今日は! Showcuts was developed by MiGi (that's me!) in December 2019 to kill time before entering college.</p>
+    <p>I like Apple products and love Shortcuts, so Showcuts was a natural passion project! It's built on Python & Django.</p>
+    <p>I'll do my best to maintain Showcuts, but I don't think I could (legally) take money for it, so justifying the time will be hard.</p>
+    <p>If you like the service... I'm glad! If you'd like, you can reach out to me on <a href='https://www.reddit.com/user/Made_in_Greys_Image/'>Reddit</a>.</p>
+{% endblock %}
