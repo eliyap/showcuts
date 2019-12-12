@@ -31,7 +31,7 @@ def filtration(filter_dct:dict):
             filter_mapper(
                 fltr['Values'], 
                 fltr['Operator'], 
-                field_type[fltr['Property']]
+                field_type.get(fltr['Property'],'')
             ),
             'class': 'inline', 
         }}]
@@ -42,52 +42,52 @@ def filter_mapper(parameters, condition, var_type):
         return [magic('Condition', True)]
     
     elif condition in [0, 2]:
-        if 'date' == var_type:
-            return date_1(parameters)
-        elif 'size' == var_type:
-            return size_1(parameters)
-        elif 'number' == var_type:
-            return number(parameters)
-        else:  # catch all
+        def catchall(parameters):
             test_val = parameters.get('Date', parameters.get('WFConditionalActionString', parameters.get('Number', None)))
             test_elem = magic(test_val) if test_val else magic('Value', True)
-        return [
-            test_elem,
-        ]
+            return [test_elem]
+        
+        return { # switch / case
+            'date':date_1(parameters),
+            'size':size_1(parameters),
+            'number':number(parameters),
+        }.get(var_type, 
+            catchall(parameters)
+        )        
     
     elif condition in [1, 3]:
-        if 'date' == var_type:
-            return date_1(parameters)
-        elif 'size' == var_type:
-            return size_1(parameters)
-        return [
-            make_magic(parameters, 'WFNumberValue', 'Number'),
-        ]
+        return {
+            'date':date_1(parameters),
+            'size':size_1(parameters),
+            'number':number(parameters),
+        }.get(var_type, 
+            [make_magic(parameters, 'WFNumberValue', 'Number')]
+        )
     
     elif condition in [4, 5]:
-        if 'date' == var_type:
-            return date_1(parameters)
-        elif 'size' == var_type:
-            return size_1(parameters)
-        elif 'string' == var_type:
-            return text(parameters)
-        elif 'duration' == var_type:
-            return duration(parameters)
-        elif 'bool' == var_type:
-            return truefalse(parameters)
-        elif 'number' == var_type:
-            return number(parameters)
-        else:  # catch all
+        def catchall(parameters):
             test_val = parameters.get('Date', parameters.get('WFConditionalActionString', parameters.get('Number', None)))
             test_elem = magic(test_val) if test_val else magic('Value', True)
-        return []
+            return [test_elem]
+        return {
+            'date':date_1(parameters),
+            'size':size_1(parameters),
+            'string':text(parameters, var_type),
+            'email':text(parameters, var_type),
+            'phone':text(parameters, var_type),
+            'duration':duration(parameters),
+            'bool':truefalse(parameters),
+            'number':number(parameters),
+            'enum':enum(parameters),
+        }.get(var_type, catchall(parameters))
+            
 
     elif condition in [8, 9]:
-        return text(parameters)
+        return text(parameters, var_type)
 
     
     elif condition in [99, 999]:
-        return text(parameters)
+        return text(parameters, var_type)
         
     
     elif condition in [100, 101]:
@@ -124,7 +124,6 @@ def size_1(parameters):
         64:'EB',
         128:'ZB',
     }.get(unit['value'], unit['value'])
-    if size['value'] == '1': unit['value'] = unit['value'][:-1]
     return [size,unit]
 
 def date_1(parameters):
@@ -148,11 +147,16 @@ def duration(parameters):
         32:'hours',
         64:'minutes',
     }.get(unit['value'], unit['value'])
-    if size['value'] == '1': unit['value'] = unit['value'][:-1]
+    if size['value'] == '1': unit['value'] = unit['value'][:-1] # trim the 's' to get '1 week'
     return [size,unit]
 
-def text(parameters):
-    val = parameters.get('String','anything')
+def text(parameters, special = 'string'):
+    val = {
+        'string':parameters.get('String','anything'),
+        'email':parameters.get('Email','anything'),
+        'phone':parameters.get('Phone','anything'),
+    }.get(special)
+    val = 'anything' if val=='' else val
     if isinstance(val, dict):
         return [{**make_magic(parameters, 'String', 'anything'),**{'class':'filter-benchmark inline'}}]
     else: 
@@ -168,3 +172,12 @@ def number(parameters):
 def truefalse(parameters):
     val = str(parameters.get('Bool'))
     return [{'class':'filter-benchmark','value':val}]
+
+def enum(parameters):
+    try:
+        val = parameters['Enumeration']['Value']
+        if isinstance(val, dict):
+            val = val['DisplayString']
+    except KeyError:
+        val = 'default' # TODO: figure out how to assign default values
+    return [{'class':'filter-benchmark','value':val}]#WIP
