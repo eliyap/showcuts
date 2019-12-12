@@ -200,3 +200,6 @@ SOCIAL_AUTH_DISCONNECT_PIPELINE = (
     # deletes associated user account.
     'showcuts.user_util.del_user'
 )
+
+# supported version of workflow
+WORKFLOW_MINIMUM_VERSION = 1000

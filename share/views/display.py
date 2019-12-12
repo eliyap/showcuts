@@ -9,6 +9,9 @@ from django.views.decorators.clickjacking import xframe_options_exempt
 from ..process.pieces import *
 from ..models import Shortcut
 
+## Dependency: config setting
+from showcuts.settings import WORKFLOW_MINIMUM_VERSION
+
 @xframe_options_exempt
 def show_shortcut(request, hxid:str):
     shortcut_instance = get_object_or_404(Shortcut, pk=hxid)
@@ -26,18 +29,27 @@ def show_shortcut(request, hxid:str):
     sc_age = reddit_time(timezone.now() - shortcut_instance.created_on)
 
     context = {
+        # Aesthetic Metadata
         'name':shortcut_instance.name,
-        'action_blocks':actions_blocks,
-        'UUID_glyphs': UUID_glyphs,
         'color_code':glyph_color,
         'glyph_icon':f'assets/glyphs/{glyph_icon}',
+        'workflow_version':shortcut_instance.workflow_version,
+        'min_version':WORKFLOW_MINIMUM_VERSION,
+        
+        # Core Action Dictionaries
+        'action_blocks':actions_blocks,
+        'UUID_glyphs': UUID_glyphs,
+        
+        # Functional Metadata
         'iCloud_link':shortcut_instance.iCloud,
         'accepted_types':accepts,
         'types':types,
-        'owner':shortcut_instance.owner,
         'sc_age':sc_age,
         'hxid':shortcut_instance.iCloudID,
         'likes':shortcut_instance.liked_by.count(),
+        
+        # user specific
+        'owner':shortcut_instance.owner,
         'liked':request.user in shortcut_instance.liked_by.all(),
         'saved':request.user in shortcut_instance.saved_by.all(),
     }

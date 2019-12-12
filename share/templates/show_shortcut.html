@@ -24,9 +24,9 @@
 <div class="content">
   <!-- # header -->
   <div class="header" id='SCtitle'>
-    
+
     <div class='floater'></div>
-    
+
     <!-- ## open btn -->
     <span id='open'>
       {% if menu_icon %}
@@ -50,7 +50,7 @@
     <div class="align-5"></div>
   </div>
   <div class='floater'></div>
-  
+
   <!-- # Shortcut Actions -->
   <div id="action-container" class="article-container">
     <!-- secondary name element, hidden behind the header, appears in screenshots -->
@@ -64,7 +64,7 @@
         <div id='accepted-types'>{{accepted_types}}</div>
       </div>
       {% endif %}
-      
+
       <!-- ACTIONS -->
       <!-- limited to 100 for free users -->
       {% for action in action_blocks|slice:":100" %}
@@ -105,26 +105,40 @@
       </div>
     </a>
     <div id='info' title='Shortcut Info'>
+      {% if workflow_version < min_version %}
+      <div class='tool-btn danger' id='info-expand'>
+        <img src="{% static 'assets/ui/warning-white.svg' %}" />
+      </div>
+      {% else %}
       <div class='tool-btn' id='info-expand'>
         <img src="{% static 'assets/ui/info.svg' %}" />
       </div>
+      {% endif %}
     </div>
 
-    <!-- submission timestamp -->
-    {% if owner.username == user.username %}
-    <p>Submitted {{sc_age}} ago</p>
-    {% elif owner.username %}
-    <p>Submitted by {{owner.username}} {{sc_age}} ago</p>
-    {% else %}
-    <p>Submitted Anonymously {{sc_age}} ago</p>
-    {% endif %}
+    <p>
+      <!-- submission timestamp -->
+      {% if owner.username == user.username %}
+      Submitted {{sc_age}} ago
+      {% elif owner.username %}
+      Submitted by {{owner.username}} {{sc_age}} ago
+      {% else %}
+      Submitted Anonymously {{sc_age}} ago
+      {% endif %}
+      
+      <!-- workflow client number -->
+      {% if workflow_version < min_version %}<br/><br/>This is an old shortcut, so some variables might be missing!{% endif %}
+    </p>
+
 
     <!-- logged in buttons -->
-    <div id="like" class="tool-btn line-art {{user.username|yesno:',disabled,'}} {{liked|yesno:'clicked,,'}}" title="{{user.username|yesno:'Like,Login to Like,'}}" hxid="{{hxid}}">
+    <div id="like" class="tool-btn line-art {{user.username|yesno:',disabled,'}} {{liked|yesno:'clicked,,'}}"
+      title="{{user.username|yesno:'Like,Login to Like,'}}" hxid="{{hxid}}">
       <img src="{% static 'assets/ui/heart-fill.svg' %}" />
     </div>
     <p id="likes">{{likes}}</p>
-    <div id="save" class="tool-btn line-art {{user.username|yesno:',disabled,'}}  {{saved|yesno:'clicked,,'}}" title='{{user.username|yesno:'Save,Login to Save,'}}' hxid="{{hxid}}">
+    <div id="save" class="tool-btn line-art {{user.username|yesno:',disabled,'}}  {{saved|yesno:'clicked,,'}}"
+      title='{{user.username|yesno:'Save,Login to Save,'}}' hxid="{{hxid}}">
       <img src="{% static 'assets/ui/bookmark-fill.svg' %}" />
     </div>
 
@@ -135,7 +149,9 @@
     <a id="reddit" href='http://{{request.get_host}}/share/reddit/{{hxid}}' class='xpost-wrapper' title=''>
       <img src="{% static 'assets/branding/reddit.svg' %}" />
     </a>
-    <a id="twitter" href='https://twitter.com/intent/tweet?text=https://showcuts.app/share/view/{{hxid}}%0ACheck%20out%20this%20Shortcut!' class='xpost-wrapper' title='Tweet' target="_blank">
+    <a id="twitter"
+      href='https://twitter.com/intent/tweet?text=https://showcuts.app/share/view/{{hxid}}%0ACheck%20out%20this%20Shortcut!'
+      class='xpost-wrapper' title='Tweet' target="_blank">
       <img src="{% static 'assets/branding/twitter.svg' %}" />
     </a>
   </div>
