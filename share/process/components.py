@@ -108,6 +108,7 @@ def get_inline(val: dict, magic_wrapper=True, ask_text: str = 'Ask Each Time') -
         attached = list(val['attachmentsByRange'].values())
         for attachment in attached:
             var_type = attachment.get('Type', '')
+            logging.error(attachment)
             new_magic = classify_magic(attachment, var_type, ask_text=ask_text)
             if not new_magic:
                 new_magic = magic('VAR')
@@ -121,7 +122,7 @@ def get_inline(val: dict, magic_wrapper=True, ask_text: str = 'Ask Each Time') -
         logging.exception("Exception occurred")
         import json
         logging.error(json.dumps(val))
-        return [magic('<inline variable>')]
+        return magic('<inline variable>')
     title_elems = [i for i in title_elems if i['value']] # purge empty elements
     return {
         'class': 'inline' + (' magic' if magic_wrapper else ''),
@@ -139,6 +140,7 @@ def classify_magic(val: dict, var_type: str, ask_text: str = 'Ask Each Time') ->
     elif 'ExtensionInput' == var_type:
         return magic('Shortcut Input', False, glyph='Input.svg')
     elif 'ActionOutput' == var_type:
+        logging.error(val) # debug
         try:
             # assert 'Dictionary' == val['OutputName']
             aggr0 = val['Aggrandizements'][0]
@@ -146,6 +148,8 @@ def classify_magic(val: dict, var_type: str, ask_text: str = 'Ask Each Time') ->
             return magic(aggr0['DictionaryKey'], False, UUID=val['OutputUUID'])
         except:
             return magic(val['OutputName'], False, UUID=val['OutputUUID'])
+    elif 'Variable' == var_type:
+        return magic(val['VariableName'], False, glyph='Variable.svg')
 
 
 def make_line(label: str, var_elem: dict) -> dict:
