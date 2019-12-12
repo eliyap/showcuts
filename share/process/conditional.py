@@ -37,8 +37,7 @@ def cond_mapper(parameters, condition, var_type):
             condition_elem = magic('is after' if condition == 0 else 'is before')
             test_elem = make_magic(parameters, 'WFDate', 'Date')
         elif 'WFNumberValue' in parameters:  # can't detect number?
-            condition_elem = magic(
-                'is less than' if condition == 0 else 'is greater than')
+            condition_elem = magic('is less than' if condition == 0 else 'is greater than')
             test_elem = make_magic(parameters, 'WFNumberValue', 'Number')
         else:  # catch all
             condition_elem = magic('is less than' if condition == 0 else 'is greater than')
