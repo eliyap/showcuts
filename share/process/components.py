@@ -108,7 +108,6 @@ def get_inline(val: dict, magic_wrapper=True, ask_text: str = 'Ask Each Time') -
         attached = list(val['attachmentsByRange'].values())
         for attachment in attached:
             var_type = attachment.get('Type', '')
-            logging.error(attachment)
             new_magic = classify_magic(attachment, var_type, ask_text=ask_text)
             if not new_magic:
                 new_magic = magic('VAR')
@@ -140,7 +139,6 @@ def classify_magic(val: dict, var_type: str, ask_text: str = 'Ask Each Time') ->
     elif 'ExtensionInput' == var_type:
         return magic('Shortcut Input', False, glyph='Input.svg')
     elif 'ActionOutput' == var_type:
-        logging.error(val) # debug
         try:
             # assert 'Dictionary' == val['OutputName']
             aggr0 = val['Aggrandizements'][0]
