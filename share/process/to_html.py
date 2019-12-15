@@ -703,7 +703,7 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 'Get',
                 make_magic(component.parameters, 'WFVariable', 'Variable'),
             ]
-            logging.warn(DeprecationWarning('Get Variable has been deprecated as of iOS13.1'))
+            # logging.warn(DeprecationWarning('Get Variable has been deprecated as of iOS13.1')) # noisy!
         elif 'setvariable' == sub_name:
             title_elem = [
                 'Set variable',
