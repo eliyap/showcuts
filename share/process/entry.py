@@ -39,7 +39,8 @@ def make_record(url:str, user:User):
     shortcut_types = ','.join(WFdct.get('WFWorkflowTypes',[]))
     type_list = WFdct.get('WFWorkflowInputContentItemClasses',[])
     accepted_types = ','.join([extension_lookup.get(i,i) for i in type_list])
-
+    version_str = WFdct['WFWorkflowClientVersion']
+    version = re.findall(r'(\d+).+',version_str)[0]
     # anon user
     if isinstance(user, AnonymousUser): user = None
 
@@ -53,7 +54,7 @@ def make_record(url:str, user:User):
         #TODO accept tags later
         name=dct['name'],
         glyphID=dct['glyphID'],
-        workflow_version = int(float(WFdct['WFWorkflowClientVersion'])),
+        workflow_version = version,
         colorID=dct['colorID'],
         shortcut_types=shortcut_types,
         accepted_types=accepted_types,
