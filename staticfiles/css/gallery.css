@@ -31,13 +31,20 @@ a * {
 .action.cutoff{
     position: absolute!important;
     bottom:5rem;
+    right:0;
     transform: translateY(100%);
     margin-right: 1rem;
+    pointer-events: none;
+    width: calc(100% - 2rem);
 }
+
 .sc-card #glyph-bg {
     margin: auto .5rem auto 0;
 }
-
+/* .sc-card:first-child{
+    a block is getting "buried" under hidden elements
+    z-index: 5;
+} */
 .card-title {
     margin: auto 0 auto 0;
     color: black;
