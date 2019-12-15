@@ -53,7 +53,7 @@ def make_record(url:str, user:User):
         #TODO accept tags later
         name=dct['name'],
         glyphID=dct['glyphID'],
-        workflow_version = int(WFdct['WFWorkflowClientVersion']),
+        workflow_version = int(float(WFdct['WFWorkflowClientVersion'])),
         colorID=dct['colorID'],
         shortcut_types=shortcut_types,
         accepted_types=accepted_types,
