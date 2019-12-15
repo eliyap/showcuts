@@ -242,4 +242,5 @@ codes = {
     59846:'sync.svg',
     59797:'peace.svg',
     59577:'youtube-rectangle.svg',
+    59691:'dollar-circle.svg',
 }
