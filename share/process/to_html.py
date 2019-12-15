@@ -1456,7 +1456,8 @@ def format_action(component: action, indent_level: int) -> (dict, int):
             service_elem = make_choose(component.parameters, 'WFFileStorageService', 'iCloud Drive')
             path_elem = make_specify(component.parameters, 'WFFilePath', 'Adventure/',align_left=True)
             if 'iCloud Drive' == service_elem['value']:
-                path_elem['value'] = '/Shortcuts/' + path_elem['value']
+                path_elem['value'] = iCloud_path(path_elem['value'])
+                # path_elem['value'] = [text_elem('/Shortcuts/')] + path_elem['value']
             line_elems = [
                 {**{'label':'Service'},**service_elem},
                 {**{'label':'Path'},**path_elem},
@@ -1494,7 +1495,9 @@ def format_action(component: action, indent_level: int) -> (dict, int):
             elif 'off' in picker_elem['class']:
                 path_elem = make_specify(component.parameters, 'WFFilePath', 'example.txt',align_left=True)
                 if service_elem['value'] == 'iCloud Drive':
-                    path_elem['value'] = '/Shortcuts/' + path_elem['value']
+
+                    path_elem['value'] = iCloud_path(path_elem['value'])
+                    # path_elem['value'] = [text_elem('/Shortcuts/')] + path_elem['value']
                 line_elems += [
                     {**{'label':'File Path'},**path_elem},
                     {**{'label':'Error If Not Found'},**make_toggle(component.parameters, 'WFFileErrorIfNotFound', True)},
@@ -1517,7 +1520,8 @@ def format_action(component: action, indent_level: int) -> (dict, int):
             if 'off' in picker_elem['class']:
                 if 'iCloud Drive' == service_elem['value']:
                     dest_elem = make_specify(component.parameters, 'WFFileDestinationPath', 'Text',align_left=True)
-                    dest_elem['value'] = '/Shortcuts/' + dest_elem['value']
+                    dest_elem['value'] = iCloud_path(dest_elem['value'])
+                    # dest_elem['value'] = '/Shortcuts/' + dest_elem['value']
                 elif 'Dropbox' == service_elem['value']:
                     dest_elem = make_specify(component.parameters, 'WFFileDestinationPath', 'optional',align_left=True)
                 line_elems += [

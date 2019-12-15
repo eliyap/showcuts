@@ -22,14 +22,13 @@ def filtration(filter_dct:dict):
             'class': 'choose-var', 
         }}]
     for fltr in filters:
-
         filter_lines += [{**{'label':''},**{
             'value': [
                 {'class':'filter-property','value':fltr['Property']},
                 {'class':'filter-operator','value':condition_map.get(fltr['Operator'],'Condition')},
             ] + 
             filter_mapper(
-                fltr['Values'], 
+                fltr.get('Values',{}), 
                 fltr['Operator'], 
                 field_type.get(fltr['Property'],'')
             ),

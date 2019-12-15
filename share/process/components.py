@@ -410,3 +410,10 @@ def get_podcast(
             default_blank=default_blank,  # determines whether the return has 'empty' as a CSS class
             ask_text='Podcast',
         )
+
+def iCloud_path(val):
+    if isinstance(val, list): # inline shortcut
+        val = [text_elem('/Shortcuts/')] + val
+    else:
+        val = '/Shortcuts/' + val
+    return val

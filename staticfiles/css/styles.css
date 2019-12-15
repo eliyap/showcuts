@@ -267,10 +267,11 @@ html {
     background-color: black;
     display: inline-block;
     margin: 0 1rem;
+    padding:.4rem;
 }
 #glyph_icon{
-    width:70%;
-    height:auto;
+    max-width: 2.2rem;
+    max-height: 2.2rem;
     filter: invert(1);
     position: relative;
     top:50%;
