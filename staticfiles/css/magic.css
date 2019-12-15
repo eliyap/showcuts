@@ -265,23 +265,30 @@ div {
     margin-right: 0.7rem;
 }
 .dict-key,.dict-value{
+    /* fix "|" between key and dict */
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
+    margin-top: -.5rem;
+    margin-bottom: -.5rem;
+    white-space: nowrap;
+    overflow: auto;
 }
 .dict-key{
     flex: 2.7;
-    text-overflow: ellipsis;
+    /* text-overflow: ellipsis;
     white-space: nowrap;
-    overflow: hidden;
+    overflow: hidden; */
 }
 .dict-value{
     white-space: nowrap;
     overflow: auto;
+    /* white-space: nowrap;
+    overflow: auto; */
     padding-left: 0.7rem;
     flex:4;
     border-left: 1px solid rgba(0, 0, 0, .125);
 }
-.dict-value div{
+.dict-value div,.dict-key div{
     /* creates horizontal scrolling */
     display: inline-block;
 }
