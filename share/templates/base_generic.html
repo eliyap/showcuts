@@ -17,15 +17,22 @@
   <link rel="icon" type="image/png" sizes="48x48" href="{% static 'assets/icons/48.png' %}">
   <link rel="icon" type="image/png" sizes="64x64" href="{% static 'assets/icons/64.png' %}">
   <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="{% static 'css/generic.css' %}">
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-  <link rel="stylesheet" href="{% static 'css/magic.css' %}">
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="{% static 'js/jquery.min.js' %}"></script>
   <script defer src="{% static 'js/custom.js' %}"></script>
+  <script defer src="{% static 'js/notify.js' %}"></script>
   {% block extra_static %}{% endblock %}
 </head>
 
 <body>
+  <div id='notify' class='hack-centre-x pos-fix white--grey text-black--white'>
+    <img id='nf-copy' src="{% static 'assets/ui/copy-to-clipboard.svg' %}"/>
+    <img id='nf-logout' src="{% static 'assets/ui/copy-to-clipboard.svg' %}"/>
+    <span id='nf-text'></span>
+  </div>
   <!-- Sidebar -->
   {% block sidebar %}
   {% include 'sidebar.html' with hidden=True %}
