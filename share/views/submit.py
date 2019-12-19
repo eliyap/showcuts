@@ -29,7 +29,7 @@ def submit_iCloud(request):
 
 def direct_to_display(request, form):
     iCloudLink = form.cleaned_data['iCloudLink']
-    _id = re.findall(r'/([0-9a-f]{32})$',iCloudLink)[0]
+    _id = re.findall(r'([0-9a-f]{32})$',iCloudLink)[0]
 
     if Shortcut.objects.filter(iCloudID__iexact=_id):
         
