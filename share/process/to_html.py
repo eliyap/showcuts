@@ -387,11 +387,12 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 route_elem,
             ]
         elif 'setvolume' == sub_name:
-            volume = component.parameters.get('WFVolume', .5)
-            volume_perc = f'{int(100*volume)}%'
+            volume = make_magic(component.parameters, 'WFVolume', .5)
+            if isinstance(volume['value'], int):
+                volume = magic(f'{int(100*volume["value"])}%')
             title_elem = [
                 'Set volume to',
-                magic(volume_perc),
+                volume,
             ]
         elif 'dictionary' == sub_name:
             pass
