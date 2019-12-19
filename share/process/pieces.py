@@ -8,9 +8,10 @@ extension_lookup = extensions.dct
 categorize = action_meta.dct
 
 # information to fill in the blanks for simple repeated actions
-uni_params       = simple_actions.uni_params
-toggle_params    = simple_actions.toggle_params
-no_params        = simple_actions.no_params
+uni_params            = simple_actions.uni_params
+toggle_params         = simple_actions.toggle_params
+accessibility_toggles = simple_actions.accessibility_toggles
+no_params             = simple_actions.no_params
 
 property_actions = template_actions.property_actions
 filter_actions   = template_actions.filter_actions
