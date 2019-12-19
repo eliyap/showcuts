@@ -1,0 +1,245 @@
+/* 
+# Vertical Ordering
+*/
+
+.tool-btn, .tool-btn+p, .sub-btn, .sub-label {
+    position: absolute;
+    top: calc(3rem*var(--n));
+}
+
+#show-magic {
+    --n: 0;
+}
+
+#screenshot {
+    --n: 1;
+}
+
+#info, #info+p {
+    --n: 2;
+}
+
+#icloud, #icloud-link, #icloud-copy, #icloud-qr {
+    --n: 3;
+}
+
+#like, #like+p {
+    --n: 4;
+}
+
+#save {
+    --n: 5;
+}
+
+#xpost, #reddit, #twitter {
+    --n: 6;
+}
+
+/* 
+# Vertical Offset
+*/
+
+.clicked+div>.sub-btn,.clicked+div>.sub-label {
+    top: calc(var(--n) * 3rem + var(--m) * 3rem);
+    right: 3rem;
+    visibility: visible!important;
+    opacity: 1;
+}
+
+#reddit {
+    --m: -.5;
+}
+
+#twitter {
+    --m: +.5;
+}
+
+#icloud-link {
+    --m: +1;
+}
+
+#icloud-copy {
+    --m: 0;
+}
+
+#icloud-qr {
+    --m: -1;
+}
+
+/* 
+# Text Formatting
+*/
+
+#info+p {
+    width: 12rem;
+    padding: 1rem;
+    height: auto;
+}
+
+.tool-btn.line-art p {
+    color: black;
+}
+
+/* 
+# btns
+*/
+
+.tool-btn {
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: .25rem;
+    border-radius: .5rem;
+    margin: .25rem;
+    overflow: hidden;
+    right: 0;
+}
+
+.tool-btn img {
+    height: 2rem;
+    min-width: 2rem;
+    margin-right: .5rem;
+}
+
+.tool-btn.expand:hover {
+    width: 10rem;
+}
+
+.tool-btn.expand {
+    transition: width .5s;
+    -moz-transition: width .5s;
+    color: white;
+    display: flex;
+}
+
+.tool-btn p {
+    margin: auto 0 auto .5rem;
+}
+
+.sub-btn, .sub-label {
+    right: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: .25s;
+    -moz-transition: .25s;
+}
+.sub-btn {
+    height: 2.5rem;
+    width: 2.5rem;
+}
+.sub-label {
+    height: 2.5rem;
+    width: auto;
+}
+.sub-label img{
+    width: 2.5rem;
+}
+.sub-label p{
+    white-space: nowrap;
+}
+/* 
+# animations 
+*/
+
+/* 
+## shake
+*/
+
+.line-art:hover {
+    animation: shake .5s linear 0s;
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+    16% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(8deg);
+    }
+    82% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.line-art:active {
+    animation: shake2 .5s linear 0s;
+}
+
+@keyframes shake2 {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    16% {
+        transform: rotate(-10deg) scale(1.05);
+    }
+    32% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: rotate(8deg) scale(1.08);
+    }
+    66% {
+        transform: scale(1.05);
+    }
+    82% {
+        transform: rotate(-5deg) scale(1.02);
+    }
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+/* 
+## Color Transitions
+*/
+
+.tool-btn.line-art img {
+    transition: .2s;
+    -moz-transition: .2s;
+}
+
+.like-btn.clicked img {
+    filter: invert(41%) sepia(19%) saturate(2576%) hue-rotate(310deg) brightness(97%) contrast(98%)!important;
+}
+
+#save.clicked img {
+    filter: invert(45%) sepia(43%) saturate(7372%) hue-rotate(201deg) brightness(100%) contrast(98%);
+}
+
+#xpost:hover>img, #xpost.clicked>img, #xpost:active>img {
+    filter: invert(60%) sepia(19%) saturate(2576%) hue-rotate(110deg) brightness(97%) contrast(98%);
+}
+
+#icloud:hover>img, #icloud.clicked>img, #icloud:active>img {
+    filter: invert(55%) sepia(41%) saturate(1940%) hue-rotate(180deg) brightness(105%) contrast(99%);
+}
+
+/* 
+# Color Scheme
+*/
+
+@media (prefers-color-scheme: light) {
+    #info+p {
+        border: 1px solid black;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    #info+p {
+        border: 1px solid var(--sc-grey);
+    }
+    #info+p, #screenshot-mark p {
+        color: white;
+    }
+    .tool-btn p {
+        color: black;
+    }
+    .tool-btn.line-art p {
+        color: white;
+    }
+}

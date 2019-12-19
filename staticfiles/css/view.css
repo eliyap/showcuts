@@ -10,16 +10,17 @@
     display: inline-block;
     flex: initial;
 }
-#action-container>.sc-title{
+
+#action-container>.sc-title {
     width: inherit!important;
     white-space: normal;
 }
+
 /* arrangement elements */
 
 .floater {
     flex: auto;
     z-index: -1;
-    background-color: var(--sc-grey);
 }
 
 .align-5 {
@@ -34,147 +35,21 @@
     right: 0;
     top: 0;
     width: 3rem;
-    background-color: var(--sc-grey);
     z-index: 5;
 }
 
-.tool-btn {
-    height: 2.5rem;
-    width: 2.5rem;
-    background-color: black;
-    padding: .25rem;
-    border-radius: .5rem;
-    margin: .25rem;
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    top: calc(3rem*var(--n))
-}
 
-.tool-btn img {
-    height: 2rem;
-    min-width: 2rem;
-    margin-right: .5rem;
-}
-
-.tool-btn.expand:hover {
-    width: 10rem;
-}
-
-.tool-btn.expand {
-    transition: width .5s;
-    -moz-transition: width .5s;
-    color: white;
-    display: flex;
-}
-
-.tool-btn p {
-    margin: auto 0 auto .5rem;
-}
 
 /* disabled buttons */
 
 div.disabled {
     opacity: .3;
+    pointer-events: none;
 }
 
 /* button specific stylings */
 
-/* -- indexes */
-
-#ios-download {
-    --n: 0;
-}
-
-#show-magic {
-    --n: 1;
-}
-
-#screenshot {
-    --n: 2;
-}
-
-#info {
-    --n: 3;
-}
-
-#like {
-    --n: 4;
-}
-
-#save {
-    --n: 5;
-}
-
-#xpost {
-    --n: 6;
-}
-
-#xpost>img {
-    height: 1.5rem;
-    min-width: 1.5rem;
-    margin: 0rem;
-}
-
-#xpost:hover>img, #xpost.clicked>img,#xpost:active>img {
-    filter: invert(60%) sepia(19%) saturate(2576%) hue-rotate(110deg) brightness(97%) contrast(98%);
-}
-
-a.xpost-wrapper {
-    --n: 6;
-    position: absolute;
-    padding: .2rem;
-    top: calc(var(--n) * 3rem);
-    right:0;
-    transition: .25s;
-    -moz-transition: .25s;
-    visibility: hidden;
-    opacity: 0;
-}
-
-a.xpost-wrapper img{
-    min-width: 2.5rem;
-    height: 2.5rem;
-}
-#xpost.clicked~a.xpost-wrapper{
-    visibility: visible!important;
-    opacity: 1;
-}
-
-#xpost.clicked~#reddit {
-    top: calc(var(--n) * 3rem - 1.5rem);
-    right: 3rem;
-}
-
-#xpost.clicked~#twitter {
-    top: calc(var(--n) * 3rem + 1.5rem);
-    right: 3rem;
-}
-
-#ios-download>div {
-    padding: .05rem;
-}
-
-#ios-download img {
-    height: 2.4rem;
-    min-width: 2.4rem;
-    margin-right: .2rem;
-}
-
-#screenshot img {
-    height: 1.8rem;
-    min-width: 1.8rem;
-    margin: .1rem;
-}
-
-#info img {
-    height: 2.6rem;
-    min-width: 2.6rem;
-    margin: -.3rem;
-}
-
 #info+p, #like+p {
-    position: absolute;
     right: -13rem;
     transition: .5s;
     -moz-transition: .5s;
@@ -184,19 +59,9 @@ a.xpost-wrapper img{
     z-index: 4;
 }
 
-#info+p {
-    top: 9rem;
-    width: 12rem;
-    height: auto;
-    border: 1px solid black;
-}
-
 #like+p {
-    top: 12rem;
     width: 2.5rem;
     height: 2.5rem;
-    background-color: black;
-    color: white;
     text-align: center;
     font-size: 1.3rem;
     font-weight: 600;
@@ -204,100 +69,11 @@ a.xpost-wrapper img{
 
 #info.clicked+p {
     right: 3rem;
-    pointer-events: none;
 }
 
 #like:hover+p {
     right: 3rem;
     pointer-events: none;
-}
-
-/* line art buttons */
-
-.tool-btn.line-art {
-    background: none;
-    padding: .4rem;
-}
-.line-art:hover {
-    animation: shake .5s linear 0s;
-
-}
-@keyframes shake{
-    0%{
-        transform: rotate(0deg);
-    }
-    16%{
-        transform: rotate(-10deg);
-    }
-    32%{
-        transform: rotate(0deg);
-    }
-    50%{
-        transform: rotate(8deg);
-    }
-    66%{
-        transform: rotate(0deg);
-    }
-    82%{
-        transform: rotate(-5deg);
-    }
-    100%{
-        transform: rotate(0deg);
-    }
-}
-.line-art:active {
-    animation: shake2 .5s linear 0s;
-}
-@keyframes shake2{
-    0%{
-        transform: rotate(0deg) scale(1);
-    }
-    16%{
-        transform: rotate(-10deg) scale(1.05);
-    }
-    32%{
-        transform: rotate(0deg) scale(1.1);
-    }
-    50%{
-        transform: rotate(8deg) scale(1.08);
-    }
-    66%{
-        transform: rotate(0deg) scale(1.05);
-    }
-    82%{
-        transform: rotate(-5deg) scale(1.02);
-    }
-    100%{
-        transform: rotate(0deg) scale(1);
-    }
-}
-/* shaky old animation, being replaced */
-/* .tool-btn.line-art:active {
-    padding: .3rem;
-}
-
-.tool-btn.line-art:active img {
-    height: 2rem;
-    width: 2rem;
-} */
-
-.tool-btn.line-art p {
-    color: black;
-}
-
-.tool-btn.line-art img {
-    min-width: 1.8rem;
-    height: 1.8rem;
-    transition: .2s;
-    -moz-transition: .2s;
-}
-
-#like.clicked img,.like-btn.clicked img {
-    filter: invert(41%) sepia(19%) saturate(2576%) hue-rotate(310deg) brightness(97%) contrast(98%);
-}
-
-#save.clicked img {
-    filter: invert(45%) sepia(43%) saturate(7372%) hue-rotate(201deg) brightness(100%) contrast(98%);
 }
 
 #ios-download, #show-magic, #like {
@@ -344,10 +120,6 @@ a.xpost-wrapper img{
     width: fit-content;
     width: -moz-fit-content;
     height: 5rem;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    /* display: none; */
     margin-top: 1rem;
 }
 
@@ -358,39 +130,12 @@ a.xpost-wrapper img{
 
 #screenshot-mark p {
     display: inline-block;
-    position: relative;
-    bottom: 50%;
-    transform: translateY(50%);
     font-size: 2rem;
-}
-@media (prefers-color-scheme: light) {
-    #info+p{
-        background-color: white;
-    }
 }
 
 @media (prefers-color-scheme: dark) {
-    .tool-btn {
-        background-color: var(--sc-grey);
-    }
-    .tool-btn img, #screenshot-mark img {
-        filter: invert(1);
-    }
-    .tool-btn p {
-        color: black;
-    }
-    .tool-btn.line-art p, #info+p, #screenshot-mark p {
-        color: white;
-    }
-    #info+p {
-        border: 1px solid white;
-        background-color: black;
-    }
     .fade-out {
         background-image: linear-gradient( rgba(0, 0, 0, 0), black);
-    }
-    .floater {
-        background-color: black;
     }
     .sc-title, .gate-text {
         color: white;
