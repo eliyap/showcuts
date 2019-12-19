@@ -15,7 +15,7 @@ Post Link to Shortcut
   <img id="reddit-dark" src="{% static 'assets/branding/reddit-dark.svg' %}" alt="Reddit" />
 </a>
 <a href="http://{{request.get_host}}/share/view/{{hxid}}" title="Reddit">
-  <div class="hack-centre">
+  <div class="hack-centre-x">
     <div id="glyph-bg" style="background-color:rgb{{color_code}};margin:0 .5rem 0 0;">
       <img src="{% static 'assets/glyphs/wand.svg' %}" />
     </div>
@@ -32,6 +32,6 @@ Post Link to Shortcut
   <input type="submit" value="Submit">
 </form>
 {% if error %}
-<p class="hack-centre">Error: {{error}}</p>
+<p class="hack-centre-x">Error: {{error}}</p>
 {% endif %}
 {% endblock %}

@@ -4,6 +4,7 @@
 {% block extra_static %}
 <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
 <link rel="stylesheet" href="{% static 'css/view.css' %}">
+<link rel="stylesheet" href="{% static 'css/right-menu.css' %}">
 <link rel="stylesheet" href="{% static 'css/magic.css' %}">
 <script defer src="{% static 'js/gallery.js' %}"></script>
 
@@ -20,24 +21,24 @@ All Shortcuts
 {% block incard %}
 <div class="masonry">
   {% for shortcut in shortcuts %}
-  <div class="sc-card">
+  <div class="sc-card grey--black">
     <!-- title & glyph -->
     <a href="{% url 'submit' %}/{{shortcut.iCloudID}}">
       <div class="sideby">
         <div id="glyph-bg" style="background-color:rgb{{shortcut.context.color_code}}">
-          <img id='glyph_icon' src="{% static shortcut.context.glyph_icon %}" />
+          <img id='glyph-icon' class='hack-centre' src="{% static shortcut.context.glyph_icon %}" />
         </div>
-        <div class='card-title'>{{shortcut.name}}</div>
+        <div class='card-title centre-y txt-black--white'>{{shortcut.name}}</div>
       </div>
       <div class="sideby">
     </a>
     <div class="like-btn inline-btn line-art {{user.username|yesno:',disabled,'}} {{liked|yesno:'clicked,,'}}"
       title="{{user.username|yesno:'Like,Login to Like,'}}" hxid="{{shortcut.context.hxid}}">
-      <img src="{% static 'assets/ui/heart-fill.svg' %}" />
+      <img class="invert" src="{% static 'assets/ui/heart-fill.svg' %}" />
     </div>
-    <p id="likes">{{shortcut.context.likes}}</p>
-    <img id="flow" src="{% static 'assets/ui/flow.svg' %}" />
-    <p id="likes">{{shortcut.context.action_blocks|length}}</p>
+    <p class='txt-black--white'>{{shortcut.context.likes}}</p>
+    <img class="invert" id="flow" src="{% static 'assets/ui/flow.svg' %}" />
+    <p class='txt-black--white'>{{shortcut.context.action_blocks|length}}</p>
 
 
   </div>
@@ -46,7 +47,7 @@ All Shortcuts
   {% for action in shortcut.context.action_blocks|slice:":3" %}
   {% include 'elements/action.html' with action=action UUID_glyphs=shortcut.context.UUID_glyphs %}
   {% endfor %}
-  <div class="mini-fade"></div>
+  <div class="mini-fade invert"></div>
 </div>
 {% endfor %}
 </div>
