@@ -8,12 +8,19 @@
 {% block extra_static %}
 <!-- show-shortcut specific CSS -->
 <link rel="stylesheet" href="{% static 'css/view.css' %}">
+<link rel="stylesheet" href="{% static 'css/magic.css' %}">
+<link rel="stylesheet" href="{% static 'css/right-menu.css' %}">
 <!-- save-file-to-device library -->
-<script defer src="{% static 'js/FileSaver.min.js' %}"></script>
+<script src="{% static 'js/FileSaver.min.js' %}"></script>
 <!-- DOM => Image library -->
-<script defer src="{% static 'js/dom-to-image.min.js' %}"></script>
+<script src="{% static 'js/dom-to-image.min.js' %}"></script>
 <!-- implementation of libraries to take "screenshot" -->
 <script defer src="{% static 'js/screenshot.js' %}"></script>
+
+<!-- QR Code Generator -->
+<script src="{% static 'js/QR/qrcode.min.js' %}"></script>
+<!-- iCloud links JS -->
+<script defer src="{% static 'js/iCloud.js' %}"></script>
 {% endblock %}
 
 {% block sidebar %}
@@ -21,24 +28,24 @@
 {% endblock %}
 
 {% block content %}
-<div class="content">
+<div class="content grey--black">
   <!-- # header -->
-  <div class="header" id='SCtitle'>
+  <div class="header grey--black" id='SCtitle'>
 
     <div class='floater'></div>
 
     <!-- ## open btn -->
     <span id='open'>
       {% if menu_icon %}
-      <img src="{% static menu_icon %}" />
+      <img class='invert' src="{% static menu_icon %}" />
       {% else %}
-      <img src="{% static 'assets/ui/menu.svg' %}" />
+      <img class='invert' src="{% static 'assets/ui/menu.svg' %}" />
       {% endif %}
     </span>
 
     <!-- ## Shortcut Icon -->
     <div id="glyph-bg" style="background-color:rgb{{color_code}}">
-      <img id='glyph_icon' src="{% static glyph_icon %}" />
+      <img id='glyph-icon' class='hack-centre' src="{% static glyph_icon %}" />
     </div>
 
     <!-- ## Shortcut Name -->
@@ -49,7 +56,7 @@
     <div class='floater'></div>
     <div class="align-5"></div>
   </div>
-  <div class='floater'></div>
+  <div class='floater grey--black'></div>
 
   <!-- # Shortcut Actions -->
   <div id="action-container" class="article-container">
@@ -74,9 +81,9 @@
     </div>
 
     <!-- line art logo -->
-    <div id='screenshot-mark'>
-      <img src="{% static 'assets/logo/line.svg' %}" />
-      <p>Showcuts</p>
+    <div id='screenshot-mark' class='hack-centre-x'>
+      <img class='invert' src="{% static 'assets/logo/line.svg' %}" />
+      <p class='hack-centre-y'>Showcuts</p>
     </div>
 
   </div>
@@ -84,39 +91,31 @@
   <div class="align-5"></div>
 
   <!-- # Right Sidebar -->
-  <div class='tool-container'>
-    <a href="{{iCloud_link}}" id='ios-download' title='Download from iCloud'>
-      <div class='tool-btn expand'>
-        <img src="{% static 'assets/ui/cloud-download-outline.svg' %}" />
-        <p>iCloud</p>
-      </div>
-    </a>
+  <div class='tool-container grey--black'>
     <!-- Magic Var: toggles visibility of magic variables -->
     <a id='show-magic' title='Magic Variables'>
-      <div class='tool-btn expand'>
-        <img src="{% static 'assets/ui/wand.svg' %}" />
-        <p>Magic Vars</p>
+      <div class='tool-btn black--white expand'>
+        <img class='invert' src="{% static 'assets/ui/wand.svg' %}" />
+        <p class='txt-white--black'>Magic Vars</p>
       </div>
     </a>
     <a id='screenshot' title='Export Image'>
-      <div class='tool-btn expand'>
-        <img src="{% static 'assets/ui/photo-square-white.svg' %}" />
-        <p>Screenshot</p>
+      <div class='tool-btn black--white expand'>
+        <img class='invert' src="{% static 'assets/ui/photo-square-white.svg' %}" />
+        <p class='txt-white--black'>Screenshot</p class='txt-white--black'>
       </div>
     </a>
-    <div id='info' title='Shortcut Info'>
-      {% if workflow_version < min_version %}
-      <div class='tool-btn danger' id='info-expand'>
-        <img src="{% static 'assets/ui/warning-white.svg' %}" />
-      </div>
-      {% else %}
-      <div class='tool-btn' id='info-expand'>
-        <img src="{% static 'assets/ui/info.svg' %}" />
-      </div>
-      {% endif %}
+    {% if workflow_version < min_version %}
+    <div id='info' title='Shortcut Info' class='js-toggle tool-btn bg-red' id='info-expand'>
+      <img src="{% static 'assets/ui/warning-white.svg' %}" />
     </div>
+    {% else %}
+    <div id='info' title='Shortcut Info' class='js-toggle tool-btn black--white' id='info-expand'>
+      <img class='invert' src="{% static 'assets/ui/info.svg' %}" />
+    </div>
+    {% endif %}
 
-    <p>
+    <p class="white--grey">
       <!-- submission timestamp -->
       {% if owner.username == user.username %}
       Submitted {{sc_age}} ago
@@ -125,35 +124,73 @@
       {% else %}
       Submitted Anonymously {{sc_age}} ago
       {% endif %}
-      
+
       <!-- workflow client number -->
-      {% if workflow_version < min_version %}<br/><br/>This is an old shortcut, so some variables might be missing!{% endif %}
+      {% if workflow_version < min_version %}<br /><br />This is an old shortcut, so some variables might be
+      missing!{% endif %}
     </p>
 
-
-    <!-- logged in buttons -->
-    <div id="like" class="tool-btn line-art {{user.username|yesno:',disabled,'}} {{liked|yesno:'clicked,,'}}"
-      title="{{user.username|yesno:'Like,Login to Like,'}}" hxid="{{hxid}}">
-      <img src="{% static 'assets/ui/heart-fill.svg' %}" />
+    <div id="icloud" class="js-toggle tool-btn line-art bg-none" title='iCloud link'>
+      <img class='invert' src="{% static 'assets/ui/cloud.svg' %}" />
     </div>
-    <p id="likes">{{likes}}</p>
-    <div id="save" class="tool-btn line-art {{user.username|yesno:',disabled,'}}  {{saved|yesno:'clicked,,'}}"
+    <div>
+      <a id="icloud-link" href='{{iCloud_link}}' class="tool-btn sub-label" title='iCloud Link' target="_blank">
+        <div class='flex white--black border-black--white rounded-s'>
+          <p class='txt-black--white'>Visit iCloud (iOS)</p>
+          <img class='invert' src="{% static 'assets/ui/cloud-download.svg' %}" />
+        </div>
+      </a>
+      <div id="icloud-copy" class='tool-btn sub-label'>
+        <div class='flex white--black border-black--white rounded-s'>
+          <p class='txt-black--white'>Copy iCloud Link</p class='txt-black--white'>
+          <input id='iCloud-txt' style="position: fixed; top:-10rem;right:-10rem;" value='{{iCloud_link}}'></input>
+          <img class='invert' src="{% static 'assets/ui/copy-to-clipboard.svg' %}" />
+        </div>
+      </div>
+      <div id="icloud-qr" class="tool-btn sub-label">
+        <div class='flex white--black border-black--white rounded-s'>
+          <p class='txt-black--white'>Scan QR Code</p>
+          <img class='invert' src="{% static 'assets/ui/QR.svg' %}" />
+          <div id="qrcode" style="display:none;max-height: 100vh;max-width: 100vw;"></div>
+          <script type="text/javascript">
+            var qrcode = new QRCode(document.getElementById("qrcode"), {
+              text: "{{iCloud_link}}",
+              width: 512,
+              height: 512,
+              colorDark: "#000000",
+              colorLight: "#ffffff",
+              correctLevel: QRCode.CorrectLevel.H
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+    <!-- logged in buttons -->
+    <div id="like"
+      class="like-btn tool-btn line-art bg-none {{user.username|yesno:',disabled,'}} {{liked|yesno:'clicked,,'}}"
+      title="{{user.username|yesno:'Like,Login to Like,'}}" hxid="{{hxid}}">
+      <img class='invert' src="{% static 'assets/ui/heart-fill.svg' %}" />
+    </div>
+    <p class='black--white txt-white--black'>{{likes}}</p>
+    <div id="save" class="tool-btn line-art bg-none {{user.username|yesno:',disabled,'}}  {{saved|yesno:'clicked,,'}}"
       title='{{user.username|yesno:'Save,Login to Save,'}}' hxid="{{hxid}}">
-      <img src="{% static 'assets/ui/bookmark-fill.svg' %}" />
+      <img class='invert' src="{% static 'assets/ui/bookmark-fill.svg' %}" />
     </div>
 
     <!-- buttons for sharing to other sites -->
-    <div id="xpost" class="tool-btn line-art" title='Share Shortcut'>
-      <img src="{% static 'assets/ui/share.svg' %}" />
+    <div id="xpost" class="js-toggle tool-btn line-art bg-none" title='Share Shortcut'>
+      <img class='invert' src="{% static 'assets/ui/share.svg' %}" />
     </div>
-    <a id="reddit" href='http://{{request.get_host}}/share/reddit/{{hxid}}' class='xpost-wrapper' title=''>
-      <img src="{% static 'assets/branding/reddit.svg' %}" />
-    </a>
-    <a id="twitter"
-      href='https://twitter.com/intent/tweet?text=https://showcuts.app/share/view/{{hxid}}%0ACheck%20out%20this%20Shortcut!'
-      class='xpost-wrapper' title='Tweet' target="_blank">
-      <img src="{% static 'assets/branding/twitter.svg' %}" />
-    </a>
+    <div>
+      <a id="reddit" href='http://{{request.get_host}}/share/reddit/{{hxid}}' class="sub-btn" title='Reddit'>
+        <img src="{% static 'assets/branding/reddit.svg' %}" />
+      </a>
+      <a id="twitter"
+        href='https://twitter.com/intent/tweet?text=https://showcuts.app/share/view/{{hxid}}%0ACheck%20out%20this%20Shortcut!'
+        class="sub-btn" title='Tweet' target="_blank">
+        <img src="{% static 'assets/branding/twitter.svg' %}" />
+      </a>
+    </div>
   </div>
   {% if action_blocks|length > 100 %}
   {% with remainder=action_blocks|length|add:-100 %}
