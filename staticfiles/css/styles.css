@@ -27,25 +27,11 @@ html {
     list-style: none;
 }
 
-/* general styling */
-
-.hack-centre {
-    width: fit-content;
-    width: -moz-fit-content;
-    position: relative;
-    transform: translate(-50%, 0);
-    left: 50%;
-}
-
-.danger{
-    background-color: rgb(255, 75, 75)!important;
-}
 /* big elements */
 
 .article-container {
     position: relative;
-    background-color: var(--sc-grey);
-    padding: 7rem 2rem 2rem 2rem;
+    padding: 6rem 2rem 2rem 2rem;
     font-size: 130%;
     line-height: normal;
     max-width: 35rem;
@@ -56,18 +42,17 @@ html {
 .header {
     font-size: 130%;
     z-index: 3;
-    background-color: var(--sc-grey);
     display: flex;
     position: fixed;
     top: 0;
     padding: 1rem 0rem;
 }
 
-.header.no-sidebar{
+.header.no-sidebar {
     width: calc(100vw);
 }
 
-.header.with-sidebar{
+.header.with-sidebar {
     width: calc(100vw - 250px);
 }
 
@@ -175,7 +160,6 @@ html {
     transition: .5s;
     display: flex;
     position: relative;
-    background-color: var(--sc-grey);
 }
 
 #open {
@@ -267,16 +251,13 @@ html {
     background-color: black;
     display: inline-block;
     margin: 0 1rem;
-    padding:.4rem;
+    /* padding:.4rem; */
 }
-#glyph_icon{
+
+#glyph-icon {
     max-width: 2.2rem;
     max-height: 2.2rem;
     filter: invert(1);
-    position: relative;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
 }
 
 /* submit page styling */
@@ -420,7 +401,6 @@ input[type=submit] {
 /* big card container */
 
 .big-card {
-    background-color: white;
     margin: 2rem auto;
     border-radius: 2rem;
     padding: 2rem;
@@ -485,17 +465,56 @@ input[type=submit] {
     box-shadow: 0 0 10px white;
     display: none;
 }
+#qrcode img{
+    width:100%;
+    height:100%;
+}
 
 #path1 {
-    stroke-dasharray: 325, 50,325, 50;
+    stroke-dasharray: 325, 50, 325, 50;
     stroke-dashoffset: 750;
     animation: dash1 4s linear -2.75s infinite;
 }
 
 #path2 {
-    stroke-dasharray: 325, 50,325, 50;
+    stroke-dasharray: 325, 50, 325, 50;
     stroke-dashoffset: 770;
     animation: dash2 4s linear 0s infinite;
+}
+
+/* 
+# notification
+*/
+
+#notify {
+    z-index: 10;
+    font-weight: 600;
+    height: 2rem;
+    top: -3rem;
+    border-radius: 1rem;
+    padding: 0 1rem 0 .7rem;
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, .25));
+    -moz-transition: .5s;
+    -o-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+#notify img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: .25rem;
+    display: none;
+}
+
+#notify span {
+    position: relative;
+    bottom: .3rem;
+}
+
+#notify.with-sidebar {
+    /* 50% of sidebar & right nav */
+    left: calc(50% + 125px - 2.5rem);
 }
 
 @keyframes dash1 {
@@ -536,14 +555,8 @@ input[type=submit] {
     #sidenav-logo p, .big-card {
         color: white;
     }
-    .header, .article-container, .content, .tool-container, .big-card {
+    .content {
         background-color: black;
-    }
-    #open, #close {
-        filter: invert(1);
-    }
-    .big-card {
-        border: 1px solid white;
     }
     #reddit-light {
         display: none;

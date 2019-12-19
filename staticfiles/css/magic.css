@@ -113,7 +113,6 @@ div {
     max-width: 31rem;
     border-radius: var(--action-corner);
     padding: var(--action-padding);
-    background-color: white;
     box-shadow: 0 0 1rem rgba(0, 0, 0, .2);
     z-index: 2;
     position: relative;
@@ -404,7 +403,6 @@ a:hover{
 /* dark mode settings */
 @media (prefers-color-scheme: dark) {
     .action{
-        background-color: rgb(35,35,35);
         color: white;
     }   
     .magic.empty{
@@ -420,9 +418,7 @@ a:hover{
     .toggle.off{
         background-color: rgb(67,68,72);
     }
-    .line-elems,.lower-line{
-        border-top: 1px solid rgb(50, 50, 50);
-    }
+    
     .pill,.counter{
         background-color: var(--dark-option-grey);
     }

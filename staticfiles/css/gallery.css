@@ -20,13 +20,14 @@ a * {
 .sc-card {
     /* Masonry bricks or child elements */
     position: relative;
-    background-color: var(--sc-grey);
     display: inline-block;
     margin: 0 0 1.5rem;
     width: 100%;
     padding: 1rem 1rem 6rem 1rem;
     border-radius: 1rem;
     overflow-y: hidden;
+    /* max-width: 31 rem action max + 1 rem each size */
+    max-width: 33rem;
 }
 .action.cutoff{
     position: absolute!important;
@@ -46,8 +47,6 @@ a * {
     z-index: 5;
 } */
 .card-title {
-    margin: auto 0 auto 0;
-    color: black;
     font-size: 1.7rem;
     font-weight: bold;
     line-height: 1;
@@ -95,5 +94,10 @@ a * {
 @media only screen and (min-width: 90rem) {
     .masonry {
         column-count: 3;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    .sc-card{
+        border: 1px solid var(--sc-grey);
     }
 }
