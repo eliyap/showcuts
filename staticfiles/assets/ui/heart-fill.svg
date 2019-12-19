@@ -1,1 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98 98"><defs><style>.cls-1{fill:none;}</style></defs><title>Asset 3</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g id="Regular-M"><path d="M48.85,94.08a8.44,8.44,0,0,0,3.56-1.31c27.49-17.58,44.92-38,44.92-58.84,0-17.29-11.86-29.49-27.19-29.49-9.53,0-16.85,5.27-21.29,13.33C44.5,9.76,37.08,4.44,27.56,4.44,12.23,4.44.36,16.64.36,33.93c0,20.8,17.43,41.26,45,58.84A8.06,8.06,0,0,0,48.85,94.08Z"/></g><rect class="cls-1" width="98" height="98"/></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 98 98" style="enable-background:new 0 0 98 98;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+</style>
+<title>Asset 3</title>
+<g>
+	<g id="Layer_1-2">
+		<g id="Regular-M">
+			<path d="M48.9,87.3c1.1-0.1,2.1-0.5,3-1.1c23.4-14.9,38.2-32.3,38.2-50C90.1,21.5,80,11.1,67,11.1c-8.1,0-14.3,4.5-18.1,11.3
+				c-3.7-6.8-10-11.3-18.1-11.3c-13,0-23.1,10.4-23.1,25.1c0,17.7,14.8,35.1,38.2,50C46.8,86.8,47.8,87.2,48.9,87.3z"/>
+		</g>
+		<rect x="7.4" y="7.4" class="st0" width="83.3" height="83.3"/>
+	</g>
+</g>
+</svg>
