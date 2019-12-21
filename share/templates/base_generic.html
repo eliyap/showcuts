@@ -2,13 +2,18 @@
 <html lang="en">
 
 <head>
+  <!-- Tab Title -->
   {% block title %}<title>Showcuts</title>{% endblock %}
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <!-- Add additional CSS in static file -->
   {% load static %}
+
   <!-- Bootstrap core CSS -->
   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
   <!-- favicon -->
   <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/icons/180.png' %}">
   <link rel="manifest" href="{% static 'manifest.json' %}">
@@ -16,29 +21,40 @@
   <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/icons/32.png' %}">
   <link rel="icon" type="image/png" sizes="48x48" href="{% static 'assets/icons/48.png' %}">
   <link rel="icon" type="image/png" sizes="64x64" href="{% static 'assets/icons/64.png' %}">
-  <!-- Custom styles for this template -->
-  <link rel="stylesheet" href="{% static 'css/generic.css' %}">
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+  <!-- SCSS Compressed-->
+  {% load compress %}
+  {% compress css %}
+  <!-- import extra static files -->
+  {% block scss %}
+  <link type="text/x-scss" href="{% static 'css/base.scss' %}" rel="stylesheet" media="screen">
+  {% endblock %}
+  {% endcompress %}
+  
+  <!-- JavaScript -->
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <!-- offline jquery for dev work -->
-  <!-- <script src="{% static 'js/jquery.min.js' %}"></script> -->
+  <script src="{% static 'js/jquery.min.js' %}"></script>
   <script defer src="{% static 'js/custom.js' %}"></script>
   <script defer src="{% static 'js/notify.js' %}"></script>
-  {% block extra_static %}{% endblock %}
+  {% block import_js %}{% endblock %}
 </head>
 
 <body>
-  <div id='notify' class='hack-centre-x pos-fix white--grey text-black--white'>
-    <img id='nf-copy' src="{% static 'assets/ui/copy-to-clipboard.svg' %}"/>
-    <img id='nf-logout' src="{% static 'assets/ui/copy-to-clipboard.svg' %}"/>
+  <!-- Notification -->
+  <div id='notify' class='hack-centre-x pos-fix'>
+    <img id='nf-copy' src="{% static 'assets/ui/copy-to-clipboard.svg' %}" />
+    <img id='nf-logout' src="{% static 'assets/ui/copy-to-clipboard.svg' %}" />
     <span id='nf-text'></span>
   </div>
+
   <!-- Sidebar -->
   {% block sidebar %}
   {% include 'sidebar.html' with hidden=True %}
   {% endblock %}
 
+  <!-- Content -->
   {% block content %}
   {% endblock %}
 </body>
