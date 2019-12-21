@@ -5,11 +5,7 @@
 <title>{{name}}</title>
 {% endblock %}
 
-{% block extra_static %}
-<!-- show-shortcut specific CSS -->
-<link rel="stylesheet" href="{% static 'css/view.css' %}">
-<link rel="stylesheet" href="{% static 'css/magic.css' %}">
-<link rel="stylesheet" href="{% static 'css/right-menu.css' %}">
+{% block import_js %}
 <!-- save-file-to-device library -->
 <script src="{% static 'js/FileSaver.min.js' %}"></script>
 <!-- DOM => Image library -->
@@ -21,6 +17,13 @@
 <script src="{% static 'js/QR/qrcode.min.js' %}"></script>
 <!-- iCloud links JS -->
 <script defer src="{% static 'js/iCloud.js' %}"></script>
+{% endblock %}
+
+{% block scss %}
+<!-- show-shortcut specific CSS -->
+<link type="text/x-scss" href="{% static 'css/view.scss' %}" rel="stylesheet" media="screen">
+<link type="text/x-scss" href="{% static 'css/magic.scss' %}" rel="stylesheet" media="screen">
+<link type="text/x-scss" href="{% static 'css/right-menu.scss' %}" rel="stylesheet" media="screen">
 {% endblock %}
 
 {% block sidebar %}
@@ -94,13 +97,13 @@
   <div class='tool-container grey--black'>
     <!-- Magic Var: toggles visibility of magic variables -->
     <a id='show-magic' title='Magic Variables'>
-      <div class='tool-btn black--white expand'>
+      <div class='tool-btn expand'>
         <img class='invert' src="{% static 'assets/ui/wand.svg' %}" />
         <p class='txt-white--black'>Magic Vars</p>
       </div>
     </a>
     <a id='screenshot' title='Export Image'>
-      <div class='tool-btn black--white expand'>
+      <div class='tool-btn expand'>
         <img class='invert' src="{% static 'assets/ui/photo-square-white.svg' %}" />
         <p class='txt-white--black'>Screenshot</p class='txt-white--black'>
       </div>
@@ -110,7 +113,7 @@
       <img src="{% static 'assets/ui/warning-white.svg' %}" />
     </div>
     {% else %}
-    <div id='info' title='Shortcut Info' class='js-toggle tool-btn black--white' id='info-expand'>
+    <div id='info' title='Shortcut Info' class='js-toggle tool-btn' id='info-expand'>
       <img class='invert' src="{% static 'assets/ui/info.svg' %}" />
     </div>
     {% endif %}
@@ -134,21 +137,21 @@
       <img class='invert' src="{% static 'assets/ui/cloud.svg' %}" />
     </div>
     <div>
-      <a id="icloud-link" href='{{iCloud_link}}' class="tool-btn sub-label" title='iCloud Link' target="_blank">
-        <div class='flex white--black border-black--white rounded-s'>
+      <a id="icloud-link" href='{{iCloud_link}}' class="sub-label" title='iCloud Link' target="_blank">
+        <div class='flex'>
           <p class='txt-black--white'>Visit iCloud (iOS)</p>
           <img class='invert' src="{% static 'assets/ui/cloud-download.svg' %}" />
         </div>
       </a>
-      <div id="icloud-copy" class='tool-btn sub-label'>
-        <div class='flex white--black border-black--white rounded-s'>
+      <div id="icloud-copy" class='sub-label'>
+        <div class='flex'>
           <p class='txt-black--white'>Copy iCloud Link</p class='txt-black--white'>
           <input id='iCloud-txt' style="position: fixed; top:-10rem;right:-10rem;" value='{{iCloud_link}}'></input>
           <img class='invert' src="{% static 'assets/ui/copy-to-clipboard.svg' %}" />
         </div>
       </div>
-      <div id="icloud-qr" class="tool-btn sub-label">
-        <div class='flex white--black border-black--white rounded-s'>
+      <div id="icloud-qr" class="sub-label">
+        <div class='flex'>
           <p class='txt-black--white'>Scan QR Code</p>
           <img class='invert' src="{% static 'assets/ui/QR.svg' %}" />
           <div id="qrcode" style="display:none;max-height: 100vh;max-width: 100vw;"></div>
@@ -171,7 +174,7 @@
       title="{{user.username|yesno:'Like,Login to Like,'}}" hxid="{{hxid}}">
       <img class='invert' src="{% static 'assets/ui/heart-fill.svg' %}" />
     </div>
-    <p class='black--white txt-white--black'>{{likes}}</p>
+    <p>{{likes}}</p>
     <div id="save" class="tool-btn line-art bg-none {{user.username|yesno:',disabled,'}}  {{saved|yesno:'clicked,,'}}"
       title='{{user.username|yesno:'Save,Login to Save,'}}' hxid="{{hxid}}">
       <img class='invert' src="{% static 'assets/ui/bookmark-fill.svg' %}" />

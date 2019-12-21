@@ -1,7 +1,9 @@
 {% extends "base_generic.html" %}
 {% load static %}
 
-{% block extra_static %}<link rel="stylesheet" href="{% static 'css/login.css' %}">{% endblock %}
+{% block scss %}
+<link type="text/x-scss" href="{% static 'css/login.scss' %}" rel="stylesheet" media="screen">
+{% endblock %}
 
 {% block sidebar %}
 {% include 'sidebar.html' with hidden=True %}

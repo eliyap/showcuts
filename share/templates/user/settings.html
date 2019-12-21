@@ -5,8 +5,9 @@
 <title>Settings</title>
 {% endblock %}
 
-{% block extra_static %}
-<link rel="stylesheet" href="{% static 'css/settings.css' %}">{% endblock %}
+{% block scss %}
+<link type="text/x-scss" href="{% static 'css/settings.scss' %}" rel="stylesheet" media="screen">
+{% endblock %}
 
 {% block card-title %}
 {{user.username}}'s Account
