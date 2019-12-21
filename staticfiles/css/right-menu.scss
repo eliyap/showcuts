@@ -1,0 +1,303 @@
+@import "base";
+
+/* 
+# Vertical Ordering
+*/
+
+.tool-btn,
+.tool-btn + p,
+.sub-btn,
+.sub-label {
+  position: absolute;
+  top: calc(3rem * var(--n));
+}
+
+#show-magic {
+  --n: 0;
+}
+
+#screenshot {
+  --n: 1;
+}
+/* button specific stylings */
+
+#ios-download,
+#show-magic,
+#like {
+  white-space: nowrap;
+
+  &:hover + p {
+    right: 3rem;
+    pointer-events: none;
+  }
+
+  & + p {
+    @extend %black--white;
+    @extend %txt-white--black;
+    @extend %centre-y;
+    @include transition(.5s);
+    width: 2.5rem;
+    right: -13rem;
+    border-radius: 0.5rem;
+    height: 2.5rem;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+}
+
+#info {
+  --n: 2;
+
+  & + p {
+    @extend #info;
+    @extend %white-card;
+    @include transition(0.5s);
+    right: -13rem;
+    padding: 0.3rem;
+    margin: 0.25rem;
+    z-index: 4;
+    width: 12rem;
+    height: auto;
+  }
+
+  &.clicked + p {
+    right: 3rem;
+  }
+}
+
+#icloud,
+#icloud-link,
+#icloud-copy,
+#icloud-qr {
+  --n: 3;
+}
+
+#like,
+#like + p {
+  --n: 4;
+}
+
+#save {
+  --n: 5;
+  &.clicked img {
+    filter: invert(45%) sepia(43%) saturate(7372%) hue-rotate(201deg) brightness(100%) contrast(98%);
+  }
+}
+
+#xpost,
+#reddit,
+#twitter {
+  --n: 6;
+}
+
+// Vertical Offset
+.clicked + div > .sub-btn,
+.clicked + div > .sub-label {
+  top: calc(var(--n) * 3rem + var(--m) * 3rem);
+  right: 3rem;
+  visibility: visible !important;
+  opacity: 1;
+}
+
+#reddit {
+  img {
+    filter: none !important;
+  }
+  --m: -0.5;
+}
+
+#twitter {
+  img {
+    filter: none !important;
+  }
+  --m: +0.5;
+}
+
+#icloud-link {
+  --m: +1;
+}
+
+#icloud-copy {
+  --m: 0;
+}
+
+#icloud-qr {
+  --m: -1;
+}
+
+// Text Formatting
+%rounded-btn {
+  @extend %rounded-s;
+  padding: 0.25rem;
+  margin: 0.25rem;
+  overflow: hidden;
+  img {
+    @extend .invert;
+    height: 2rem;
+    min-width: 2rem;
+    margin-right: 0.5rem;
+  }
+}
+
+// # Buttons
+.tool-btn {
+  @extend %black--white;
+  @extend %rounded-btn;
+  height: 2.5rem;
+  width: 2.5rem;
+  right: 0;
+
+  p {
+    margin: auto 0 auto 0.5rem;
+  }
+
+  &.line-art p {
+    color: black;
+  }
+}
+
+.tool-btn.expand {
+  transition: width 0.5s;
+  -moz-transition: width 0.5s;
+  color: white;
+  display: flex;
+
+  &:hover {
+    width: 10rem;
+  }
+}
+
+// sub options
+%sub-item {
+  @extend %white--black;
+  @extend %txt-black--white;
+  @extend %border-black--white;
+  right: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.25s;
+  -moz-transition: 0.25s;
+}
+
+.sub-btn {
+  @extend %sub-item;
+  @extend %rounded-btn;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.sub-label {
+  @extend %sub-item;
+  @extend %rounded-btn;
+  height: 2.5rem;
+  width: auto;
+
+  img {
+    width: 2.5rem;
+  }
+
+  p {
+    white-space: nowrap;
+  }
+}
+
+.line-art {
+  &:hover {
+    animation: shake 0.5s linear 0s;
+  }
+
+  &:active {
+    animation: shake2 0.5s linear 0s;
+  }
+}
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  16% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+  82% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes shake2 {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  16% {
+    transform: rotate(-10deg) scale(1.05);
+  }
+  32% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: rotate(8deg) scale(1.08);
+  }
+  66% {
+    transform: scale(1.05);
+  }
+  82% {
+    transform: rotate(-5deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/* 
+## Color Transitions
+*/
+
+.tool-btn.line-art img {
+  @extend .invert;
+  transition: 0.2s;
+  -moz-transition: 0.2s;
+}
+
+.like-btn.clicked img {
+  filter: invert(41%) sepia(19%) saturate(2576%) hue-rotate(310deg) brightness(97%) contrast(98%) !important;
+}
+
+#xpost:hover > img,
+#xpost.clicked > img,
+#xpost:active > img {
+  filter: invert(60%) sepia(19%) saturate(2576%) hue-rotate(110deg) brightness(97%) contrast(98%);
+}
+
+#icloud:hover > img,
+#icloud.clicked > img,
+#icloud:active > img {
+  filter: invert(55%) sepia(41%) saturate(1940%) hue-rotate(180deg) brightness(105%) contrast(99%);
+}
+
+/* 
+# Color Scheme
+*/
+
+@media (prefers-color-scheme: light) {
+  #info + p {
+    border: 1px solid black;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  #info + p {
+    border: 1px solid var(--sc-grey);
+  }
+  #info + p,
+  .tool-btn p {
+    color: black;
+  }
+  .tool-btn.line-art p {
+    color: white;
+  }
+}

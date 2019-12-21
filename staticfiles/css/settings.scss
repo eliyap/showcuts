@@ -1,0 +1,100 @@
+@import "base";
+
+/* logout */
+#delete-container {
+  position: relative;
+}
+
+%delete-btn {
+  background-color: darkred;
+  border-radius: 0.5rem;
+  color: white;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#delete-account {
+  @extend %delete-btn;
+
+  img {
+    filter: invert(1);
+    width: 2rem;
+    height: 2rem;
+    position: relative;
+    top: 0.2rem;
+  }
+
+  span {
+    position: relative;
+    top: -0.4rem;
+  }
+}
+
+#accept-delete {
+  @extend %delete-btn;
+}
+
+#safety-glass {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5) 10px,
+    rgba(0, 0, 0, 0.25) 10px,
+    rgba(0, 0, 0, 0.25) 20px
+  );
+  border-radius: 0.5rem;
+}
+
+form {
+  width: fit-content;
+  width: -moz-fit-content;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* warning window */
+#disconnect-warning {
+  @extend %white--black;
+  @extend %border-black--white;
+  @include transition(0.5s);
+  position: fixed;
+  top: 100vh;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 1rem;
+  padding: 1rem;
+  z-index: 99;
+  max-width: 30rem;
+  max-height: 90vh;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  overflow-y: scroll;
+  &.show {
+    top: 0;
+  }
+}
+ul {
+  @extend %txt-black--white;
+  padding-left: 1rem;
+}
+/* blur window */
+.blurred {
+  filter: blur(2px);
+}
+
+@media only screen and (max-width: 768px) {
+  #disconnect-warning {
+    margin: 1rem 0 0 0;
+    width: 80vw;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+}

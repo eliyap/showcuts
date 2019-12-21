@@ -1,3 +1,5 @@
+@import 'base';
+
 a * {
     /* remove default coloring */
     color: black;
@@ -47,6 +49,8 @@ a * {
     z-index: 5;
 } */
 .card-title {
+    @extend %txt-black--white;
+    @extend %centre-y;
     font-size: 1.7rem;
     font-weight: bold;
     line-height: 1;
@@ -75,13 +79,14 @@ a * {
 }
 
 .mini-fade{
+    @extend .invert;
     position: absolute;
     bottom: 0;
     left:0;
     height:5rem;
     width:100%;
     z-index: 5;
-    background-image: linear-gradient( rgba(255, 255, 255, 0), var(--sc-grey));
+    background-image: linear-gradient( rgba(255, 255, 255, 0), $sc-grey);
     pointer-events: none;
     border-radius: 1rem;
 }
@@ -98,6 +103,6 @@ a * {
 }
 @media (prefers-color-scheme: dark) {
     .sc-card{
-        border: 1px solid var(--sc-grey);
+        border: 1px solid $sc-grey;
     }
 }

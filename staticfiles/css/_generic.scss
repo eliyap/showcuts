@@ -1,0 +1,165 @@
+@import "color";
+
+// Mixins
+@mixin transition($_) {
+  -webkit-transition: $_;
+  -moz-transition: $_;
+  -ms-transition: $_;
+  -o-transition: $_;
+  transition: $_;
+}
+%fit-width {
+  width: fit-content;
+  width: -moz-fit-content;
+}
+// Layout
+
+// # Centering
+%hack-align {
+  width: fit-content;
+  width: -moz-fit-content;
+  position: relative;
+}
+.hack-centre {
+  @extend %hack-align;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+.hack-centre-x {
+  @extend %hack-align;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+.hack-centre-y {
+  @extend %hack-align;
+  transform: translateY(50%);
+  bottom: 50%;
+}
+
+%centre-x {
+  margin: 0 auto 0 auto;
+}
+
+%centre-y {
+  margin: auto 0 auto 0;
+}
+
+// # misc
+.flex {
+  display: flex;
+}
+
+.pos-abs {
+  position: absolute;
+}
+.pos-fix {
+  position: fixed;
+}
+
+%rounded-s {
+  border-radius: 0.5rem;
+}
+%rounded-m {
+  border-radius: 0.5rem;
+}
+.pad-s {
+  padding: 0.5rem;
+}
+.pad-m {
+  padding: 1rem;
+}
+
+// Background
+.bg-red {
+  background-color: rgb(255, 75, 75) !important;
+}
+
+.bg-none {
+  background: none !important;
+}
+
+// Light--Dark styling
+@media (prefers-color-scheme: light) {
+  // # background colors
+  %white--black {
+    background-color: white;
+  }
+  %white--grey {
+    background-color: white;
+  }
+  %black--white {
+    background-color: black;
+  }
+  %grey--black {
+    background-color: $sc-grey;
+  }
+  %grey--grey {
+    background-color: $sc-grey;
+  }
+  %blue--blue {
+    background-color: $magic-bg;
+  }
+
+  // # text color
+  %txt-white--black {
+    color: white;
+  }
+  %txt-black--white {
+    color: black;
+  }
+
+  // # border
+  %border-black--white {
+    border: 1px solid black;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  // # background colors
+  %white--black {
+    background-color: black;
+  }
+  %white--grey {
+    background-color: rgb(35, 35, 35);
+  }
+  %black--white {
+    background-color: white;
+  }
+  %grey--black {
+    background-color: black;
+  }
+  %grey--grey {
+    background-color: rgb(35, 35, 35);
+  }
+  %blue--blue {
+    background-color: $dark-magic-bg;
+  }
+  // # text color
+  %txt-white--black {
+    color: black !important;
+  }
+  %txt-black--white {
+    color: white !important;
+  }
+  // # border
+  %border-black--white {
+    border: 1px solid white;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .invert {
+    filter: invert(1);
+  }
+}
+
+// Common Combinations
+%white-card {
+  @extend %white--black;
+  @extend %txt-black--white;
+  @extend %border-black--white;
+  @extend %rounded-s;
+}
