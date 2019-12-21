@@ -33,7 +33,7 @@ def shortcut_details(request, shortcut_instance):
         'UUID_glyphs': shortcut_instance.UUID_glyphs,
         
         # Functional Metadata
-        'iCloud_link':shortcut_instance.iCloud,
+        'iCloud_link':f'https://www.icloud.com/shortcuts/{shortcut_instance.iCloudID}',
         'accepted_types':accepts,
         'types':types,
         'sc_age':reddit_time(timezone.now() - shortcut_instance.created_on),
