@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     /* Set sidenav margin to 0px */
     function openNav() {
@@ -13,22 +14,24 @@ $(document).ready(function () {
     $("#open-fixed").click(openNav)
     $("#close").click(closeNav)
 
+    // Store references outside event handler:
     let $window = $(window);
 
     function checkWidth() {
-        let windowsize = $window.width();
         if ($("#mySidenav").hasClass("hidden")) {
             $("#open").addClass("always-on");
             $("#close").addClass("always-on");
         }
         else {
-            if (windowsize > 768) {
+            if ($window.width() > 768) {
                 $("#mySidenav").removeClass("closed").addClass("opened");
                 $("#SCtitle").removeClass("no-sidebar").addClass("with-sidebar");
+                $("#notify").removeClass("no-sidebar").addClass("with-sidebar");
             }
             else {
                 $("#mySidenav").removeClass("opened").addClass("closed");
                 $("#SCtitle").removeClass("with-sidebar").addClass("no-sidebar");
+                $("#notify").removeClass("with-sidebar").addClass("no-sidebar");
             }
         }
     }
@@ -90,24 +93,10 @@ $(document).ready(function () {
                 hxid: hxid,
             },
             success: function () {
-                if (elem.hasClass("clicked")) {
-                    elem.removeClass("clicked");
-                }
-                else {
-                    elem.addClass("clicked");
-                }
+                toggleClick(elem);
             }
         });
     })
-    $("#xpost,#info").unbind('click').click(function () {
-        let elem = $(this);
-        if (elem.hasClass("clicked")) {
-            elem.removeClass("clicked");
-        }
-        else {
-            elem.addClass("clicked");
-        }
-    });
 
     // account deletion warning
     $("#safety-glass").unbind('click').click(function () {
@@ -124,7 +113,20 @@ $(document).ready(function () {
 
     $("#icloud-submit").click(function () {
         $(this).addClass("clicked");
-    })
+    });
+
+    // toggle clicked status
+    function toggleClick(elem) {
+        if (elem.hasClass('clicked')) {
+            elem.removeClass('clicked');
+        }
+        else {
+            elem.addClass('clicked');
+        }
+    };
+    $(".js-toggle").unbind('click').click(function () {
+        toggleClick($(this));
+    });
 });
 
 // loading animation
