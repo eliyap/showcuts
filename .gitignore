@@ -18,4 +18,5 @@ share/tests/__pycache__/
 
 # dev static files
 share/static/
+staticfiles/CACHE/
 logging.txt
