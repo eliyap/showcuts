@@ -51,7 +51,7 @@
 
   & + p {
     @extend #info;
-    @extend %white-card;
+    @extend .white-card;
     @include transition(0.5s);
     right: -13rem;
     padding: 0.3rem;

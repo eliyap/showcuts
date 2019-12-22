@@ -116,11 +116,11 @@ html {
 #sidenav-logo {
   display: flex;
   p {
+    @extend %txt-black--white;
     display: block;
     margin: auto 1rem auto 0;
     flex: auto;
     font-size: 1.7rem;
-    color: black;
   }
   img {
     display: block;
@@ -184,10 +184,11 @@ html {
 }
 
 #open {
-  @extend .invert;
+  //   @extend .invert;
+  @extend %centre-y;
   visibility: hidden;
   z-index: 4;
-  margin: auto 0 auto 1rem;
+  //   margin: auto 0 auto 1rem;
   line-height: 1rem;
 
   &.oncard {
@@ -207,6 +208,7 @@ html {
   }
 
   img {
+    // @extend .invert;
     width: 1rem;
   }
 }
@@ -396,7 +398,8 @@ input[type="submit"] {
 
 .big-card {
   @extend %white--black;
-  @extend %border-black--white;
+  @extend %txt-black--white;
+//   @extend %border-black--white;
   margin: 2rem auto;
   border-radius: 2rem;
   padding: 2rem;
@@ -478,12 +481,13 @@ input[type="submit"] {
   stroke-dashoffset: 770;
   animation: dash2 4s linear 0s infinite;
 }
-.bg-blue,.bg-darkmode{
-    height:100vh;
-    width:100vw;
-    position: fixed;
-    top:0;
-    left:0;
+.bg-blue,
+.bg-darkmode {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 /* 
 # notification
@@ -553,10 +557,6 @@ input[type="submit"] {
   }
   .sidebar-link {
     color: #f1f1f1;
-  }
-  #sidenav-logo p,
-  .big-card {
-    color: white;
   }
   .content {
     background-color: black;

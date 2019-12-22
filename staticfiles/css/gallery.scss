@@ -20,7 +20,7 @@ a * {
 }
 
 .sc-card {
-    /* Masonry bricks or child elements */
+    @extend %grey--black;
     position: relative;
     display: inline-block;
     margin: 0 0 1.5rem;

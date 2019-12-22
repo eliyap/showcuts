@@ -157,9 +157,14 @@
 }
 
 // Common Combinations
-%white-card {
+.white-card {
   @extend %white--black;
   @extend %txt-black--white;
   @extend %border-black--white;
+  @extend %rounded-s;
+}
+.black-card {
+  @extend %black--white;
+  @extend %txt-white--black;
   @extend %rounded-s;
 }
