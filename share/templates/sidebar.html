@@ -1,4 +1,5 @@
 {% load static %}
+{% load premium %}
 <script src="{% static 'js/custom.js' %}"></script>
 
 <div id="mySidenav" class="sidenav closed {{ hidden|yesno:"hidden,," }}">
@@ -12,7 +13,7 @@
     </div>
   </a>
   {% if user.is_authenticated %}
-    <a class='sidebar-heading' href="{% url 'user-settings'%}">{{ user.get_username }}</a>
+    <a class='sidebar-heading' href="{% url 'user-settings'%}">{{ user.get_username }}{% if user|has_group:"Premium" %}✪{% endif %}</a>
     <a class='sidebar-link' href="{% url 'user-saved'%}">Saved</a>
     <a class='sidebar-link' href="{% url 'user-submitted'%}">Submitted</a>
     <a class='sidebar-link' href="{% url 'logout'%}?next=/">Logout</a>

@@ -1,4 +1,5 @@
-import random, copy
+import random
+import copy
 from django import template
 register = template.Library()
 
@@ -36,12 +37,14 @@ icons = [
     'Mobile',
 ]
 
+
 @register.filter(is_safe=True)
-def shuffle_icons(iterations:int):
+def shuffle_icons(iterations: int):
     icons = []
-    for i in range(0,iterations):
+    for i in range(0, iterations):
         icons += shuffler()
     return icons
+
 
 def shuffler():
     shuffled = copy.deepcopy(icons)

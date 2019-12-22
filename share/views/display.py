@@ -20,6 +20,11 @@ def shortcut_details(request, shortcut_instance):
     else:
         accepts = None
 
+    # premium status granted if viewer or submitter is premium
+    premium_status = False
+    if request.user.groups.filter(name = 'Premium'): premium_status = True
+    if shortcut_instance.owner and shortcut_instance.owner.groups.filter(name = 'Premium'): premium_status = True
+
     return {
         # Aesthetic Metadata
         'name':shortcut_instance.name,
@@ -44,6 +49,7 @@ def shortcut_details(request, shortcut_instance):
         'owner':shortcut_instance.owner,
         'liked':request.user in shortcut_instance.liked_by.all(),
         'saved':request.user in shortcut_instance.saved_by.all(),
+        'premium':premium_status,
     }
 
 @xframe_options_exempt

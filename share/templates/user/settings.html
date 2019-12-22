@@ -1,5 +1,6 @@
 {% extends "bigcard.html" %}
 {% load static %}
+{% load premium %}
 
 {% block title %}
 <title>Settings</title>
@@ -10,10 +11,15 @@
 {% endblock %}
 
 {% block card-title %}
-{{user.username}}'s Account
+{{user.username}}{% if user|has_group:"Premium" %}✪{% endif %}'s Account
 {% endblock %}
 
 {% block incard %}
+{% if user|has_group:"Premium" %}
+<h3>Premium✪</h3>
+<p>Thank you for supporting Showcuts! ❤️</p>
+{% endif %}
+
 <h3>Shortcuts</h3>
 <a href="{% url 'user-liked'%}">
   <h6>Liked Shortcuts</h6>

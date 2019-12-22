@@ -1,5 +1,6 @@
 {% extends "base_generic.html" %}
 {% load static %}
+{% load premium %}
 
 {% block title %}
 <title>{{name}}</title>
@@ -77,9 +78,15 @@
 
       <!-- ACTIONS -->
       <!-- limited to 100 for free users -->
+      {% if premium %}
+      {% for action in action_blocks %}
+      {% include 'elements/action.html' with action=action UUID_glyphs=UUID_glyphs %}
+      {% endfor %}
+      {% else %}
       {% for action in action_blocks|slice:":100" %}
       {% include 'elements/action.html' with action=action UUID_glyphs=UUID_glyphs %}
       {% endfor %}
+      {% endif %}
 
     </div>
 
@@ -123,7 +130,7 @@
       {% if owner.username == user.username %}
       Submitted {{sc_age}} ago
       {% elif owner.username %}
-      Submitted by {{owner.username}} {{sc_age}} ago
+      Submitted by {{owner.username}}{% if owner|has_group:"Premium" %}✪{% endif %} {{sc_age}} ago
       {% else %}
       Submitted Anonymously {{sc_age}} ago
       {% endif %}
@@ -195,7 +202,7 @@
       </a>
     </div>
   </div>
-  {% if action_blocks|length > 100 %}
+  {% if action_blocks|length > 100 and not premium %}
   {% with remainder=action_blocks|length|add:-100 %}
   <div class='fade-out'>
     <div class='gate-text'>{{remainder}} more action{{remainder|pluralize}}</div>
