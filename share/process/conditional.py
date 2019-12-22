@@ -1,3 +1,5 @@
+import logging
+
 from .components import make_magic, magic
 
 def conditional(parameters:dict) -> list:
@@ -42,7 +44,11 @@ def cond_mapper(parameters, condition, var_type):
         else:  # catch all
             condition_elem = magic('is less than' if condition == 0 else 'is greater than')
             test_val = parameters.get('WFDate', parameters.get('WFConditionalActionString', parameters.get('Number', None)))
-            test_elem = magic(test_val) if test_val else magic('Value', True)
+            test_elem = make_magic(
+                {'custom':test_val}, 
+                'custom', 
+                '<value>'
+            )
         return [
             condition_elem,
             test_elem,
@@ -68,7 +74,11 @@ def cond_mapper(parameters, condition, var_type):
         else:  # catch all
             condition_elem = magic('is' if condition == 4 else 'is not')
             test_val = parameters.get('WFDate', parameters.get('WFConditionalActionString', parameters.get('Number', None)))
-            test_elem = magic(test_val) if test_val else magic('Value', True)
+            test_elem = make_magic(
+                {'custom':test_val}, 
+                'custom', 
+                '<value>'
+            )
         return [
             condition_elem,
             test_elem,
