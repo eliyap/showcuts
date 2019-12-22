@@ -10,14 +10,21 @@
 <link type="text/x-scss" href="{% static 'css/settings.scss' %}" rel="stylesheet" media="screen">
 {% endblock %}
 
+{% block import_js %}
+<script defer src="{% static 'js/premium.js' %}"></script>
+{% endblock %}
+
 {% block card-title %}
 {{user.username}}{% if user|has_group:"Premium" %}✪{% endif %}'s Account
 {% endblock %}
 
 {% block incard %}
-{% if user|has_group:"Premium" %}
 <h3>Premium✪</h3>
+{% if user|has_group:"Premium" %}
 <p>Thank you for supporting Showcuts! ❤️</p>
+{% else %}
+<btn id='get-premium' class='black-card' style="padding: .25rem;">Click here to get a ✪</btn>
+<p>We can't take payment now, so have Premium for free for a bit!</p>
 {% endif %}
 
 <h3>Shortcuts</h3>

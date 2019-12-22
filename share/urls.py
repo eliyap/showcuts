@@ -20,6 +20,9 @@ urlpatterns = [
 
     # misc paths
     path('error/', misc.error, name='error'),
+
+    # AJAX paths
     path('like/', display.like_shortcut, name='like-shortcut'),
     path('save/', display.save_shortcut, name='save-shortcut'),
+    path('premium/', display.grant_premium, name='grant-premium'),
 ]

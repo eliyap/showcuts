@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 from django.http import HttpResponse
 from django.views.decorators.clickjacking import xframe_options_exempt
+from django.contrib.auth.models import Group
 
 ## Dependency: local
 from ..process.pieces import *
@@ -89,6 +90,14 @@ def save_shortcut(request):
         else:
             shortcut_instance.saved_by.add(user)
 
+        return HttpResponse('success')
+    else:
+        return HttpResponse('fail')
+
+def grant_premium(request):
+    if 'GET' == request.method:
+        premium = Group.objects.get(name='Premium') 
+        premium.user_set.add(request.user)
         return HttpResponse('success')
     else:
         return HttpResponse('fail')
