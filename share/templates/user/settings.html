@@ -19,11 +19,26 @@
   <h6>Liked Shortcuts</h6>
 </a>
 
+
 <h3>Connected Account</h3>
-{% if github_login %}
-<p>Logged in with Github Account <a href="https://github.com/{{ github_login.extra_data.login }}/"
-    target="_blank">{{ github_login.extra_data.login }}</a></p>
-<form method="post" action="{% url 'social:disconnect' 'github' %}">
+<p>
+  {% if github_login %}
+  Logged in with Github Account
+  <a href="https://github.com/{{ github_login.extra_data.login }}/"
+    target="_blank">{{ github_login.extra_data.login }}</a>
+  {% elif google_login %}
+  Logged in with Google Account
+  <a href="https://google.com/{{ google_login.extra_data.access_token.screen_name }}/"
+    target="_blank">{{ google_login }}</a>
+  {% elif twitter_login %}
+  Logged in with Twitter Account <a href="https://twitter.com/{{ twitter_login.extra_data.access_token.screen_name }}/"
+    target="_blank">@{{ twitter_login.extra_data.access_token.screen_name }}</a>
+  {% endif %}
+</p>
+<form method="post" {% if github_login %} 
+  action="{% url 'social:disconnect' 'github' %}" {% elif google_login %}
+  action="{% url 'social:disconnect' 'google' %}" {% elif twitter_login %}
+  action="{% url 'social:disconnect' 'twitter' %}" {% endif %}>
   {% csrf_token %}
   <div id="delete-container">
     <button id="delete-account" type="submit">
@@ -34,39 +49,7 @@
     <div id="safety-glass"></div>
   </div>
 </form>
-{% endif %}
 
-{% if twitter_login %}
-<p>Logged in with Twitter Account <a href="https://twitter.com/{{ twitter_login.extra_data.access_token.screen_name }}/"
-    target="_blank">@{{ twitter_login.extra_data.access_token.screen_name }}</a></p>
-<form method="post" action="{% url 'social:disconnect' 'twitter' %}">
-  {% csrf_token %}
-  <div id="delete-container">
-    <button id="delete-account" type="submit">
-      <img src="{% static 'assets/ui/warning.svg' %}" />
-      <span>Disconnect My Account</span>
-      <img src="{% static 'assets/ui/warning.svg' %}" />
-    </button>
-    <div id="safety-glass"></div>
-  </div>
-</form>
-{% endif %}
-
-{% if google_login %}
-<p>Logged in with Google Account <a href="https://google.com/{{ google_login.extra_data.access_token.screen_name }}/"
-    target="_blank">{{ google_login }}</a></p>
-<form method="post" action="{% url 'social:disconnect' 'google' %}">
-  {% csrf_token %}
-  <div id="delete-container">
-    <button id="delete-account" type="submit">
-      <img src="{% static 'assets/ui/warning.svg' %}" />
-      <span>Disconnect My Account</span>
-      <img src="{% static 'assets/ui/warning.svg' %}" />
-    </button>
-    <div id="safety-glass"></div>
-  </div>
-</form>
-{% endif %}
 <!-- disconnect warning, initially hidden -->
 <div id="disconnect-warning">
   <ul>Before you go, please note...</ul>
