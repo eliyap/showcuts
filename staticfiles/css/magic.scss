@@ -21,14 +21,11 @@ div {
 }
 .magic {
   position: relative;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
   color: $magic-ink;
   background-color: $magic-bg;
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-  margin-bottom: 0.3rem;
-  border-radius: 0.7rem;
+  border-radius: 0.5rem;
   font-weight: normal !important;
   /* super long URLs and text: */
   overflow-wrap: break-word;
@@ -36,10 +33,15 @@ div {
   &.empty {
     color: $magic-empty;
   }
+  .inline-glyph {
+    position: relative;
+    top: 0.2rem;
+  }
 }
 /* keep line height consistent */
 
-.specify {
+.inline-line,
+.number {
   font-weight: 300;
   overflow-wrap: normal;
   white-space: nowrap;
@@ -53,12 +55,12 @@ div {
     flex: initial;
     padding-right: 0.5rem;
   }
-  & > .specify {
+  & > .inline-line {
     flex: 1 !important;
     /* overrides flex:initial, so that the content aligns nicely left */
   }
 }
-.choose-var {
+.choose {
   color: $magic-ink;
   font-weight: 300;
   flex: initial;
@@ -79,11 +81,15 @@ div {
   padding: 0.95rem;
   border-bottom: 1px solid lightgray;
 }
-.text div {
-  overflow-wrap: break-word;
-  word-break: break-word;
-  max-height: 60vh;
-  overflow-y: scroll;
+.text {
+  margin-left: +0.2rem; // weird spacing issue
+  margin-right: -0.2rem;
+  div {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-height: 60vh;
+    overflow-y: scroll;
+  }
 }
 .indent1 {
   margin-left: calc(var(--indent) * 1);
@@ -125,6 +131,17 @@ div {
   &.comment {
     background-color: rgb(251, 244, 232);
   }
+  &.control {
+    // for control flow blocks (if, repeat, etc.)
+    .row.category {
+      visibility: hidden;
+      display: none;
+    }
+    .action-title {
+      margin-top: -0.5rem;
+      margin-bottom: -0.5rem;
+    }
+  }
 }
 .action-glyph,
 .inline-glyph,
@@ -162,6 +179,14 @@ div {
     margin: 0;
   }
 }
+.list-inline-magic {
+  .magic + .magic,
+  .inline-magic + .magic,
+  .magic + .inline-magic,
+  .inline-magic + .inline-magic {
+    display: inline;
+  }
+}
 .action-category {
   color: rgba(147, 148, 150, 0.8);
   font-weight: 300;
@@ -197,15 +222,32 @@ div {
     @extend %centre-y;
   }
 }
-.choose-var,
-.specify {
+
+.choose,
+.inline-line {
   flex: initial;
   margin: auto 0 auto 0;
 }
+
+.inline-line,
+.notes {
+  white-space: pre-wrap; // make sure that white space renders
+  .magic {
+    padding: 0.25rem;
+  }
+}
+
+.code {
+  .text {
+    font-family: monospace;
+  }
+}
+
 .lower-line:first-child,
 .list-line:first-child {
   border-top: none !important;
 }
+
 .line-label {
   /* expands, unless the line elem needs to be aligned left */
   flex: 2.7;
@@ -213,6 +255,7 @@ div {
   /* should be slightly thicker, but CSS doesn't allow it */
   font-weight: 400;
 }
+
 .line-label:empty {
   /* make room for the Not Implemented */
   flex: 0 0 0 !important;
@@ -226,6 +269,7 @@ div {
   border-radius: 999rem;
   height: 2.4rem;
   overflow: hidden;
+  margin: -0.2rem 0; // similar to magic var, 2 rem height
   &.on {
     background-color: rgb(60, 197, 94);
     .slider {
@@ -309,23 +353,45 @@ div {
   border-left: 1px solid rgba(0, 0, 0, 0.125);
 }
 .pill {
-  background-color: $option-grey;
-  margin: auto 0;
+  @extend %centre-y;
+  @extend %op-grey--grey;
   border-radius: 0.4rem;
   display: flex;
   flex-direction: row;
   height: 1.6rem;
   overflow: hidden;
+  &-off {
+    margin: 0.3rem 0.1rem;
+    padding: 0rem 0.5rem;
+    & + .pill-off {
+      border-left: thin lightgray solid;
+    }
+  }
+  &-on {
+    margin: 0.1rem 0.1rem;
+    padding: 0.2rem 0.5rem;
+    background-color: white;
+    border-radius: 0.35rem;
+    font-weight: 500;
+    box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.2);
+  }
+  &-off,
+  &-on {
+    font-size: 0.9rem;
+    line-height: 1rem;
+    flex: auto;
+  }
 }
 .counter {
-  background-color: $option-grey;
-  margin: auto 0;
+  @extend %op-grey--grey;
+  @extend %centre-y;
   border-radius: 0.4rem;
   display: flex;
   flex-direction: row;
   height: 2rem;
   overflow: hidden;
   img {
+    @extend .invert;
     margin: 0.5rem 0;
     height: 1rem;
     line-height: 1rem;
@@ -334,27 +400,6 @@ div {
   img:last-of-type {
     border-left: thin lightgray solid;
   }
-}
-.pill-off {
-  margin: 0.3rem 0.1rem;
-  padding: 0rem 0.5rem;
-}
-.pill-off,
-.pill-on {
-  font-size: 0.9rem;
-  line-height: 1rem;
-  flex: auto;
-}
-.pill-on {
-  margin: 0.1rem 0.1rem;
-  padding: 0.2rem 0.5rem;
-  background-color: white;
-  border-radius: 0.35rem;
-  font-weight: 500;
-  box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.2);
-}
-.pill-off + .pill-off {
-  border-left: thin lightgray solid;
 }
 
 a:hover {
@@ -365,8 +410,9 @@ a:hover {
 .output {
   @extend %fit-width;
   @extend %blue--blue;
-  @include transition(.5s);
-//   background-color: $output-blue;
+  @extend %txt-black--white;
+  @include transition(0.5s);
+  //   background-color: $output-blue;
   bottom: -3rem;
   margin: 0 0 var(--action-padding) 50%;
   transform: translate(-50%, 0);
@@ -386,8 +432,22 @@ a:hover {
 }
 
 /* inline blocks */
-.inline * {
-  display: inline-block;
+.inline-magic {
+  display: inline;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0 0.15rem $magic-bg;
+  background-color: $magic-bg;
+  // line-height: 5rem;
+  * {
+    white-space: nowrap;
+    word-break: keep-all;
+  }
+  .magic {
+    background-color: $magic-bg-inline;
+  }
+  .text {
+    @extend %txt-magic-ink;
+  }
 }
 /* filters for filter action */
 .filter {
@@ -429,30 +489,26 @@ a:hover {
       color: $dark-magic-empty;
     }
   }
-  .choose-var {
+  .inline-magic {
+    box-shadow: 0 0 0 0.15rem $dark-magic-bg;
+    background-color: $dark-magic-bg;
+    .magic {
+      background-color: $dark-magic-bg-inline;
+    }
+  }
+  .choose {
     color: $dark-magic-ink;
   }
   .toggle.off {
     background-color: rgb(67, 68, 72);
   }
 
-  .pill,
-  .counter {
-    background-color: $dark-option-grey;
-  }
   .pill-on {
     background-color: $dark-light-grey;
-  }
-  .counter img {
-    filter: invert(1);
   }
   .action.comment,
   .comment > .row.category {
     background-color: rgb(39, 37, 23);
     border-bottom: none;
-  }
-  .output {
-    // background-color: $dark-output-blue;
-    color: white;
   }
 }

@@ -8,7 +8,7 @@ from django.http import HttpResponseRedirect
 
 ## Dependency: local
 from ..forms import redditForm
-from ..process.pieces import *
+from ..process.lookups._directory import *
 from showcuts.user_util import post_reddit, request_token
 from ..models import Shortcut
 

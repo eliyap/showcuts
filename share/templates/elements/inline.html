@@ -1,40 +1,47 @@
 {% load static %}
 {% load lookup %}
 
+{# UNPACK INLINE VARIABLES #}
+{% if 'inline-magic' in elem.class or 'list-inline-magic' in elem.class or 'inline-line' in elem.class or 'notes' in elem.class %}
+
+<span class="{{elem.class|join:' '}}">
+  {% for i in elem.value %}
+  {% include 'elements/inline.html' with elem=i %}
+  {% endfor%}
+</span>
+
+{% else %}
+
+
+{# HASH LINK TO ACTION THAT PROVIDED RESULT #}
 {% if elem.UUID %}
 <a href="#{{elem.UUID}}">
   {% endif %}
 
-  <div class="{{elem.class}}">
+  <span class="{{elem.class|join:' '}}">
     {% if elem.glyph %}
     <img class="inline-glyph" src="{% static elem.glyph %}" />
-    {% elif elem.UUID %}
-    <img class="inline-glyph" src="{% static UUID_glyphs|get_item:elem.UUID %}" />
     {% endif %}
 
-    <!-- inline magic vars -->
-    {% if 'inline' in elem.class %}
+    {# PILL MENU #}
+    {% if 'pill' in elem.class%}
     {% for i in elem.value %}
-    {% include 'elements/inline.html' with elem=i %}
-    {% endfor%}
-
-    <!-- pill menu -->
-    {% elif 'pill' in elem.class%}
-    {% for i in elem.value %}
-    <div class='{{i.selected|yesno:"pill-on,pill-off,"}}'>{{i.value}}</div>
+    <div class='{{i.class}}'>{{i.value}}</div>
     {% endfor %}
 
-    <!-- counter (-|+) -->
+    {# COUNTER (-|+) #}
     {% elif 'counter' in elem.class%}
     <img src="{% static 'assets/ui/counter-minus.svg' %}" />
     <img src="{% static 'assets/ui/counter-plus.svg' %}" />
     
-    <!-- catchall -->
+    {# CATCHALL #}
     {% else %}
-    {{elem.value}}
+    <span>&lrm;{{elem.value}}</span> {# SPAN SATISFIES SPACELESS TAG, LRM prevents spaces from disappearing #}
     {% endif %}
-  </div>
+  </span>
 
   {% if elem.UUID %}
 </a>
+{% endif %}
+
 {% endif %}

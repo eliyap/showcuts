@@ -2,7 +2,7 @@
 {% load premium %}
 <script src="{% static 'js/custom.js' %}"></script>
 
-<div id="mySidenav" class="sidenav closed {{ hidden|yesno:"hidden,," }}">
+<div id="mySidenav" class="sidenav closed {{ hidden|yesno:"hide-by-default,," }}">
   <a href="javascript:void(0)" class="closebtn btn-container" id='closebtn'>
     <img id='close' src="{% static 'assets/ui/x.svg' %}" />
   </a>

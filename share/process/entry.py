@@ -6,7 +6,7 @@ import plistlib
 ## Dependency: local
 from share.models import Shortcut
 from share.process.action_html import make_html
-from share.process.pieces import extension_lookup
+from share.process.lookups._directory import extension_lookup
 
 ## Dependency: user
 from django.contrib.auth.models import User, AnonymousUser

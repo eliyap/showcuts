@@ -1,56 +1,58 @@
 {% load static %}
 
-<div class="action {{action.indent}} {{action.special}}">
+<div class="action indent{{action.indent}} {{action.css_class|join:' '}}">
+  {# UUID LINK #}
   <div class="hash" id="{{action.UUID}}"></div>
 
-  <!-- flow controls ('menu', 'if', etc. have no category) -->
-  {% if 'flow' not in action.special %}
   <div class="row category">
     <img class="action-glyph" src="{% static action.glyph %}" />
     <div class="action-category">
       {{action.category}}
     </div>
   </div>
-  {% endif %}
-
-  {% if 'comment' in action.special or 'text' in action.special %}
-  <!-- special styling for text / comment actions -->
-  <div class="row {{action.special}}">
+  
+  {# COMMENT & TEXT ACTION STYLING #}
+  {% if 'comment' in action.css_class or 'text' in action.css_class %}
+  <div class="row {{action.css_class|join:' '}">
     {% for i in action.title %}
     {% include 'elements/inline.html' with elem=i %}
     {% endfor%}
   </div>
 
   {% else %}
-  <div class="action-title {{action.special}}">
-    <!-- title -->
-    <div class="row">
+  <div class="action-title {{action.css_class|join:' '}}">
+    
+    {# TITLE #}
+    <span>
       {% for i in action.title %}
       {% include 'elements/inline.html' with elem=i %}
       {% endfor%}
-    </div>
+    </spa>
 
-    <!-- line elements -->
+    {# LINES #}
+    {% spaceless %}
     {% if action.lines %}
     <div class="line-elems">
       {% for line in action.lines %}
       
-      <!-- align 'specify' content -->
-      <div class="lower-line {% if 'leftify' in line.class %}leftify{% endif %}">
-      
+      <div class="lower-line 
+      {% if 'leftify' in line.class %}leftify{% endif %}
+      {% if 'hidden' in line.class %}hidden{% endif %}
+      ">
         <div class="line-label">{{line.label}}</div>
-        {% include 'elements/inline.html' with elem=line UUID_glyphs=UUID_glyphs %}
+        {% include 'elements/inline.html' with elem=line %}
       </div>
       {% endfor %}
     </div>
     {% endif %}
+    {% endspaceless %}
 
-    <!-- item elements -->
+    {# LIST ITEMS #}
     {% if action.list_items %}
     {% include 'elements/list.html' with list_items=action.list_items %}
     {% endif %}
 
-    <!-- dict elements -->
+    {# DICT ITEMS #}
     {% if action.dct %}
     {% include 'elements/dict.html' with items=action.dct %}
     {% endif %}

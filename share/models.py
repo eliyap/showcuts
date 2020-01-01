@@ -8,8 +8,7 @@ from django.db import models
 # JSONField
 from django.core.serializers.json import DjangoJSONEncoder
 import json
-
-# social auth
+from share.process.sc_action.action import action
 
 def byt_catcher(o):
     if isinstance(o, datetime):
@@ -23,7 +22,7 @@ class JSONField(models.TextField):
             return None
         try:
             if isinstance(value, str):
-                return json.loads(value)
+                return json.loads(value, object_hook=action.action_hook)
         except ValueError:
             pass
         return value

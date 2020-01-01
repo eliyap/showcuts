@@ -269,11 +269,12 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 indent = -1
                 title_elem = ['End Menu']
                 special += ' flow'
-        elif 'exit' == sub_name:
-            title_elem = [
-                'Exit shortcut with',
-                make_magic(component.parameters, 'WFResult', 'Result'),
-            ]
+        # REFACTORED
+        # elif 'exit' == sub_name:
+        #     title_elem = [
+        #         'Exit shortcut with',
+        #         make_magic(component.parameters, 'WFResult', 'Result'),
+        #     ]
         elif 'conditional' == sub_name:  # aka 'If'
             (UUID, group, mode) = control_flow(component.parameters)
             if 0 == mode:
@@ -508,7 +509,6 @@ def format_action(component: action, indent_level: int) -> (dict, int):
             list_items = get_list(component.parameters)
             # kill inline due to formatting reasons
         elif 'math' == sub_name:
-            'WFMathOperand'
             title_elem = [
                 make_magic(component.parameters, 'WFInput', 'Number'),
                 make_magic(component.parameters, 'WFMathOperation', '+', default_blank=False),
@@ -523,14 +523,14 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 'of',
                 make_magic(component.parameters, 'Input', 'Input'),
             ]
-        elif 'round' == sub_name:
-            title_elem = [
-                'Round',
-                make_magic(component.parameters, 'WFInput', 'Input'),
-                'to',
-                make_magic(component.parameters, 'WFRoundTo', 'Ones Place', default_blank=False),
-            ]
-            line_elems = [{**{'label':'Mode'},**make_choose(component.parameters, 'WFRoundMode', 'Normal')}]
+        # elif 'round' == sub_name:
+        #     title_elem = [
+        #         'Round',
+        #         make_magic(component.parameters, 'WFInput', 'Input'),
+        #         'to',
+        #         make_magic(component.parameters, 'WFRoundTo', 'Ones Place', default_blank=False),
+        #     ]
+        #     line_elems = [{**{'label':'Mode'},**make_choose(component.parameters, 'WFRoundMode', 'Normal')}]
         elif 'measurement.convert' == sub_name:
             try:
                 unit = component.parameters['WFMeasurementUnit']['WFNSUnitSymbol']
@@ -614,25 +614,25 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 'Show',
                 make_magic(component.parameters, 'Text', 'Result')
             ]
-        elif 'format.filesize' == sub_name:
-            title_elem = [
-                'Format',
-                make_magic(component.parameters, 'WFFileSize', 'File Size'),
-                'into',
-                make_magic(component.parameters, 'WFFileSizeFormat', 'Closest Unit', default_blank=False),
-            ]
-            options_impl = False
-            # line elem, accepts magic vars
-            'WFFileSizeIncludeUnits'
-        elif 'format.number' == sub_name:
-            places = make_magic(component.parameters,'WFNumberFormatDecimalPlaces', 'NO DEFAULT')
-            places['value'] = f'{int(places["value"])} decimal places'
-            title_elem = [
-                'Format',
-                make_magic(component.parameters, 'WFNumber', 'Number'),
-                'to',
-                places,
-            ]
+        # elif 'format.filesize' == sub_name:
+        #     title_elem = [
+        #         'Format',
+        #         make_magic(component.parameters, 'WFFileSize', 'File Size'),
+        #         'into',
+        #         make_magic(component.parameters, 'WFFileSizeFormat', 'Closest Unit', default_blank=False),
+        #     ]
+        #     options_impl = False
+        #     # line elem, accepts magic vars
+        #     'WFFileSizeIncludeUnits'
+        # elif 'format.number' == sub_name:
+        #     places = make_magic(component.parameters,'WFNumberFormatDecimalPlaces', 'NO DEFAULT')
+        #     places['value'] = f'{int(places["value"])} decimal places'
+        #     title_elem = [
+        #         'Format',
+        #         make_magic(component.parameters, 'WFNumber', 'Number'),
+        #         'to',
+        #         places,
+        #     ]
         elif 'date' == sub_name:
             title_elem = [make_magic(component.parameters, 'WFDateActionMode', 'Current Date', default_blank=False)]
             if 'Specified Date' == title_elem[0]['value']:
@@ -656,25 +656,25 @@ def format_action(component: action, indent_level: int) -> (dict, int):
             options_impl = False
             # line elems
             'WFDateFormatStyle' # and lots more!
-        elif 'number' == sub_name:
-            title_elem = [make_magic(component.parameters, 'WFNumberActionNumber', '42')]
-        elif 'number.random' == sub_name:
-            min_elem = make_magic(component.parameters, 'WFRandomNumberMinimum', 'Minimum')
-            max_elem = make_magic(component.parameters, 'WFRandomNumberMaximum', 'Maximum')
-            try: # coerce to int
-                min_elem['value'] = int(float(min_elem['value']))
-            except ValueError:
-                pass
-            try:
-                max_elem['value'] = int(float(max_elem['value']))
-            except ValueError:
-                pass
-            title_elem = [
-                'Random number between',
-                min_elem,
-                'and',
-                max_elem,
-            ]
+        # elif 'number' == sub_name:
+        #     title_elem = [make_magic(component.parameters, 'WFNumberActionNumber', '42')]
+        # elif 'number.random' == sub_name:
+        #     min_elem = make_magic(component.parameters, 'WFRandomNumberMinimum', 'Minimum')
+        #     max_elem = make_magic(component.parameters, 'WFRandomNumberMaximum', 'Maximum')
+        #     try: # coerce to int
+        #         min_elem['value'] = int(float(min_elem['value']))
+        #     except ValueError:
+        #         pass
+        #     try:
+        #         max_elem['value'] = int(float(max_elem['value']))
+        #     except ValueError:
+        #         pass
+        #     title_elem = [
+        #         'Random number between',
+        #         min_elem,
+        #         'and',
+        #         max_elem,
+        #     ]
         elif 'runsshscript' == sub_name:
             title_elem = ['Run script over SSH']
             options_impl = False
@@ -1051,11 +1051,11 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 make_magic(component.parameters, 'WFMedia', 'Media'),
             ]
             options_impl = False
-        elif "trimvideo" == sub_name:
-            title_elem = [
-                'Trim',
-                make_magic(component.parameters, 'WFInputMedia', 'Media'),
-            ]
+        # elif "trimvideo" == sub_name:
+        #     title_elem = [
+        #         'Trim',
+        #         make_magic(component.parameters, 'WFInputMedia', 'Media'),
+        #     ]
         elif "makezip" == sub_name:
             title_elem = [
                 'Make',
@@ -1137,16 +1137,17 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 'Show definition of',
                 make_magic(component.parameters, 'Word', 'word'),
             ]
-        elif "detectlanguage" == sub_name:
-            title_elem = [
-                'Detect language of',
-                make_magic(component.parameters, 'WFInput', 'Text'),
-            ]
-        elif "airdropdocument" == sub_name:
-            title_elem = [
-                'Airdrop',
-                make_magic(component.parameters, 'WFInput', 'Content'),
-            ]
+        # REFACTORED
+        # elif "detectlanguage" == sub_name:
+        #     title_elem = [
+        #         'Detect language of',
+        #         make_magic(component.parameters, 'WFInput', 'Text'),
+        #     ]
+        # elif "airdropdocument" == sub_name:
+        #     title_elem = [
+        #         'Airdrop',
+        #         make_magic(component.parameters, 'WFInput', 'Content'),
+        #     ]
         elif "getcurrentlocation" == sub_name:
             title_elem = ['Get current location'] 
         elif "location" == sub_name:
@@ -1310,11 +1311,11 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 # I can't implement these contact details right now. probably never used
                 make_magic(component.parameters, 'WFInput', 'Recipients'),
             ]
-        elif "getarticle" == sub_name:
-            title_elem = [
-                'Get article from',
-                make_magic(component.parameters, 'WFWebPage', 'URL'),
-            ]
+        # elif "getarticle" == sub_name:
+        #     title_elem = [
+        #         'Get article from',
+        #         make_magic(component.parameters, 'WFWebPage', 'URL'),
+        #     ]
         elif "rss" == sub_name:
             item_elem = make_magic(component.parameters, 'WFRSSItemQuantity', '10')
             try: # coerce to int
@@ -1334,39 +1335,39 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 'Get RSS feeds from',
                 make_magic(component.parameters, 'WFURLs', 'Page'),
             ]
-        elif "readinglist" == sub_name:
-            title_elem = [
-                'Add',
-                make_magic(component.parameters, 'WFURL', 'URL'),
-                'to Reading List',
-            ]
+        # elif "readinglist" == sub_name:
+        #     title_elem = [
+        #         'Add',
+        #         make_magic(component.parameters, 'WFURL', 'URL'),
+        #         'to Reading List',
+        #     ]
         elif "openurl" == sub_name:
             title_elem = [
                 'Open',
                 make_magic(component.parameters, 'WFInput', 'Safari web page'),
             ]
-        elif "runjavascriptonwebpage" == sub_name:
-            title_elem = [
-                'Run JavaScript on',
-                make_magic(component.parameters, 'WFInput', 'Web page'),
-            ]
-            line_elems = [
-                #make_line('',make_specify(component.parameters, 'WFJavaScript', 'JavaScript'),)
-            ]
-            options_impl = False # wow, they have a real JS thing... can't imagine the kinds of vulnerabilities this exposes my site to
-        elif "searchweb" == sub_name:
-            title_elem = [
-                'Search',
-                make_magic(component.parameters, 'WFSearchWebDestination', 'Google',default_blank=False),
-                'for',
-                make_magic(component.parameters, 'WFInputText', 'Text'),
-            ]
-        elif "showwebpage" == sub_name:
-            title_elem = [
-                'Show web page at',
-                make_magic(component.parameters, 'WFURL', 'URL'),
-            ]
-            line_elems = [{**{'label':'Enter Safari Reader'},**make_toggle(component.parameters, 'WFEnterSafariReader',False)}]
+        # elif "runjavascriptonwebpage" == sub_name:
+        #     title_elem = [
+        #         'Run JavaScript on',
+        #         make_magic(component.parameters, 'WFInput', 'Web page'),
+        #     ]
+        #     line_elems = [
+        #         #make_line('',make_specify(component.parameters, 'WFJavaScript', 'JavaScript'),)
+        #     ]
+        #     options_impl = False # wow, they have a real JS thing... can't imagine the kinds of vulnerabilities this exposes my site to
+        # elif "searchweb" == sub_name:
+        #     title_elem = [
+        #         'Search',
+        #         make_magic(component.parameters, 'WFSearchWebDestination', 'Google',default_blank=False),
+        #         'for',
+        #         make_magic(component.parameters, 'WFInputText', 'Text'),
+        #     ]
+        # elif "showwebpage" == sub_name:
+        #     title_elem = [
+        #         'Show web page at',
+        #         make_magic(component.parameters, 'WFURL', 'URL'),
+        #     ]
+        #     line_elems = [{**{'label':'Enter Safari Reader'},**make_toggle(component.parameters, 'WFEnterSafariReader',False)}]
         elif "url.expand" == sub_name:
             title_elem = [
                 'Expand',
@@ -1618,15 +1619,16 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 {**{'label':'Language'},**lang_elem},
                 {**{'label':'Voice'},**{}},
             ]
-        elif "text.translate"== sub_name: 
-            title_elem=[
-                'Translate',
-                make_magic(component.parameters, 'WFInputText', 'Text', ask_text='Text'),
-                'from',
-                make_magic(component.parameters, 'WFSelectedFromLanguage', 'Detected Language', default_blank=False, ask_text='Language'),
-                'to',
-                make_magic(component.parameters, 'WFSelectedLanguage', 'English', default_blank=False, ask_text='To'),
-            ]
+        # REFACTORED
+        # elif "text.translate"== sub_name: 
+        #     title_elem=[
+        #         'Translate',
+        #         make_magic(component.parameters, 'WFInputText', 'Text', ask_text='Text'),
+        #         'from',
+        #         make_magic(component.parameters, 'WFSelectedFromLanguage', 'Detected Language', default_blank=False, ask_text='Language'),
+        #         'to',
+        #         make_magic(component.parameters, 'WFSelectedLanguage', 'English', default_blank=False, ask_text='To'),
+        #     ]
         elif "listeningmode.set" == sub_name:
             title_elem = ['No AirPods in Developer Inventory 😞'] # literally blocked if you don't own airpods pro. thanks apple
         elif "imgur.upload" == sub_name: 
@@ -1677,54 +1679,55 @@ def format_action(component: action, indent_level: int) -> (dict, int):
         else:
             impl = False
     
+    # REFACTORED
     # # Accessibility in Settings App
-    elif accessibility_re.fullmatch(component.name):
-        sub_name = accessibility_re.fullmatch(component.name)[1]
-        if sub_name in accessibility_toggles:
-            turn_elem = make_magic(component.parameters, 'operation', 'Turn', default_blank=False, ask_text='Operation')
-            turn_elem['value'] = turn_elem['value'].title()
-            setting = accessibility_toggles[sub_name]
-            title_elem = [
-                turn_elem,
-                setting,
-            ]
-            if turn_elem['value'] == 'Turn':
-                if sub_name in [
-                    'AXToggleAudioDescriptionsIntent',
-                    'AXToggleAssistiveTouchIntent',
-                    'AXToggleCaptionsIntent',
-                    'AXToggleContrastIntent',
-                    'AXToggleLEDFlashIntent',
-                    'AXToggleMonoAudioIntent',
-                    'AXToggleTransparencyIntent',
-                    'AXToggleSmartInvertIntent',
-                    'AXToggleVoiceControlIntent',
-                    'AXToggleVoiceOverIntent',
-                    'AXToggleWhitePointIntent',
-                    'AXToggleZoomIntent',
-                    'AXToggleSwitchControlIntent',
-                ]: on_elem = make_magic(component.parameters, 'state', 1, ask_text='State', default_blank=False)
-                elif sub_name in [
-                    'AXToggleClassicInvertIntent',
-                    'AXToggleReduceMotionIntent',
-                ]: on_elem = make_magic(component.parameters, 'state', 0, ask_text='State', default_blank=False)
-                else: on_elem = make_magic(component.parameters, 'state', 1, ask_text='State') # if you see a blank, it means something is unhandled
+    # elif accessibility_re.fullmatch(component.name):
+    #     sub_name = accessibility_re.fullmatch(component.name)[1]
+    #     if sub_name in accessibility_toggles:
+    #         turn_elem = make_magic(component.parameters, 'operation', 'Turn', default_blank=False, ask_text='Operation')
+    #         turn_elem['value'] = turn_elem['value'].title()
+    #         setting = accessibility_toggles[sub_name]
+    #         title_elem = [
+    #             turn_elem,
+    #             setting,
+    #         ]
+    #         if turn_elem['value'] == 'Turn':
+    #             if sub_name in [
+    #                 'AXToggleAudioDescriptionsIntent',
+    #                 'AXToggleAssistiveTouchIntent',
+    #                 'AXToggleCaptionsIntent',
+    #                 'AXToggleContrastIntent',
+    #                 'AXToggleLEDFlashIntent',
+    #                 'AXToggleMonoAudioIntent',
+    #                 'AXToggleTransparencyIntent',
+    #                 'AXToggleSmartInvertIntent',
+    #                 'AXToggleVoiceControlIntent',
+    #                 'AXToggleVoiceOverIntent',
+    #                 'AXToggleWhitePointIntent',
+    #                 'AXToggleZoomIntent',
+    #                 'AXToggleSwitchControlIntent',
+    #             ]: on_elem = make_magic(component.parameters, 'state', 1, ask_text='State', default_blank=False)
+    #             elif sub_name in [
+    #                 'AXToggleClassicInvertIntent',
+    #                 'AXToggleReduceMotionIntent',
+    #             ]: on_elem = make_magic(component.parameters, 'state', 0, ask_text='State', default_blank=False)
+    #             else: on_elem = make_magic(component.parameters, 'state', 1, ask_text='State') # if you see a blank, it means something is unhandled
                 
-                on_elem['value'] = {1:'on',0:'off'}.get(on_elem['value'],on_elem['value'])
-                title_elem += [on_elem]
-        elif 'AXSetLargeTextIntent' == sub_name:
-            title_elem = [
-                'Set text size to',
-                make_magic(component.parameters, 'textSize', 'extra small', default_blank=False, ask_text='Text Size'),
-            ]
-            try:
-                title_elem[1]['value'] = re.sub('Extra','extra ',title_elem[1]['value'])
-                title_elem[1]['value'] = re.sub('AX','accessibility ',title_elem[1]['value'])
-                if title_elem[1]['value'] != 'Text Size':
-                    title_elem[1]['value'] = title_elem[1]['value'].lower()
-            except: pass
-        else:
-            impl = False
+    #             on_elem['value'] = {1:'on',0:'off'}.get(on_elem['value'],on_elem['value'])
+    #             title_elem += [on_elem]
+    #     elif 'AXSetLargeTextIntent' == sub_name:
+    #         title_elem = [
+    #             'Set text size to',
+    #             make_magic(component.parameters, 'textSize', 'extra small', default_blank=False, ask_text='Text Size'),
+    #         ]
+    #         try:
+    #             title_elem[1]['value'] = re.sub('Extra','extra ',title_elem[1]['value'])
+    #             title_elem[1]['value'] = re.sub('AX','accessibility ',title_elem[1]['value'])
+    #             if title_elem[1]['value'] != 'Text Size':
+    #                 title_elem[1]['value'] = title_elem[1]['value'].lower()
+    #         except: pass
+    #     else:
+    #         impl = False
     
     # # System Clock App
     elif clock_re.fullmatch(component.name):

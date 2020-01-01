@@ -1,3 +1,5 @@
+## Dependency: sys
+import logging
 
 ## Dependency: django
 from django.shortcuts import get_object_or_404, render
@@ -7,8 +9,9 @@ from django.views.decorators.clickjacking import xframe_options_exempt
 from django.contrib.auth.models import Group
 
 ## Dependency: local
-from ..process.pieces import *
+from ..process.lookups._directory import *
 from ..models import Shortcut
+from ..process.sc_action.action import action
 
 ## Dependency: config setting
 from showcuts.settings import WORKFLOW_MINIMUM_VERSION
@@ -26,6 +29,8 @@ def shortcut_details(request, shortcut_instance):
     if request.user.groups.filter(name = 'Premium'): premium_status = True
     if shortcut_instance.owner and shortcut_instance.owner.groups.filter(name = 'Premium'): premium_status = True
 
+    #debug
+    logging.error(shortcut_instance.action_blocks['blocks'][0].__dict__)
     return {
         # Aesthetic Metadata
         'name':shortcut_instance.name,

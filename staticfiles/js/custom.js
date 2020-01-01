@@ -18,7 +18,7 @@ $(document).ready(function () {
     let $window = $(window);
 
     function checkWidth() {
-        if ($("#mySidenav").hasClass("hidden")) {
+        if ($("#mySidenav").hasClass("hide-by-default")) {
             $("#open").addClass("always-on");
             $("#close").addClass("always-on");
         }

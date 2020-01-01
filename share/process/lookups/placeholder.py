@@ -1,3 +1,4 @@
+import share.process.sc_action.action as action
 infoless = {'glyph': 'Missing.svg', 'category': 'MISSING'}
 
 def error_action():
@@ -9,15 +10,11 @@ def error_action():
         'indent': '',
     }
 
-def not_implemented_action(category:str = '', indent_level:int = 0, sub_name:str = 'Action', glyph:str = ''):
-    return {
-        'title': [{'value':f'{sub_name} Under Construction','class':'not-implemented'}],
-        'line': [],
-        'glyph': f'assets/cat/{glyph}',
-        'category': category,
-        'indent': indent_level if indent_level else '',
-        'result':None,
-    }
+class NOT_IMPLEMENTED_ACTION(action.action):
+    def modify(self):
+        self.title = [{'value':'Action Under Construction','class':'not-implemented'}]
+        self.glyph = 'assets/cat/Missing.svg'
+        self.category = 'MISSING'
 
 def not_implemented_options():
     return {

@@ -2,28 +2,28 @@
 import logging
 import re
 
-from share.process.pieces import time_codes
+from ..lookups._directory import time_codes
 
 
 def make_specify(parameters: dict, key: str, default: str, align_left: bool = False) -> dict:
     val = parameters.get(key, None)
     if not val:
-        elem = {'value': default, 'class': 'specify empty', }
+        elem = {'value': default, 'class': ['specify','empty'], }
     else:
         elem = make_magic(parameters, key, default, force_magic=False)
-        elem['class'] += ' specify'
+        elem['class'].append('specify')
     if align_left:
-        elem['class'] += ' leftify'
+        elem['class'].append('leftify')
     return elem
 
 
 def make_choose(parameters: dict, key: str, default: str) -> dict:
     val = parameters.get(key, None)
     if not val:
-        return{'value': default, 'class': 'choose-var', }
+        return{'value': default, 'class': ['choose-var'], }
 
     elem = make_magic(parameters, key, default, default_blank=False, force_magic=False)
-    elem['class'] += ' choose-var'
+    elem['class'].append('choose-var')
     return elem
 
 # Function: returns an appropriate magic variable, whether or not it's a magic var
@@ -329,24 +329,25 @@ def make_dict_elem(item: dict) -> dict:
 # Function: wraps string in a dict with no class, so that it is rendered properly in the template
 
 
-def text_elem(text: str) -> dict:
-    return {'value': text, 'class': 'text'}
+# REFACTORED
+# def text_elem(text: str) -> dict:
+#     return {'value': text, 'class': 'text'}
 
-
-def make_pill(parameters: dict, key: str, options: [str], default: str) -> dict:
-    selection = parameters.get(key, None)
-    if not selection:
-        selection = default
-    if isinstance(selection, dict):  # I CAST DETECT MAGIC
-        return make_magic(parameters, key)
+# REFACTORED
+# def make_pill(parameters: dict, key: str, options: [str], default: str) -> dict:
+#     selection = parameters.get(key, None)
+#     if not selection:
+#         selection = default
+#     if isinstance(selection, dict):  # I CAST DETECT MAGIC
+#         return make_magic(parameters, key)
     
-    # TODO: replace this duct tape
-    selection = selection.title()  # vars are often lowercased
-    selection = re.sub('To','to', selection) # 'A to Z' is the exception
+#     # TODO: replace this duct tape
+#     selection = selection.title()  # vars are often lowercased
+#     selection = re.sub('To','to', selection) # 'A to Z' is the exception
 
-    pill_elems = []
-    [pill_elems.append({'selected': option == selection, 'value': option, }) for option in options]
-    return {'class': 'pill', 'value': pill_elems, }
+#     pill_elems = []
+#     [pill_elems.append({'selected': option == selection, 'value': option, }) for option in options]
+#     return {'class': 'pill', 'value': pill_elems, }
 
 
 def make_counter(parameters: dict, key: str, label: str, default: int, magic_label: str) -> dict:

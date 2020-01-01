@@ -34,13 +34,13 @@ class test_simple_settings(TestCase):
 
     def test_titles_correct(self):
         compare_elements(self, 'title', 0, [
-            {'class':'', 'value':'Open Magnifier'},
+            {'class':'text', 'value':'Open Magnifier'},
         ])
         compare_elements(self, 'title', 1, [
-            {'class':'', 'value':'Start Guided Access'},
+            {'class':'text', 'value':'Start Guided Access'},
         ])
         compare_elements(self, 'title', 2, [
-            {'class':'', 'value':'Start Speak Screen'},
+            {'class':'text', 'value':'Start Speak Screen'},
         ])
         
 class test_text_size(TestCase):
@@ -70,55 +70,55 @@ class test_text_size(TestCase):
 
     def test_titles_correct(self):
         compare_elements(self, 'title', 0, [
-            {'class':'', 'value':'Set text size to'},
+            {'class':'text', 'value':'Set text size to'},
             {'class':'magic', 'value':'extra small'},
         ])
         compare_elements(self, 'title', 1, [
-            {'class':'', 'value':'Set text size to'},
+            {'class':'text', 'value':'Set text size to'},
             {'class':'magic', 'value':'small'},
         ])
         compare_elements(self, 'title', 2, [
-            {'class':'', 'value':'Set text size to'},
+            {'class':'text', 'value':'Set text size to'},
             {'class':'magic', 'value':'medium'},
         ])
         compare_elements(self, 'title', 3, [
-            {'class':'', 'value':'Set text size to'},
+            {'class':'text', 'value':'Set text size to'},
             {'class':'magic', 'value':'default'},
         ])
         compare_elements(self, 'title', 4, [
-            {'class':'', 'value':'Set text size to'},
+            {'class':'text', 'value':'Set text size to'},
             {'class':'magic', 'value':'extra large'},
         ])
         compare_elements(self, 'title', 5, [
-            {'class':'', 'value':'Set text size to'},
+            {'class':'text', 'value':'Set text size to'},
             {'class':'magic', 'value':'extra extra large'},
         ])
         compare_elements(self, 'title', 6, [
-            {'class':'', 'value':'Set text size to'},
+            {'class':'text', 'value':'Set text size to'},
             {'class':'magic', 'value':'extra extra extra large'},
         ])
         compare_elements(self, 'title', 7, [
-            {'class':'', 'value':'Set text size to'},
+            {'class':'text', 'value':'Set text size to'},
             {'class':'magic', 'value':'accessibility medium'},
         ])
         compare_elements(self, 'title', 8, [
-            {'class':'', 'value':'Set text size to'},
+            {'class':'text', 'value':'Set text size to'},
             {'class':'magic', 'value':'accessibility large'},
         ])
         compare_elements(self, 'title', 9, [
-            {'class':'', 'value':'Set text size to'},
+            {'class':'text', 'value':'Set text size to'},
             {'class':'magic', 'value':'accessibility extra large'},
         ])
         compare_elements(self, 'title', 10, [
-            {'class':'', 'value':'Set text size to'},
+            {'class':'text', 'value':'Set text size to'},
             {'class':'magic', 'value':'accessibility extra extra large'},
         ])
         compare_elements(self, 'title', 11, [
-            {'class':'', 'value':'Set text size to'},
+            {'class':'text', 'value':'Set text size to'},
             {'class':'magic', 'value':'accessibility extra extra extra large'},
         ])
         compare_elements(self, 'title', 12, [
-            {'class':'', 'value':'Set text size to'},
+            {'class':'text', 'value':'Set text size to'},
             {'class':'magic', 'value':'Text Size'},
         ])
         
@@ -150,77 +150,77 @@ class test_settings_state(TestCase):
     def test_titles_correct(self):
         compare_elements(self, 'title', 0, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'AssistiveTouch'},
+            {'class':'text', 'value':'AssistiveTouch'},
             {'class':'magic', 'value':'State'},
         ])
         compare_elements(self, 'title', 1, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Audio Descriptions'},
+            {'class':'text', 'value':'Audio Descriptions'},
             {'class':'magic', 'value':'State'},
         ])
         compare_elements(self, 'title', 2, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Classic Invert'},
+            {'class':'text', 'value':'Classic Invert'},
             {'class':'magic', 'value':'State'},
         ])
         compare_elements(self, 'title', 3, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Closed Captions+SDH'},
+            {'class':'text', 'value':'Closed Captions+SDH'},
             {'class':'magic', 'value':'State'},
         ])
         compare_elements(self, 'title', 4, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Increase Contrast'},
+            {'class':'text', 'value':'Increase Contrast'},
             {'class':'magic', 'value':'State'},
         ])
         compare_elements(self, 'title', 5, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'LED Flash'},
+            {'class':'text', 'value':'LED Flash'},
             {'class':'magic', 'value':'State'},
         ])
         compare_elements(self, 'title', 6, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Mono Audio'},
+            {'class':'text', 'value':'Mono Audio'},
             {'class':'magic', 'value':'State'},
         ])
         compare_elements(self, 'title', 7, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Reduce Motion'},
+            {'class':'text', 'value':'Reduce Motion'},
             {'class':'magic', 'value':'State'},
         ])
         compare_elements(self, 'title', 8, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Reduce Transparency'},
+            {'class':'text', 'value':'Reduce Transparency'},
             {'class':'magic', 'value':'State'},
         ])
         compare_elements(self, 'title', 9, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Smart Invert'},
+            {'class':'text', 'value':'Smart Invert'},
             {'class':'magic', 'value':'State'},
         ])
         compare_elements(self, 'title', 10, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Switch Control'},
+            {'class':'text', 'value':'Switch Control'},
             {'class':'magic', 'value':'State'},
         ])
         compare_elements(self, 'title', 11, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Voice Control'},
+            {'class':'text', 'value':'Voice Control'},
             {'class':'magic', 'value':'State'},
         ])
         compare_elements(self, 'title', 12, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'VoiceOver'},
+            {'class':'text', 'value':'VoiceOver'},
             {'class':'magic', 'value':'State'},
         ])
         compare_elements(self, 'title', 13, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'White Point'},
+            {'class':'text', 'value':'White Point'},
             {'class':'magic', 'value':'State'},
         ])
         compare_elements(self, 'title', 14, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Zoom'},
+            {'class':'text', 'value':'Zoom'},
             {'class':'magic', 'value':'State'},
         ])
         
@@ -252,77 +252,77 @@ class test_settings_default(TestCase):
     def test_titles_correct(self):
         compare_elements(self, 'title', 0, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'AssistiveTouch'},
+            {'class':'text', 'value':'AssistiveTouch'},
             {'class':'magic', 'value':'on'},
         ])
         compare_elements(self, 'title', 1, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Audio Descriptions'},
+            {'class':'text', 'value':'Audio Descriptions'},
             {'class':'magic', 'value':'on'},
         ])
         compare_elements(self, 'title', 2, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Classic Invert'},
+            {'class':'text', 'value':'Classic Invert'},
             {'class':'magic', 'value':'off'},
         ])
         compare_elements(self, 'title', 3, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Closed Captions+SDH'},
+            {'class':'text', 'value':'Closed Captions+SDH'},
             {'class':'magic', 'value':'on'},
         ])
         compare_elements(self, 'title', 4, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Increase Contrast'},
+            {'class':'text', 'value':'Increase Contrast'},
             {'class':'magic', 'value':'on'},
         ])
         compare_elements(self, 'title', 5, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'LED Flash'},
+            {'class':'text', 'value':'LED Flash'},
             {'class':'magic', 'value':'on'},
         ])
         compare_elements(self, 'title', 6, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Mono Audio'},
+            {'class':'text', 'value':'Mono Audio'},
             {'class':'magic', 'value':'on'},
         ])
         compare_elements(self, 'title', 7, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Reduce Motion'},
+            {'class':'text', 'value':'Reduce Motion'},
             {'class':'magic', 'value':'off'},
         ])
         compare_elements(self, 'title', 8, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Reduce Transparency'},
+            {'class':'text', 'value':'Reduce Transparency'},
             {'class':'magic', 'value':'on'},
         ])
         compare_elements(self, 'title', 9, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Smart Invert'},
+            {'class':'text', 'value':'Smart Invert'},
             {'class':'magic', 'value':'on'},
         ])
         compare_elements(self, 'title', 10, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Switch Control'},
+            {'class':'text', 'value':'Switch Control'},
             {'class':'magic', 'value':'on'},
         ])
         compare_elements(self, 'title', 11, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Voice Control'},
+            {'class':'text', 'value':'Voice Control'},
             {'class':'magic', 'value':'on'},
         ])
         compare_elements(self, 'title', 12, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'VoiceOver'},
+            {'class':'text', 'value':'VoiceOver'},
             {'class':'magic', 'value':'on'},
         ])
         compare_elements(self, 'title', 13, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'White Point'},
+            {'class':'text', 'value':'White Point'},
             {'class':'magic', 'value':'on'},
         ])
         compare_elements(self, 'title', 14, [
             {'class':'magic', 'value':'Turn'},
-            {'class':'', 'value':'Zoom'},
+            {'class':'text', 'value':'Zoom'},
             {'class':'magic', 'value':'on'},
         ])
         
@@ -354,62 +354,63 @@ class test_settings_operation(TestCase):
     def test_titles_correct(self):
         compare_elements(self, 'title', 0, [
             {'class':'magic', 'value':'Operation'},
-            {'class':'', 'value':'AssistiveTouch'},
+            {'class':'text', 'value':'AssistiveTouch'},
+            {'class':'choose hidden', 'value':'AssistiveTouch'},
         ])
         compare_elements(self, 'title', 1, [
             {'class':'magic', 'value':'Operation'},
-            {'class':'', 'value':'Audio Descriptions'},
+            {'class':'text', 'value':'Audio Descriptions'},
         ])
         compare_elements(self, 'title', 2, [
             {'class':'magic', 'value':'Operation'},
-            {'class':'', 'value':'Classic Invert'},
+            {'class':'text', 'value':'Classic Invert'},
         ])
         compare_elements(self, 'title', 3, [
             {'class':'magic', 'value':'Operation'},
-            {'class':'', 'value':'Closed Captions+SDH'},
+            {'class':'text', 'value':'Closed Captions+SDH'},
         ])
         compare_elements(self, 'title', 4, [
             {'class':'magic', 'value':'Operation'},
-            {'class':'', 'value':'Increase Contrast'},
+            {'class':'text', 'value':'Increase Contrast'},
         ])
         compare_elements(self, 'title', 5, [
             {'class':'magic', 'value':'Operation'},
-            {'class':'', 'value':'LED Flash'},
+            {'class':'text', 'value':'LED Flash'},
         ])
         compare_elements(self, 'title', 6, [
             {'class':'magic', 'value':'Operation'},
-            {'class':'', 'value':'Mono Audio'},
+            {'class':'text', 'value':'Mono Audio'},
         ])
         compare_elements(self, 'title', 7, [
             {'class':'magic', 'value':'Operation'},
-            {'class':'', 'value':'Reduce Motion'},
+            {'class':'text', 'value':'Reduce Motion'},
         ])
         compare_elements(self, 'title', 8, [
             {'class':'magic', 'value':'Operation'},
-            {'class':'', 'value':'Reduce Transparency'},
+            {'class':'text', 'value':'Reduce Transparency'},
         ])
         compare_elements(self, 'title', 9, [
             {'class':'magic', 'value':'Operation'},
-            {'class':'', 'value':'Smart Invert'},
+            {'class':'text', 'value':'Smart Invert'},
         ])
         compare_elements(self, 'title', 10, [
             {'class':'magic', 'value':'Operation'},
-            {'class':'', 'value':'Switch Control'},
+            {'class':'text', 'value':'Switch Control'},
         ])
         compare_elements(self, 'title', 11, [
             {'class':'magic', 'value':'Operation'},
-            {'class':'', 'value':'Voice Control'},
+            {'class':'text', 'value':'Voice Control'},
         ])
         compare_elements(self, 'title', 12, [
             {'class':'magic', 'value':'Operation'},
-            {'class':'', 'value':'VoiceOver'},
+            {'class':'text', 'value':'VoiceOver'},
         ])
         compare_elements(self, 'title', 13, [
             {'class':'magic', 'value':'Operation'},
-            {'class':'', 'value':'White Point'},
+            {'class':'text', 'value':'White Point'},
         ])
         compare_elements(self, 'title', 14, [
             {'class':'magic', 'value':'Operation'},
-            {'class':'', 'value':'Zoom'},
+            {'class':'text', 'value':'Zoom'},
         ])
         

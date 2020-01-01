@@ -5,7 +5,7 @@ import requests, plistlib, logging, unittest, re
 from share.process.entry import request_details, byte_catcher
 from share.process.action_html import make_html
 
-error_title = [{'value': 'Error Loading Action', 'class': 'error'}]
+error_title = [{'value': 'Error Loading Action', 'class': ['error']}]
     
 def actions_from_ID(iCloudID:str):
     dct = request_details(iCloudID)
