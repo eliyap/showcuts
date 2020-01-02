@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; Showcuts 0.1.0 documentation</title>
+    <title>Showcuts &#8212; Showcuts 0.1.0 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -30,7 +30,49 @@
 
           <div class="body" role="main">
             
-  <p># Test Documentation</p>
+  <img alt="../_images/logo.png" src="../_images/logo.png" />
+<div class="section" id="showcuts">
+<h1>Showcuts<a class="headerlink" href="#showcuts" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to the code for <a class="reference external" href="https://showcuts.app/share/view">showcuts.app</a>, a web viewer for the <a class="reference external" href="https://apps.apple.com/us/app/shortcuts/id915249334">iOS Shortcuts App</a>.</p>
+<p>Showcuts turns an iCloud link into a HTML + CSS approximation of the iOS Shortcuts viewer.
+This takes a few steps, which developers may find useful:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Download the shortcut’s <code class="docutils literal notranslate"><span class="pre">.plist</span></code> file (and some details) via the iCloud API, as documented by <a class="reference external" href="https://github.com/sharecuts/website/blob/master/Docs/Download%20shortcut%20shared%20as%20a%20link.txt">Sharecuts</a></p></li>
+<li><p>Turn the <code class="docutils literal notranslate"><span class="pre">.plist</span></code> file into JSON using Python’s <a class="reference external" href="https://docs.python.org/2/library/plistlib.html">plistlib library</a></p></li>
+<li><p>Parsing the shortcut’s actions as Python objects</p></li>
+<li><p>Turning those objects into HTML via Django’s templating engine</p></li>
+</ol>
+<ul class="simple">
+<li><p>also, CSS styles that approximate the appearance of Shortcuts on iOS</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Characteristics</strong></p>
+<p>Other Shortcuts projects and products exist. Showcuts is special because it:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>shows the individual actions and parameters of shortcuts</p></li>
+<li><p>aims to look like Shortcuts on iOS</p></li>
+<li><p>allows others to embed it’s viewer in their sites (<a class="reference external" href="https://jsfiddle.net/7ok5xfgd/1/">JS Fiddle</a>)</p></li>
+<li><p>supports Shortcuts for iOS 13 (not iOS 12)</p></li>
+<li><p>is free and open source (premium tier / a tip jar is planned)</p></li>
+</ul>
+</div></blockquote>
+<p>Showcuts does not:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>have a native iOS app (it would be kind of pointless)</p></li>
+<li><p>support iOS 12</p></li>
+<li><p>allow users to edit Shortcuts (yet!)</p></li>
+<li><p>have an installation, as I don’t think anyone has a use for this code (happy to be proven wrong there!)</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="status">
+<h1>Status<a class="headerlink" href="#status" title="Permalink to this headline">¶</a></h1>
+<p>Showcuts was in active development from November - December 2019.</p>
+<p>Development slowed as the author entered college, and may have ceased entirely.</p>
+</div>
 
 
           </div>
