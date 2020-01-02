@@ -20,3 +20,8 @@ share/tests/__pycache__/
 share/static/
 staticfiles/CACHE/
 logging.txt
+
+# DOCS
+_build
+_static
+_templates
