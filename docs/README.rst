@@ -3,14 +3,14 @@
 Showcuts
 ########
 
-Welcome to the code for `showcuts.app <https://showcuts.app/share/view>`_, a web viewer for the `iOS Shortcuts App <https://apps.apple.com/us/app/shortcuts/id915249334>`_.
+Welcome to the code behind `showcuts.app <https://showcuts.app/share/view>`_, a web viewer for the `iOS Shortcuts App <https://apps.apple.com/us/app/shortcuts/id915249334>`_.
 
-Showcuts turns an iCloud link into a HTML + CSS approximation of the iOS Shortcuts viewer.
+Showcuts turns an iCloud link into a web approximation of the iOS viewer.
 This takes a few steps, which developers may find useful:
  #. Download the shortcut's ``.plist`` file (and some details) via the iCloud API, as documented by `Sharecuts <https://github.com/sharecuts/website/blob/master/Docs/Download%20shortcut%20shared%20as%20a%20link.txt>`_
  #. Turn the ``.plist`` file into JSON using Python's `plistlib library <https://docs.python.org/2/library/plistlib.html>`_
- #. Parsing the shortcut's actions as Python objects
- #. Turning those objects into HTML via Django's templating engine
+ #. Parse the shortcut's actions as Python objects
+ #. Turn those objects into HTML via Django's templating engine
 
  * also, CSS styles that approximate the appearance of Shortcuts on iOS
 

@@ -3,14 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Showcuts's documentation!
-====================================
+Welcome to the Showcuts documentation!
+======================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-
+   actions
+   parameters
 
 Indices and tables
 ==================

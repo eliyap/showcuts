@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Showcuts &#8212; Showcuts 0.1.0 documentation</title>
+    <title>Showcuts &#8212; Showcuts 2020.0.0 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -33,15 +33,15 @@
   <img alt="../_images/logo.png" src="../_images/logo.png" />
 <div class="section" id="showcuts">
 <h1>Showcuts<a class="headerlink" href="#showcuts" title="Permalink to this headline">¶</a></h1>
-<p>Welcome to the code for <a class="reference external" href="https://showcuts.app/share/view">showcuts.app</a>, a web viewer for the <a class="reference external" href="https://apps.apple.com/us/app/shortcuts/id915249334">iOS Shortcuts App</a>.</p>
-<p>Showcuts turns an iCloud link into a HTML + CSS approximation of the iOS Shortcuts viewer.
+<p>Welcome to the code behind <a class="reference external" href="https://showcuts.app/share/view">showcuts.app</a>, a web viewer for the <a class="reference external" href="https://apps.apple.com/us/app/shortcuts/id915249334">iOS Shortcuts App</a>.</p>
+<p>Showcuts turns an iCloud link into a web approximation of the iOS viewer.
 This takes a few steps, which developers may find useful:</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li><p>Download the shortcut’s <code class="docutils literal notranslate"><span class="pre">.plist</span></code> file (and some details) via the iCloud API, as documented by <a class="reference external" href="https://github.com/sharecuts/website/blob/master/Docs/Download%20shortcut%20shared%20as%20a%20link.txt">Sharecuts</a></p></li>
 <li><p>Turn the <code class="docutils literal notranslate"><span class="pre">.plist</span></code> file into JSON using Python’s <a class="reference external" href="https://docs.python.org/2/library/plistlib.html">plistlib library</a></p></li>
-<li><p>Parsing the shortcut’s actions as Python objects</p></li>
-<li><p>Turning those objects into HTML via Django’s templating engine</p></li>
+<li><p>Parse the shortcut’s actions as Python objects</p></li>
+<li><p>Turn those objects into HTML via Django’s templating engine</p></li>
 </ol>
 <ul class="simple">
 <li><p>also, CSS styles that approximate the appearance of Shortcuts on iOS</p></li>
@@ -91,6 +91,11 @@ This takes a few steps, which developers may find useful:</p>
 
 
 <h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../actions.html">Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parameters.html">Stuff</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>

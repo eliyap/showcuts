@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Action &#8212; Showcuts 2020.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Parameters" href="parameters.html" />
+    <link rel="prev" title="Welcome to the Showcuts documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="action">
+<h1>Action<a class="headerlink" href="#action" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="share.process.sc_action.action.action">
+<em class="property">class </em><code class="sig-prename descclassname">share.process.sc_action.action.</code><code class="sig-name descname">action</code><span class="sig-paren">(</span><em class="sig-param">dct: dict</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a single “action” in a shortcut.</p>
+<dl class="attribute">
+<dt id="share.process.sc_action.action.action.UUID">
+<code class="sig-name descname">UUID</code><em class="property"> = 'null'</em><a class="headerlink" href="#share.process.sc_action.action.action.UUID" title="Permalink to this definition">¶</a></dt>
+<dd><p>UUID string identifying the <cite>result</cite> variable produced by the action.</p>
+<p>Used to link result variables to their origin.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="share.process.sc_action.action.action.action_hook">
+<em class="property">classmethod </em><code class="sig-name descname">action_hook</code><span class="sig-paren">(</span><em class="sig-param">dct: dict</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.action.action_hook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to deserialize <cite>action</cite> objects from JSON.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="share.process.sc_action.action.action.category">
+<code class="sig-name descname">category</code><em class="property"> = ''</em><a class="headerlink" href="#share.process.sc_action.action.action.category" title="Permalink to this definition">¶</a></dt>
+<dd><p>The action’s category (e.g. SCRIPTING or MATH). Always in ALL CAPS.</p>
+<p>May be excluded for control-flow blocks, such as the If block’s <cite>End If</cite>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="share.process.sc_action.action.action.css_class">
+<code class="sig-name descname">css_class</code><em class="property"> = []</em><a class="headerlink" href="#share.process.sc_action.action.action.css_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of CSS classes (str) to apply to special actions (e.g. Comment action)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="share.process.sc_action.action.action.get_line">
+<code class="sig-name descname">get_line</code><span class="sig-paren">(</span><em class="sig-param">label: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.action.get_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a particular element in <cite>lines</cite>, as identified by its <cite>label</cite>. 
+Usually used in <cite>modify</cite> to pick a line out for modification</p>
+<p>Raises ValueError if the label does not a match a line.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="share.process.sc_action.action.action.glyph">
+<code class="sig-name descname">glyph</code><em class="property"> = ''</em><a class="headerlink" href="#share.process.sc_action.action.action.glyph" title="Permalink to this definition">¶</a></dt>
+<dd><p>The action’s glyph, usually matching the category. 
+If there is no category, there is also no glyph, and vice versa.</p>
+<p>Actions donated from an app have the app icon as their glyph</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="share.process.sc_action.action.action.hide_line">
+<code class="sig-name descname">hide_line</code><span class="sig-paren">(</span><em class="sig-param">label: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.action.hide_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the <cite>hidden</cite> CSS class to particular element in <cite>lines</cite>, 
+as identified by its <cite>label</cite>.</p>
+<p>Raises ValueError if the label does not a match a line.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="share.process.sc_action.action.action.indent">
+<code class="sig-name descname">indent</code><em class="property"> = 0</em><a class="headerlink" href="#share.process.sc_action.action.action.indent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visual indentation level for actions inside control flow blocks.</p>
+<p>Control flow blocks may be nested indefinitely, 
+but stop visually indenting after 8 levels.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="share.process.sc_action.action.action.indent_delta">
+<code class="sig-name descname">indent_delta</code><em class="property"> = 0</em><a class="headerlink" href="#share.process.sc_action.action.action.indent_delta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines whether subsequent actions are (un)-indented. Permitted values: -1, 0, +1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Todo</dt>
+<dd class="field-odd"><p>Check whether indentation delta is either -1, 0, or +1.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="share.process.sc_action.action.action.inherit">
+<code class="sig-name descname">inherit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.action.inherit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copies (inherited) class variables to instance.</p>
+<p>Allows us to make defining actions with similar 
+<cite>category</cite>, <cite>glyph</cite>, and <cite>result</cite> DRYer.</p>
+<p>Creates instance specific <cite>title</cite>, <cite>lines</cite>, and <cite>elem</cite>
+so that their values may be individually set.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="share.process.sc_action.action.action.items">
+<code class="sig-name descname">items</code><em class="property"> = []</em><a class="headerlink" href="#share.process.sc_action.action.action.items" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of keys and values particular to the Dictionary action.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="share.process.sc_action.action.action.lines">
+<code class="sig-name descname">lines</code><em class="property"> = []</em><a class="headerlink" href="#share.process.sc_action.action.action.lines" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of additional options customizing an action’s behaviour.</p>
+<p>Populated with <cite>line_${elem}</cite> objects.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="share.process.sc_action.action.action.modify">
+<code class="sig-name descname">modify</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.action.modify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called after <cite>to_html</cite> has been invoked on <cite>title</cite>, <cite>lines</cite>, and <cite>elem</cite>.</p>
+<p>Houses special logic for each action. 
+Usually, this means hiding element <cite>X</cite> if element <cite>Y</cite> has value <cite>Z</cite>.</p>
+<p>Meant to be overriden.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="share.process.sc_action.action.action.result">
+<code class="sig-name descname">result</code><em class="property"> = None</em><a class="headerlink" href="#share.process.sc_action.action.action.result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Every action may (or may not) produce one <cite>result</cite>, 
+which may (or may not) be given a custom name.</p>
+<p>This field define’s the action’s default result name (if any). <cite>None</cite> means the action does not produce a result.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="share.process.sc_action.action.action.title">
+<code class="sig-name descname">title</code><em class="property"> = []</em><a class="headerlink" href="#share.process.sc_action.action.action.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of element objects composing the title (large head text).</p>
+<p>Populated with <cite>text</cite> objects, and children of <cite>base_magic</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="share.process.sc_action.action.action.to_django">
+<code class="sig-name descname">to_django</code><span class="sig-paren">(</span><em class="sig-param">UUID_glyphs: dict</em>, <em class="sig-param">indent: int</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.action.to_django" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invokes <cite>to_html</cite> method of every object in <cite>title</cite>, <cite>lines</cite>, and <cite>elem</cite>,
+transforming these into lists of <cite>dict</cite> for the Django template engine.</p>
+<p>Invokes action’s <cite>modify</cite> method last.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="control-flow">
+<h1>Control Flow<a class="headerlink" href="#control-flow" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="share.process.sc_action.action.control">
+<em class="property">class </em><code class="sig-prename descclassname">share.process.sc_action.action.</code><code class="sig-name descname">control</code><a class="headerlink" href="#share.process.sc_action.action.control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a control flow action such as <cite>If</cite>, <cite>Repeat</cite>, or <cite>Choose from Menu</cite>.</p>
+<dl class="method">
+<dt id="share.process.sc_action.action.control.flow_mode">
+<code class="sig-name descname">flow_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.control.flow_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Looks up the action’s <cite>WFControlFlowMode</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="share.process.sc_action.action.control.mod_indent">
+<code class="sig-name descname">mod_indent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.control.mod_indent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjusts action based on it’s <cite>flow_mode</cite> value</p>
+<dl class="field-list simple">
+<dt class="field-odd">0</dt>
+<dd class="field-odd"><p>Head block</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>Has a category &amp; glyph</p></li>
+<li><p>Accepts parameters</p></li>
+<li><p>Indents inner actions by +1</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">1</dt>
+<dd class="field-odd"><p>Body block</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>No category or glyph</p></li>
+<li><p>Does not accept parameters</p></li>
+<li><p>Unindented 1 level from inner blocks (same indentation as Head)</p></li>
+<li><p>Does not change indentation of subsequent blocks</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">2</dt>
+<dd class="field-odd"><p>Foot block</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>No category or glyph</p></li>
+<li><p>Does not accept parameters</p></li>
+<li><p>Unindented 1 level from inner blocks (same indentation as Head)</p></li>
+<li><p>Unindents subsequent blocks -1.</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Showcuts</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Action</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#control-flow">Control Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">Parameters</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to the Showcuts documentation!</a></li>
+      <li>Next: <a href="parameters.html" title="next chapter">Parameters</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, MIGI.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/actions.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,6 +1,9 @@
 from .magic_helpers import *
 
 class base_magic:
+    '''
+    Root class for magic variables.
+    '''
     def __init__(
         self,
         key:str, # parameter's name in .plist file
@@ -26,10 +29,3 @@ class base_magic:
 
     def blank(self):
         return {} # to be overridden!
-
-    
-    # def control_flow(self) -> (str, int):
-    #     return (
-    #         self.parameters['GroupingIdentifier'], 
-    #         self.parameters['WFControlFlowMode'],
-    #     )
