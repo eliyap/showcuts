@@ -1,4 +1,4 @@
-.. image:: staticfiles/assets/logo/named-transparent.png
+.. image:: logo.png
 
 Showcuts
 ###
