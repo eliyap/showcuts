@@ -41,14 +41,14 @@
 <dl class="attribute">
 <dt id="share.process.sc_action.action.action.UUID">
 <code class="sig-name descname">UUID</code><em class="property"> = 'null'</em><a class="headerlink" href="#share.process.sc_action.action.action.UUID" title="Permalink to this definition">¶</a></dt>
-<dd><p>UUID string identifying the <cite>result</cite> variable produced by the action.</p>
+<dd><p>UUID string identifying the <code class="docutils literal notranslate"><span class="pre">result</span></code> variable produced by the action.</p>
 <p>Used to link result variables to their origin.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="share.process.sc_action.action.action.action_hook">
 <em class="property">classmethod </em><code class="sig-name descname">action_hook</code><span class="sig-paren">(</span><em class="sig-param">dct: dict</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.action.action_hook" title="Permalink to this definition">¶</a></dt>
-<dd><p>Used to deserialize <cite>action</cite> objects from JSON.</p>
+<dd><p>Used to deserialize <code class="docutils literal notranslate"><span class="pre">action</span></code> objects from JSON.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -67,8 +67,8 @@
 <dl class="method">
 <dt id="share.process.sc_action.action.action.get_line">
 <code class="sig-name descname">get_line</code><span class="sig-paren">(</span><em class="sig-param">label: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.action.get_line" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a particular element in <cite>lines</cite>, as identified by its <cite>label</cite>. 
-Usually used in <cite>modify</cite> to pick a line out for modification</p>
+<dd><p>Return a particular element in <code class="docutils literal notranslate"><span class="pre">lines</span></code>, as identified by its <code class="docutils literal notranslate"><span class="pre">label</span></code>. 
+Usually used in <code class="docutils literal notranslate"><span class="pre">modify</span></code> to pick a line out for modification</p>
 <p>Raises ValueError if the label does not a match a line.</p>
 </dd></dl>
 
@@ -83,8 +83,8 @@ If there is no category, there is also no glyph, and vice versa.</p>
 <dl class="method">
 <dt id="share.process.sc_action.action.action.hide_line">
 <code class="sig-name descname">hide_line</code><span class="sig-paren">(</span><em class="sig-param">label: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.action.hide_line" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add the <cite>hidden</cite> CSS class to particular element in <cite>lines</cite>, 
-as identified by its <cite>label</cite>.</p>
+<dd><p>Add the “hidden” CSS class to particular element in <code class="docutils literal notranslate"><span class="pre">lines</span></code>, 
+as identified by its <code class="docutils literal notranslate"><span class="pre">label</span></code>.</p>
 <p>Raises ValueError if the label does not a match a line.</p>
 </dd></dl>
 
@@ -112,7 +112,7 @@ but stop visually indenting after 8 levels.</p>
 <code class="sig-name descname">inherit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.action.inherit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copies (inherited) class variables to instance.</p>
 <p>Allows us to make defining actions with similar 
-<cite>category</cite>, <cite>glyph</cite>, and <cite>result</cite> DRYer.</p>
+<code class="docutils literal notranslate"><span class="pre">category</span></code>, <code class="docutils literal notranslate"><span class="pre">glyph</span></code>, and <code class="docutils literal notranslate"><span class="pre">result</span></code> DRYer.</p>
 <p>Creates instance specific <cite>title</cite>, <cite>lines</cite>, and <cite>elem</cite>
 so that their values may be individually set.</p>
 </dd></dl>
@@ -127,13 +127,13 @@ so that their values may be individually set.</p>
 <dt id="share.process.sc_action.action.action.lines">
 <code class="sig-name descname">lines</code><em class="property"> = []</em><a class="headerlink" href="#share.process.sc_action.action.action.lines" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of additional options customizing an action’s behaviour.</p>
-<p>Populated with <cite>line_${elem}</cite> objects.</p>
+<p>Populated with <code class="docutils literal notranslate"><span class="pre">line_${elem}</span></code> objects.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="share.process.sc_action.action.action.modify">
 <code class="sig-name descname">modify</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.action.modify" title="Permalink to this definition">¶</a></dt>
-<dd><p>Called after <cite>to_html</cite> has been invoked on <cite>title</cite>, <cite>lines</cite>, and <cite>elem</cite>.</p>
+<dd><p>Called after <code class="docutils literal notranslate"><span class="pre">to_html</span></code> has been invoked on <code class="docutils literal notranslate"><span class="pre">title</span></code>, <code class="docutils literal notranslate"><span class="pre">lines</span></code>, and <code class="docutils literal notranslate"><span class="pre">elem</span></code>.</p>
 <p>Houses special logic for each action. 
 Usually, this means hiding element <cite>X</cite> if element <cite>Y</cite> has value <cite>Z</cite>.</p>
 <p>Meant to be overriden.</p>
@@ -144,22 +144,22 @@ Usually, this means hiding element <cite>X</cite> if element <cite>Y</cite> has 
 <code class="sig-name descname">result</code><em class="property"> = None</em><a class="headerlink" href="#share.process.sc_action.action.action.result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Every action may (or may not) produce one <cite>result</cite>, 
 which may (or may not) be given a custom name.</p>
-<p>This field define’s the action’s default result name (if any). <cite>None</cite> means the action does not produce a result.</p>
+<p>This field define’s the action’s default result name (if any). <code class="docutils literal notranslate"><span class="pre">None</span></code> means the action does not produce a result.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="share.process.sc_action.action.action.title">
 <code class="sig-name descname">title</code><em class="property"> = []</em><a class="headerlink" href="#share.process.sc_action.action.action.title" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of element objects composing the title (large head text).</p>
-<p>Populated with <cite>text</cite> objects, and children of <cite>base_magic</cite>.</p>
+<p>Populated with <code class="docutils literal notranslate"><span class="pre">text</span></code> objects, and children of <code class="docutils literal notranslate"><span class="pre">base_magic</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="share.process.sc_action.action.action.to_django">
 <code class="sig-name descname">to_django</code><span class="sig-paren">(</span><em class="sig-param">UUID_glyphs: dict</em>, <em class="sig-param">indent: int</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.action.to_django" title="Permalink to this definition">¶</a></dt>
-<dd><p>Invokes <cite>to_html</cite> method of every object in <cite>title</cite>, <cite>lines</cite>, and <cite>elem</cite>,
-transforming these into lists of <cite>dict</cite> for the Django template engine.</p>
-<p>Invokes action’s <cite>modify</cite> method last.</p>
+<dd><p>Invokes <code class="docutils literal notranslate"><span class="pre">to_html</span></code> method of every object in <code class="docutils literal notranslate"><span class="pre">title</span></code>, <code class="docutils literal notranslate"><span class="pre">lines</span></code>, and <code class="docutils literal notranslate"><span class="pre">elem</span></code>,
+transforming these into lists of <code class="docutils literal notranslate"><span class="pre">dict</span></code> for the Django template engine.</p>
+<p>Invokes action’s <code class="docutils literal notranslate"><span class="pre">modify</span></code> method last.</p>
 </dd></dl>
 
 </dd></dl>
@@ -180,7 +180,7 @@ transforming these into lists of <cite>dict</cite> for the Django template engin
 <dl class="method">
 <dt id="share.process.sc_action.action.control.mod_indent">
 <code class="sig-name descname">mod_indent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.control.mod_indent" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adjusts action based on it’s <cite>flow_mode</cite> value</p>
+<dd><p>Adjusts action based on it’s <code class="docutils literal notranslate"><span class="pre">flow_mode</span></code> value</p>
 <dl class="field-list simple">
 <dt class="field-odd">0</dt>
 <dd class="field-odd"><p>Head block</p>

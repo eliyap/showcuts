@@ -17,22 +17,22 @@ class action:
     #: Every action may (or may not) produce one `result`, 
     #: which may (or may not) be given a custom name.
     #: 
-    #: This field define's the action's default result name (if any). `None` means the action does not produce a result.
+    #: This field define's the action's default result name (if any). ``None`` means the action does not produce a result.
     result   = None 
 
-    #: UUID string identifying the `result` variable produced by the action.
+    #: UUID string identifying the ``result`` variable produced by the action.
     #: 
     #: Used to link result variables to their origin.
     UUID     = 'null'
     
     #: List of element objects composing the title (large head text).
     #: 
-    #: Populated with `text` objects, and children of `base_magic`.
+    #: Populated with ``text`` objects, and children of ``base_magic``.
     title    = []
 
     #: List of additional options customizing an action's behaviour.
     #: 
-    #: Populated with `line_${elem}` objects.
+    #: Populated with ``line_${elem}`` objects.
     lines    = []
 
     #: List of keys and values particular to the Dictionary action.
@@ -67,7 +67,7 @@ class action:
         Copies (inherited) class variables to instance.
 
         Allows us to make defining actions with similar 
-        `category`, `glyph`, and `result` DRYer.
+        ``category``, ``glyph``, and ``result`` DRYer.
 
         Creates instance specific `title`, `lines`, and `elem`
         so that their values may be individually set.
@@ -87,10 +87,10 @@ class action:
         indent:int,
     ):
         '''
-        Invokes `to_html` method of every object in `title`, `lines`, and `elem`,
-        transforming these into lists of `dict` for the Django template engine.
+        Invokes ``to_html`` method of every object in ``title``, ``lines``, and ``elem``,
+        transforming these into lists of ``dict`` for the Django template engine.
 
-        Invokes action's `modify` method last.
+        Invokes action's ``modify`` method last.
         '''
         self.indent = indent
         self.inherit()
@@ -115,7 +115,7 @@ class action:
 
     def modify(self):
         '''
-        Called after `to_html` has been invoked on `title`, `lines`, and `elem`.
+        Called after ``to_html`` has been invoked on ``title``, ``lines``, and ``elem``.
 
         Houses special logic for each action. 
         Usually, this means hiding element `X` if element `Y` has value `Z`.
@@ -127,8 +127,8 @@ class action:
 
     def hide_line(self, label:str):
         '''
-        Add the `hidden` CSS class to particular element in `lines`, 
-        as identified by its `label`.
+        Add the "hidden" CSS class to particular element in ``lines``, 
+        as identified by its ``label``.
 
         Raises ValueError if the label does not a match a line.
         '''
@@ -140,11 +140,10 @@ class action:
                 return
         raise ValueError(f'No line with label "{label}"')
     
-    ## Function: return a labelled line obj
     def get_line(self, label:str):
         '''
-        Return a particular element in `lines`, as identified by its `label`. 
-        Usually used in `modify` to pick a line out for modification
+        Return a particular element in ``lines``, as identified by its ``label``. 
+        Usually used in ``modify`` to pick a line out for modification
 
         Raises ValueError if the label does not a match a line.
         '''
@@ -157,7 +156,7 @@ class action:
     @classmethod
     def action_hook(cls, dct:dict):
         '''
-        Used to deserialize `action` objects from JSON.
+        Used to deserialize ``action`` objects from JSON.
         '''
 
         if 'indent' in dct and 'UUID' in dct:
@@ -193,7 +192,7 @@ class control:
     
     def mod_indent(self):
         '''
-        Adjusts action based on it's `flow_mode` value
+        Adjusts action based on it's ``flow_mode`` value
 
         :0: Head block
         * Has a category & glyph
