@@ -12,6 +12,7 @@ Welcome to the Showcuts documentation!
 
    actions
    parameters
+   helpers
 
 Indices and tables
 ==================

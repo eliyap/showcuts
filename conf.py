@@ -42,7 +42,12 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store',
     '.pytest_cache', # pyc
 ]
 
-html_theme = 'alabaster'
+# Theme Override
+# html_theme = 'alabaster'
+import oe_sphinx_theme
+html_theme = 'oe_sphinx'
+html_theme_path = [oe_sphinx_theme.get_theme_dir()]
+
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -51,3 +56,6 @@ html_static_path = ['_static']
 
 # custom master doc
 master_doc = 'index'
+
+# turn off module names
+add_module_names = False

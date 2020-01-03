@@ -3,10 +3,16 @@ def value_dct(
     css_class: [str] = [],
     empty: bool = False,
 ):
+    '''Wraps a given ``value`` in a dict for the django templater.
+    
+    :param css_class: list of CSS classes to be applied to the variable.
+
+    :param empty: determines whether CSS class ``empty`` should be applied. ``empty`` greys out the value, indicating that it was left blank.
+    '''
     if empty: css_class.append('empty')
     return {
         'class':css_class,
-        'value':value
+        'value':value,
     }
 
 def magic_dct(
@@ -15,6 +21,14 @@ def magic_dct(
     glyph:str = '', 
     UUID:str = None
 ) -> dict:
+    '''Wraps a given ``value`` in a magic-var dict for the django templater.
+    
+    :param glyph: icon to be displayed to the left of magic variables.
+
+    :param UUID: UUID of the action that supplied the magic variable, if any.
+
+    :param empty: determines whether CSS class ``empty`` should be applied. ``empty`` greys out the value, indicating that it was left blank.
+    '''
     return {
         'class': ['magic'] + (['empty'] if empty else []),
         'value': value,
@@ -31,6 +45,26 @@ def classify_magic(
     ask_each_time: str = 'Ask Each Time',
     UUID_glyphs:dict = {},
 ) -> dict:
+    '''Returns an appropriate magic variable dict.
+    
+    :param value: dict of information about the variable
+    
+    :param var_type: "Type" entry in ``value``, indicating whether the variable is:
+
+       * Clipboard
+       * Ask Each Time
+       * Current Date
+       * Shortcut Input (from Share sheet)
+       * Output from other actions
+       * A named variable (from `Set Variable` or `Add to Variable` actions)
+
+    :param ask_each_time: The text used when `Ask Each Time` is selected as an option. 
+
+    :param UUID_glyphs: Maps actions' output UUIDs to their glyphs.
+
+    *Side Note*: function contains a Python implementation of JavaScript's switch-case structure that I am quite proud of :).
+    The ``lambda`` stop Python from evaluating every possible outcome beforehand.
+    '''
     return {
         'Clipboard'     : lambda x: magic_dct('Clipboard', glyph='Clipboard.svg'),
         'Ask'           : lambda x: magic_dct(ask_each_time, glyph='Ask.svg'),
@@ -47,6 +81,10 @@ def ActionOutput(
     value:dict, 
     UUID_glyphs:dict = {},
 ):
+    '''Returns a magic variable representing output from a previous action.
+
+    Handles both normal outputs and lookups of dictionary values.
+    '''
     try:
         aggr0 = value['Aggrandizements'][0]
         return magic_dct(

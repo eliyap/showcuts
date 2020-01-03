@@ -1,42 +1,74 @@
-
-<!DOCTYPE html>
+<!doctype html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Base Magic &#8212; Showcuts 2020.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/app.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Action" href="actions.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="next" title="Magic Helper Methods" href="helpers.html" />
+    <link rel="prev" title="Base Classes" href="actions.html" />
+ 
+<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
-  
+<!-- container -->
+<div class="container">
+  <script type="text/javascript" src="//widgets.vlaanderen.be/widget/live/5499d8dc0848446e91022c6dba9db343?mtime=1421237274"></script>
+  <!-- header -->
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
+  <!-- embed -->
+  <div class="temp-embed"></div>
 
-          <div class="body" role="main">
-            
+  <!-- large header bg image -->
+  <div class="bgimage"></div>
+
+  <!-- wrapper & responsive navigation -->
+  <div class="wrapper clearfix">
+    <div class="main-navigation-inner clearfix inner">
+
+
+
+      <!-- logo -->
+      <div class="logo-block">
+        <div class="logo-block-inner">
+          <a href="index.html">
+            <img src="_static/img/pyoes/OE-vlaanderen-logo.png" width="65">
+            <h2>Vlaanderen</h2>
+            <h4>is Erfgoed</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-border"></div>
+  <div class="row">
+    <div class="large-9 columns">
+      <h3>Showcuts</h3>
+    </div>
+  </div>
+
+  <!-- end header -->
+  <div class="row">
+    
+    <div class="large-9 columns">
+      <div class="body panel" role="main">
+        
   <div class="section" id="base-magic">
 <h1>Base Magic<a class="headerlink" href="#base-magic" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="share.process.components.base_magic.base_magic">
-<em class="property">class </em><code class="sig-prename descclassname">share.process.components.base_magic.</code><code class="sig-name descname">base_magic</code><span class="sig-paren">(</span><em class="sig-param">key: str</em>, <em class="sig-param">ask_each_time: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.base_magic.base_magic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Root class for magic variables.</p>
+<em class="property">class </em><code class="sig-name descname">base_magic</code><span class="sig-paren">(</span><em class="sig-param">key: str</em>, <em class="sig-param">ask_each_time: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.base_magic.base_magic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for magic variables.</p>
 <dl class="method">
 <dt id="share.process.components.base_magic.base_magic.__init__">
 <code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">key: str</em>, <em class="sig-param">ask_each_time: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.base_magic.base_magic.__init__" title="Permalink to this definition">¶</a></dt>
@@ -62,10 +94,9 @@
 <dd><p>Handles output when the variable was left blank.</p>
 <dl class="field-list simple">
 <dt class="field-odd">NOTE</dt>
-<dd class="field-odd"><p>Variables are sometimes prefilled. If a variable’s value is not changed from the default value, their key will be absent from <code class="docutils literal notranslate"><span class="pre">params</span></code>.</p>
+<dd class="field-odd"><p>Variables are sometimes prefilled. If a variable’s value is not changed from the default value, their key will be absent from <code class="docutils literal notranslate"><span class="pre">params</span></code>. <strong>This is different to the variable being blank</strong>. Fields with prefilled values will include a <code class="docutils literal notranslate"><span class="pre">default</span></code> field.</p>
 </dd>
 </dl>
-<p><strong>This is different to the variable being blank</strong>. Fields with prefilled values will include a <code class="docutils literal notranslate"><span class="pre">default</span></code> field.</p>
 </dd></dl>
 
 <dl class="method">
@@ -85,75 +116,110 @@
 </dd></dl>
 
 </div>
+<div class="section" id="base-line">
+<h1>Base Line<a class="headerlink" href="#base-line" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="share.process.components.base_line.line">
+<em class="property">class </em><code class="sig-name descname">line</code><span class="sig-paren">(</span><em class="sig-param">label: str</em>, <em class="sig-param">leftify: bool = False</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.base_line.line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for line variables.</p>
+<dl class="method">
+<dt id="share.process.components.base_line.line.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">label: str</em>, <em class="sig-param">leftify: bool = False</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.base_line.line.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label</strong> – Label to the left of the parameter, detailing what it is.</p></li>
+<li><p><strong>leftify</strong> – Whether or not to flush the variable left against the label. Usually used for <code class="docutils literal notranslate"><span class="pre">line_inline</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="share.process.components.base_line.line.__weakref__">
+<code class="sig-name descname">__weakref__</code><a class="headerlink" href="#share.process.components.base_line.line.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="share.process.components.base_line.line.to_html">
+<code class="sig-name descname">to_html</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#share.process.components.base_line.line.to_html" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simply returns the label wrapped in a dict.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 
 
-          </div>
-          
-        </div>
       </div>
+    </div>
+    <div class="large-3 columns">
+      
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">Showcuts</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="actions.html">Action</a></li>
-<li class="toctree-l1"><a class="reference internal" href="actions.html#control-flow">Control Flow</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Base Magic</a></li>
+<div class="panel">
+  <h4><a href="index.html">Inhoud</a></h4>
+  <ul>
+<li><a class="reference internal" href="#">Base Magic</a></li>
+<li><a class="reference internal" href="#base-line">Base Line</a></li>
 </ul>
 
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="actions.html" title="previous chapter">Action</a></li>
-  </ul></li>
-</ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
+<div class="panel">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="actions.html"
+                        title="previous chapter">Base Classes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="helpers.html"
+                        title="next chapter">Magic Helper Methods</a></p>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/parameters.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<form action="search.html" method="get">
+ <div class="panel fl-block-search">
+  <div class="form-group">
+   <input type="text" name="q" class="form-control" placeholder="Trefwoord ..." />
+  </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
 
-
-
-
-
-
-
-
+  <div class="btn-group-justified">
+   <div class="btn-group">
+    <button type="submit" class="button expand" style="font-size:11px">Zoeken</button>
+   </div>
+  </div>
+ </div>
+</form>
         </div>
       </div>
-      <div class="clearer"></div>
     </div>
-    <div class="footer">
-      &copy;2019, MIGI.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/parameters.rst.txt"
-          rel="nofollow">Page source</a>
+    
+  </div>
+  <div class="push"></div>
+</div> <!-- end container -->
+<!-- footer -->
+<div id="footerContainer">
+  <footer id="footer-bottom" role="contentinfo">
+    <div class="footer-bottom-inner inner">
+      <p class="copyright">
+        &#169; Copyright 2019, MIGI.
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
+      </p>
+      <p class="pull-right">
+        <a href="#">Terug naar boven</a>
+      </p>
     </div>
-
-    
-
-    
+  </footer>
+  <script type="text/javascript" src="//widgets.vlaanderen.be/widget/live/79a9f632dc8e45aa884f7924ee16f7bf?mtime=1421237274"></script>
+</div>
+<!-- end footer -->
+<script src="_static/bower_components/foundation/js/foundation.min.js"></script>
+<script src="_static/js/app.js"></script>
   </body>
 </html>

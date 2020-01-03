@@ -6,3 +6,9 @@ Base Magic
    :special-members:
    :exclude-members: __weakref__
 
+Base Line
+=========
+.. autoclass:: share.process.components.base_line.line
+   :members:
+   :special-members:
+
