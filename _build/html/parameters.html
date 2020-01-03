@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Parameters &#8212; Showcuts 2020.0.0 documentation</title>
+    <title>Base Magic &#8212; Showcuts 2020.0.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -31,12 +31,57 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="parameters">
-<h1>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="base-magic">
+<h1>Base Magic<a class="headerlink" href="#base-magic" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="share.process.components.base_magic.base_magic">
 <em class="property">class </em><code class="sig-prename descclassname">share.process.components.base_magic.</code><code class="sig-name descname">base_magic</code><span class="sig-paren">(</span><em class="sig-param">key: str</em>, <em class="sig-param">ask_each_time: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.base_magic.base_magic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Root class for magic variables.</p>
+<dl class="method">
+<dt id="share.process.components.base_magic.base_magic.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">key: str</em>, <em class="sig-param">ask_each_time: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.base_magic.base_magic.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – Key (in the action’s <cite>WFWorkflowActionParameters</cite> dictionary) to the magic variable’s value</p></li>
+<li><p><strong>ask_each_time</strong> – The text used when <cite>Ask Each Time</cite> is selected as an option.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ask_each_time</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<ul class="simple">
+<li><p>Usually, the text is simply “Ask Each Time”. In inline variables, it is usually “Text”</p></li>
+<li><p>If <cite>Ask Each Time</cite> is not offered as an valid input, set this value as <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="share.process.components.base_magic.base_magic.blank">
+<code class="sig-name descname">blank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.base_magic.base_magic.blank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles output when the variable was left blank.</p>
+<dl class="field-list simple">
+<dt class="field-odd">NOTE</dt>
+<dd class="field-odd"><p>Variables are sometimes prefilled. If a variable’s value is not changed from the default value, their key will be absent from <code class="docutils literal notranslate"><span class="pre">params</span></code>.</p>
+</dd>
+</dl>
+<p><strong>This is different to the variable being blank</strong>. Fields with prefilled values will include a <code class="docutils literal notranslate"><span class="pre">default</span></code> field.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="share.process.components.base_magic.base_magic.to_html">
+<code class="sig-name descname">to_html</code><span class="sig-paren">(</span><em class="sig-param">params: dict</em>, <em class="sig-param">UUID_glyphs: dict</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#share.process.components.base_magic.base_magic.to_html" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoked by the <code class="docutils literal notranslate"><span class="pre">to_django</span></code> method to convert a variable object to a dict describing the contents of the action.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>params</strong> – The action’s <cite>WFWorkflowActionParameters</cite> dict. Contains information on what values were filled into each magic variable.</p></li>
+<li><p><strong>UUID_glyphs</strong> – Previous actions’ outputs can be used as magic variable inputs, and are displayed alongside the output-action’s glyph. <code class="docutils literal notranslate"><span class="pre">UUID</span> <span class="pre">Glyphs</span></code> maps actions’ output UUIDs to their glyphs.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -62,7 +107,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="actions.html">Action</a></li>
 <li class="toctree-l1"><a class="reference internal" href="actions.html#control-flow">Control Flow</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Parameters</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Base Magic</a></li>
 </ul>
 
 <div class="relations">
