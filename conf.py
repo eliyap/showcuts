@@ -44,9 +44,8 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store',
 
 # Theme Override
 # html_theme = 'alabaster'
-import oe_sphinx_theme
 html_theme = 'oe_sphinx'
-html_theme_path = [oe_sphinx_theme.get_theme_dir()]
+html_theme_path = ['.']
 
 
 # Add any paths that contain custom static files (such as style sheets) here,

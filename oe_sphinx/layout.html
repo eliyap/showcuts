@@ -1,0 +1,113 @@
+{%- extends "basic/layout.html" %}
+
+{%- block doctype -%}
+<!doctype html>
+{%- endblock %}
+
+{% set script_files = [pathto('_static/bower_components/jquery/dist/jquery.min.js',1)] + script_files -%}
+
+{%- block extrahead %}
+{{ super() }}
+<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+{% endblock %}
+
+{%- block header %}
+<!-- container -->
+<div class="container">
+  <script type="text/javascript" src="//widgets.vlaanderen.be/widget/live/5499d8dc0848446e91022c6dba9db343?mtime=1421237274"></script>
+  <!-- header -->
+
+  <!-- embed -->
+  <div class="temp-embed"></div>
+
+  <!-- large header bg image -->
+  <div class="bgimage"></div>
+
+  <!-- wrapper & responsive navigation -->
+  <div class="wrapper clearfix">
+    <div class="main-navigation-inner clearfix inner">
+
+
+
+      <!-- logo -->
+      <div class="logo-block">
+        <div class="logo-block-inner">
+          <a href="{{ pathto(master_doc) }}">
+            <img src="{{ pathto('_static/img/pyoes/OE-vlaanderen-logo.png', 1) }}" width="65">
+            <h2>Vlaanderen</h2>
+            <h4>is Erfgoed</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-border"></div>
+  <div class="row">
+    <div class="large-9 columns">
+      <h3>{{ project }}</h3>
+    </div>
+  </div>
+
+  <!-- end header -->
+
+  {%- endblock %}
+
+  {%- block relbar1 %}{% endblock %}
+
+  {%- block content %}
+  <div class="row">
+    {%- block sidebar1 %}
+    {% endblock %}
+
+    {%- block document %}
+    <div class="large-9 columns">
+      <div class="body panel" role="main">
+        {% block body %}{% endblock %}
+      </div>
+    </div>
+    {%- endblock %}
+
+    {%- block sidebar2 %}
+    <div class="large-3 columns">
+      {{ sidebar() }}
+    </div>
+    {% endblock %}
+  </div>
+  {%- endblock %}
+
+  {%- block relbar2 %}{% endblock %}
+
+  {%- block footer %}
+  <div class="push"></div>
+</div> <!-- end container -->
+<!-- footer -->
+<div id="footerContainer">
+  <footer id="footer-bottom" role="contentinfo">
+    <div class="footer-bottom-inner inner">
+      <p class="copyright">
+        {%- if show_copyright %}
+        {%- if hasdoc('copyright') %}
+        {% trans path=pathto('copyright'), copyright=copyright|e %}&#169; <a href="{{ path }}">Copyright</a> {{ copyright }}.{% endtrans %}
+        {%- else %}
+        {% trans copyright=copyright|e %}&#169; Copyright {{ copyright }}.{% endtrans %}
+        {%- endif %}
+        {%- endif %}
+        {%- if last_updated %}
+        {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}
+        {%- endif %}
+        {%- if show_sphinx %}
+        {% trans sphinx_version=sphinx_version|e %}Created using <a href="http://sphinx-doc.org/">Sphinx</a> {{ sphinx_version }}.{% endtrans %}
+        {%- endif %}
+      </p>
+      <p class="pull-right">
+        <a href="#">Terug naar boven</a>
+      </p>
+    </div>
+  </footer>
+  <script type="text/javascript" src="//widgets.vlaanderen.be/widget/live/79a9f632dc8e45aa884f7924ee16f7bf?mtime=1421237274"></script>
+</div>
+<!-- end footer -->
+<script src="{{ pathto('_static/bower_components/foundation/js/foundation.min.js', 1) }}"></script>
+<script src="{{ pathto('_static/js/app.js', 1) }}"></script>
+{%- endblock %}
