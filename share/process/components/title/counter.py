@@ -8,6 +8,21 @@ from ..base_magic import base_magic
 #  - blanks
 
 class counter(base_magic):
+    '''Field that counts things.
+
+    Plural sensitive, e.g. "1 time" vs "2 times".
+
+    In Shortcuts, this accepts:
+
+       * a natural number (0, or positive ints)
+       * can be incremented or decremented
+       * Ask Each Time
+    
+    :TODO: implement magic variable support.
+    :TODO: account for the field accepting / not accepting 0 as a valid number.
+
+    '''
+
     def __init__(
         self, 
         key,

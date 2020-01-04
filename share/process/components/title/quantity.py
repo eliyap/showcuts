@@ -2,6 +2,16 @@ from ..base_magic import base_magic
 from ..magic_helpers import *
 
 class quantity(base_magic):
+    '''Field representing a quantity or measurement with both magnitude and units.
+
+    In Shortcuts, this field accepts:
+       * a magnitude, similar to the ``number`` class
+       * a unit, similar to the ``choose`` class
+
+    The unit offered in the ``choose`` menu 
+    and the abbreviation shown in the ``unit`` field
+    differ significantly and often.
+    '''
 
     def __init__(
         self, 

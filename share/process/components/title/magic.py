@@ -1,13 +1,20 @@
-from .magic_helpers import *
-from .base_magic import base_magic
+from ..magic_helpers import *
+from ..base_magic import base_magic
 
-# Magic Variables
-# the basic magic variable field can hold:
-#  - results from other actions
-#  - "global" variables (Clipboard, Current Date, Shortcut Input)
-#  - blanks
+
+
 
 class magic(base_magic):
+    '''Basic Magic Variable Field.
+
+    In Shortcuts, this simplest of fields can accept:
+
+       * results from other actions
+       * "global" variables such as Clipboard, Current Date, Shortcut Input
+       * blank (nothing)
+    
+    '''
+
     def __init__(
         self, 
         key:str, 

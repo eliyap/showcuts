@@ -194,22 +194,25 @@ class control:
         '''
         Adjusts action based on it's ``flow_mode`` value
 
-        :0: Head block
-        * Has a category & glyph
-        * Accepts parameters
-        * Indents inner actions by +1
+        0: Head block
 
-        :1: Body block
-        * No category or glyph
-        * Does not accept parameters
-        * Unindented 1 level from inner blocks (same indentation as Head)
-        * Does not change indentation of subsequent blocks
+           * Has a category & glyph
+           * Accepts parameters
+           * Indents inner actions by +1
 
-        :2: Foot block
-        * No category or glyph
-        * Does not accept parameters
-        * Unindented 1 level from inner blocks (same indentation as Head)
-        * Unindents subsequent blocks -1.
+        1: Body block
+
+           * No category or glyph
+           * Does not accept parameters
+           * Unindented 1 level from inner blocks (same indentation as Head)
+           * Does not change indentation of subsequent blocks
+
+        2: Foot block
+
+           * No category or glyph
+           * Does not accept parameters
+           * Unindented 1 level from inner blocks (same indentation as Head)
+           * Unindents subsequent blocks -1.
         '''
 
         # adjust own indent

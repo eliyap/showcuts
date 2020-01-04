@@ -1,13 +1,19 @@
 from ..magic_helpers import *
 from ..base_magic import base_magic
 
-# Magic Variables
-# the basic magic variable field can hold:
-#  - results from other actions
-#  - "global" variables (Clipboard, Current Date, Shortcut Input)
-#  - blanks
-
 class choose(base_magic):
+    '''Field that offers a list of valid choices, with a default pre-selected.
+
+    In Shortcuts, this field accepts:
+       * one of the offered ``options``.
+       * a magic variable, and Ask Each Time, may or may not be valid
+    
+    Some fields simply prompt the user to "Choose a variable..." with no other options.
+
+    :TODO: account for "Choose a variable..." case.
+
+    '''
+
     def __init__(
         self, 
         key, 

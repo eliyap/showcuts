@@ -4,6 +4,15 @@ from ..base_magic import base_magic
 from ..magic_helpers import *
 
 class number(base_magic):
+    '''Field that accepts numbers.
+
+    In Shortcuts, this accepts:
+
+       * signed floats and integers
+       * a single magic variable (no inline expressions)
+       * blank (nothing)
+    
+    '''
 
     def __init__(
         self, 
@@ -21,5 +30,10 @@ class number(base_magic):
         )
 
 class whole_number(number):
+    '''Field that accepts only whole numbers.
+
+    In Shortcuts, this is identical to ``number``, 
+    except the decimal point is not available.
+    '''
     pass
     # accepts signed whole numbers

@@ -1,5 +1,5 @@
 from .text import elem as text
-from .magic import magic
+from .title.magic import magic
 from .title.choose import choose
 from .title.inline import inline, list_inline
 from .title.counter import counter

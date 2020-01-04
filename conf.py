@@ -27,7 +27,11 @@ release = '2020.0.0'
 
 # -- General configuration ---------------------------------------------------
 
-extensions = ['sphinx.ext.autodoc', 'recommonmark']
+extensions = [
+    'sphinx.ext.autodoc', 
+    'recommonmark',
+    'sphinx_paramlinks',
+]
 
 
 
@@ -40,11 +44,13 @@ templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store',
     'staticfiles', # Static Files
     '.pytest_cache', # pyc
+    'oe_sphinx', # theme
+    'README',
 ]
 
 # Theme Override
 # html_theme = 'alabaster'
-html_theme = 'oe_sphinx'
+html_theme = 'classic'
 html_theme_path = ['.']
 
 

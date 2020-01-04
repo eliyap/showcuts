@@ -1,68 +1,49 @@
-<!doctype html>
+
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Base Classes &#8212; Showcuts 2020.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/css/app.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css" />
+    
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Base Magic" href="parameters.html" />
-    <link rel="prev" title="Welcome to the Showcuts documentation!" href="index.html" />
- 
-<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
+    <link rel="prev" title="Welcome to the Showcuts documentation!" href="index.html" /> 
   </head><body>
-<!-- container -->
-<div class="container">
-  
-  <!-- embed -->
-  <div class="temp-embed"></div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="parameters.html" title="Base Magic"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to the Showcuts documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Showcuts 2020.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
 
-  <!-- large header bg image -->
-  <div class="bgimage">
-    <img src="_static/img/pyoes/header-img.png" width="65">
-  </div>
-
-  <!-- wrapper & responsive navigation -->
-  <div class="wrapper clearfix">
-    <div class="main-navigation-inner clearfix inner">
-
-
-
-      <!-- logo -->
-      <div class="logo-block">
-        <div class="logo-block-inner">
-          <a href="index.html">
-            <img src="_static/img/pyoes/OE-vlaanderen-logo.png" width="65">
-            <h2>Showcuts</h2>
-            <h4>Shortcuts on the Web</h4>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="header-border"></div>
-  <div class="row">
-    <div class="large-9 columns">
-      <h3>Showcuts</h3>
-    </div>
-  </div>
-
-  <!-- end header -->
-  <div class="row">
-    
-    <div class="large-9 columns">
-      <div class="body panel" role="main">
-        
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
   <div class="section" id="base-classes">
 <h1>Base Classes<a class="headerlink" href="#base-classes" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
@@ -209,38 +190,32 @@ transforming these into lists of <code class="docutils literal notranslate"><spa
 <dt id="share.process.sc_action.action.control.mod_indent">
 <code class="sig-name descname">mod_indent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.control.mod_indent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adjusts action based on it’s <code class="docutils literal notranslate"><span class="pre">flow_mode</span></code> value</p>
-<dl class="field-list simple">
-<dt class="field-odd">0</dt>
-<dd class="field-odd"><p>Head block</p>
-</dd>
-</dl>
-<ul class="simple">
+<p>0: Head block</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>Has a category &amp; glyph</p></li>
 <li><p>Accepts parameters</p></li>
 <li><p>Indents inner actions by +1</p></li>
 </ul>
-<dl class="field-list simple">
-<dt class="field-odd">1</dt>
-<dd class="field-odd"><p>Body block</p>
-</dd>
-</dl>
-<ul class="simple">
+</div></blockquote>
+<p>1: Body block</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>No category or glyph</p></li>
 <li><p>Does not accept parameters</p></li>
 <li><p>Unindented 1 level from inner blocks (same indentation as Head)</p></li>
 <li><p>Does not change indentation of subsequent blocks</p></li>
 </ul>
-<dl class="field-list simple">
-<dt class="field-odd">2</dt>
-<dd class="field-odd"><p>Foot block</p>
-</dd>
-</dl>
-<ul class="simple">
+</div></blockquote>
+<p>2: Foot block</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>No category or glyph</p></li>
 <li><p>Does not accept parameters</p></li>
 <li><p>Unindented 1 level from inner blocks (same indentation as Head)</p></li>
 <li><p>Unindents subsequent blocks -1.</p></li>
 </ul>
+</div></blockquote>
 </dd></dl>
 
 </dd></dl>
@@ -248,20 +223,17 @@ transforming these into lists of <code class="docutils literal notranslate"><spa
 </div>
 
 
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="large-3 columns">
-      
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<div class="panel">
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
                         title="previous chapter">Welcome to the Showcuts documentation!</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="parameters.html"
                         title="next chapter">Base Magic</a></p>
-</div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -269,44 +241,41 @@ transforming these into lists of <code class="docutils literal notranslate"><spa
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<form action="search.html" method="get">
- <div class="panel fl-block-search">
-  <div class="form-group">
-   <input type="text" name="q" class="form-control" placeholder="Search..." />
-  </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-
-  <div class="btn-group-justified">
-   <div class="btn-group">
-    <button type="submit" class="button expand" style="font-size:11px">Go</button>
-   </div>
-  </div>
- </div>
-</form>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
+      <div class="clearer"></div>
     </div>
-    
-  </div>
-  <div class="push"></div>
-</div> <!-- end container -->
-<!-- footer -->
-<div id="footerContainer">
-  <footer id="footer-bottom" role="contentinfo">
-    <div class="footer-bottom-inner inner">
-      <p class="copyright">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="parameters.html" title="Base Magic"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to the Showcuts documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Showcuts 2020.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
         &#169; Copyright 2019, MIGI.
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
-      </p>
-      <p class="pull-right">
-        <a href="#">Back to Top</a>
-      </p>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
-  </footer>
-</div>
-<!-- end footer -->
-<script src="_static/bower_components/foundation/js/foundation.min.js"></script>
-<script src="_static/js/app.js"></script>
   </body>
 </html>

@@ -9,6 +9,21 @@ from ..base_magic import base_magic
 # magic field, accepts arbitrary text with magic variables mixed in
 
 def inline_handler(self, parameter:dict, UUID_glyphs):
+    '''Decomposes inline variables into text and magic variables, wrapped in an appropriate class.
+
+    When represented as JSON, inline variable strings have the following structure:
+
+       * a ``string`` value
+          This is the string as shown in Shortcuts, 
+          with the variables replaced by ``\\uFFFC``, 
+          the `Unicode OBJECT REPLACEMENT CHARACTER <https://www.fileformat.info/info/unicode/char/fffc/index.htm>`_.
+       * a mapping from magic variables' ``{position, length}`` to their value, in ``attachmentsByRange``
+          * e.g. ``'{0,1}: <magic variable>`` represents a magic variable at the start of the string, i.e. position 0 and length 1.
+          * all magic variables (that I have seen) have length 1, but the method allows for longer objects.
+       
+    **Side Note**: the recorded data type(`WFSerializationType`) is `WFTextTokenString`.
+    '''
+
     inline_dct = parameter['Value']
     inline_element = {'class':deepcopy(self.__class__.css_cls),'value':[]}
     try:
@@ -49,6 +64,17 @@ def inline_handler(self, parameter:dict, UUID_glyphs):
 
 
 class inline(base_magic):
+    '''Field that accepts text mixed with magic variables.
+
+    In Shortcuts, this accepts:
+
+       * text with no newlines
+       * magic variables mixed into text (like Python f-strings)
+       * there may only be 1 "Ask Each Time" variable
+    
+    '''
+    
+    #: List of CSS classes to style the element.
     css_cls = ['inline-magic']
 
     def __init__(
@@ -73,6 +99,14 @@ class inline(base_magic):
 
 # returns a list of inline variables
 class list_inline(inline):
+    '''Field that accepts a number of inline variables.
+
+    In Shortcuts, this accepts a list of inline variables, not just one.
+
+    This field is particular to Safari actions such as `Reading List`, as far as I know.
+    '''
+    
+    #: List of CSS classes to style the element.
     css_cls = ['inline-magic']
 
     def __init__(
@@ -92,6 +126,8 @@ class list_inline(inline):
         }]
 
     def list_inline_handler(self, params, UUID_glyphs):
+        '''Decomposes one (or more) inline variables into magic dicts.'''
+
         parameter = params.get(self.key, None)
         if parameter in [None, '']: 
             return [self.blank()]

@@ -1,70 +1,51 @@
-<!doctype html>
+
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Base Magic &#8212; Showcuts 2020.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/css/app.css" type="text/css" />
+    <title>Base Classes &#8212; Showcuts 2020.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css" />
+    
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Magic Helper Methods" href="helpers.html" />
-    <link rel="prev" title="Base Classes" href="actions.html" />
- 
-<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
+    <link rel="prev" title="Base Classes" href="actions.html" /> 
   </head><body>
-<!-- container -->
-<div class="container">
-  
-  <!-- embed -->
-  <div class="temp-embed"></div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="helpers.html" title="Magic Helper Methods"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="actions.html" title="Base Classes"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Showcuts 2020.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
 
-  <!-- large header bg image -->
-  <div class="bgimage">
-    <img src="_static/img/pyoes/header-img.png" width="65">
-  </div>
-
-  <!-- wrapper & responsive navigation -->
-  <div class="wrapper clearfix">
-    <div class="main-navigation-inner clearfix inner">
-
-
-
-      <!-- logo -->
-      <div class="logo-block">
-        <div class="logo-block-inner">
-          <a href="index.html">
-            <img src="_static/img/pyoes/OE-vlaanderen-logo.png" width="65">
-            <h2>Showcuts</h2>
-            <h4>Shortcuts on the Web</h4>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="header-border"></div>
-  <div class="row">
-    <div class="large-9 columns">
-      <h3>Showcuts</h3>
-    </div>
-  </div>
-
-  <!-- end header -->
-  <div class="row">
-    
-    <div class="large-9 columns">
-      <div class="body panel" role="main">
-        
-  <div class="section" id="base-magic">
-<h1>Base Magic<a class="headerlink" href="#base-magic" title="Permalink to this headline">¶</a></h1>
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="base-classes">
+<h1>Base Classes<a class="headerlink" href="#base-classes" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="share.process.components.base_magic.base_magic">
 <em class="property">class </em><code class="sig-name descname">base_magic</code><span class="sig-paren">(</span><em class="sig-param">key: str</em>, <em class="sig-param">ask_each_time: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.base_magic.base_magic" title="Permalink to this definition">¶</a></dt>
@@ -75,28 +56,23 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> – Key (in the action’s <cite>WFWorkflowActionParameters</cite> dictionary) to the magic variable’s value</p></li>
-<li><p><strong>ask_each_time</strong> – The text used when <cite>Ask Each Time</cite> is selected as an option.</p></li>
+<li><p><span class="target" id="share.process.components.base_magic.base_magic.params.key"></span><strong>key</strong><a class="paramlink headerlink reference internal" href="#share.process.components.base_magic.base_magic.params.key">¶</a> – Key (in the action’s <cite>WFWorkflowActionParameters</cite> dictionary) to the magic variable’s value</p></li>
+<li><p><span class="target" id="share.process.components.base_magic.base_magic.params.ask_each_time"></span><strong>ask_each_time</strong><a class="paramlink headerlink reference internal" href="#share.process.components.base_magic.base_magic.params.ask_each_time">¶</a> – The text used when <cite>Ask Each Time</cite> is selected as an option.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Ask_each_time</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-<ul class="simple">
+<dd class="field-even"><ul class="simple">
 <li><p>Usually, the text is simply “Ask Each Time”. In inline variables, it is usually “Text”</p></li>
 <li><p>If <cite>Ask Each Time</cite> is not offered as an valid input, set this value as <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
 </ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="share.process.components.base_magic.base_magic.blank">
 <code class="sig-name descname">blank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.base_magic.base_magic.blank" title="Permalink to this definition">¶</a></dt>
 <dd><p>Handles output when the variable was left blank.</p>
-<dl class="field-list simple">
-<dt class="field-odd">NOTE</dt>
-<dd class="field-odd"><p>Variables are sometimes prefilled. If a variable’s value is not changed from the default value, their key will be absent from <code class="docutils literal notranslate"><span class="pre">params</span></code>. <strong>This is different to the variable being blank</strong>. Fields with prefilled values will include a <code class="docutils literal notranslate"><span class="pre">default</span></code> field.</p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
@@ -106,8 +82,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>params</strong> – The action’s <cite>WFWorkflowActionParameters</cite> dict. Contains information on what values were filled into each magic variable.</p></li>
-<li><p><strong>UUID_glyphs</strong> – Previous actions’ outputs can be used as magic variable inputs, and are displayed alongside the output-action’s glyph. <code class="docutils literal notranslate"><span class="pre">UUID</span> <span class="pre">Glyphs</span></code> maps actions’ output UUIDs to their glyphs.</p></li>
+<li><p><span class="target" id="share.process.components.base_magic.base_magic.to_html.params.params"></span><strong>params</strong><a class="paramlink headerlink reference internal" href="#share.process.components.base_magic.base_magic.to_html.params.params">¶</a> – The action’s <cite>WFWorkflowActionParameters</cite> dict. Contains information on what values were filled into each magic variable.</p></li>
+<li><p><span class="target" id="share.process.components.base_magic.base_magic.to_html.params.UUID_glyphs"></span><strong>UUID_glyphs</strong><a class="paramlink headerlink reference internal" href="#share.process.components.base_magic.base_magic.to_html.params.UUID_glyphs">¶</a> – Previous actions’ outputs can be used as magic variable inputs, and are displayed alongside the output-action’s glyph. <code class="docutils literal notranslate"><span class="pre">UUID</span> <span class="pre">Glyphs</span></code> maps actions’ output UUIDs to their glyphs.</p></li>
 </ul>
 </dd>
 </dl>
@@ -115,9 +91,6 @@
 
 </dd></dl>
 
-</div>
-<div class="section" id="base-line">
-<h1>Base Line<a class="headerlink" href="#base-line" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="share.process.components.base_line.line">
 <em class="property">class </em><code class="sig-name descname">line</code><span class="sig-paren">(</span><em class="sig-param">label: str</em>, <em class="sig-param">leftify: bool = False</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.base_line.line" title="Permalink to this definition">¶</a></dt>
@@ -128,17 +101,11 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>label</strong> – Label to the left of the parameter, detailing what it is.</p></li>
-<li><p><strong>leftify</strong> – Whether or not to flush the variable left against the label. Usually used for <code class="docutils literal notranslate"><span class="pre">line_inline</span></code>.</p></li>
+<li><p><span class="target" id="share.process.components.base_line.line.params.label"></span><strong>label</strong><a class="paramlink headerlink reference internal" href="#share.process.components.base_line.line.params.label">¶</a> – Label to the left of the parameter, detailing what it is.</p></li>
+<li><p><span class="target" id="share.process.components.base_line.line.params.leftify"></span><strong>leftify</strong><a class="paramlink headerlink reference internal" href="#share.process.components.base_line.line.params.leftify">¶</a> – Whether or not to flush the variable left against the label. Usually used for <code class="docutils literal notranslate"><span class="pre">line_inline</span></code>.</p></li>
 </ul>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="share.process.components.base_line.line.__weakref__">
-<code class="sig-name descname">__weakref__</code><a class="headerlink" href="#share.process.components.base_line.line.__weakref__" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of weak references to the object (if defined)</p>
 </dd></dl>
 
 <dl class="method">
@@ -150,30 +117,285 @@
 </dd></dl>
 
 </div>
-
-
-      </div>
-    </div>
-    <div class="large-3 columns">
-      
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<div class="panel">
-  <h4><a href="index.html">Inhoud</a></h4>
-  <ul>
-<li><a class="reference internal" href="#">Base Magic</a></li>
-<li><a class="reference internal" href="#base-line">Base Line</a></li>
+<div class="section" id="title-variables">
+<h1>Title Variables<a class="headerlink" href="#title-variables" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="share.process.components.title.magic.magic">
+<em class="property">class </em><code class="sig-name descname">magic</code><span class="sig-paren">(</span><em class="sig-param">key: str</em>, <em class="sig-param">blank_text: str</em>, <em class="sig-param">ask_each_time: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.magic.magic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic Magic Variable Field.</p>
+<p>In Shortcuts, this simplest of fields can accept:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>results from other actions</p></li>
+<li><p>“global” variables such as Clipboard, Current Date, Shortcut Input</p></li>
+<li><p>blank (nothing)</p></li>
 </ul>
+</div></blockquote>
+<dl class="method">
+<dt id="share.process.components.title.magic.magic.blank">
+<code class="sig-name descname">blank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.magic.magic.blank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles output when the variable was left blank.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="share.process.components.title.number.number">
+<em class="property">class </em><code class="sig-name descname">number</code><span class="sig-paren">(</span><em class="sig-param">key: str</em>, <em class="sig-param">blank_text: str</em>, <em class="sig-param">ask_each_time: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.number.number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Field that accepts numbers.</p>
+<p>In Shortcuts, this accepts:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>signed floats and integers</p></li>
+<li><p>a single magic variable (no inline expressions)</p></li>
+<li><p>blank (nothing)</p></li>
+</ul>
+</div></blockquote>
+<dl class="method">
+<dt id="share.process.components.title.number.number.blank">
+<code class="sig-name descname">blank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.number.number.blank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles output when the variable was left blank.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="share.process.components.title.number.whole_number">
+<em class="property">class </em><code class="sig-name descname">whole_number</code><span class="sig-paren">(</span><em class="sig-param">key: str</em>, <em class="sig-param">blank_text: str</em>, <em class="sig-param">ask_each_time: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.number.whole_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Field that accepts only whole numbers.</p>
+<p>In Shortcuts, this is identical to <code class="docutils literal notranslate"><span class="pre">number</span></code>, 
+except the decimal point is not available.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="share.process.components.title.inline.inline">
+<em class="property">class </em><code class="sig-name descname">inline</code><span class="sig-paren">(</span><em class="sig-param">key</em>, <em class="sig-param">blank_text: str</em>, <em class="sig-param">ask_each_time=None</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.inline.inline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Field that accepts text mixed with magic variables.</p>
+<p>In Shortcuts, this accepts:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>text with no newlines</p></li>
+<li><p>magic variables mixed into text (like Python f-strings)</p></li>
+<li><p>there may only be 1 “Ask Each Time” variable</p></li>
+</ul>
+</div></blockquote>
+<dl class="method">
+<dt id="share.process.components.title.inline.inline.blank">
+<code class="sig-name descname">blank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.inline.inline.blank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles output when the variable was left blank.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="share.process.components.title.inline.inline.css_cls">
+<code class="sig-name descname">css_cls</code><em class="property"> = ['inline-magic']</em><a class="headerlink" href="#share.process.components.title.inline.inline.css_cls" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of CSS classes to style the element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="share.process.components.title.inline.inline.to_html">
+<code class="sig-name descname">to_html</code><span class="sig-paren">(</span><em class="sig-param">params</em>, <em class="sig-param">UUID_glyphs</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.inline.inline.to_html" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoked by the <code class="docutils literal notranslate"><span class="pre">to_django</span></code> method to convert a variable object to a dict describing the contents of the action.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="share.process.components.title.inline.inline.to_html.params.params"></span><strong>params</strong><a class="paramlink headerlink reference internal" href="#share.process.components.title.inline.inline.to_html.params.params">¶</a> – The action’s <cite>WFWorkflowActionParameters</cite> dict. Contains information on what values were filled into each magic variable.</p></li>
+<li><p><span class="target" id="share.process.components.title.inline.inline.to_html.params.UUID_glyphs"></span><strong>UUID_glyphs</strong><a class="paramlink headerlink reference internal" href="#share.process.components.title.inline.inline.to_html.params.UUID_glyphs">¶</a> – Previous actions’ outputs can be used as magic variable inputs, and are displayed alongside the output-action’s glyph. <code class="docutils literal notranslate"><span class="pre">UUID</span> <span class="pre">Glyphs</span></code> maps actions’ output UUIDs to their glyphs.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="share.process.components.title.inline.list_inline">
+<em class="property">class </em><code class="sig-name descname">list_inline</code><span class="sig-paren">(</span><em class="sig-param">key</em>, <em class="sig-param">blank_text: str</em>, <em class="sig-param">ask_each_time=None</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.inline.list_inline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Field that accepts a number of inline variables.</p>
+<p>In Shortcuts, this accepts a list of inline variables, not just one.</p>
+<p>This field is particular to Safari actions such as <cite>Reading List</cite>, as far as I know.</p>
+<dl class="attribute">
+<dt id="share.process.components.title.inline.list_inline.css_cls">
+<code class="sig-name descname">css_cls</code><em class="property"> = ['inline-magic']</em><a class="headerlink" href="#share.process.components.title.inline.list_inline.css_cls" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of CSS classes to style the element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="share.process.components.title.inline.list_inline.list_inline_handler">
+<code class="sig-name descname">list_inline_handler</code><span class="sig-paren">(</span><em class="sig-param">params</em>, <em class="sig-param">UUID_glyphs</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.inline.list_inline.list_inline_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decomposes one (or more) inline variables into magic dicts.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="share.process.components.title.inline.list_inline.to_html">
+<code class="sig-name descname">to_html</code><span class="sig-paren">(</span><em class="sig-param">params</em>, <em class="sig-param">UUID_glyphs</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.inline.list_inline.to_html" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoked by the <code class="docutils literal notranslate"><span class="pre">to_django</span></code> method to convert a variable object to a dict describing the contents of the action.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="share.process.components.title.inline.list_inline.to_html.params.params"></span><strong>params</strong><a class="paramlink headerlink reference internal" href="#share.process.components.title.inline.list_inline.to_html.params.params">¶</a> – The action’s <cite>WFWorkflowActionParameters</cite> dict. Contains information on what values were filled into each magic variable.</p></li>
+<li><p><span class="target" id="share.process.components.title.inline.list_inline.to_html.params.UUID_glyphs"></span><strong>UUID_glyphs</strong><a class="paramlink headerlink reference internal" href="#share.process.components.title.inline.list_inline.to_html.params.UUID_glyphs">¶</a> – Previous actions’ outputs can be used as magic variable inputs, and are displayed alongside the output-action’s glyph. <code class="docutils literal notranslate"><span class="pre">UUID</span> <span class="pre">Glyphs</span></code> maps actions’ output UUIDs to their glyphs.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="share.process.components.title.inline.inline_handler">
+<code class="sig-name descname">inline_handler</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">parameter: dict</em>, <em class="sig-param">UUID_glyphs</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.inline.inline_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decomposes inline variables into text and magic variables, wrapped in an appropriate class.</p>
+<p>When represented as JSON, inline variable strings have the following structure:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>a <code class="docutils literal notranslate"><span class="pre">string</span></code> value</dt><dd><p>This is the string as shown in Shortcuts, 
+with the variables replaced by <code class="docutils literal notranslate"><span class="pre">\uFFFC</span></code>, 
+the <a class="reference external" href="https://www.fileformat.info/info/unicode/char/fffc/index.htm">Unicode OBJECT REPLACEMENT CHARACTER</a>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>a mapping from magic variables’ <code class="docutils literal notranslate"><span class="pre">{position,</span> <span class="pre">length}</span></code> to their value, in <code class="docutils literal notranslate"><span class="pre">attachmentsByRange</span></code></dt><dd><ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">'{0,1}:</span> <span class="pre">&lt;magic</span> <span class="pre">variable&gt;</span></code> represents a magic variable at the start of the string, i.e. position 0 and length 1.</p></li>
+<li><p>all magic variables (that I have seen) have length 1, but the method allows for longer objects.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p><strong>Side Note</strong>: the recorded data type(<cite>WFSerializationType</cite>) is <cite>WFTextTokenString</cite>.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="share.process.components.title.counter.counter">
+<em class="property">class </em><code class="sig-name descname">counter</code><span class="sig-paren">(</span><em class="sig-param">key</em>, <em class="sig-param">item: str</em>, <em class="sig-param">ask_each_time</em>, <em class="sig-param">default: int</em>, <em class="sig-param">*_</em>, <em class="sig-param">**__</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.counter.counter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Field that counts things.</p>
+<p>Plural sensitive, e.g. “1 time” vs “2 times”.</p>
+<p>In Shortcuts, this accepts:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>a natural number (0, or positive ints)</p></li>
+<li><p>can be incremented or decremented</p></li>
+<li><p>Ask Each Time</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">TODO</dt>
+<dd class="field-odd"><p>implement magic variable support.</p>
+</dd>
+<dt class="field-even">TODO</dt>
+<dd class="field-even"><p>account for the field accepting / not accepting 0 as a valid number.</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="share.process.components.title.counter.counter.blank">
+<code class="sig-name descname">blank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.counter.counter.blank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles output when the variable was left blank.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="share.process.components.title.counter.counter.to_html">
+<code class="sig-name descname">to_html</code><span class="sig-paren">(</span><em class="sig-param">params</em>, <em class="sig-param">UUID_glyphs: dict</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.counter.counter.to_html" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoked by the <code class="docutils literal notranslate"><span class="pre">to_django</span></code> method to convert a variable object to a dict describing the contents of the action.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="share.process.components.title.counter.counter.to_html.params.params"></span><strong>params</strong><a class="paramlink headerlink reference internal" href="#share.process.components.title.counter.counter.to_html.params.params">¶</a> – The action’s <cite>WFWorkflowActionParameters</cite> dict. Contains information on what values were filled into each magic variable.</p></li>
+<li><p><span class="target" id="share.process.components.title.counter.counter.to_html.params.UUID_glyphs"></span><strong>UUID_glyphs</strong><a class="paramlink headerlink reference internal" href="#share.process.components.title.counter.counter.to_html.params.UUID_glyphs">¶</a> – Previous actions’ outputs can be used as magic variable inputs, and are displayed alongside the output-action’s glyph. <code class="docutils literal notranslate"><span class="pre">UUID</span> <span class="pre">Glyphs</span></code> maps actions’ output UUIDs to their glyphs.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="share.process.components.title.choose.choose">
+<em class="property">class </em><code class="sig-name descname">choose</code><span class="sig-paren">(</span><em class="sig-param">key, ask_each_time, default: str, options: [&lt;class 'str'&gt;], *_, **__</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.choose.choose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Field that offers a list of valid choices, with a default pre-selected.</p>
+<dl class="simple">
+<dt>In Shortcuts, this field accepts:</dt><dd><ul class="simple">
+<li><p>one of the offered <code class="docutils literal notranslate"><span class="pre">options</span></code>.</p></li>
+<li><p>a magic variable, and Ask Each Time, may or may not be valid</p></li>
+</ul>
+</dd>
+</dl>
+<p>Some fields simply prompt the user to “Choose a variable…” with no other options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">TODO</dt>
+<dd class="field-odd"><p>account for “Choose a variable…” case.</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="share.process.components.title.choose.choose.blank">
+<code class="sig-name descname">blank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.choose.choose.blank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles output when the variable was left blank.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="share.process.components.title.quantity.quantity">
+<em class="property">class </em><code class="sig-name descname">quantity</code><span class="sig-paren">(</span><em class="sig-param">key: str</em>, <em class="sig-param">ask_each_time: str</em>, <em class="sig-param">blank_text: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.quantity.quantity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Field representing a quantity or measurement with both magnitude and units.</p>
+<dl class="simple">
+<dt>In Shortcuts, this field accepts:</dt><dd><ul class="simple">
+<li><p>a magnitude, similar to the <code class="docutils literal notranslate"><span class="pre">number</span></code> class</p></li>
+<li><p>a unit, similar to the <code class="docutils literal notranslate"><span class="pre">choose</span></code> class</p></li>
+</ul>
+</dd>
+</dl>
+<p>The unit offered in the <code class="docutils literal notranslate"><span class="pre">choose</span></code> menu 
+and the abbreviation shown in the <code class="docutils literal notranslate"><span class="pre">unit</span></code> field
+differ significantly and often.</p>
+<dl class="method">
+<dt id="share.process.components.title.quantity.quantity.blank">
+<code class="sig-name descname">blank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.quantity.quantity.blank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles output when the variable was left blank.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="share.process.components.title.quantity.quantity.to_html">
+<code class="sig-name descname">to_html</code><span class="sig-paren">(</span><em class="sig-param">params</em>, <em class="sig-param">UUID_glyphs</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.quantity.quantity.to_html" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoked by the <code class="docutils literal notranslate"><span class="pre">to_django</span></code> method to convert a variable object to a dict describing the contents of the action.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="share.process.components.title.quantity.quantity.to_html.params.params"></span><strong>params</strong><a class="paramlink headerlink reference internal" href="#share.process.components.title.quantity.quantity.to_html.params.params">¶</a> – The action’s <cite>WFWorkflowActionParameters</cite> dict. Contains information on what values were filled into each magic variable.</p></li>
+<li><p><span class="target" id="share.process.components.title.quantity.quantity.to_html.params.UUID_glyphs"></span><strong>UUID_glyphs</strong><a class="paramlink headerlink reference internal" href="#share.process.components.title.quantity.quantity.to_html.params.UUID_glyphs">¶</a> – Previous actions’ outputs can be used as magic variable inputs, and are displayed alongside the output-action’s glyph. <code class="docutils literal notranslate"><span class="pre">UUID</span> <span class="pre">Glyphs</span></code> maps actions’ output UUIDs to their glyphs.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
 
 </div>
-<div class="panel">
+<div class="section" id="line-variables">
+<h1>Line Variables<a class="headerlink" href="#line-variables" title="Permalink to this headline">¶</a></h1>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Base Classes</a></li>
+<li><a class="reference internal" href="#title-variables">Title Variables</a></li>
+<li><a class="reference internal" href="#line-variables">Line Variables</a></li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="actions.html"
                         title="previous chapter">Base Classes</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="helpers.html"
                         title="next chapter">Magic Helper Methods</a></p>
-</div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -181,44 +403,41 @@
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<form action="search.html" method="get">
- <div class="panel fl-block-search">
-  <div class="form-group">
-   <input type="text" name="q" class="form-control" placeholder="Search..." />
-  </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-
-  <div class="btn-group-justified">
-   <div class="btn-group">
-    <button type="submit" class="button expand" style="font-size:11px">Go</button>
-   </div>
-  </div>
- </div>
-</form>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
+      <div class="clearer"></div>
     </div>
-    
-  </div>
-  <div class="push"></div>
-</div> <!-- end container -->
-<!-- footer -->
-<div id="footerContainer">
-  <footer id="footer-bottom" role="contentinfo">
-    <div class="footer-bottom-inner inner">
-      <p class="copyright">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="helpers.html" title="Magic Helper Methods"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="actions.html" title="Base Classes"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Showcuts 2020.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
         &#169; Copyright 2019, MIGI.
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
-      </p>
-      <p class="pull-right">
-        <a href="#">Back to Top</a>
-      </p>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
-  </footer>
-</div>
-<!-- end footer -->
-<script src="_static/bower_components/foundation/js/foundation.min.js"></script>
-<script src="_static/js/app.js"></script>
   </body>
 </html>

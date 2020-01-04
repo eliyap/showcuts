@@ -14,8 +14,9 @@ class base_magic:
         :param ask_each_time: The text used when `Ask Each Time` is selected as an option. 
 
         :ask_each_time:
-        * Usually, the text is simply "Ask Each Time". In inline variables, it is usually "Text"
-        * If `Ask Each Time` is not offered as an valid input, set this value as ``None``
+        
+           * Usually, the text is simply "Ask Each Time". In inline variables, it is usually "Text"
+           * If `Ask Each Time` is not offered as an valid input, set this value as ``None``
         '''
 
         self.key = key
@@ -45,9 +46,13 @@ class base_magic:
         )]
 
     def blank(self):
+        '''Handles output when the variable was left blank.'''
+    
         '''
-        Handles output when the variable was left blank.
-
-        :NOTE: Variables are sometimes prefilled. If a variable's value is not changed from the default value, their key will be absent from ``params``. **This is different to the variable being blank**. Fields with prefilled values will include a ``default`` field.
+        :NOTE: Variables are sometimes prefilled. 
+        If a variable's value is not changed from the default value, 
+        their key will be absent from ``params``. 
+        **This is different to the variable being blank**. 
+        Fields with prefilled values will include a ``default`` field.
         '''
         return {} # to be overridden!
