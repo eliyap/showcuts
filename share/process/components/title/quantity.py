@@ -28,13 +28,14 @@ class quantity(base_magic):
             return self.blank() # NOTE: blank returns a list of 2 vars, unlike other actions
 
         if not isinstance(parameter, dict): # non-magic variables
-            return [magic_dct(parameter)]
+            return [magic_dct(parameter, key=self.key)]
 
         return [classify_magic(
             value = parameter['Value'],
             var_type = parameter['Value']['Type'],
             ask_each_time = self.ask_each_time,
             UUID_glyphs = UUID_glyphs,
+            key=self.key,
         )]
 
     def blank(self):

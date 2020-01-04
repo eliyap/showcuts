@@ -12,7 +12,8 @@ def inline_html(self, params, UUID_glyphs):
 
     if not isinstance(parameter, dict): # non-magic variables
         return value_dct(
-            [value_dct(parameter)], #wrap as an inline var
+            [value_dct(parameter,key='None')], #wrap as an inline var
+            key=self.key,
             css_class=deepcopy(self.__class__.css_cls),
         )
     return inline_handler(self, parameter, UUID_glyphs)
@@ -39,7 +40,8 @@ class line_inline(line, inline):
 
     def blank(self):
         return value_dct(
-            [value_dct(self.blank_text)], #wrap as an inline var
+            [value_dct(self.blank_text, key='None')], #wrap as an inline var
+            key=self.key,
             css_class=deepcopy(self.__class__.css_cls),
             empty=True,
         )

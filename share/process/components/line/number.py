@@ -32,6 +32,7 @@ class line_number(line, base_magic):
         if not isinstance(parameter, dict): # non-magic variables
             return value_dct(
                 parameter, 
+                key=self.key,
                 css_class=copy.deepcopy(self.__class__.css_cls),
             )
 
@@ -40,12 +41,14 @@ class line_number(line, base_magic):
             var_type = parameter['Value']['Type'],
             ask_each_time = self.ask_each_time,
             UUID_glyphs = UUID_glyphs,
+            key=self.key,
         )
 
 
     def blank(self):
         return value_dct(
             self.blank_text, 
+            key=self.key,
             css_class=copy.deepcopy(self.__class__.css_cls),
             empty=True,
         )

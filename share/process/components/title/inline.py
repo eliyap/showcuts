@@ -41,6 +41,7 @@ def inline_handler(self, parameter:dict, UUID_glyphs):
                 val['Type'],
                 ask_each_time='Text',
                 UUID_glyphs=UUID_glyphs,
+                key=self.key,
             )
 
         # process remaining chars into text elems
@@ -91,11 +92,15 @@ class inline(base_magic):
         if parameter in [None, '']: 
             return [self.blank()]
         if not isinstance(parameter, dict): # non-magic variables
-            return [magic_dct(parameter)]
+            return [magic_dct(parameter, key=self.key)]
         return [inline_handler(self, parameter, UUID_glyphs)]
 
     def blank(self):
-        return magic_dct(self.blank_text, empty=True)
+        return magic_dct(
+            self.blank_text,
+            key=self.key, 
+            empty=True
+        )
 
 # returns a list of inline variables
 class list_inline(inline):
@@ -119,7 +124,7 @@ class list_inline(inline):
 
     def to_html(self, params, UUID_glyphs):
         inline_list = self.list_inline_handler(params,UUID_glyphs)
-        inline_list.append(magic_dct('+'))
+        inline_list.append(magic_dct('+',key='None'))
         return [{
             'class':['list-inline-magic'],
             'value':inline_list,
@@ -132,7 +137,7 @@ class list_inline(inline):
         if parameter in [None, '']: 
             return [self.blank()]
         elif isinstance(parameter, str): # non-magic variables
-            return [magic_dct(parameter)]
+            return [magic_dct(parameter, key=self.key)]
         elif isinstance(parameter, dict):
             return [inline_handler(self, parameter, UUID_glyphs)]
         elif isinstance(parameter, list):

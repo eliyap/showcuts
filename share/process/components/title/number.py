@@ -26,6 +26,7 @@ class number(base_magic):
     def blank(self):
         return magic_dct(
             self.blank_text, 
+            key=self.key,
             empty=True,
         )
 

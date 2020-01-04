@@ -93,17 +93,17 @@ class encodemedia(action):
     result = 'Encoded Media'
 
     def modify(self):
-        audio_only = self.get_line('Audio Only')['class']
+        audio_only = self.get_line('WFMediaAudioOnly')['class']
         if 'on' in audio_only:
-            self.hide_line('Size')
+            self.hide_line('WFMediaSize')
         elif 'off' in audio_only:
-            self.hide_line('Format')
+            self.hide_line('WFMediaAudioFormat')
         elif 'magic' in audio_only:
-            self.hide_line('Size')
-            self.hide_line('Format')
+            self.hide_line('WFMediaSize')
+            self.hide_line('WFMediaAudioFormat')
 
-        if self.get_line('Speed')['value'] != 'Custom':
-            self.hide_line('Custom Speed')
+        if self.get_line('WFMediaSpeed')['value'] != 'Custom':
+            self.hide_line('WFMediaCustomSpeed')
         
 class trimvideo(action):
     category = 'MEDIA'

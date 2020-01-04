@@ -125,33 +125,33 @@ class action:
 
         pass
 
-    def hide_line(self, label:str):
+    def hide_line(self, key:str):
         '''
-        Add the "hidden" CSS class to particular element in ``lines``, 
-        as identified by its ``label``.
+        Add the "hidden" CSS class to particular element in ``key``, 
+        as identified by its ``key``.
 
         Raises ValueError if the label does not a match a line.
         '''
 
         for line in self.lines:
-            if line['label'] == label:
+            if line['key'] == key:
                 if 'hidden' not in line['class']: # prevent duplicates
                     line['class'].append('hidden')
                 return
-        raise ValueError(f'No line with label "{label}"')
+        raise ValueError(f'No line with key "{key}"')
     
-    def get_line(self, label:str):
+    def get_line(self, key:str):
         '''
-        Return a particular element in ``lines``, as identified by its ``label``. 
+        Return a particular element in ``lines``, as identified by its ``key``. 
         Usually used in ``modify`` to pick a line out for modification
 
-        Raises ValueError if the label does not a match a line.
+        Raises ValueError if the key does not a match a line.
         '''
 
         for line in self.lines:
-            if line['label'] == label:
+            if line['key'] == key:
                 return line
-        raise ValueError(f'No line with label "{label}"')
+        raise ValueError(f'No line with key "{key}"')
         
     @classmethod
     def action_hook(cls, dct:dict):

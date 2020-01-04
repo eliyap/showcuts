@@ -28,4 +28,8 @@ class choose(base_magic):
         self.options = options
 
     def blank(self):
-        return magic_dct(self.default, empty=False)
+        return magic_dct(
+            self.default,
+            key=self.key, 
+            empty=False,
+        )

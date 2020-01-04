@@ -36,6 +36,7 @@ class line_notes(line_inline):
         if parameter == None: 
             return value_dct(
                 text(self.default).to_html(), #wrap as an inline var
+                key=self.key,
                 css_class=deepcopy(self.__class__.css_cls),
             ) 
 
@@ -45,6 +46,7 @@ class line_notes(line_inline):
         elif not isinstance(parameter, dict): # non-magic variables
             return value_dct(
                 text(parameter).to_html(), #wrap as an inline var
+                key=self.key,
                 css_class=deepcopy(self.__class__.css_cls),
             )
         return inline_handler(self, parameter, UUID_glyphs)
@@ -52,6 +54,7 @@ class line_notes(line_inline):
     def blank(self):
         return value_dct(
             text(self.blank_text).to_html(), #wrap as an inline var
+            key=self.key,
             css_class=deepcopy(self.__class__.css_cls),
             empty=True,
         )

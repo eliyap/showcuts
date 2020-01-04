@@ -41,7 +41,11 @@ class counter(base_magic):
         return counter_handler(magic_elem, self.item)
     
     def blank(self):
-        return magic_dct(self.default, empty=False)
+        return magic_dct(
+            self.default,
+            key=self.key, 
+            empty=False
+        )
 
 def counter_handler(magic_elem, item:str):
     try: # see if value can be coerced to Int
