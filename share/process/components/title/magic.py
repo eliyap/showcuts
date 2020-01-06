@@ -24,6 +24,10 @@ class magic(base_magic):
         super().__init__(key, ask_each_time)
         self.blank_text = blank_text
 
+    @AddField('magic')
+    def to_html(self, params, UUID_glyphs):
+        return super().to_html(params, UUID_glyphs)
+
     def blank(self):
         return magic_dct(
             self.blank_text, 

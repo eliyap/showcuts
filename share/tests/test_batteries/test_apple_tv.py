@@ -30,50 +30,50 @@ class test_apple_tv(TestCase):
         [test_correct_glyph(self, action, 'Remote.png')
          for action in self.actions]
 
-    def test_categoryies_correct(self):
+    def test_categories_correct(self):
         [self.assertEqual(action['category'], 'APPLE TV REMOTE')
          for action in self.actions]
 
     def test_titles_correct(self):
         compare_elements(self, 'title', 0, [
-            {'class': '', 'value': 'Open App on'},
-            {'class': 'magic empty', 'value': 'Apple TV'},
+            {'class': [], 'value': 'Open App on'},
+            {'class': ['magic', 'empty'], 'value': 'Apple TV'},
         ])
         compare_elements(self, 'title', 1, [
-            {'class': '', 'value': 'Open'},
-            {'class': 'magic', 'value': 'TV'},
-            {'class': '', 'value': 'on'},
-            {'class': 'magic', 'value': 'Apple TV'},
+            {'class': [], 'value': 'Open'},
+            {'class': ['magic'], 'value': 'TV'},
+            {'class': [], 'value': 'on'},
+            {'class': ['magic'], 'value': 'Apple TV'},
         ])
         compare_elements(self, 'title', 2, [
-            {'class': '', 'value': 'Show remote control for'},
-            {'class': 'magic empty', 'value': 'Apple TV'},
+            {'class': [], 'value': 'Show remote control for'},
+            {'class': ['magic', 'empty'], 'value': 'Apple TV'},
         ])
         compare_elements(self, 'title', 3, [
-            {'class': '', 'value': 'Show remote control for'},
-            {'class': 'magic', 'value': 'Apple TV'},
+            {'class': [], 'value': 'Show remote control for'},
+            {'class': ['magic'], 'value': 'Apple TV'},
         ])
         compare_elements(self, 'title', 4, [
-            {'class': 'magic', 'value': 'Pause'},
-            {'class': 'magic empty', 'value': 'Apple TV'},
+            {'class': ['magic'], 'value': 'Pause'},
+            {'class': ['magic', 'empty'], 'value': 'Apple TV'},
         ])
         compare_elements(self, 'title', 5, [
-            {'class': 'magic', 'value': 'Media Command'},
-            {'class': 'magic', 'value': 'Apple TV'},
+            {'class': ['magic'], 'value': 'Media Command'},
+            {'class': ['magic'], 'value': 'Apple TV'},
         ])
         compare_elements(self, 'title', 6, [
-            {'class': '', 'value': 'Sleep'},
-            {'class': 'magic empty', 'value': 'Apple TV'},
+            {'class': [], 'value': 'Sleep'},
+            {'class': ['magic', 'empty'], 'value': 'Apple TV'},
         ])
         compare_elements(self, 'title', 7, [
-            {'class': '', 'value': 'Sleep'},
-            {'class': 'magic', 'value': 'Apple TV'},
+            {'class': [], 'value': 'Sleep'},
+            {'class': ['magic'], 'value': 'Apple TV'},
         ])
         compare_elements(self, 'title', 8, [
-            {'class': '', 'value': 'Wake'},
-            {'class': 'magic empty', 'value': 'Apple TV'},
+            {'class': [], 'value': 'Wake'},
+            {'class': ['magic', 'empty'], 'value': 'Apple TV'},
         ])
         compare_elements(self, 'title', 9, [
-            {'class': '', 'value': 'Wake'},
-            {'class': 'magic', 'value': 'Apple TV'},
+            {'class': [], 'value': 'Wake'},
+            {'class': ['magic'], 'value': 'Apple TV'},
         ])

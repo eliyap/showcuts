@@ -23,6 +23,7 @@ class line_notes(line_inline):
         )
         self.default = default
 
+    @AddField('notes')
     def to_html(self, params, UUID_glyphs):
         return [{
             **line.to_html(self),

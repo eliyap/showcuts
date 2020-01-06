@@ -31,6 +31,7 @@ class line_inline(line, inline):
         line.__init__(self, label, leftify)
         inline.__init__(self, key, blank_text=blank_text)
 
+    @AddField('inline')
     def to_html(self, params, UUID_glyphs):
         elem = {
             **line.to_html(self),

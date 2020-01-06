@@ -18,7 +18,7 @@
 <a href="#{{elem.UUID}}">
   {% endif %}
 
-  <span class="{{elem.class|join:' '}}">
+  <span class="{{elem.class|join:' '}}" field="{{elem.field}}">
     {% if elem.glyph %}
     <img class="inline-glyph" src="{% static elem.glyph %}" />
     {% endif %}

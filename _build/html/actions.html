@@ -80,10 +80,18 @@
 
 <dl class="method">
 <dt id="share.process.sc_action.action.action.get_line">
-<code class="sig-name descname">get_line</code><span class="sig-paren">(</span><em class="sig-param">label: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.action.get_line" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a particular element in <code class="docutils literal notranslate"><span class="pre">lines</span></code>, as identified by its <code class="docutils literal notranslate"><span class="pre">label</span></code>. 
-Usually used in <code class="docutils literal notranslate"><span class="pre">modify</span></code> to pick a line out for modification</p>
-<p>Raises ValueError if the label does not a match a line.</p>
+<code class="sig-name descname">get_line</code><span class="sig-paren">(</span><em class="sig-param">key: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.action.get_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a particular element in <code class="docutils literal notranslate"><span class="pre">lines</span></code>, as identified by its <code class="docutils literal notranslate"><span class="pre">key</span></code>. 
+Usually used in <code class="docutils literal notranslate"><span class="pre">modify</span></code> to pick a line out for modification.</p>
+<p>Raises ValueError if the key does not a match a line.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="share.process.sc_action.action.action.get_title">
+<code class="sig-name descname">get_title</code><span class="sig-paren">(</span><em class="sig-param">key: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.action.get_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a particular element in <code class="docutils literal notranslate"><span class="pre">title</span></code>, as identified by its <code class="docutils literal notranslate"><span class="pre">key</span></code>. 
+Usually used in <code class="docutils literal notranslate"><span class="pre">modify</span></code> to pick an element out for modification.</p>
+<p>Raises ValueError if the key does not a match an element.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -96,10 +104,18 @@ If there is no category, there is also no glyph, and vice versa.</p>
 
 <dl class="method">
 <dt id="share.process.sc_action.action.action.hide_line">
-<code class="sig-name descname">hide_line</code><span class="sig-paren">(</span><em class="sig-param">label: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.action.hide_line" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add the “hidden” CSS class to particular element in <code class="docutils literal notranslate"><span class="pre">lines</span></code>, 
-as identified by its <code class="docutils literal notranslate"><span class="pre">label</span></code>.</p>
+<code class="sig-name descname">hide_line</code><span class="sig-paren">(</span><em class="sig-param">key: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.action.hide_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the “hidden” CSS class to particular element in <code class="docutils literal notranslate"><span class="pre">line</span></code>, 
+as identified by its <code class="docutils literal notranslate"><span class="pre">key</span></code>.</p>
 <p>Raises ValueError if the label does not a match a line.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="share.process.sc_action.action.action.hide_title">
+<code class="sig-name descname">hide_title</code><span class="sig-paren">(</span><em class="sig-param">key: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.sc_action.action.action.hide_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the “hidden” CSS class to particular element in <code class="docutils literal notranslate"><span class="pre">title</span></code>, 
+as identified by its <code class="docutils literal notranslate"><span class="pre">key</span></code>.</p>
+<p>Raises ValueError if the label does not a match an element.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -151,6 +167,12 @@ so that their values may be individually set.</p>
 <p>Houses special logic for each action. 
 Usually, this means hiding element <cite>X</cite> if element <cite>Y</cite> has value <cite>Z</cite>.</p>
 <p>Meant to be overriden.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="share.process.sc_action.action.action.name">
+<code class="sig-name descname">name</code><em class="property"> = ''</em><a class="headerlink" href="#share.process.sc_action.action.action.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The action’s name when searched in Shortcuts.</p>
 </dd></dl>
 
 <dl class="attribute">

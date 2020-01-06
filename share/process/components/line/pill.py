@@ -17,6 +17,7 @@ class line_pill(line, base_magic):
         self.default = default
         self.options = options
 
+    @AddField('pill')
     def to_html(self, params, UUID_glyphs):
         parameter = params.get(self.key, self.default)
         if isinstance(parameter, dict):

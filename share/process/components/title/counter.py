@@ -14,7 +14,7 @@ class counter(base_magic):
 
     In Shortcuts, this accepts:
 
-       * a natural number (0, or positive ints)
+       * a natural number (0 or positive ints)
        * can be incremented or decremented
        * Ask Each Time
     
@@ -36,6 +36,7 @@ class counter(base_magic):
         self.default = default
         self.item = item
     
+    @AddField('counter')
     def to_html(self, params, UUID_glyphs:dict):
         magic_elem = super().to_html(params, UUID_glyphs)
         return counter_handler(magic_elem, self.item)

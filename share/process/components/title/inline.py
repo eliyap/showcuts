@@ -49,7 +49,7 @@ def inline_handler(self, parameter:dict, UUID_glyphs):
         for elem in f_string:
             if isinstance(elem, dict):
                 inline_element['value'] += [
-                    text(charray).to_html()[0], # need to invoke to_html directly
+                    text(charray).to_html()[0], # invoke to_html to get dict
                     elem,
                 ]
                 charray = '' # reset
@@ -122,6 +122,7 @@ class list_inline(inline):
     ):
         super().__init__(key, blank_text, ask_each_time)
 
+    @AddField('inline')
     def to_html(self, params, UUID_glyphs):
         inline_list = self.list_inline_handler(params,UUID_glyphs)
         inline_list.append(magic_dct('+',key='None'))

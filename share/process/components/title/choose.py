@@ -27,6 +27,10 @@ class choose(base_magic):
         self.default = default
         self.options = options
 
+    @AddField('choose')
+    def to_html(self, params, UUID_glyphs):
+        return super().to_html(params, UUID_glyphs)
+
     def blank(self):
         return magic_dct(
             self.default,

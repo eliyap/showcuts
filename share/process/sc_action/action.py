@@ -3,6 +3,9 @@ class action:
     Represents a single \"action\" in a shortcut.
     """
 
+    #: The action's name when searched in Shortcuts.
+    name = ''
+
     #: The action's category (e.g. SCRIPTING or MATH). Always in ALL CAPS.
     #: 
     #: May be excluded for control-flow blocks, such as the If block's `End If`.
@@ -73,6 +76,7 @@ class action:
         so that their values may be individually set.
         '''
 
+        self.name = self.__class__.name
         self.category = self.__class__.category
         self.glyph = f'assets/cat/{self.__class__.glyph}'
         self.result = self.__class__.result
@@ -127,7 +131,7 @@ class action:
 
     def hide_line(self, key:str):
         '''
-        Add the "hidden" CSS class to particular element in ``key``, 
+        Add the "hidden" CSS class to particular element in ``line``, 
         as identified by its ``key``.
 
         Raises ValueError if the label does not a match a line.
@@ -140,10 +144,25 @@ class action:
                 return
         raise ValueError(f'No line with key "{key}"')
     
+    def hide_title(self, key:str):
+        '''
+        Add the "hidden" CSS class to particular element in ``title``, 
+        as identified by its ``key``.
+
+        Raises ValueError if the label does not a match an element.
+        '''
+
+        for elem in self.title:
+            if elem['key'] == key:
+                if 'hidden' not in elem['class']: # prevent duplicates
+                    elem['class'].append('hidden')
+                return
+        raise ValueError(f'No line with key "{key}"')
+    
     def get_line(self, key:str):
         '''
         Return a particular element in ``lines``, as identified by its ``key``. 
-        Usually used in ``modify`` to pick a line out for modification
+        Usually used in ``modify`` to pick a line out for modification.
 
         Raises ValueError if the key does not a match a line.
         '''
@@ -152,6 +171,19 @@ class action:
             if line['key'] == key:
                 return line
         raise ValueError(f'No line with key "{key}"')
+        
+    def get_title(self, key:str):
+        '''
+        Return a particular element in ``title``, as identified by its ``key``. 
+        Usually used in ``modify`` to pick an element out for modification.
+
+        Raises ValueError if the key does not a match an element.
+        '''
+
+        for elem in self.title:
+            if elem['key'] == key:
+                return elem
+        raise ValueError(f'No elem with key "{key}"')
         
     @classmethod
     def action_hook(cls, dct:dict):

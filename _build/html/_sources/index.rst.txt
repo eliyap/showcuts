@@ -8,11 +8,17 @@ Welcome to the Showcuts documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Action & Parameter Classes:
 
    actions
    parameters
    helpers
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Supported Actions:
+
+   tracking
 
 Indices and tables
 ==================

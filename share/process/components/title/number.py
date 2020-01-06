@@ -30,6 +30,10 @@ class number(base_magic):
             empty=True,
         )
 
+    @AddField('number')
+    def to_html(self, params, UUID_glyphs):
+        return super().to_html(params, UUID_glyphs)
+
 class whole_number(number):
     '''Field that accepts only whole numbers.
 

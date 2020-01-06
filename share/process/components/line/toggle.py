@@ -16,6 +16,7 @@ class line_toggle(line, base_magic):
         line.__init__(self, label) # no leftify, toggle is always right aligned
         base_magic.__init__(self, key, ask_each_time)
 
+    @AddField('toggle')
     def to_html(self, params, UUID_glyphs):
         toggle_state = params.get(self.key, self.default)
         if isinstance(toggle_state, bool):

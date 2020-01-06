@@ -2,6 +2,7 @@ from share.process.components._directory import *
 from ..action import *
 
 class encodemedia(action):
+    name = 'Encode Media'
     category = 'MEDIA'
     glyph = 'QuickTime.png'
     title = [
@@ -106,6 +107,7 @@ class encodemedia(action):
             self.hide_line('WFMediaCustomSpeed')
         
 class trimvideo(action):
+    name = 'Trim Media'
     category = 'MEDIA'
     glyph = 'QuickTime.png'
     title = [
@@ -119,6 +121,7 @@ class trimvideo(action):
     result = 'Trimmed Media'
 
 class detectlanguage(action):
+    name = 'Detect Language with Microsoft'
     category = 'MICROSOFT COGNITIVE SERVICES'
     glyph = 'Language.svg'
     title = [
@@ -132,6 +135,7 @@ class detectlanguage(action):
     result = 'Language'
 
 class text_translate(action):
+    name = 'Translate Text with Microsoft'
     languages = [
         'Detected Language',
         'Afrikaans',
@@ -226,6 +230,7 @@ class text_translate(action):
     result = 'Translated Text'
     
 class airdropdocument(action):
+    name = 'Airdrop'
     category = 'AIRDROP'
     glyph = 'Airdrop.svg'
     title = [
@@ -238,31 +243,7 @@ class airdropdocument(action):
     ]
 
 class ___(action):
-    category = '___'
-    glyph = '___'
-    result = '___'
-
-class ___(action):
-    category = '___'
-    glyph = '___'
-    result = '___'
-
-class ___(action):
-    category = '___'
-    glyph = '___'
-    result = '___'
-
-class ___(action):
-    category = '___'
-    glyph = '___'
-    result = '___'
-
-class ___(action):
-    category = '___'
-    glyph = '___'
-    result = '___'
-
-class ___(action):
+    name = '___'
     category = '___'
     glyph = '___'
     result = '___'

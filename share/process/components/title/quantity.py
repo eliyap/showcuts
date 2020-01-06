@@ -21,7 +21,8 @@ class quantity(base_magic):
     ):
         super().__init__(key, ask_each_time)
         self.blank_text = blank_text
-
+    
+    @AddField('measurement')
     def to_html(self, params, UUID_glyphs):
         parameter = params.get(self.key, None)
         if parameter in [None, '']: 

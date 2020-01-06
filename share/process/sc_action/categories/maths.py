@@ -12,6 +12,7 @@ class _base(action):
     glyph = 'Math.svg'
 
 class number_(_base):
+    name = 'number'
     category = 'NUMBER'
     title = [
         number(
@@ -23,6 +24,7 @@ class number_(_base):
     result = 'Number'
 
 class random(_base):
+    name = 'Random Number'
     title = [
         text('Random number between'),
         number(
@@ -40,9 +42,11 @@ class random(_base):
     result = 'Random Number'
 
 class math(_base):
+    name = 'Calculate'
     result = 'Calculation Result'
 
 class statistics(_base):
+    name = 'Calculate Statistics'
     title = [
         text('Calculate the'),
         choose(
@@ -69,9 +73,10 @@ class statistics(_base):
     ]
     result = '___' #placeholder
     def modify(self): # set the output to the correct statistic
-        self.result = self.title[1]['value']
+        self.result = self.get_title('WFStatisticsOperation')['value']
 
 class round_(_base):
+    name = 'Round Number'
     title = [
         text('Round'),
         number(
@@ -130,6 +135,7 @@ class round_(_base):
     result = 'Rounded Number'
 
 class format_filesize(_base):
+    name = 'Format File Size'
     title = [
         text('Format'),
         whole_number(
@@ -171,6 +177,7 @@ class format_filesize(_base):
             self.hide_line('Include Units')
 
 class format_number(_base):
+    name = 'Format Number'
     title = [
         text('Format'),
         number(
@@ -189,10 +196,12 @@ class format_number(_base):
     result = 'Formatted Number'
 
 class measurement_convert(_base):
+    name = 'Convert Measurement'
     category = 'MEASUREMENT'
     result = 'Converted Measurement'
 
 class measurement_create(_base):
+    name = 'Measurement'
     units = {
         'Acceleration':{
             'units':[

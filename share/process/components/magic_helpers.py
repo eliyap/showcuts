@@ -107,3 +107,19 @@ def ActionOutput(
             UUID = value['OutputUUID'],
         )
 
+class AddField:
+    '''Decorator that adds a ``field`` entry to every parameter dict.
+
+    As opposed to ``class`` and ``css_class`` (which provide styling information)
+    ``field`` represents the type of edittind interface, 
+    when editting is eventually implemented.
+    '''
+    def __init__(self, name:str):
+        self.name = name
+
+    def __call__(self, func, *args, **kwargs):
+        def field_func(*args, **kwargs):
+            result = func(*args, **kwargs)
+            [dct.update({'field':self.name}) for dct in result]
+            return result
+        return field_func

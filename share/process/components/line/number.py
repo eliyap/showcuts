@@ -18,6 +18,7 @@ class line_number(line, base_magic):
         line.__init__(self, label) # no leftify
         base_magic.__init__(self, key, ask_each_time)
 
+    @AddField('number')
     def to_html(self, params, UUID_glyphs):
         return [{
             **line.to_html(self),
