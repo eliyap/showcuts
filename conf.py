@@ -30,7 +30,7 @@ release = '2020.0.0'
 extensions = [
     'sphinx.ext.autodoc', 
     'recommonmark',
-    'sphinx_paramlinks',
+    # 'sphinx_paramlinks',
 ]
 
 

@@ -7,7 +7,6 @@
     <title>Variables &#8212; Showcuts 2020.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css" />
     
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -58,8 +57,8 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="share.process.components.base_magic.base_magic.params.key"></span><strong>key</strong><a class="paramlink headerlink reference internal" href="#share.process.components.base_magic.base_magic.params.key">¶</a> – Key (in the action’s <cite>WFWorkflowActionParameters</cite> dictionary) to the magic variable’s value</p></li>
-<li><p><span class="target" id="share.process.components.base_magic.base_magic.params.ask_each_time"></span><strong>ask_each_time</strong><a class="paramlink headerlink reference internal" href="#share.process.components.base_magic.base_magic.params.ask_each_time">¶</a> – The text used when <cite>Ask Each Time</cite> is selected as an option.</p></li>
+<li><p><strong>key</strong> – Key (in the action’s <cite>WFWorkflowActionParameters</cite> dictionary) to the magic variable’s value</p></li>
+<li><p><strong>ask_each_time</strong> – The text used when <cite>Ask Each Time</cite> is selected as an option.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Ask_each_time</dt>
@@ -84,8 +83,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="share.process.components.base_magic.base_magic.to_html.params.params"></span><strong>params</strong><a class="paramlink headerlink reference internal" href="#share.process.components.base_magic.base_magic.to_html.params.params">¶</a> – The action’s <cite>WFWorkflowActionParameters</cite> dict. Contains information on what values were filled into each magic variable.</p></li>
-<li><p><span class="target" id="share.process.components.base_magic.base_magic.to_html.params.UUID_glyphs"></span><strong>UUID_glyphs</strong><a class="paramlink headerlink reference internal" href="#share.process.components.base_magic.base_magic.to_html.params.UUID_glyphs">¶</a> – Previous actions’ outputs can be used as magic variable inputs, and are displayed alongside the output-action’s glyph. <code class="docutils literal notranslate"><span class="pre">UUID</span> <span class="pre">Glyphs</span></code> maps actions’ output UUIDs to their glyphs.</p></li>
+<li><p><strong>params</strong> – The action’s <cite>WFWorkflowActionParameters</cite> dict. Contains information on what values were filled into each magic variable.</p></li>
+<li><p><strong>UUID_glyphs</strong> – Previous actions’ outputs can be used as magic variable inputs, and are displayed alongside the output-action’s glyph. <code class="docutils literal notranslate"><span class="pre">UUID</span> <span class="pre">Glyphs</span></code> maps actions’ output UUIDs to their glyphs.</p></li>
 </ul>
 </dd>
 </dl>
@@ -103,8 +102,8 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="share.process.components.base_line.line.params.label"></span><strong>label</strong><a class="paramlink headerlink reference internal" href="#share.process.components.base_line.line.params.label">¶</a> – Label to the left of the parameter, detailing what it is.</p></li>
-<li><p><span class="target" id="share.process.components.base_line.line.params.leftify"></span><strong>leftify</strong><a class="paramlink headerlink reference internal" href="#share.process.components.base_line.line.params.leftify">¶</a> – Whether or not to flush the variable left against the label. Usually used for <code class="docutils literal notranslate"><span class="pre">line_inline</span></code>.</p></li>
+<li><p><strong>label</strong> – Label to the left of the parameter, detailing what it is.</p></li>
+<li><p><strong>leftify</strong> – Whether or not to flush the variable left against the label. Usually used for <code class="docutils literal notranslate"><span class="pre">line_inline</span></code>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -200,8 +199,8 @@ except the decimal point is not available.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="share.process.components.title.inline.inline.to_html.params.params"></span><strong>params</strong><a class="paramlink headerlink reference internal" href="#share.process.components.title.inline.inline.to_html.params.params">¶</a> – The action’s <cite>WFWorkflowActionParameters</cite> dict. Contains information on what values were filled into each magic variable.</p></li>
-<li><p><span class="target" id="share.process.components.title.inline.inline.to_html.params.UUID_glyphs"></span><strong>UUID_glyphs</strong><a class="paramlink headerlink reference internal" href="#share.process.components.title.inline.inline.to_html.params.UUID_glyphs">¶</a> – Previous actions’ outputs can be used as magic variable inputs, and are displayed alongside the output-action’s glyph. <code class="docutils literal notranslate"><span class="pre">UUID</span> <span class="pre">Glyphs</span></code> maps actions’ output UUIDs to their glyphs.</p></li>
+<li><p><strong>params</strong> – The action’s <cite>WFWorkflowActionParameters</cite> dict. Contains information on what values were filled into each magic variable.</p></li>
+<li><p><strong>UUID_glyphs</strong> – Previous actions’ outputs can be used as magic variable inputs, and are displayed alongside the output-action’s glyph. <code class="docutils literal notranslate"><span class="pre">UUID</span> <span class="pre">Glyphs</span></code> maps actions’ output UUIDs to their glyphs.</p></li>
 </ul>
 </dd>
 </dl>
@@ -225,20 +224,6 @@ except the decimal point is not available.</p>
 <dt id="share.process.components.title.inline.list_inline.list_inline_handler">
 <code class="sig-name descname">list_inline_handler</code><span class="sig-paren">(</span><em class="sig-param">params</em>, <em class="sig-param">UUID_glyphs</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.inline.list_inline.list_inline_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decomposes one (or more) inline variables into magic dicts.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="share.process.components.title.inline.list_inline.to_html">
-<code class="sig-name descname">to_html</code><span class="sig-paren">(</span><em class="sig-param">params</em>, <em class="sig-param">UUID_glyphs</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.inline.list_inline.to_html" title="Permalink to this definition">¶</a></dt>
-<dd><p>Invoked by the <code class="docutils literal notranslate"><span class="pre">to_django</span></code> method to convert a variable object to a dict describing the contents of the action.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="share.process.components.title.inline.list_inline.to_html.params.params"></span><strong>params</strong><a class="paramlink headerlink reference internal" href="#share.process.components.title.inline.list_inline.to_html.params.params">¶</a> – The action’s <cite>WFWorkflowActionParameters</cite> dict. Contains information on what values were filled into each magic variable.</p></li>
-<li><p><span class="target" id="share.process.components.title.inline.list_inline.to_html.params.UUID_glyphs"></span><strong>UUID_glyphs</strong><a class="paramlink headerlink reference internal" href="#share.process.components.title.inline.list_inline.to_html.params.UUID_glyphs">¶</a> – Previous actions’ outputs can be used as magic variable inputs, and are displayed alongside the output-action’s glyph. <code class="docutils literal notranslate"><span class="pre">UUID</span> <span class="pre">Glyphs</span></code> maps actions’ output UUIDs to their glyphs.</p></li>
-</ul>
-</dd>
-</dl>
 </dd></dl>
 
 </dd></dl>
@@ -297,20 +282,6 @@ the <a class="reference external" href="https://www.fileformat.info/info/unicode
 <dd><p>Handles output when the variable was left blank.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="share.process.components.title.counter.counter.to_html">
-<code class="sig-name descname">to_html</code><span class="sig-paren">(</span><em class="sig-param">params</em>, <em class="sig-param">UUID_glyphs: dict</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.counter.counter.to_html" title="Permalink to this definition">¶</a></dt>
-<dd><p>Invoked by the <code class="docutils literal notranslate"><span class="pre">to_django</span></code> method to convert a variable object to a dict describing the contents of the action.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="share.process.components.title.counter.counter.to_html.params.params"></span><strong>params</strong><a class="paramlink headerlink reference internal" href="#share.process.components.title.counter.counter.to_html.params.params">¶</a> – The action’s <cite>WFWorkflowActionParameters</cite> dict. Contains information on what values were filled into each magic variable.</p></li>
-<li><p><span class="target" id="share.process.components.title.counter.counter.to_html.params.UUID_glyphs"></span><strong>UUID_glyphs</strong><a class="paramlink headerlink reference internal" href="#share.process.components.title.counter.counter.to_html.params.UUID_glyphs">¶</a> – Previous actions’ outputs can be used as magic variable inputs, and are displayed alongside the output-action’s glyph. <code class="docutils literal notranslate"><span class="pre">UUID</span> <span class="pre">Glyphs</span></code> maps actions’ output UUIDs to their glyphs.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="class">
@@ -356,20 +327,6 @@ differ significantly and often.</p>
 <dt id="share.process.components.title.quantity.quantity.blank">
 <code class="sig-name descname">blank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.quantity.quantity.blank" title="Permalink to this definition">¶</a></dt>
 <dd><p>Handles output when the variable was left blank.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="share.process.components.title.quantity.quantity.to_html">
-<code class="sig-name descname">to_html</code><span class="sig-paren">(</span><em class="sig-param">params</em>, <em class="sig-param">UUID_glyphs</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.quantity.quantity.to_html" title="Permalink to this definition">¶</a></dt>
-<dd><p>Invoked by the <code class="docutils literal notranslate"><span class="pre">to_django</span></code> method to convert a variable object to a dict describing the contents of the action.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="share.process.components.title.quantity.quantity.to_html.params.params"></span><strong>params</strong><a class="paramlink headerlink reference internal" href="#share.process.components.title.quantity.quantity.to_html.params.params">¶</a> – The action’s <cite>WFWorkflowActionParameters</cite> dict. Contains information on what values were filled into each magic variable.</p></li>
-<li><p><span class="target" id="share.process.components.title.quantity.quantity.to_html.params.UUID_glyphs"></span><strong>UUID_glyphs</strong><a class="paramlink headerlink reference internal" href="#share.process.components.title.quantity.quantity.to_html.params.UUID_glyphs">¶</a> – Previous actions’ outputs can be used as magic variable inputs, and are displayed alongside the output-action’s glyph. <code class="docutils literal notranslate"><span class="pre">UUID</span> <span class="pre">Glyphs</span></code> maps actions’ output UUIDs to their glyphs.</p></li>
-</ul>
-</dd>
-</dl>
 </dd></dl>
 
 </dd></dl>
