@@ -69,7 +69,7 @@ Accessibility
    :header: "Action", "Class Written", "Test Written", "Test ID"
    :widths: 30, 10, 10, 50
 
-   "Number", "✅", "❌"
+   "Number", "✅", "✅", "8ec1111d76ea499daeb11a51f5905bed"
    "Random Number", "✅", "❌"
    "Calculate", "❌", "❌"
    "Calculate Statistics", "✅", "✅", "e43107433b084e79aba13187b0a44de1"
