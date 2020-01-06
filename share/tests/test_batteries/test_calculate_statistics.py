@@ -40,8 +40,66 @@ class test_calculate_statistics(TestCase):
 
     def test_titles_correct(self):
         compare_elements(self, 'title', 0, [
-            {'class': ['text'], 'value': 'Calculate the'},
-            {'class': ['magic'], 'value': 'Average'},
-            {'class': ['text'], 'value': 'of'},
-            {'class': ['magic', 'empty'], 'value': 'Input'},
+            {
+                'class': ['text'], 
+                'value': 'Calculate the'
+            },
+            {
+                'class': ['magic'], 
+                'value': 'Average',
+                'field':'choose',
+            },
+            {
+                'class': ['text'], 
+                'value': 'of'
+            },
+            {
+                'class': ['magic', 'empty'], 
+                'value': 'Input',
+                'field':'magic',
+            },
         ])
+        compare_elements(self, 'title', 1, [
+            {
+                'class': ['text'], 
+                'value': 'Calculate the'
+            },
+            {
+                'class': ['magic'], 
+                'value': 'Average',
+                'field':'choose',
+            },
+            {
+                'class': ['text'], 
+                'value': 'of'
+            },
+            {
+                'class': ['magic', 'empty'], 
+                'value': 'Input',
+                'field':'magic',
+            },
+        ])
+        
+        compare_elements(self, 'title', 2, [
+            {
+                'class': ['text'], 
+                'value': 'Calculate the'
+            },
+            {
+                'class': ['magic'], 
+                'value': 'Operation',
+                'glyph':'assets/cat/Ask.svg',
+                'field':'choose',
+            },
+            {
+                'class': ['text'], 
+                'value': 'of'
+            },
+            {
+                'class': ['magic'], 
+                'value': 'Clipboard',
+                'glyph':'assets/cat/Clipboard.svg',
+                'field':'magic',
+            },
+        ])
+        

@@ -39,6 +39,6 @@ Showcuts does not:
 Status
 ######
 
-Showcuts was in active development from November - December 2019.
+Showcuts was in active development from November 2019 - January 2020.
 
 Development slowed as the author entered college, and may have ceased entirely.

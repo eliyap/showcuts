@@ -2,6 +2,7 @@ import re
 
 from ..base_line import line
 from ..base_magic import base_magic
+from ..magic_helpers import AddField
 
 class line_pill(line, base_magic):
     def __init__(

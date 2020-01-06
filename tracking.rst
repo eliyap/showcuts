@@ -72,7 +72,7 @@ Accessibility
    "Number", "✅", "❌"
    "Random Number", "✅", "❌"
    "Calculate", "❌", "❌"
-   "Calculate Statistics", "✅", "❌"
+   "Calculate Statistics", "✅", "✅", "e43107433b084e79aba13187b0a44de1"
    "Round Number", "✅", "❌"
    "Format File Size", "✅", "❌"
    "Format Number", "✅", "❌"
