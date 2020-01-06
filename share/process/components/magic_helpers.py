@@ -108,11 +108,11 @@ def ActionOutput(
         )
 
 class AddField:
-    '''Decorator that adds a ``field`` entry to every parameter dict.
+    '''Decorator. Adds a ``field`` entry to every parameter dictionary in ``to_html`` results.
 
-    As opposed to ``class`` and ``css_class`` (which provide styling information)
-    ``field`` represents the type of edittind interface, 
-    when editting is eventually implemented.
+    As opposed to ``class`` and ``css_class`` (which provide styling information),
+    ``field`` will specify the type of editing interface
+    when editing is implemented.
     '''
     def __init__(self, name:str):
         self.name = name
