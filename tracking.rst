@@ -73,7 +73,7 @@ Accessibility
    :widths: 30, 10, 10, 50
 
    "Number", "✅", "✅", "8ec1111d76ea499daeb11a51f5905bed"
-   "Random Number", "✅", "❌", ""
+   "Random Number", "✅", "✅", "406710b35d834b5d94abc74250b9df9b"
    "Calculate", "❌", "❌", ""
    "Calculate Statistics", "✅", "✅", "e43107433b084e79aba13187b0a44de1"
    "Round Number", "✅", "✅", "30ccbbbf3dfa4fd28281a60260f52a37"
