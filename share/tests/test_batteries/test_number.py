@@ -7,7 +7,7 @@ from share.tests.test_batteries.battery import *
 
 actionID = '8ec1111d76ea499daeb11a51f5905bed'
 
-class test_calculate_statistics(TestCase):
+class test_number(TestCase):
     '''Tests for Number action.
     
     Written 20.01.06
