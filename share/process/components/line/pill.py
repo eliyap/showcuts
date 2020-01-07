@@ -14,7 +14,12 @@ class line_pill(line, base_magic):
         options:[str],
     ):
         line.__init__(self, label, leftify=False)
-        base_magic.__init__(self, key, ask_each_time)
+        base_magic.__init__(self, key, ask_each_time, attrs=dict(
+            key=key,
+            ask_each_time=ask_each_time,
+            default=default,
+            options=options,
+        ))
         self.default = default
         self.options = options
 

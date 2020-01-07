@@ -1,4 +1,5 @@
 from .magic_helpers import *
+from typing import Callable
 
 class base_magic:
     '''Base class for magic variables.'''
@@ -7,11 +8,16 @@ class base_magic:
         self,
         key:str, # parameter's name in .plist file
         ask_each_time:str, # 'Ask Each Time' custom label
+        attrs:dict,
     ):
         '''
-        :param key: Key (in the action's `WFWorkflowActionParameters` dictionary) to the magic variable's value
+        :param key: Key (in the action's `WFWorkflowActionParameters` dictionary) 
+           to the magic variable's value
 
-        :param ask_each_time: The text used when `Ask Each Time` is selected as an option. 
+        :param ask_each_time: The text used when `Ask Each Time` is 
+           selected as an option. 
+        
+        :param attrs: Dict of information to be passed to HTML. 
 
         :ask_each_time:
         
@@ -21,6 +27,7 @@ class base_magic:
 
         self.key = key
         self.ask_each_time = ask_each_time
+        self.attrs = attrs
 
     def to_html(self, params:dict, UUID_glyphs:dict) -> dict:
         '''
@@ -35,15 +42,15 @@ class base_magic:
         if parameter in [None, '']: 
             return [self.blank()]
 
-        if not isinstance(parameter, dict): # non-magic variables
-            return [magic_dct(parameter, self.key)]
+        elif not isinstance(parameter, dict): # non-magic variables
+            return [magic_dct(parameter, attrs=self.attrs)]
 
         return [classify_magic(
             value = parameter['Value'],
             var_type = parameter['Value']['Type'],
             ask_each_time = self.ask_each_time,
             UUID_glyphs = UUID_glyphs,
-            key=self.key,
+            attrs=self.attrs,
         )]
 
     def blank(self):
@@ -57,3 +64,33 @@ class base_magic:
         Fields with prefilled values will include a ``default`` field.
         '''
         return {} # to be overridden!
+
+def html_slot(
+    missing:Callable,
+    blank:Callable,
+    non_magic:Callable,
+):
+    '''Builds a custom func to override to_html().'''
+    
+    def to_html(
+        self, 
+        params:dict, 
+        UUID_glyphs:dict
+    ) -> dict:
+        parameter = params.get(self.key, None)
+        if parameter == None:
+            return missing(self)
+        elif parameter == '': 
+            return blank(self)
+        elif not isinstance(parameter, dict): # non-magic variables
+            return non_magic(self, parameter)
+        else:
+            return [classify_magic(
+                value = parameter['Value'],
+                var_type = parameter['Value']['Type'],
+                ask_each_time = self.ask_each_time,
+                UUID_glyphs = UUID_glyphs,
+                attrs=self.attrs,
+            )]
+
+    return to_html

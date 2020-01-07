@@ -23,7 +23,12 @@ class choose(base_magic):
         *_,
         **__,
     ):
-        super().__init__(key, ask_each_time)
+        super().__init__(key, ask_each_time, attrs=dict(
+            key=key,
+            ask_each_time=ask_each_time,
+            default=default,
+            options=options,
+        ))
         self.default = default
         self.options = options
 
@@ -34,6 +39,6 @@ class choose(base_magic):
     def blank(self):
         return magic_dct(
             self.default,
-            key=self.key, 
+            attrs=self.attrs, 
             empty=False,
         )

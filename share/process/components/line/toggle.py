@@ -14,7 +14,11 @@ class line_toggle(line, base_magic):
     ) -> dict:
         self.default = default
         line.__init__(self, label) # no leftify, toggle is always right aligned
-        base_magic.__init__(self, key, ask_each_time)
+        base_magic.__init__(self, key, ask_each_time, attrs=dict(
+            key=key,
+            default=default,
+            ask_each_time=ask_each_time,
+        ))
 
     @AddField('toggle')
     def to_html(self, params, UUID_glyphs):
@@ -35,8 +39,8 @@ class line_toggle(line, base_magic):
 
     def blank(self):
         return value_dct(
-            [value_dct(self.blank_text, key='None')], #wrap as an inline var
-            key=self.key,
+            [value_dct(self.blank_text, attrs={})], #wrap as an inline var
+            attrs=self.attrs,
             css_class = ['inline-line'],
             empty=True,
         )

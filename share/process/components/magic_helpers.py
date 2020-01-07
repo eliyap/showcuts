@@ -1,6 +1,6 @@
 def value_dct(
     value: str,
-    key:str,
+    attrs:dict,
     css_class: [str] = [],
     empty: bool = False,
 ):
@@ -13,13 +13,13 @@ def value_dct(
     if empty: css_class.append('empty')
     return {
         'class':css_class,
-        'key':key,
+        'attrs':attrs,
         'value':value,
     }
 
 def magic_dct(
     value: str, 
-    key:str,
+    attrs:dict,
     empty: bool = False, 
     glyph:str = '', 
     UUID:str = None,
@@ -35,18 +35,18 @@ def magic_dct(
     return {
         'class': ['magic'] + (['empty'] if empty else []),
         'value': value,
-        'key':key,
+        'attrs':attrs,
         'glyph': f'assets/cat/{glyph}' if glyph else '',
         'UUID' : UUID,
     }
 
 def error_magic():
-    return magic_dct(value='<error>', empty=True, key='None')
+    return magic_dct(value='<error>', empty=True, attrs={})
 
 def classify_magic(
     value: dict, 
     var_type: str, 
-    key:str,
+    attrs:dict,
     ask_each_time: str = 'Ask Each Time',
     UUID_glyphs:dict = {},
 ) -> dict:
@@ -71,20 +71,20 @@ def classify_magic(
     The ``lambda`` stop Python from evaluating every possible outcome beforehand.
     '''
     return {
-        'Clipboard'     : lambda x: magic_dct('Clipboard', key=key, glyph='Clipboard.svg'),
-        'Ask'           : lambda x: magic_dct(ask_each_time, key=key, glyph='Ask.svg'),
-        'CurrentDate'   : lambda x: magic_dct('Current Date', key=key, glyph='Date.svg'),
-        'ExtensionInput': lambda x: magic_dct('Shortcut Input', key=key, glyph='Input.svg'),
-        'ActionOutput'  : lambda x: ActionOutput(value, key, UUID_glyphs),
-        'Variable'      : lambda x: magic_dct(value['VariableName'], key=key, glyph='Variable.svg'),
+        'Clipboard'     : lambda x: magic_dct('Clipboard', attrs=attrs, glyph='Clipboard.svg'),
+        'Ask'           : lambda x: magic_dct(ask_each_time, attrs=attrs, glyph='Ask.svg'),
+        'CurrentDate'   : lambda x: magic_dct('Current Date', attrs=attrs, glyph='Date.svg'),
+        'ExtensionInput': lambda x: magic_dct('Shortcut Input', attrs=attrs, glyph='Input.svg'),
+        'ActionOutput'  : lambda x: ActionOutput(value, attrs, UUID_glyphs),
+        'Variable'      : lambda x: magic_dct(value['VariableName'], attrs=attrs, glyph='Variable.svg'),
     }.get(var_type,       
-        lambda x: magic_dct('Could Not Load Parameter', key=key, empty=True)
+        lambda x: magic_dct('Could Not Load Parameter', attrs=attrs, empty=True)
     )(value)
         
     
 def ActionOutput(
     value:dict, 
-    key:str,
+    attrs:dict,
     UUID_glyphs:dict = {},
 ):
     '''Returns a magic variable representing output from a previous action.
@@ -95,14 +95,14 @@ def ActionOutput(
         aggr0 = value['Aggrandizements'][0]
         return magic_dct(
             aggr0['DictionaryKey'], 
-            key=key,
+            attrs=attrs,
             glyph = UUID_glyphs.get(value['OutputUUID'],''),
             UUID = value['OutputUUID'],
         )
     except (KeyError, IndexError):
         return magic_dct(
             value['OutputName'], 
-            key=key,
+            attrs=attrs,
             glyph = UUID_glyphs.get(value['OutputUUID'],''),
             UUID = value['OutputUUID'],
         )
@@ -123,3 +123,4 @@ class AddField:
             [dct.update({'field':self.name}) for dct in result]
             return result
         return field_func
+

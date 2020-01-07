@@ -24,7 +24,7 @@ class line_choose(line, choose):
             **choose.to_html(self, params, UUID_glyphs)[0], # extract from list
         }
         elem['class'].append('choose')
-        # if value isn't in the list of options, 
+        # if value isn't in ``options```, 
         # then it is a magic variable (e.g. Ask Each Time)
         if elem['value'] in self.options:
             elem['class'].remove('magic')
