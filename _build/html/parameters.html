@@ -49,16 +49,19 @@
 <h2>Base Classes<a class="headerlink" href="#base-classes" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="share.process.components.base_magic.base_magic">
-<em class="property">class </em><code class="sig-name descname">base_magic</code><span class="sig-paren">(</span><em class="sig-param">key: str</em>, <em class="sig-param">ask_each_time: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.base_magic.base_magic" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">base_magic</code><span class="sig-paren">(</span><em class="sig-param">key: str</em>, <em class="sig-param">ask_each_time: str</em>, <em class="sig-param">attrs: dict</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.base_magic.base_magic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base class for magic variables.</p>
 <dl class="method">
 <dt id="share.process.components.base_magic.base_magic.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">key: str</em>, <em class="sig-param">ask_each_time: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.base_magic.base_magic.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">key: str</em>, <em class="sig-param">ask_each_time: str</em>, <em class="sig-param">attrs: dict</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.base_magic.base_magic.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> – Key (in the action’s <cite>WFWorkflowActionParameters</cite> dictionary) to the magic variable’s value</p></li>
-<li><p><strong>ask_each_time</strong> – The text used when <cite>Ask Each Time</cite> is selected as an option.</p></li>
+<li><p><strong>key</strong> – Key (in the action’s <cite>WFWorkflowActionParameters</cite> dictionary) 
+to the magic variable’s value</p></li>
+<li><p><strong>ask_each_time</strong> – The text used when <cite>Ask Each Time</cite> is 
+selected as an option.</p></li>
+<li><p><strong>attrs</strong> – Dict of information to be passed to HTML.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Ask_each_time</dt>
@@ -142,7 +145,7 @@
 
 <dl class="class">
 <dt id="share.process.components.title.number.number">
-<em class="property">class </em><code class="sig-name descname">number</code><span class="sig-paren">(</span><em class="sig-param">key: str</em>, <em class="sig-param">blank_text: str</em>, <em class="sig-param">ask_each_time: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.number.number" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">number</code><span class="sig-paren">(</span><em class="sig-param">key: str</em>, <em class="sig-param">default: str</em>, <em class="sig-param">blank_text: str</em>, <em class="sig-param">ask_each_time: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.number.number" title="Permalink to this definition">¶</a></dt>
 <dd><p>Field that accepts numbers.</p>
 <p>In Shortcuts, this accepts:</p>
 <blockquote>
@@ -152,6 +155,12 @@
 <li><p>blank (nothing)</p></li>
 </ul>
 </div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">NOTE</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">number</span></code> may accept a <code class="docutils literal notranslate"><span class="pre">default</span></code> value. If the default</p>
+</dd>
+</dl>
+<p>state is blank, simply self <code class="docutils literal notranslate"><span class="pre">default=None</span></code>.</p>
 <dl class="method">
 <dt id="share.process.components.title.number.number.blank">
 <code class="sig-name descname">blank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.number.number.blank" title="Permalink to this definition">¶</a></dt>
@@ -162,7 +171,7 @@
 
 <dl class="class">
 <dt id="share.process.components.title.number.whole_number">
-<em class="property">class </em><code class="sig-name descname">whole_number</code><span class="sig-paren">(</span><em class="sig-param">key: str</em>, <em class="sig-param">blank_text: str</em>, <em class="sig-param">ask_each_time: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.number.whole_number" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">whole_number</code><span class="sig-paren">(</span><em class="sig-param">key: str</em>, <em class="sig-param">default: str</em>, <em class="sig-param">blank_text: str</em>, <em class="sig-param">ask_each_time: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.number.whole_number" title="Permalink to this definition">¶</a></dt>
 <dd><p>Field that accepts only whole numbers.</p>
 <p>In Shortcuts, this is identical to <code class="docutils literal notranslate"><span class="pre">number</span></code>, 
 except the decimal point is not available.</p>
