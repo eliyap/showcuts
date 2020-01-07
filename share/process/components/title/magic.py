@@ -21,7 +21,11 @@ class magic(base_magic):
         blank_text:str, # lighter text when the variable is cleared
         ask_each_time:str, 
     ):
-        super().__init__(key, ask_each_time)
+        super().__init__(key, ask_each_time, attrs=dict(
+            key=key,
+            ask_each_time=ask_each_time,
+            blank_text=blank_text,
+        ))
         self.blank_text = blank_text
 
     @AddField('magic')
@@ -31,7 +35,7 @@ class magic(base_magic):
     def blank(self):
         return magic_dct(
             self.blank_text, 
-            key=self.key,
+            attrs=self.attrs,
             empty=True
         )
 

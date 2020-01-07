@@ -19,7 +19,11 @@ class quantity(base_magic):
         ask_each_time:str, # magnitude's Ask Each Time
         blank_text:str, # magnitude's blank
     ):
-        super().__init__(key, ask_each_time)
+        super().__init__(key, ask_each_time, attrs=dict(
+            key=key,
+            ask_each_time=ask_each_time,
+            blank_text=blank_text,
+        ))
         self.blank_text = blank_text
     
     @AddField('measurement')
@@ -29,14 +33,14 @@ class quantity(base_magic):
             return self.blank() # NOTE: blank returns a list of 2 vars, unlike other actions
 
         if not isinstance(parameter, dict): # non-magic variables
-            return [magic_dct(parameter, key=self.key)]
+            return [magic_dct(parameter, attrs=self.attrs)]
 
         return [classify_magic(
             value = parameter['Value'],
             var_type = parameter['Value']['Type'],
             ask_each_time = self.ask_each_time,
             UUID_glyphs = UUID_glyphs,
-            key=self.key,
+            attrs=self.attrs,
         )]
 
     def blank(self):

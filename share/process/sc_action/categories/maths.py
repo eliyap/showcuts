@@ -17,6 +17,7 @@ class number_(_base):
     title = [
         number(
             'WFNumberActionNumber',
+            default=None,
             blank_text='42',
             ask_each_time='Number',
         ),
@@ -29,12 +30,14 @@ class random(_base):
         text('Random number between'),
         number(
             'WFRandomNumberMinimum',
+            default=None,
             blank_text='Minimum',
             ask_each_time='Minimum',
         ),
         text('and'),
         number(
             'WFRandomNumberMaximum',
+            default=None,
             blank_text='Maximum',
             ask_each_time='Maximum',
         ),
@@ -81,6 +84,7 @@ class round_(_base):
         text('Round'),
         number(
             'WFInput',
+            default=None,
             blank_text='Number',
             ask_each_time='Number',
         ),
@@ -111,6 +115,7 @@ class round_(_base):
         ),
         whole_number(
             'TenToThePowerOf',
+            default='0',
             blank_text='', # truly blank
             ask_each_time='Ask Each Time',
         ),
@@ -140,6 +145,7 @@ class format_filesize(_base):
         text('Format'),
         whole_number(
             'WFFileSize',
+            default=None,
             blank_text='File Size',
             ask_each_time='File Size',
         ),
@@ -182,6 +188,7 @@ class format_number(_base):
         text('Format'),
         number(
             'WFNumber',
+            default=None,
             blank_text='Number',
             ask_each_time='Number',
         ),

@@ -52,7 +52,8 @@ class encodemedia(action):
         line_number(
             'Custom Speed',
             'WFMediaCustomSpeed',
-            '1.0',
+            default=None,
+            blank_text='1.0',
             ask_each_time='Ask Each Time',
         ),
 
