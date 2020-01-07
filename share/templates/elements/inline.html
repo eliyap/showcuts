@@ -14,34 +14,29 @@
 
 
 {# HASH LINK TO ACTION THAT PROVIDED RESULT #}
-{% if elem.UUID %}
-<a href="#{{elem.UUID}}">
+<span class="{{elem.class|join:' '}}" field="{{elem.field}}" {% for key, val in elem.attrs.items %}{{key}}='{{val}}'{% endfor %}>
+  {% if elem.glyph %}
+  <img class="inline-glyph" src="{% static elem.glyph %}" />
   {% endif %}
 
-  <span class="{{elem.class|join:' '}}" field="{{elem.field}}">
-    {% if elem.glyph %}
-    <img class="inline-glyph" src="{% static elem.glyph %}" />
-    {% endif %}
+  {# PILL MENU #}
+  {% if 'pill' in elem.class%}
+  {% for i in elem.value %}
+  <div class='{{i.class}}'>{{i.value}}</div>
+  {% endfor %}
 
-    {# PILL MENU #}
-    {% if 'pill' in elem.class%}
-    {% for i in elem.value %}
-    <div class='{{i.class}}'>{{i.value}}</div>
-    {% endfor %}
+  {# COUNTER (-|+) #}
+  {% elif 'counter' in elem.class%}
+  <img src="{% static 'assets/ui/counter-minus.svg' %}" />
+  <img src="{% static 'assets/ui/counter-plus.svg' %}" />
 
-    {# COUNTER (-|+) #}
-    {% elif 'counter' in elem.class%}
-    <img src="{% static 'assets/ui/counter-minus.svg' %}" />
-    <img src="{% static 'assets/ui/counter-plus.svg' %}" />
-    
-    {# CATCHALL #}
-    {% else %}
-    <span>&lrm;{{elem.value}}</span> {# SPAN SATISFIES SPACELESS TAG, LRM prevents spaces from disappearing #}
-    {% endif %}
-  </span>
-
-  {% if elem.UUID %}
-</a>
-{% endif %}
+  {# CATCHALL #}
+  {% else %}
+  <span>&lrm;{{elem.value}}</span> {# SPAN SATISFIES SPACELESS TAG, LRM prevents spaces from disappearing #}
+  {% endif %}
+</span>
 
 {% endif %}
+<span class='spacer'></span>
+
+{#NOTE TO SELF: elem.UUID is available for hash linking!#}
