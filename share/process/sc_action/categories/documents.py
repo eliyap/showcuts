@@ -5,106 +5,106 @@ class _base(action):
     glyph = 'File.svg'
 
 class unzip(_base):
-    name = '___'
+    name = 'Extract Archive'
     result = 'Files'
 
 class makezip(_base):
-    name = '___'
+    name = 'Make Archive'
     result = 'Archive'
 
 class speaktext(_base):
-    name = '___'
+    name = 'Speak Text'
     glyph = 'Volume.svg'
 
 class avairyeditphoto(_base):
-    name = '___'
+    name = 'Markup'
     glyph = 'Markup.svg'
     result = 'Markup Result'
 
 class openin(_base):
-    name = '___'
+    name = 'Open In...'
     glyph = 'App.svg'
 
 class previewdocument(_base):
-    name = '___'
+    name = 'Quick Look'
     glyph = 'Quicklook.svg'
 
 class makepdf(_base):
-    name = '___'
+    name = 'Make PDF'
     glyph = 'Make-PDF.svg'
     result = 'PDF'
 
 class print_(_base):
-    name = '___'
+    name = 'Print'
     glyph = 'Print.svg'
 
 class generatebarcode(_base):
-    name = '___'
+    name = 'Generate QR Code'
     glyph = 'QR.png'
     result = 'QR Code'
 
 class scanbarcode(_base):
-    name = '___'
+    name = 'Scan QR/Barcode'
     glyph = 'QR.png'
     result = 'QR/Barcode'
 
 class getrichtextfrommarkdown(_base):
-    name = '___'
+    name = 'Make Rich Text from Markdown'
     glyph = 'RichText.png'
     result = 'Rich Text from Markdown'
 
 class getrichtextfromhtml(_base):
-    name = '___'
+    name = 'Make Rich Text from HTML'
     glyph = 'RichText.png'
     result = 'Rich Text from HTML'
 
 class gethtmlfromrichtext(_base):
-    name = '___'
+    name = 'Make HTML from Rich Text'
     glyph = 'RichText.png'
     result = 'HTML from Rich Text'
 
 class getmarkdownfromrichtext(_base):
-    name = '___'
+    name = 'Make Markdown from Rich Text'
     glyph = 'RichText.png'
     result = 'Markdown from Rich Text'
 
 class dictatetext(_base):
-    name = '___'
+    name = 'Dictate Text'
     glyph = 'Dictate.svg'
     result = 'Dictated Text'
 
 class getnameofemoji(_base):
-    name = '___'
+    name = 'Get Name of Emoji'
     glyph = 'Emoji.svg'
     result = 'Name of Emoji'
 
 class showdefinition(_base):
-    name = '___'
+    name = 'Show Definition'
     glyph = 'Definition.svg'
 
 class file_createfolder(_base):
-    name = '___'
+    name = 'Create Folder'
 
 class file_append(_base):
-    name = '___'
+    name = 'Append to File'
     result = 'Appended File'
 
 class file_delete(_base):
-    name = '___'
+    name = 'Delete Files'
 
 class file_getlink(_base):
-    name = '___'
+    name = 'Get Link to File'
     result = 'Link to File'
 
 class correctspelling(_base):
-    name = '___'
+    name = 'Correct Spelling'
     glyph = 'Note.svg'
     result = 'Corrected Spelling'
 
 class documentpicker_open(_base):
-    name = '___'
+    name = 'Get File'
     result = 'File'
 
 class documentpicker_save(_base):
-    name = '___'
+    name = 'Save File'
     result = 'Saved File'

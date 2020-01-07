@@ -67,7 +67,7 @@ lookup = {
     'count':scripting.count,
     'choosefromlist':scripting.choosefromlist,
     'getitemfromlist':scripting.getitemfromlist,
-    'list':scripting.list,
+    'list':scripting.list_,
     'getipaddress':scripting.getipaddress,
     'getwifi':scripting.getwifi,
     'dnd.set':scripting.dnd_set,

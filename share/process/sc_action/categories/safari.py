@@ -6,6 +6,7 @@ class _base(action):
     glyph = 'system/Safari.jpg'
 
 class searchweb(_base):
+    name = 'Search Web'
     title = [
         text('Search'),
         choose(
@@ -33,6 +34,7 @@ class searchweb(_base):
     ]
 
 class showwebpage(_base):
+    name = 'Show Web Page'
     title = [
         text('Show web page at'),
         inline(
@@ -51,6 +53,7 @@ class showwebpage(_base):
     ]
 
 class readinglist(_base):
+    name = 'Add to Reading List'
     title = [
         text('Add'),
         list_inline(
@@ -62,6 +65,7 @@ class readinglist(_base):
     ]
 
 class openurl(_base):
+    name = 'Open URLs'
     title = [
         text('Open'),
         list_inline(
@@ -72,6 +76,7 @@ class openurl(_base):
     ]
 
 class runjavascriptonwebpage(_base):
+    name = 'Run JavaScript on Web Page'
     result = 'JavaScript Result'
     title = [
         text('Run JavaScript on'),
@@ -101,6 +106,7 @@ completion(result);''',
     ]
 
 class getwebpagecontents(_base):
+    name = 'Get Contents of Web Page'
     title = [
         text('Get contents of web page at'),
         inline(
@@ -112,6 +118,7 @@ class getwebpagecontents(_base):
     result = 'Contents of Web Page'
 
 class getarticle(_base):
+    name = 'Get Article using Safari Reader'
     title = [
         text('Get article from'),
         inline(

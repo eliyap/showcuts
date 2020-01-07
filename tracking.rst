@@ -2,14 +2,17 @@
 Shortcuts
 =========
 
-..
-   NOTE: I am abusing invisible characters to space out the tables!
-
 A complete action must have:
 
    * set ``name``, ``category``, ``glyph``
    * ``title`` or ``lines`` where applicable
    * tests
+
+Key
+
+   * ✅ Complete
+   * ❌ Not Yet Complete
+   * 👁 Visual Check Only (for simple actions)
 
 Accessibility
 =============
@@ -52,11 +55,11 @@ Accessibility
    :header: "Action", "Class Written", "Test Written", "Test ID"
    :widths: 30, 10, 10, 50
 
-   "Encode Media", "✅", "❌"
-   "Trim Media", "✅", "❌"
+   "Encode Media", "✅", "❌", ""
+   "Trim Media", "✅", "❌", ""
    "Detect Language with Microsoft", "✅", "❌"
    "Translate Text with Microsoft", "✅", "❌"
-   "Airdrop", "✅", "❌"
+   "Airdrop", "✅", "❌", ""
 
 **Tests**
 
@@ -70,14 +73,14 @@ Accessibility
    :widths: 30, 10, 10, 50
 
    "Number", "✅", "✅", "8ec1111d76ea499daeb11a51f5905bed"
-   "Random Number", "✅", "❌"
-   "Calculate", "❌", "❌"
+   "Random Number", "✅", "❌", ""
+   "Calculate", "❌", "❌", ""
    "Calculate Statistics", "✅", "✅", "e43107433b084e79aba13187b0a44de1"
-   "Round Number", "✅", "❌"
-   "Format File Size", "✅", "❌"
-   "Format Number", "✅", "❌"
+   "Round Number", "✅", "✅", "30ccbbbf3dfa4fd28281a60260f52a37"
+   "Format File Size", "✅", "❌", ""
+   "Format Number", "✅", "❌", ""
    "Convert Measurement", "❌", "❌"
-   "Measurement", "✅", "❌"
+   "Measurement", "✅", "❌", ""
 
 ‎Music
 ======
@@ -86,14 +89,148 @@ Accessibility
    :header: "Action", "Class Written", "Test Written", "Test ID"
    :widths: 30, 10, 10, 50
 
-   "Get Current Song", "❌", "❌"
-   "Play Music", "❌", "❌"
-   "Play/Pause", "❌", "❌"
-   "Skip Back", "❌", "❌"
-   "Skip Forward", "❌", "❌"
-   "Select Music", "❌", "❌"
-   "Add to Playlist", "❌", "❌"
-   "Create Playlist", "❌", "❌"
-   "Get Playlist", "❌", "❌"
-   "Add to Up Next", "❌", "❌"
-   "Clear Up Next", "❌", "❌"
+   "Get Current Song", "❌", "❌", ""
+   "Play Music", "❌", "❌", ""
+   "Play/Pause", "❌", "❌", ""
+   "Skip Back", "❌", "❌", ""
+   "Skip Forward", "❌", "❌", ""
+   "Select Music", "❌", "❌", ""
+   "Add to Playlist", "❌", "❌", ""
+   "Create Playlist", "❌", "❌", ""
+   "Get Playlist", "❌", "❌", ""
+   "Add to Up Next", "❌", "❌", ""
+   "Clear Up Next", "❌", "❌", ""
+
+Maps
+======
+
+.. csv-table::
+   :header: "Action", "Class Written", "Test Written", "Test ID"
+   :widths: 30, 10, 10, 50
+
+   "Get Distance", "❌", "❌", ""
+   "Get Halfway Point", "❌", "❌", ""
+   "Search Travel Time", "❌", "❌", ""
+   "Street Address", "❌", "❌", ""
+   "Get Maps URL", "❌", "❌", ""
+   "Show Directions", "❌", "❌", ""
+   "Show in Maps", "❌", "❌", ""
+   "Search Local Businesses", "❌", "❌", ""
+   
+Date
+======
+
+.. csv-table::
+   :header: "Action", "Class Written", "Test Written", "Test ID"
+   :widths: 30, 10, 10, 50
+
+   "Date", "❌", "❌", ""
+   "Format Date", "❌", "❌", ""
+   "Adjust Date", "❌", "❌", ""
+   "Get Dates from Input", "❌", "❌", ""
+   "Get Time Between Dates", "❌", "❌", ""
+
+Documents
+=========
+
+.. csv-table::
+   :header: "Action", "Class Written", "Test Written", "Test ID"
+   :widths: 30, 10, 10, 50
+   
+   "Extract Archive", "❌", "❌", ""
+   "Make Archive", "❌", "❌", ""
+   "Speak Text", "❌", "❌", ""
+   "Markup", "❌", "❌", ""
+   "Open In...", "❌", "❌", ""
+   "Quick Look", "❌", "❌", ""
+   "Make PDF", "❌", "❌", ""
+   "Print", "❌", "❌", ""
+   "Generate QR Code", "❌", "❌", ""
+   "Scan QR/Barcode", "❌", "❌", ""
+   "Make Rich Text from Markdown", "❌", "❌", ""
+   "Make Rich Text from HTML", "❌", "❌", ""
+   "Make HTML from Rich Text", "❌", "❌", ""
+   "Make Markdown from Rich Text", "❌", "❌", ""
+   "Dictate Text", "❌", "❌", ""
+   "Get Name of Emoji", "❌", "❌", ""
+   "Show Definition", "❌", "❌", ""
+   "Create Folder", "❌", "❌", ""
+   "Append to File", "❌", "❌", ""
+   "Delete Files", "❌", "❌", ""
+   "Get Link to File", "❌", "❌", ""
+   "Correct Spelling", "❌", "❌", ""
+   "Get File", "❌", "❌", ""
+   "Save File", "❌", "❌", ""
+   
+Safari
+=========
+
+.. csv-table::
+   :header: "Action", "Class Written", "Test Written", "Test ID"
+   :widths: 30, 10, 10, 50
+   
+   "Search Web", "❌", "❌", ""
+   "Show Web Page", "❌", "❌", ""
+   "Add to Reading List", "❌", "❌", ""
+   "Open URLs", "❌", "❌", ""
+   "Run JavaScript on Web Page", "❌", "❌", ""
+   "Get Contents of Web Page", "❌", "❌", ""
+   "Get Article using Safari Reader", "❌", "❌", ""
+   
+Scripting
+=========
+
+.. csv-table::
+   :header: "Action", "Class Written", "Test Written", "Test ID"
+   :widths: 30, 10, 10, 50
+   
+   "Exit Shortcut", "❌", "❌", ""
+   "Open App", "❌", "❌", ""
+   "If", "❌", "❌", ""
+   "Choose from Menu", "❌", "❌", ""
+   "Repeat", "❌", "❌", ""
+   "Repeat with Each", "❌", "❌", ""
+   "Wait", "❌", "❌", ""
+   "Wait to Return", "❌", "❌", ""
+   "Get Battery Level", "❌", "❌", ""
+   "Get Device Details", "❌", "❌", ""
+   "Set Brightness", "❌", "❌", ""
+   "Set Torch", "❌", "❌", ""
+   "Dictionary", "❌", "❌", ""
+   "Get Dictionary from Input", "❌", "❌", ""
+   "Get Dictionary Value", "❌", "❌", ""
+   "Set Dictionary Value", "❌", "❌", ""
+   "Base64 Encode", "❌", "❌", ""
+   "Generate Hash", "❌", "❌", ""
+   "Choose from List", "❌", "❌", ""
+   "Get Item from List", "❌", "❌", ""
+   "List", "❌", "❌", ""
+   "Get Current IP Address", "❌", "❌", ""
+   "Get Network Details", "❌", "❌", ""
+   "Set Do Not Disturb", "❌", "❌", ""
+   "Set Airplane Mode", "❌", "❌", ""
+   "Set Bluetooth", "❌", "❌", ""
+   "Set Mobile Data", "❌", "❌", ""
+   "Set Wi-Fi", "❌", "❌", ""
+   "Set Low Power Mode", "❌", "❌", ""
+   "Nothing", "❌", "❌", ""
+   "Count", "❌", "❌", ""
+   "Ask for Input", "❌", "❌", ""
+   "Play Sound", "❌", "❌", ""
+   "Show Alert", "❌", "❌", ""
+   "Show Result", "❌", "❌", ""
+   "Vibrate Device", "❌", "❌", ""
+   "Run Script Over SSH", "❌", "❌", ""
+   "Open X-Callback URL", "❌", "❌", ""
+   "URL Encode", "❌", "❌", ""
+
+Undocumented
+============
+
+Yet to be added as classes
+
+   * Set Appearance
+   * 
+   * 
+   * 
+   * 
