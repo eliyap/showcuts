@@ -21,8 +21,7 @@ div {
 }
 .magic {
   position: relative;
-  padding-left: 0.2rem;
-  padding-right: 0.2rem;
+  padding:0 .1rem 0 .4rem;
   color: $magic-ink;
   background-color: $magic-bg;
   border-radius: 0.5rem;
@@ -82,8 +81,8 @@ div {
   border-bottom: 1px solid lightgray;
 }
 .text {
-  margin-left: +0.2rem; // weird spacing issue
-  margin-right: -0.2rem;
+//   margin-left: +0.2rem; // weird spacing issue
+//   margin-right: -0.2rem;
   div {
     overflow-wrap: break-word;
     word-break: break-word;
@@ -466,6 +465,22 @@ a:hover {
   }
 }
 
+// space out magic blocks
+.spacer{
+    display: inline-block;
+    width:.1rem;
+}
+.text+.spacer{
+    width: 0;
+}
+
+// magic input
+#magic_input{
+    background: none;
+    font-size: inherit;
+    border-radius: 0;
+    border:none;
+}
 /* modded from 768 due to 35 rem default */
 @media only screen and (max-width: 600px) {
   .action {
