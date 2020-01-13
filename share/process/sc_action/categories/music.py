@@ -8,6 +8,7 @@ class _base(action):
 
 class getcurrentsong(_base):
     name = 'Get Current Song'
+    title = [text('Get current song')]
     result = 'Current Song'
 
 class playmusic(_base):
@@ -96,6 +97,15 @@ class skipback(_base):
 class skipforward(_base):
     name = 'Skip Forward'
     glyph = 'Skip-Forward.svg'
+    title = [
+        text('Skip forwards on'),
+        choose(
+            'WFMediaRoute',
+            ask_each_time='Device',
+            default='iPhone', # TODO: test with other devices, esp HomePods!
+            options=['iPhone'],
+        ),
+    ]
     category = 'NOW PLAYING'
 
 class exportsong(_base):
@@ -134,10 +144,44 @@ class addtoplaylist(_base):
 
 class createplaylist(_base):
     name = 'Create Playlist'
+    title = [
+        text('Create playlist'),
+        inline(
+            'WFPlaylistName',
+            blank_text='Playlist Name',
+            ask_each_time='Text',
+        ),
+        text('with'),
+        magic(
+            'WFPlaylistItems',
+            blank_text='Music',
+            ask_each_time=None,
+        ),
+    ]
+    lines = [
+        line_inline(
+            'Author',
+            'WFPlaylistAuthor',
+            blank_text='Shortcuts',
+        ),
+        line_inline(
+            'Description',
+            'WFPlaylistDescription',
+            blank_text='All my favorites',
+        ),
+    ]
     result = 'New Playlist'
 
 class get_playlist(_base):
     name = 'Get Playlist'
+    title = [
+        text('Get songs in'),
+        magic(
+            'WFPlaylistName',
+            blank_text='Playlist',
+            ask_each_time='Playlist',
+        ),
+    ]
     result = 'Playlist'
 
 class addmusictoupnext(_base):
