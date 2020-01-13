@@ -25,8 +25,8 @@ class line_toggle(line, base_magic):
         toggle_state = params.get(self.key, self.default)
         if isinstance(toggle_state, bool):
             toggle_elem = {
-                True: {'class':['toggle','on'], 'value':'', 'key':self.key},
-                False:{'class':['toggle','off'], 'value':'', 'key':self.key},
+                True: {'class':['toggle','on'], 'value':'', 'attrs':self.attrs},
+                False:{'class':['toggle','off'], 'value':'', 'attrs':self.attrs},
             }[toggle_state]
         elif isinstance(toggle_state, dict):
             toggle_elem = base_magic.to_html(self, params, UUID_glyphs)[0] # extract from list

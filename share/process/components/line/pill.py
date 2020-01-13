@@ -36,7 +36,7 @@ class line_pill(line, base_magic):
                     'class':'pill-on' if option.lower()==parameter.lower() else 'pill-off',
                     'value':option,
                 } for option in self.options], 
-                'key':self.key,
+                'attrs':self.attrs,
             }
         return [{
             **line.to_html(self),

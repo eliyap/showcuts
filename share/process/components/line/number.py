@@ -19,13 +19,12 @@ class line_number(line, number):
 
     @AddField('number')
     def to_html(self, params, UUID_glyphs):
-        
         return [{
             **line.to_html(self),
             **html_slot(
-                default = lambda self: [value_dct(self.default, attrs=self.attrs)],
-                blank = lambda self: [value_dct(self.blank_text, attrs=self.attrs, empty=True)],
-                non_magic = lambda self, parameter: [value_dct(parameter, attrs=self.attrs)],
+                missing = lambda self: value_dct(self.default, attrs=self.attrs),
+                blank = lambda self: value_dct(self.blank_text, attrs=self.attrs, empty=True),
+                non_magic = lambda self, parameter: value_dct(parameter, attrs=self.attrs),
             )(self, params, UUID_glyphs),
         }]
 
