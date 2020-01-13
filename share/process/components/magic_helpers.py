@@ -1,3 +1,4 @@
+from copy import deepcopy
 def value_dct(
     value: str,
     attrs:dict,
@@ -12,7 +13,7 @@ def value_dct(
     '''
     if empty: css_class.append('empty')
     return {
-        'class':css_class,
+        'class':deepcopy(css_class), # must be deepcopied! otherwise strange bugs occur
         'attrs':attrs,
         'value':value,
     }
