@@ -4,6 +4,8 @@ from .title.choose import choose
 from .title.inline import inline, list_inline
 from .title.counter import counter
 from .title.number import number, whole_number
+from .title.unit import unit, long_unit
+from .title.music import music
 
 from .base_line import line
 from .line.choose import line_choose
