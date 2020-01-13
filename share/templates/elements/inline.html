@@ -4,7 +4,7 @@
 {# UNPACK INLINE VARIABLES #}
 {% if 'inline-magic' in elem.class or 'list-inline-magic' in elem.class or 'inline-line' in elem.class or 'notes' in elem.class %}
 
-<span class="{{elem.class|join:' '}}">
+<span class="{{elem.class|join:' '}}" field="{{elem.field}}" {% for key, val in elem.attrs.items %}{{key}}='{{val}}'{% endfor %}>
   {% for i in elem.value %}
   {% include 'elements/inline.html' with elem=i %}
   {% endfor%}
