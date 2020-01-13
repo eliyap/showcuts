@@ -158,11 +158,6 @@ div {
   top: 0.2rem;
   margin-left: -0.15rem;
 }
-.lower-line .inline-glyph {
-  position: relative;
-  top: 0.25rem;
-  margin-left: -0.15rem;
-}
 
 .action-title {
   font-size: 1.5rem;
@@ -203,14 +198,13 @@ div {
 /* line elements */
 .line-elems {
   margin: 1rem -1.2rem -1.2rem -1.2rem;
-  padding-left: 1.2rem;
   padding-right: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .lower-line {
   border-top: 1px solid rgba(0, 0, 0, 0.125);
   padding: 0.5rem 1.2rem 0.5rem 0;
+  margin-left: 1.2rem;
   /* height: 3.4rem; */
   font-size: 1.2rem;
   display: flex;
@@ -219,6 +213,11 @@ div {
   a {
     flex: initial;
     @extend %centre-y;
+  }
+  .inline-glyph {
+    position: relative;
+    top: 0.25rem;
+    margin-left: -0.15rem;
   }
 }
 
@@ -244,7 +243,9 @@ div {
 
 .lower-line:first-child,
 .list-line:first-child {
-  border-top: none !important;
+    // extend border-top to left edge of action box
+    margin-left: 0!important;
+    padding-left: 1.2rem;
 }
 
 .line-label {
@@ -313,9 +314,6 @@ div {
 /* list styling */
 .list-elem {
   margin: auto 0.3rem auto 0 !important;
-}
-.lower-line a {
-  flex: initial;
 }
 .minus {
   width: 2rem;
