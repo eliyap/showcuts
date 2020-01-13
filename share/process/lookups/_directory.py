@@ -1,4 +1,4 @@
-from . import color, wf_icons, languages, simple_actions, placeholder, extensions, action_meta, template_actions, filter_field
+from . import color, wf_icons, languages, simple_actions, placeholder, extensions, action_meta, template_actions, filter_field, measurement
 
 # lookup dictionaries
 color_codes = color.codes
@@ -7,6 +7,7 @@ lang_codes = languages.dct
 extension_lookup = extensions.dct
 categorize = action_meta.dct
 field_type = filter_field.dct
+measurement_units = measurement.dct
 
 # information to fill in the blanks for simple repeated actions
 uni_params            = simple_actions.uni_params
