@@ -56,10 +56,10 @@ Accessibility
    :widths: 30, 10, 10, 50
 
    "Encode Media", "✅", "❌", ""
-   "Trim Media", "✅", "❌", ""
+   "Trim Media", "✅", "👁", "06f6587514024a4fa2650ea0011fb61f"
    "Detect Language with Microsoft", "✅", "❌"
    "Translate Text with Microsoft", "✅", "❌"
-   "Airdrop", "✅", "❌", ""
+   "Airdrop", "✅", "👁", ""
 
 **Tests**
 
@@ -79,8 +79,10 @@ Accessibility
    "Round Number", "✅", "✅", "30ccbbbf3dfa4fd28281a60260f52a37"
    "Format File Size", "✅", "❌", ""
    "Format Number", "✅", "❌", ""
-   "Convert Measurement", "❌", "❌"
+   "Convert Measurement", "✅", "❌", "c27de7c1d81444069f6c6b67459ff661"
    "Measurement", "✅", "❌", ""
+
+:TODO: Add exhaustive testing for Convert Measurement
 
 ‎Music
 ======
@@ -90,16 +92,22 @@ Accessibility
    :widths: 30, 10, 10, 50
 
    "Get Current Song", "❌", "❌", ""
-   "Play Music", "❌", "❌", ""
-   "Play/Pause", "❌", "❌", ""
-   "Skip Back", "❌", "❌", ""
+   "Play Music", "✅", "✅", "faedd7efe2894db9b99425245906b894"
+   "Play/Pause", "✅", "✅", "e7e2790c57434d7eb15ceadfba0172eb"
+   "Skip Back", "✅", "✅", "4173f68c3797491c99e1a5d35ad0c273"
    "Skip Forward", "❌", "❌", ""
-   "Select Music", "❌", "❌", ""
-   "Add to Playlist", "❌", "❌", ""
+   "Select Music", "✅", "✅", "06c7737fab6e48ac8f2859366c9883d2"
+   "Add to Playlist", "✅", "✅", "92954432e87444a4b009dfa217c18010"
    "Create Playlist", "❌", "❌", ""
    "Get Playlist", "❌", "❌", ""
-   "Add to Up Next", "❌", "❌", ""
-   "Clear Up Next", "❌", "❌", ""
+   "Add to Up Next", "✅", "✅", "51619cdb300742d4ae119ef2888f8b05"
+   "Clear Up Next", "✅", "✅", "6f12d879df9b4784be1d1f71d35e24bc"
+
+:TODO: Test with more devices (esp. HomePods) for WFMediaRoute Actions
+
+   * Play/Pause
+   * Skip Forwards
+   * Skip Back
 
 Maps
 ======
