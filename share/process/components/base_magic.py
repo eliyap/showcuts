@@ -38,20 +38,12 @@ class base_magic:
         :param UUID_glyphs: Previous actions' outputs can be used as magic variable inputs, and are displayed alongside the output-action's glyph. ``UUID Glyphs`` maps actions' output UUIDs to their glyphs.
         '''
 
-        parameter = params.get(self.key, None)
-        if parameter in [None, '']: 
-            return [self.blank()]
+        return html_slot(
+            missing=lambda self:[self.blank()],
+            blank=lambda self:[self.blank()],
+            non_magic=lambda self, parameter:[magic_dct(parameter, attrs=self.attrs)]
+        )(self, params, UUID_glyphs)
 
-        elif not isinstance(parameter, dict): # non-magic variables
-            return [magic_dct(parameter, attrs=self.attrs)]
-
-        return [classify_magic(
-            value = parameter['Value'],
-            var_type = parameter['Value']['Type'],
-            ask_each_time = self.ask_each_time,
-            UUID_glyphs = UUID_glyphs,
-            attrs=self.attrs,
-        )]
 
     def blank(self):
         '''Handles output when the variable was left blank.'''
