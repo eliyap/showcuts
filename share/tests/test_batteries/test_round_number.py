@@ -8,7 +8,7 @@ from share.tests.test_batteries.battery import *
 actionID = '30ccbbbf3dfa4fd28281a60260f52a37'
 
 class test_round_number(TestCase):
-    '''Tests for Number action.
+    '''Tests for Round Number action.
     
     Written 20.01.06
     '''
