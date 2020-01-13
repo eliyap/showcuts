@@ -1,5 +1,6 @@
 from share.process.components._directory import *
 from ..action import *
+from share.process.lookups._directory import measurement_units
 '''
 # A Note on the Tree
 - longer (more specifc labels must go first)
@@ -136,7 +137,7 @@ class round_(_base):
 
     def modify(self):
         if self.title[3]['value'] != '10 ^':
-            self.title[4]['class'].append('hidden')
+            self.hide_title('TenToThePowerOf')
     result = 'Rounded Number'
 
 class format_filesize(_base):
@@ -205,293 +206,60 @@ class format_number(_base):
 class measurement_convert(_base):
     name = 'Convert Measurement'
     category = 'MEASUREMENT'
+    title = [
+        text('Convert'),
+        magic(
+            'WFInput',
+            blank_text='Measurement',
+            ask_each_time=None,
+        ),
+        text('into'),
+        choose(
+            'WFMeasurementUnitType',
+            ask_each_time='Type',
+            default='Length',
+            options=list(measurement_units.keys())
+        ),
+        text('in'),
+        long_unit(
+            'WFMeasurementUnit',
+            ask_each_time='Unit',
+            default='___',
+            options=[],
+        )
+    ]
+    def modify(self):
+        '''Fix unit inconsistency.
+        If unit is missing / inconsistent with selected measurement, force consistency.
+        Then re-to_html.
+        '''
+        unit_type = self.get_title(key='WFMeasurementUnitType')['value']
+        unit_dct = self.parameters.get('WFMeasurementUnit',{})
+        if 'WFSerializationType' in unit_dct: # classic magic var
+            if self.get_title('WFMeasurementUnitType')['value'] == 'Type':
+                self.hide_text('in')
+                self.hide_title('WFMeasurementUnit')
+            return
+
+
+        #: if not a classic magic var, check if the units line up
+        #: if the units do not line up, override.
+        if unit_type != self.parameters.get('WFMeasurementUnit',{}).get('WFNSUnitType',None):
+            self.parameters['WFMeasurementUnit'] = {
+                "WFNSUnitSymbol":measurement_units.get(unit_type,{}).get('default',''),
+                "WFNSUnitType": unit_type,
+            }
+        self.title[5] = long_unit(
+            'WFMeasurementUnit',
+            ask_each_time='Unit',
+            default='___',
+            options=[],
+        ).to_html(self.parameters, UUID_glyphs={})[0]
+
     result = 'Converted Measurement'
 
 class measurement_create(_base):
     name = 'Measurement'
-    units = {
-        'Acceleration':{
-            'units':[
-                'g-force',
-                'm/s²', # metres per second squared (meters?)
-            ],
-            'default':'m/s²',
-        },
-        'Angle':{
-            'units':[
-                'arcmin', # arcminutes
-                'arcsec', # arcseconds
-                'deg', # degrees
-                'grad',
-                'rad', # radians
-                'rev', # revolution
-            ],
-            'default':'deg',
-        },
-        'Area':{
-            'units':[
-                'a',
-                'acre', # acres
-                'cm²', # square centimetres
-                'ft²', # square feet
-                'hectare', # hectares
-                'in²', # square inches
-                'km²', # square kilometres
-                'm²', # square metres, actually displayed as 'metres²'
-                'mi²', # square square miles
-                'ft²', # square feet
-                'Mm²',
-                'mm²',
-                'nm²',
-                'square yards',
-                'μm²',
-            ],
-            'default':'m²',
-        },
-        'Concentration Mass':{
-            'units':[
-                'g/L',
-                'mg/dl', # milligrams per decilitre
-                'μg/m³',
-            ],
-            'default':'mg/dl',
-        },
-        'Dispersion':{
-            'units':[
-                'ppm', # parts per million
-            ],
-            'default':'ppm',
-        },
-        'Duration':{
-            'units':[
-                'hour', # hours
-                'min', # minutes
-                'msec', # milliseconds
-                'ns', # nanoseconds
-                'ps',
-                'sec', # seconds
-                'μsec', # microseconds
-            ],
-            'default':'min',
-        },
-        'Electric Charge':{
-            'units':[
-                'Ah',
-                'C',
-                'kAh',
-                'mAh',
-                'MAh',
-                'μAh',
-            ],
-            'default':'Ah',
-        },
-        'Electric Current':{
-            'units':[
-                'amp', # amperes,
-                'kA',
-                'MA',
-                'mA', # milliamperes
-                'μA',
-            ],
-            'default':'amp',
-        },
-        'Electric Potential Difference':{
-            'units':[
-                'kV',
-                'MV',
-                'mV',
-                'volt', # volts
-                'μV',
-            ],
-            'default':'volt',
-        },
-        'Electric Resistance':{
-            'units':[
-                'kΩ',
-                'MΩ',
-                'mΩ',
-                'μΩ',
-                'ohm', # ohms
-            ],
-            'default':'ohm',
-        },
-        'Energy':{
-            'units':[
-                'cal', # calories
-                'joule', # joules
-                'kcal', # kilocalories
-                'kJ', # kilojoules
-                'kWh', # kilowatt-hours
-            ],
-            'default':'joule',
-        },
-        'Frequency':{
-            'units':[
-                'fps',
-                'GHz', # gigahertz
-                'Hz', # hertz
-                'kHz', # kilohertz
-                'mHz',
-                'MHz', # megahertz
-                'nHz',
-                'THz',
-                'μHz',
-            ],
-            'default':'Hz',
-        },
-        'Fuel Efficiency':{
-            'units':[
-                'l/100km', # litres per 100 kilometres
-                'mpg US', # miles per US gallon
-            ],
-            'default':'l/100km',
-        },
-        'Illuminance':{
-            'units':[
-                'lux',
-            ],
-            'default':'lux',
-        },
-        'Information Storage':{
-            'units':[
-                'bytes',
-                'EB',
-                'GB',
-                'KB',
-                'MB',
-                'PB',
-                'TB',
-                'YB',
-                'ZB',
-            ],
-            'default':'MB',
-        },
-        'Length':{
-            'units':[
-                'cm', # centimetres
-                'dam',
-                'dm', # decimetre
-                'ft', # feet
-                'fathom', # fathoms
-                'furlong', # furlongs
-                'hm',
-                'in', # inches
-                'km', # kilometres
-                'ly', # light years
-                'm', # metres
-                'mi', # miles
-                'mm', # millimetres
-                'Mm',
-                'nm', # nanometres
-                'nmi', # nautical miles
-                'parsec', # parsecs
-                'pm', # picometres
-                'smi', # mile-scandinavian
-                'au', # astronomical units
-                'yd', # yards
-                'μm', # micrometre
-            ],
-            'default':'m',
-        },
-        'Mass':{
-            'units':[
-                'cg',
-                'carat', # carats
-                'dg',
-                'gram', # grams
-                'kg', # kilograms
-                'lb', # pounds
-                'mg', # milligrams
-                'ng',
-                'oz', # ounces
-                'oz t', # troy ounces
-                'pg',
-                'slug',
-                'stone',
-                't', # tonne
-                'ton', # tons
-                'μg', # micrograms
-            ],
-            'default':'gram',
-        },
-        'Power':{
-            'units':[
-                'fW',
-                'GW', # gigawatts
-                'hp', # horsepower
-                'kW', # kilowatts
-                'MW', # megawatts
-                'mW', # milliwatts
-                'nW',
-                'pW',
-                'TW',
-                'watt', # watts
-                'μW',
-            ],
-            'default':'watt',
-        },
-        'Pressure':{
-            'units':[
-                'bar',
-                'GPa',
-                'hPa', # hectopascals
-                'inHg', # shown as '″Hg', 'inches of mercury'
-                'kPa',
-                'mbar', # millibars
-                'mmHg', # millimetres of mercury
-                'MPa',
-                'N/m²',
-            ],
-            'default':'mbar',
-        },
-        'Speed':{
-            'units':[
-                'km/hr', # kilometres per hour
-                'kn', # knots
-                'm/s', # metres per second
-                'mi/hr', # miles per hour
-            ],
-            'default':'km/hr',
-        },
-        'Temperature':{
-            'units':[
-                '°C', # degrees Celsius
-                '°F', # degrees Fahrenheit
-                'K', # Kelvin
-            ],
-            'default':'',
-        },
-        'Volume':{
-            'units':[
-                'acre ft', # acre-feet
-                'bushel', # bushels
-                'cl', # centilitres
-                'cm³', # cubic centimetres
-                'cup', # cups
-                'dl', # decilitres
-                'dm³',
-                'fl oz', # fluid ounces
-                'ft³', # cubic feet
-                'gal', # gallons
-                'in³', # cubic inches
-                'kL',
-                'km³', # cubic kilometres
-                'litre', # litres
-                'm³', # metres
-                'mcup', # metric cups
-                'mi³', # cubic miles
-                'ml', # millilitres
-                'Ml', # megalitres
-                'mm³',
-                'pt', # pints
-                'qt', # quarts
-                'tbsp', # tablespoons
-                'tsp', # teaspoons
-                'yd³', # cubic yards
-            ],
-            'default':'litre',
-        },
-    }
 
     category = 'MEASUREMENT'
     title = [
@@ -499,7 +267,7 @@ class measurement_create(_base):
             'WFMeasurementUnitType',
             ask_each_time='Type',
             default='Length',
-            options=units.keys(),
+            options=measurement_units.keys(),
         ),
         
     ]
