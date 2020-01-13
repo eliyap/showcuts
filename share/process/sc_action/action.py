@@ -136,9 +136,8 @@ class action:
 
         Raises ValueError if the label does not a match a line.
         '''
-
         for line in self.lines:
-            if line['key'] == key:
+            if line['attrs']['key'] == key: # NOTE: line SHOULD HAVE 'attrs'
                 if 'hidden' not in line['class']: # prevent duplicates
                     line['class'].append('hidden')
                 return
@@ -153,11 +152,26 @@ class action:
         '''
 
         for elem in self.title:
-            if elem['key'] == key:
+            if ('attrs' in elem) and (elem['attrs']['key'] == key):
                 if 'hidden' not in elem['class']: # prevent duplicates
                     elem['class'].append('hidden')
                 return
         raise ValueError(f'No line with key "{key}"')
+
+    def hide_text(self, value:str):
+        '''
+        Add the "hidden" CSS class to text element in ``title``, 
+        as identified by its ``value``.
+
+        Raises ValueError if the value does not a match any text.
+        '''
+
+        for elem in self.title:
+            if elem['value'] == value:
+                if 'hidden' not in elem['class']: # prevent duplicates
+                    elem['class'].append('hidden')
+                return
+        raise ValueError(f'No line with value "{value}"')
     
     def get_line(self, key:str):
         '''
@@ -166,9 +180,8 @@ class action:
 
         Raises ValueError if the key does not a match a line.
         '''
-
         for line in self.lines:
-            if line['key'] == key:
+            if line['attrs']['key'] == key:  # NOTE: line SHOULD HAVE 'attrs'
                 return line
         raise ValueError(f'No line with key "{key}"')
         
@@ -181,8 +194,11 @@ class action:
         '''
 
         for elem in self.title:
-            if elem['key'] == key:
-                return elem
+            try:
+                if elem['attrs']['key'] == key:
+                    return elem
+            except KeyError: 
+                pass
         raise ValueError(f'No elem with key "{key}"')
         
     @classmethod
