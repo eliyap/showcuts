@@ -132,7 +132,7 @@ Date
    :header: "Action", "Class Written", "Test Written", "Test ID"
    :widths: 30, 10, 10, 50
 
-   "Date",                   "❌", "❌", ""
+   "Date",                   "✅", "👁", "69dacb21242f4b8dabfa5de9636090e9"
    "Format Date",            "❌", "❌", ""
    "Adjust Date",            "❌", "❌", ""
    "Get Dates from Input",   "❌", "❌", ""
