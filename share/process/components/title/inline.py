@@ -8,7 +8,12 @@ from ..base_magic import base_magic
 # Inline Field:
 # magic field, accepts arbitrary text with magic variables mixed in
 
-def inline_handler(self, parameter:dict, UUID_glyphs):
+def inline_handler(
+    self, 
+    parameter:dict, 
+    UUID_glyphs,
+    ask_each_time:str='Text',
+) -> dict:
     '''Decomposes inline variables into text and magic variables, wrapped in an appropriate class.
 
     When represented as JSON, inline variable strings have the following structure:
@@ -25,7 +30,11 @@ def inline_handler(self, parameter:dict, UUID_glyphs):
     '''
 
     inline_dct = parameter['Value']
-    inline_element = {'class':deepcopy(self.__class__.css_cls),'value':[]}
+    inline_element = {
+        'class':deepcopy(self.__class__.css_cls),
+        'value':[],
+        'attrs':self.attrs,
+    }
     try:
         assert parameter['WFSerializationType'] == 'WFTextTokenString'
         attachments = inline_dct['attachmentsByRange']
@@ -39,9 +48,9 @@ def inline_handler(self, parameter:dict, UUID_glyphs):
             f_string[start] = classify_magic(
                 val,
                 val['Type'],
-                ask_each_time='Text',
+                ask_each_time=ask_each_time,
                 UUID_glyphs=UUID_glyphs,
-                attrs=self.attrs,
+                attrs={},
             )
 
         # process remaining chars into text elems
@@ -97,7 +106,12 @@ class inline(base_magic):
             return [self.blank()]
         if not isinstance(parameter, dict): # non-magic variables
             return [magic_dct(parameter, attrs=self.attrs)]
-        return [inline_handler(self, parameter, UUID_glyphs)]
+        return [inline_handler(
+            self, 
+            parameter, 
+            UUID_glyphs, 
+            ask_each_time=self.ask_each_time
+        )]
 
     def blank(self):
         return magic_dct(
