@@ -18,6 +18,8 @@ class test_load(TestCase):
         '1c64f0b1cd3246c098c552f16b5169da', # Trim Media
         '6f12d879df9b4784be1d1f71d35e24bc', # Clear Up Next
         '06bc19b5a33d40d983f16939ccf9cf4d', # Get Current Song
+        '1bacfe061a7c48599e7297ee6b35a6bc', # Skip Forwards
+        '69dacb21242f4b8dabfa5de9636090e9', # Date
     ]
 
     # boilerplate
