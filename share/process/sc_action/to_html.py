@@ -991,66 +991,66 @@ def format_action(component: action, indent_level: int) -> (dict, int):
         elif "selectphoto" == sub_name:
             title_elem = ['Select photos']
             line_elems = [{**{'label':'Select Multiple'},**make_toggle(component.parameters, 'WFSelectMultiplePhotos',False)}]
-        elif "pausemusic" == sub_name:
-            title_elem = [
-                make_magic(component.parameters, 'WFPlayPauseBehavior', 'Play/Pause', default_blank=False),
-                'on',
-                replace_ask(make_magic(component.parameters, 'WFMediaRoute', 'iPhone', default_blank=False), 'Device'),# probably depends on the device being used
-            ]
-        elif "skipback" == sub_name:
-            title_elem = [
-                'Skip back to the',
-                make_magic(component.parameters, 'WFSkipBackBehavior', 'Beginning',default_blank=False),
-                'on',
-                replace_ask(make_magic(component.parameters, 'WFMediaRoute', 'iPhone', default_blank=False), 'Device'),# probably depends on the device being used
-            ]
-        elif "skipforward" == sub_name:
-            title_elem = [
-                'Skip forwards on',
-                replace_ask(make_magic(component.parameters, 'WFMediaRoute', 'iPhone', default_blank=False), 'Device'),# probably depends on the device being used
-            ]
-        elif "addtoplaylist" == sub_name:
-            title_elem = [
-                'Add',
-                make_magic(component.parameters, 'WFInput', 'Music'),
-                'to',
-                make_magic(component.parameters, 'WFPlaylistName', 'My Music Library', default_blank = False),
-            ]
-        elif "createplaylist" == sub_name:
-            title_elem = [
-                'Create playlist',
-                make_magic(component.parameters, 'WFPlaylistName', 'Playlist Name'),
-                'with',
-                make_magic(component.parameters, 'WFPlaylistItems', 'Music'),
-            ]
-            line_elems = [
-                {**{'label':'Author'},**make_specify(component.parameters, 'WFPlaylistAuthor', 'Shortcuts')},
-                {**{'label':'Description'},**make_specify(component.parameters, 'WFPlaylistDescription', 'All my favorites')},
-            ]
-        elif "get.playlist" == sub_name:
-            title_elem = [
-                'Get songs in',
-                make_magic(component.parameters, 'WFPlaylistName', 'Playlist'),
-            ]
-        elif "addmusictoupnext" == sub_name:
-            try:
-                music_elem = magic(component.parameters['WFMusic']['itemName'])
-            except KeyError:
-                #TODO test handling for magic var music...
-                music_elem = make_magic(component.parameters, 'WFMusic', 'Music')
-            title_elem = [
-                'Add',
-                music_elem,
-                'to',
-                make_magic(component.parameters, 'WFWhenToPlay', 'Next',default_blank=False),
-                'of Up Next',
-            ]
-        elif "encodemedia" == sub_name:
-            title_elem = [
-                'Encode',
-                make_magic(component.parameters, 'WFMedia', 'Media'),
-            ]
-            options_impl = False
+        # elif "pausemusic" == sub_name:
+        #     title_elem = [
+        #         make_magic(component.parameters, 'WFPlayPauseBehavior', 'Play/Pause', default_blank=False),
+        #         'on',
+        #         replace_ask(make_magic(component.parameters, 'WFMediaRoute', 'iPhone', default_blank=False), 'Device'),# probably depends on the device being used
+        #     ]
+        # elif "skipback" == sub_name:
+        #     title_elem = [
+        #         'Skip back to the',
+        #         make_magic(component.parameters, 'WFSkipBackBehavior', 'Beginning',default_blank=False),
+        #         'on',
+        #         replace_ask(make_magic(component.parameters, 'WFMediaRoute', 'iPhone', default_blank=False), 'Device'),# probably depends on the device being used
+        #     ]
+        # elif "skipforward" == sub_name:
+        #     title_elem = [
+        #         'Skip forwards on',
+        #         replace_ask(make_magic(component.parameters, 'WFMediaRoute', 'iPhone', default_blank=False), 'Device'),# probably depends on the device being used
+        #     ]
+        # elif "addtoplaylist" == sub_name:
+        #     title_elem = [
+        #         'Add',
+        #         make_magic(component.parameters, 'WFInput', 'Music'),
+        #         'to',
+        #         make_magic(component.parameters, 'WFPlaylistName', 'My Music Library', default_blank = False),
+        #     ]
+        # elif "createplaylist" == sub_name:
+        #     title_elem = [
+        #         'Create playlist',
+        #         make_magic(component.parameters, 'WFPlaylistName', 'Playlist Name'),
+        #         'with',
+        #         make_magic(component.parameters, 'WFPlaylistItems', 'Music'),
+        #     ]
+        #     line_elems = [
+        #         {**{'label':'Author'},**make_specify(component.parameters, 'WFPlaylistAuthor', 'Shortcuts')},
+        #         {**{'label':'Description'},**make_specify(component.parameters, 'WFPlaylistDescription', 'All my favorites')},
+        #     ]
+        # elif "get.playlist" == sub_name:
+        #     title_elem = [
+        #         'Get songs in',
+        #         make_magic(component.parameters, 'WFPlaylistName', 'Playlist'),
+        #     ]
+        # elif "addmusictoupnext" == sub_name:
+        #     try:
+        #         music_elem = magic(component.parameters['WFMusic']['itemName'])
+        #     except KeyError:
+        #         #TODO test handling for magic var music...
+        #         music_elem = make_magic(component.parameters, 'WFMusic', 'Music')
+        #     title_elem = [
+        #         'Add',
+        #         music_elem,
+        #         'to',
+        #         make_magic(component.parameters, 'WFWhenToPlay', 'Next',default_blank=False),
+        #         'of Up Next',
+        #     ]
+        # elif "encodemedia" == sub_name:
+        #     title_elem = [
+        #         'Encode',
+        #         make_magic(component.parameters, 'WFMedia', 'Media'),
+        #     ]
+        #     options_impl = False
         # elif "trimvideo" == sub_name:
         #     title_elem = [
         #         'Trim',
