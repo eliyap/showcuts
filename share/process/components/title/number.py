@@ -22,7 +22,7 @@ class number(base_magic):
         default:str,
         blank_text:str,
         ask_each_time:str,
-    ) -> dict:
+    ):
         self.default = default
         self.blank_text = blank_text
         base_magic.__init__(self, key, ask_each_time, attrs=dict(

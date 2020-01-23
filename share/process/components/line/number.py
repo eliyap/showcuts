@@ -22,10 +22,10 @@ class line_number(line, number):
         return [{
             **line.to_html(self),
             **html_slot(
-                missing = lambda self: value_dct(self.default, attrs=self.attrs),
-                blank = lambda self: value_dct(self.blank_text, attrs=self.attrs, empty=True),
-                non_magic = lambda self, parameter: value_dct(parameter, attrs=self.attrs),
-            )(self, params, UUID_glyphs),
+                missing = lambda self: [value_dct(self.default, attrs=self.attrs)],
+                blank = lambda self: [value_dct(self.blank_text, attrs=self.attrs, empty=True)],
+                non_magic = lambda self, parameter: [value_dct(parameter, attrs=self.attrs)],
+            )(self, params, UUID_glyphs)[0],
         }]
 
     def blank(self):
