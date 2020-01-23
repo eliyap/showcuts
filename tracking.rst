@@ -116,15 +116,21 @@ Maps
    :header: "Action", "Class Written", "Test Written", "Test ID"
    :widths: 30, 10, 10, 50
 
-   "Get Distance",            "❌", "❌", ""
-   "Get Halfway Point",       "❌", "❌", ""
-   "Search Travel Time",      "❌", "❌", ""
-   "Street Address",          "❌", "❌", ""
-   "Get Maps URL",            "❌", "❌", ""
-   "Show Directions",         "❌", "❌", ""
-   "Show in Maps",            "❌", "❌", ""
+   "Get Distance",            "✅", "❌", "8f151110492b4a778a2d77cd62f281a2"
+   "Get Halfway Point",       "✅", "❌", "be758e00b6ec471d976dcd48a2557cc0"
+   "Search Travel Time",      "✅", "❌", "3616d9b19d564a4381fd4a7f3215cbcf"
+   "Street Address",          "✅", "❌", "129b944bf99e4fcea68311061d723daf"
+   "Get Maps URL",            "✅", "❌", "a27426b0a14b443f84989a2ab4cb6870"
+   "Show Directions",         "✅", "❌", "de0bb2a9674a4034ad40e95408589777"
+   "Show in Maps",            "✅", "❌", "4f23ca28d0c143b38738c2dc04e9948c"
    "Search Local Businesses", "❌", "❌", ""
    
+Street Address
+   * leftify formatting appears to be failing (appears properly propogated to CSS)
+   * the `Country` line should default to the device country, I'm ignoring this
+
+`Search Local Businesses` implements a Health-like line-measurement system. Come back to it later.
+
 Date
 ======
 
@@ -136,7 +142,9 @@ Date
    "Format Date",            "❌", "❌", ""
    "Adjust Date",            "❌", "❌", ""
    "Get Dates from Input",   "❌", "❌", ""
-   "Get Time Between Dates", "❌", "❌", ""
+   "Get Time Between Dates", "✅", "❌", "3253ab06ee3d4fd6b68ee1365266c0a5"
+
+`Format Date` has a default value in it's inline field. Not currently accounted for.
 
 Documents
 =========
@@ -145,10 +153,10 @@ Documents
    :header: "Action", "Class Written", "Test Written", "Test ID"
    :widths: 30, 10, 10, 50
    
-   "Extract Archive",              "❌", "❌", ""
-   "Make Archive",                 "❌", "❌", ""
+   "Extract Archive",              "✅", "❌", "e4d3e034b2eb490590bee504b8182e77"
+   "Make Archive",                 "✅", "❌", "009a06cf07a842278ada7daa756ea1c1"
    "Speak Text",                   "❌", "❌", ""
-   "Markup",                       "❌", "❌", ""
+   "Markup",                       "✅", "❌", "b94b90fcf41f40a697ef51afd381b226"
    "Open In...",                   "❌", "❌", ""
    "Quick Look",                   "❌", "❌", ""
    "Make PDF",                     "❌", "❌", ""
@@ -170,6 +178,8 @@ Documents
    "Get File",                     "❌", "❌", ""
    "Save File",                    "❌", "❌", ""
    
+`Make Archive` stores `Format` without the leading `.`. Need to account for this when encoding the Shortcut.
+
 Safari
 =========
 

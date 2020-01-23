@@ -178,93 +178,6 @@ except the decimal point is not available.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="share.process.components.title.inline.inline">
-<em class="property">class </em><code class="sig-name descname">inline</code><span class="sig-paren">(</span><em class="sig-param">key</em>, <em class="sig-param">blank_text: str</em>, <em class="sig-param">ask_each_time=None</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.inline.inline" title="Permalink to this definition">¶</a></dt>
-<dd><p>Field that accepts text mixed with magic variables.</p>
-<p>In Shortcuts, this accepts:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>text with no newlines</p></li>
-<li><p>magic variables mixed into text (like Python f-strings)</p></li>
-<li><p>there may only be 1 “Ask Each Time” variable</p></li>
-</ul>
-</div></blockquote>
-<dl class="method">
-<dt id="share.process.components.title.inline.inline.blank">
-<code class="sig-name descname">blank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.inline.inline.blank" title="Permalink to this definition">¶</a></dt>
-<dd><p>Handles output when the variable was left blank.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="share.process.components.title.inline.inline.css_cls">
-<code class="sig-name descname">css_cls</code><em class="property"> = ['inline-magic']</em><a class="headerlink" href="#share.process.components.title.inline.inline.css_cls" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of CSS classes to style the element.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="share.process.components.title.inline.inline.to_html">
-<code class="sig-name descname">to_html</code><span class="sig-paren">(</span><em class="sig-param">params</em>, <em class="sig-param">UUID_glyphs</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.inline.inline.to_html" title="Permalink to this definition">¶</a></dt>
-<dd><p>Invoked by the <code class="docutils literal notranslate"><span class="pre">to_django</span></code> method to convert a variable object to a dict describing the contents of the action.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>params</strong> – The action’s <cite>WFWorkflowActionParameters</cite> dict. Contains information on what values were filled into each magic variable.</p></li>
-<li><p><strong>UUID_glyphs</strong> – Previous actions’ outputs can be used as magic variable inputs, and are displayed alongside the output-action’s glyph. <code class="docutils literal notranslate"><span class="pre">UUID</span> <span class="pre">Glyphs</span></code> maps actions’ output UUIDs to their glyphs.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="share.process.components.title.inline.list_inline">
-<em class="property">class </em><code class="sig-name descname">list_inline</code><span class="sig-paren">(</span><em class="sig-param">key</em>, <em class="sig-param">blank_text: str</em>, <em class="sig-param">ask_each_time=None</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.inline.list_inline" title="Permalink to this definition">¶</a></dt>
-<dd><p>Field that accepts a number of inline variables.</p>
-<p>In Shortcuts, this accepts a list of inline variables, not just one.</p>
-<p>This field is particular to Safari actions such as <cite>Reading List</cite>, as far as I know.</p>
-<dl class="attribute">
-<dt id="share.process.components.title.inline.list_inline.css_cls">
-<code class="sig-name descname">css_cls</code><em class="property"> = ['inline-magic']</em><a class="headerlink" href="#share.process.components.title.inline.list_inline.css_cls" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of CSS classes to style the element.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="share.process.components.title.inline.list_inline.list_inline_handler">
-<code class="sig-name descname">list_inline_handler</code><span class="sig-paren">(</span><em class="sig-param">params</em>, <em class="sig-param">UUID_glyphs</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.inline.list_inline.list_inline_handler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decomposes one (or more) inline variables into magic dicts.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="share.process.components.title.inline.inline_handler">
-<code class="sig-name descname">inline_handler</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">parameter: dict</em>, <em class="sig-param">UUID_glyphs</em>, <em class="sig-param">ask_each_time: str = 'Text'</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#share.process.components.title.inline.inline_handler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decomposes inline variables into text and magic variables, wrapped in an appropriate class.</p>
-<p>When represented as JSON, inline variable strings have the following structure:</p>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt>a <code class="docutils literal notranslate"><span class="pre">string</span></code> value</dt><dd><p>This is the string as shown in Shortcuts, 
-with the variables replaced by <code class="docutils literal notranslate"><span class="pre">\uFFFC</span></code>, 
-the <a class="reference external" href="https://www.fileformat.info/info/unicode/char/fffc/index.htm">Unicode OBJECT REPLACEMENT CHARACTER</a>.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>a mapping from magic variables’ <code class="docutils literal notranslate"><span class="pre">{position,</span> <span class="pre">length}</span></code> to their value, in <code class="docutils literal notranslate"><span class="pre">attachmentsByRange</span></code></dt><dd><ul>
-<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">'{0,1}:</span> <span class="pre">&lt;magic</span> <span class="pre">variable&gt;</span></code> represents a magic variable at the start of the string, i.e. position 0 and length 1.</p></li>
-<li><p>all magic variables (that I have seen) have length 1, but the method allows for longer objects.</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</div></blockquote>
-<p><strong>Side Note</strong>: the recorded data type(<cite>WFSerializationType</cite>) is <cite>WFTextTokenString</cite>.</p>
-</dd></dl>
-
-<dl class="class">
 <dt id="share.process.components.title.counter.counter">
 <em class="property">class </em><code class="sig-name descname">counter</code><span class="sig-paren">(</span><em class="sig-param">key</em>, <em class="sig-param">item: str</em>, <em class="sig-param">ask_each_time</em>, <em class="sig-param">default: int</em>, <em class="sig-param">*_</em>, <em class="sig-param">**__</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.counter.counter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Field that counts things.</p>
@@ -313,28 +226,6 @@ the <a class="reference external" href="https://www.fileformat.info/info/unicode
 <dl class="method">
 <dt id="share.process.components.title.choose.choose.blank">
 <code class="sig-name descname">blank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.choose.choose.blank" title="Permalink to this definition">¶</a></dt>
-<dd><p>Handles output when the variable was left blank.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="share.process.components.title.quantity.quantity">
-<em class="property">class </em><code class="sig-name descname">quantity</code><span class="sig-paren">(</span><em class="sig-param">key: str</em>, <em class="sig-param">ask_each_time: str</em>, <em class="sig-param">blank_text: str</em><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.quantity.quantity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Field representing a quantity or measurement with both magnitude and units.</p>
-<dl class="simple">
-<dt>In Shortcuts, this field accepts:</dt><dd><ul class="simple">
-<li><p>a magnitude, similar to the <code class="docutils literal notranslate"><span class="pre">number</span></code> class</p></li>
-<li><p>a unit, similar to the <code class="docutils literal notranslate"><span class="pre">choose</span></code> class</p></li>
-</ul>
-</dd>
-</dl>
-<p>The unit offered in the <code class="docutils literal notranslate"><span class="pre">choose</span></code> menu 
-and the abbreviation shown in the <code class="docutils literal notranslate"><span class="pre">unit</span></code> field
-differ significantly and often.</p>
-<dl class="method">
-<dt id="share.process.components.title.quantity.quantity.blank">
-<code class="sig-name descname">blank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#share.process.components.title.quantity.quantity.blank" title="Permalink to this definition">¶</a></dt>
 <dd><p>Handles output when the variable was left blank.</p>
 </dd></dl>
 
