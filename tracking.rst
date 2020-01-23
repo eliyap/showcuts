@@ -157,12 +157,12 @@ Documents
    "Make Archive",                 "✅", "❌", "009a06cf07a842278ada7daa756ea1c1"
    "Speak Text",                   "❌", "❌", ""
    "Markup",                       "✅", "❌", "b94b90fcf41f40a697ef51afd381b226"
-   "Open In...",                   "❌", "❌", ""
-   "Quick Look",                   "❌", "❌", ""
-   "Make PDF",                     "❌", "❌", ""
-   "Print",                        "❌", "❌", ""
-   "Generate QR Code",             "❌", "❌", ""
-   "Scan QR/Barcode",              "❌", "❌", ""
+   "Open In...",                   "✅", "❌", "115e458dac0c4dea886228ff9b09400c"
+   "Quick Look",                   "✅", "❌", "ce4d2a5bffcc44909554d57dc0c276e7"
+   "Make PDF",                     "✅", "❌", "641dfddc93ea47babe6bd505c1350093"
+   "Print",                        "✅", "❌", "f48382f13c4c448c8f567936f704c53f"
+   "Generate QR Code",             "✅", "❌", "dc8a38bb8dc44ddc8d8a40c4f605e31b"
+   "Scan QR/Barcode",              "✅", "👁", "d920c5ae8aec4011b87aa7cc99e6e0ab"
    "Make Rich Text from Markdown", "❌", "❌", ""
    "Make Rich Text from HTML",     "❌", "❌", ""
    "Make HTML from Rich Text",     "❌", "❌", ""
@@ -179,6 +179,8 @@ Documents
    "Save File",                    "❌", "❌", ""
    
 `Make Archive` stores `Format` without the leading `.`. Need to account for this when encoding the Shortcut.
+
+`Open In...` needs to have an App selector, as well as support for decoding app URLs. Needs further testing.
 
 Safari
 =========
