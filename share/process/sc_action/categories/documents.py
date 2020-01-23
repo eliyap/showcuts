@@ -1,3 +1,4 @@
+from share.process.components._directory import *
 from ..action import *
 
 class _base(action):
@@ -6,11 +7,55 @@ class _base(action):
 
 class unzip(_base):
     name = 'Extract Archive'
+    title = [
+        text('Extract'),
+        magic(
+            'WFArchive',
+            blank_text='Archive',
+            ask_each_time=None,
+        ),
+    ]
     result = 'Files'
 
 class makezip(_base):
     name = 'Make Archive'
+    title = [
+        text('Make'),
+        choose(
+            'WFArchiveFormat',
+            ask_each_time='Format',
+            default='.zip',
+            options=[
+                '.zip',
+                '.tar.gz',
+                '.tar.bz2',
+                '.tar.xz',
+                '.tar',
+                '.gz',
+                '.cpio',
+                '.iso',
+            ],
+        ),
+        text('archive from'),
+        magic(
+            'WFInput',
+            blank_text='Input',
+            ask_each_time=None,
+        ),
+    ]
+    lines = [
+        line_inline(
+            'Archive Name',
+            'WFZIPName',
+            blank_text='optional',
+        ),
+    ]
     result = 'Archive'
+
+    def modify(self):
+        fmt = self.get_title('WFArchiveFormat')['value']
+        if fmt[0] != '.' and fmt != 'Format': # check not  Ask_Each_Time
+            self.get_title('WFArchiveFormat')['value'] = f'.{fmt}'
 
 class speaktext(_base):
     name = 'Speak Text'
@@ -19,11 +64,46 @@ class speaktext(_base):
 class avairyeditphoto(_base):
     name = 'Markup'
     glyph = 'Markup.svg'
+    title = [
+        text('Mark up'),
+        magic(
+            'WFDocument',
+            blank_text='Document',
+            ask_each_time=None,
+        ),
+    ]
     result = 'Markup Result'
 
 class openin(_base):
     name = 'Open In...'
     glyph = 'App.svg'
+    title = [
+        text('Open'),
+        magic(
+            'WFInput',
+            blank_text='File',
+            ask_each_time=None,
+        ),
+        text('in'),
+        magic(
+            'WFOpenInAppIdentifier',
+            blank_text='Choose',
+            ask_each_time=None,
+        ), # possibly should be a `choose`, with a list of our supported apps
+    ]
+    lines = [
+        line_toggle(
+            'Show Open In Menu',
+            'WFOpenInAskWhenRun',
+            default=True,
+            ask_each_time='Ask Each Time',
+        ),
+        line_magic(
+            'File',
+            'WFInput',
+            blank_text='File',
+        ),
+    ]
 
 class previewdocument(_base):
     name = 'Quick Look'

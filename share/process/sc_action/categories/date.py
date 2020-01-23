@@ -55,10 +55,39 @@ class date(_base):
 
 class format_date(_base):
     name = 'Format Date'
+    
     result = 'Formatted Date'
 
 class adjustdate(_base):
     name = 'Adjust Date'
+    title = [
+        choose(
+            'WFAdjustOperation',
+            ask_each_time=None,
+            default='Add',
+            options=[
+                'Add',
+                'Subtract',
+                'Get Start of Minute',
+                'Get Start of Hour',
+                'Get Start of Day',
+                'Get Start of Week',
+                'Get Start of Month',
+                'Get Start of Year',
+            ],
+        ),
+        # quantity(
+        #     'WFDuration',
+        #     ask_each_time='Ask Each Time',
+        #     blank_text='0',
+        # ),
+        text('to'),
+        inline(
+            'WFDate',
+            blank_text='Date',
+            ask_each_time='Date',
+        ),
+    ]
     result = 'Adjusted Date'
 
 class detect_date(_base):
@@ -67,4 +96,34 @@ class detect_date(_base):
 
 class gettimebetweendates(_base):
     name = 'Get Time Between Dates'
+    title = [
+        text('Get time between'),
+        inline(
+            'WFTimeUntilFromDate',
+            blank_text='First Date',
+            ask_each_time='Date',
+        ), # has a default value of current date!
+        text('and'),
+        inline(
+            'WFInput',
+            blank_text='Second Date',
+            ask_each_time='Date',
+        ),
+        text('in'),
+        choose(
+            'WFTimeUntilUnit',
+            ask_each_time='In',
+            default='Minutes',
+            options=[
+                'Total Time',
+                'Seconds',
+                'Minutes',
+                'Hours',
+                'Days',
+                'Weeks',
+                'Months',
+                'Years',
+            ],
+        ),
+    ]
     result = 'Time Between Dates'
