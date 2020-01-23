@@ -29,7 +29,7 @@ class base_magic:
         self.ask_each_time = ask_each_time
         self.attrs = attrs
 
-    def to_html(self, params:dict, UUID_glyphs:dict) -> dict:
+    def to_html(self, params:dict, UUID_glyphs:dict) -> [dict]:
         '''
         Invoked by the ``to_django`` method to convert a variable object to a dict describing the contents of the action.
 
@@ -45,7 +45,7 @@ class base_magic:
         )(self, params, UUID_glyphs)
 
 
-    def blank(self):
+    def blank(self) -> dict:
         '''Handles output when the variable was left blank.'''
     
         '''
