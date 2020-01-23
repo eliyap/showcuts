@@ -4,7 +4,7 @@ from copy import deepcopy
 from .inline import line_inline, inline_html, inline_handler
 from ..base_line import line
 from ..magic_helpers import *
-from ..text import elem as text
+from .._directory import text
 
 class line_notes(line_inline):
     css_cls = ['notes']
