@@ -30,14 +30,14 @@ class line_inline(line, inline):
     ):
         line.__init__(self, label, leftify)
         inline.__init__(self, key, blank_text=blank_text)
+        self.attrs.update({'leftify':leftify}) # assumes that children extend base_magic!
 
     @AddField('inline')
     def to_html(self, params, UUID_glyphs):
-        elem = {
+        return [{
             **line.to_html(self),
             **inline_html(self, params, UUID_glyphs),
-        }
-        return [elem]
+        }]
 
     def blank(self):
         return value_dct(
