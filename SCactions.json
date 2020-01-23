@@ -1,0 +1,3934 @@
+{
+    "is.workflow.actions.filter.articles": {
+        "class": "NOT_IMPLEMENTED_ACTION",
+        "name": "",
+        "result": null,
+        "UUID": "null",
+        "glyph": "",
+        "category": "",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.properties.trello": {
+        "class": "NOT_IMPLEMENTED_ACTION",
+        "name": "",
+        "result": null,
+        "UUID": "null",
+        "glyph": "",
+        "category": "",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.detect.dictionary": {
+        "class": "detect_dictionary",
+        "name": "Get Dictionary from Input",
+        "result": "Dictionary",
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.detect.number": {
+        "class": "detect_number",
+        "name": "___",
+        "result": "Numbers",
+        "UUID": "null",
+        "glyph": "Math.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.detect.date": {
+        "class": "detect_date",
+        "name": "Get Dates from Input",
+        "result": "Dates",
+        "UUID": "null",
+        "glyph": "Date.svg",
+        "category": "CALENDAR",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.format.filesize": {
+        "class": "format_filesize",
+        "name": "Format File Size",
+        "result": "Formatted File Size",
+        "UUID": "null",
+        "glyph": "Math.svg",
+        "category": "MATHS",
+        "title": [
+            {
+                "class": "text",
+                "text": "Format"
+            },
+            {
+                "class": "whole_number",
+                "default": null,
+                "blank_text": "File Size",
+                "key": "WFFileSize",
+                "ask_each_time": "File Size",
+                "attrs": {
+                    "key": "WFFileSize",
+                    "default": null,
+                    "ask_each_time": "File Size",
+                    "blank_text": "File Size"
+                }
+            },
+            {
+                "class": "text",
+                "text": "into"
+            },
+            {
+                "class": "choose",
+                "key": "WFFileSizeFormat",
+                "ask_each_time": "Format",
+                "attrs": {
+                    "key": "WFFileSizeFormat",
+                    "ask_each_time": "Format",
+                    "default": "Closest Unit",
+                    "options": [
+                        "Closest Unit",
+                        "Bytes",
+                        "Kilobytes",
+                        "Megabytes",
+                        "Gigabytes",
+                        "Terabytes",
+                        "Petabytes",
+                        "Exabytes",
+                        "Zettabytes",
+                        "Yottabytes"
+                    ]
+                },
+                "default": "Closest Unit",
+                "options": [
+                    "Closest Unit",
+                    "Bytes",
+                    "Kilobytes",
+                    "Megabytes",
+                    "Gigabytes",
+                    "Terabytes",
+                    "Petabytes",
+                    "Exabytes",
+                    "Zettabytes",
+                    "Yottabytes"
+                ]
+            }
+        ],
+        "lines": [
+            {
+                "class": "line_toggle",
+                "default": true,
+                "label": "Include Units",
+                "leftify": false,
+                "key": "WFFileSizeIncludeUnits",
+                "ask_each_time": "Ask Each Time",
+                "attrs": {
+                    "key": "WFFileSizeIncludeUnits",
+                    "default": true,
+                    "ask_each_time": "Ask Each Time"
+                }
+            }
+        ]
+    },
+    "is.workflow.actions.format.number": {
+        "class": "format_number",
+        "name": "Format Number",
+        "result": "Formatted Number",
+        "UUID": "null",
+        "glyph": "Math.svg",
+        "category": "MATHS",
+        "title": [
+            {
+                "class": "text",
+                "text": "Format"
+            },
+            {
+                "class": "number",
+                "default": null,
+                "blank_text": "Number",
+                "key": "WFNumber",
+                "ask_each_time": "Number",
+                "attrs": {
+                    "key": "WFNumber",
+                    "default": null,
+                    "ask_each_time": "Number",
+                    "blank_text": "Number"
+                }
+            },
+            {
+                "class": "text",
+                "text": "to"
+            },
+            {
+                "class": "counter",
+                "key": "WFNumberFormatDecimalPlaces",
+                "ask_each_time": "Decimal Places",
+                "attrs": {
+                    "key": "WFNumberFormatDecimalPlaces",
+                    "ask_each_time": "Decimal Places",
+                    "item": "decimal place",
+                    "default": 2
+                },
+                "default": 2,
+                "item": "decimal place"
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.format.date": {
+        "class": "format_date",
+        "name": "Format Date",
+        "result": "Formatted Date",
+        "UUID": "null",
+        "glyph": "Date.svg",
+        "category": "CALENDAR",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.openapp": {
+        "class": "openapp",
+        "name": "Open App",
+        "result": null,
+        "UUID": "null",
+        "glyph": "App.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.exit": {
+        "class": "exit_",
+        "name": "Exit Shortcut",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [
+            {
+                "class": "text",
+                "text": "Exit shortcut with"
+            },
+            {
+                "class": "magic",
+                "key": "WFResult",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "WFResult",
+                    "ask_each_time": null,
+                    "blank_text": "Result"
+                },
+                "blank_text": "Result"
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.conditional": {
+        "class": "conditional",
+        "name": "If",
+        "result": "If Result",
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.choosefrommenu": {
+        "class": "choosefrommenu",
+        "name": "Choose from Menu",
+        "result": "Menu Result",
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.repeat.count": {
+        "class": "repeat_count",
+        "name": "Repeat",
+        "result": "Repeat Results",
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.repeat.each": {
+        "class": "repeat_each",
+        "name": "Repeat with Each",
+        "result": "Repeat Results",
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.delay": {
+        "class": "delay",
+        "name": "Wait",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.waittoreturn": {
+        "class": "waittoreturn",
+        "name": "Wait to Return",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.getbatterylevel": {
+        "class": "getbatterylevel",
+        "name": "Get Battery Level",
+        "result": "Battery Level",
+        "UUID": "null",
+        "glyph": "Battery.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.getdevicedetails": {
+        "class": "getdevicedetails",
+        "name": "Get Device Details",
+        "result": "Device Name",
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.setbrightness": {
+        "class": "setbrightness",
+        "name": "Set Brightness",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Brightness.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.flashlight": {
+        "class": "flashlight",
+        "name": "Set Torch",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Flashlight.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.getvalueforkey": {
+        "class": "getvalueforkey",
+        "name": "Get Dictionary Value",
+        "result": "Dictionary Value",
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.dictionary": {
+        "class": "dictionary",
+        "name": "Dictionary",
+        "result": "Dictionary",
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "DICTIONARY",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.setvalueforkey": {
+        "class": "setvalueforkey",
+        "name": "Set Dictionary Value",
+        "result": "Dictionary",
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.gettypeaction": {
+        "class": "gettypeaction",
+        "name": "___",
+        "result": "File of Type",
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.getitemtype": {
+        "class": "getitemtype",
+        "name": "___",
+        "result": "Type",
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.getitemname": {
+        "class": "getitemname",
+        "name": "___",
+        "result": "Name",
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.setitemname": {
+        "class": "setitemname",
+        "name": "___",
+        "result": "Renamed Item",
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.base64encode": {
+        "class": "base64encode",
+        "name": "Base64 Encode",
+        "result": "Base64 Encoded",
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.hash": {
+        "class": "hash_",
+        "name": "Generate Hash",
+        "result": "Hash",
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.count": {
+        "class": "count",
+        "name": "Count",
+        "result": "Count",
+        "UUID": "null",
+        "glyph": "Math.svg",
+        "category": "SCRIPTING",
+        "title": [
+            {
+                "class": "text",
+                "text": "Count"
+            },
+            {
+                "class": "choose",
+                "key": "WFCountType",
+                "ask_each_time": "Type",
+                "attrs": {
+                    "key": "WFCountType",
+                    "ask_each_time": "Type",
+                    "default": "Lines",
+                    "options": [
+                        "Items",
+                        "Characters",
+                        "Words",
+                        "Sentences",
+                        "Lines"
+                    ]
+                },
+                "default": "Lines",
+                "options": [
+                    "Items",
+                    "Characters",
+                    "Words",
+                    "Sentences",
+                    "Lines"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "in"
+            },
+            {
+                "class": "magic",
+                "key": "Input",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "Input",
+                    "ask_each_time": null,
+                    "blank_text": "Input"
+                },
+                "blank_text": "Input"
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.choosefromlist": {
+        "class": "choosefromlist",
+        "name": "Choose from List",
+        "result": "Chosen Item",
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.getitemfromlist": {
+        "class": "getitemfromlist",
+        "name": "Get Item from List",
+        "result": "Item from List",
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.list": {
+        "class": "list_",
+        "name": "List",
+        "result": "List",
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "LIST",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.getipaddress": {
+        "class": "getipaddress",
+        "name": "Get Current IP Address",
+        "result": "Current IP Address",
+        "UUID": "null",
+        "glyph": "Web.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.getwifi": {
+        "class": "getwifi",
+        "name": "Get Network Details",
+        "result": "Network Details",
+        "UUID": "null",
+        "glyph": "Web.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.dnd.set": {
+        "class": "dnd_set",
+        "name": "Set Do Not Disturb",
+        "result": null,
+        "UUID": "null",
+        "glyph": "DND.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.airplanemode.set": {
+        "class": "airplanemode_set",
+        "name": "Set Airplane Mode",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Airplane.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.bluetooth.set": {
+        "class": "bluetooth_set",
+        "name": "Set Bluetooth",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Bluetooth.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.cellulardata.set": {
+        "class": "cellulardata_set",
+        "name": "Set Mobile Data",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Mobile.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.lowpowermode.set": {
+        "class": "lowpowermode_set",
+        "name": "Set Low Power Mode",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Battery.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.wifi.set": {
+        "class": "wifi_set",
+        "name": "Set Wi-Fi",
+        "result": null,
+        "UUID": "null",
+        "glyph": "WiFi.svg",
+        "category": "WI-FI",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.nothing": {
+        "class": "nothing",
+        "name": "Nothing",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "NOTHING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.ask": {
+        "class": "ask",
+        "name": "Ask for Input",
+        "result": "Provided Input",
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [
+            {
+                "class": "text",
+                "text": "Ask"
+            },
+            {
+                "class": "inline",
+                "key": "WFAskActionPrompt",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "WFAskActionPrompt",
+                    "ask_each_time": null,
+                    "blank_text": "Question"
+                },
+                "blank_text": "Question"
+            }
+        ],
+        "lines": [
+            {
+                "class": "line_choose",
+                "label": "Input Type",
+                "leftify": false,
+                "key": "WFInputType",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "WFInputType",
+                    "ask_each_time": null,
+                    "default": "Text",
+                    "options": [
+                        "Text",
+                        "Number",
+                        "URL",
+                        "Date",
+                        "Time",
+                        "Date and Time"
+                    ]
+                },
+                "default": "Text",
+                "options": [
+                    "Text",
+                    "Number",
+                    "URL",
+                    "Date",
+                    "Time",
+                    "Date and Time"
+                ]
+            },
+            {
+                "class": "line_inline",
+                "label": "Default Answer",
+                "leftify": false,
+                "key": "WFAskActionDefaultAnswerNumber",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "WFAskActionDefaultAnswerNumber",
+                    "ask_each_time": null,
+                    "blank_text": ""
+                },
+                "blank_text": ""
+            }
+        ]
+    },
+    "is.workflow.actions.playsound": {
+        "class": "playsound",
+        "name": "Play Sound",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Volume.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.alert": {
+        "class": "alert",
+        "name": "Show Alert",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.showresult": {
+        "class": "showresult",
+        "name": "Show Result",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.vibrate": {
+        "class": "vibrate",
+        "name": "Vibrate Device",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Notification.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.runsshscript": {
+        "class": "runsshscript",
+        "name": "Run Script Over SSH",
+        "result": "Shell Script Result",
+        "UUID": "null",
+        "glyph": "Settings.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.openxcallbackurl": {
+        "class": "openxcallbackurl",
+        "name": "Open X-Callback URL",
+        "result": "X-Callback Result",
+        "UUID": "null",
+        "glyph": "Link.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.urlencode": {
+        "class": "urlencode",
+        "name": "URL Encode",
+        "result": "URL Encoded Text",
+        "UUID": "null",
+        "glyph": "Link.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.handoff": {
+        "class": "handoff",
+        "name": "___",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Handoff.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.viewresult": {
+        "class": "viewresult",
+        "name": "___",
+        "result": null,
+        "UUID": "null",
+        "glyph": "__.svg",
+        "category": "SCRIPTING",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.math": {
+        "class": "math",
+        "name": "Calculate",
+        "result": "Calculation Result",
+        "UUID": "null",
+        "glyph": "Math.svg",
+        "category": "MATHS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.statistics": {
+        "class": "statistics",
+        "name": "Calculate Statistics",
+        "result": "___",
+        "UUID": "null",
+        "glyph": "Math.svg",
+        "category": "MATHS",
+        "title": [
+            {
+                "class": "text",
+                "text": "Calculate the"
+            },
+            {
+                "class": "choose",
+                "key": "WFStatisticsOperation",
+                "ask_each_time": "Operation",
+                "attrs": {
+                    "key": "WFStatisticsOperation",
+                    "ask_each_time": "Operation",
+                    "default": "Average",
+                    "options": [
+                        "Average",
+                        "Minimum",
+                        "Maximum",
+                        "Sum",
+                        "Median",
+                        "Mode",
+                        "Range",
+                        "Standard Deviation"
+                    ]
+                },
+                "default": "Average",
+                "options": [
+                    "Average",
+                    "Minimum",
+                    "Maximum",
+                    "Sum",
+                    "Median",
+                    "Mode",
+                    "Range",
+                    "Standard Deviation"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "of"
+            },
+            {
+                "class": "magic",
+                "key": "Input",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "Input",
+                    "ask_each_time": null,
+                    "blank_text": "Input"
+                },
+                "blank_text": "Input"
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.round": {
+        "class": "round_",
+        "name": "Round Number",
+        "result": "Rounded Number",
+        "UUID": "null",
+        "glyph": "Math.svg",
+        "category": "MATHS",
+        "title": [
+            {
+                "class": "text",
+                "text": "Round"
+            },
+            {
+                "class": "number",
+                "default": null,
+                "blank_text": "Number",
+                "key": "WFInput",
+                "ask_each_time": "Number",
+                "attrs": {
+                    "key": "WFInput",
+                    "default": null,
+                    "ask_each_time": "Number",
+                    "blank_text": "Number"
+                }
+            },
+            {
+                "class": "text",
+                "text": "to"
+            },
+            {
+                "class": "choose",
+                "key": "WFRoundTo",
+                "ask_each_time": "Value",
+                "attrs": {
+                    "key": "WFRoundTo",
+                    "ask_each_time": "Value",
+                    "default": "Ones Place",
+                    "options": [
+                        "Millions",
+                        "Hundred Thousands",
+                        "Ten Thousands",
+                        "Thousands",
+                        "Hundreds Place",
+                        "Tens Place",
+                        "Ones Place",
+                        "Tenths",
+                        "Hundreths",
+                        "Thousandths",
+                        "Ten Thousandths",
+                        "Hundred Thousandths",
+                        "Millionths",
+                        "Ten Millionths",
+                        "Hundred Millionths",
+                        "Billionths",
+                        "10 ^"
+                    ]
+                },
+                "default": "Ones Place",
+                "options": [
+                    "Millions",
+                    "Hundred Thousands",
+                    "Ten Thousands",
+                    "Thousands",
+                    "Hundreds Place",
+                    "Tens Place",
+                    "Ones Place",
+                    "Tenths",
+                    "Hundreths",
+                    "Thousandths",
+                    "Ten Thousandths",
+                    "Hundred Thousandths",
+                    "Millionths",
+                    "Ten Millionths",
+                    "Hundred Millionths",
+                    "Billionths",
+                    "10 ^"
+                ]
+            },
+            {
+                "class": "whole_number",
+                "default": "0",
+                "blank_text": "",
+                "key": "TenToThePowerOf",
+                "ask_each_time": "Ask Each Time",
+                "attrs": {
+                    "key": "TenToThePowerOf",
+                    "default": "0",
+                    "ask_each_time": "Ask Each Time",
+                    "blank_text": ""
+                }
+            }
+        ],
+        "lines": [
+            {
+                "class": "line_choose",
+                "label": "Mode",
+                "leftify": false,
+                "key": "WFRoundMode",
+                "ask_each_time": "Ask Each Time",
+                "attrs": {
+                    "key": "WFRoundMode",
+                    "ask_each_time": "Ask Each Time",
+                    "default": "Normal",
+                    "options": [
+                        "Normal",
+                        "Always Round Up",
+                        "Always Round Down"
+                    ]
+                },
+                "default": "Normal",
+                "options": [
+                    "Normal",
+                    "Always Round Up",
+                    "Always Round Down"
+                ]
+            }
+        ]
+    },
+    "is.workflow.actions.measurement.convert": {
+        "class": "measurement_convert",
+        "name": "Convert Measurement",
+        "result": "Converted Measurement",
+        "UUID": "null",
+        "glyph": "Math.svg",
+        "category": "MEASUREMENT",
+        "title": [
+            {
+                "class": "text",
+                "text": "Convert"
+            },
+            {
+                "class": "magic",
+                "key": "WFInput",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "WFInput",
+                    "ask_each_time": null,
+                    "blank_text": "Measurement"
+                },
+                "blank_text": "Measurement"
+            },
+            {
+                "class": "text",
+                "text": "into"
+            },
+            {
+                "class": "choose",
+                "key": "WFMeasurementUnitType",
+                "ask_each_time": "Type",
+                "attrs": {
+                    "key": "WFMeasurementUnitType",
+                    "ask_each_time": "Type",
+                    "default": "Length",
+                    "options": [
+                        "Acceleration",
+                        "Angle",
+                        "Area",
+                        "Concentration Mass",
+                        "Dispersion",
+                        "Duration",
+                        "Electric Charge",
+                        "Electric Current",
+                        "Electric Potential Difference",
+                        "Electric Resistance",
+                        "Energy",
+                        "Frequency",
+                        "Fuel Efficiency",
+                        "Illuminance",
+                        "Information Storage",
+                        "Length",
+                        "Mass",
+                        "Power",
+                        "Pressure",
+                        "Speed",
+                        "Temperature",
+                        "Volume"
+                    ]
+                },
+                "default": "Length",
+                "options": [
+                    "Acceleration",
+                    "Angle",
+                    "Area",
+                    "Concentration Mass",
+                    "Dispersion",
+                    "Duration",
+                    "Electric Charge",
+                    "Electric Current",
+                    "Electric Potential Difference",
+                    "Electric Resistance",
+                    "Energy",
+                    "Frequency",
+                    "Fuel Efficiency",
+                    "Illuminance",
+                    "Information Storage",
+                    "Length",
+                    "Mass",
+                    "Power",
+                    "Pressure",
+                    "Speed",
+                    "Temperature",
+                    "Volume"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "in"
+            },
+            {
+                "class": "long_unit",
+                "key": "WFMeasurementUnit",
+                "ask_each_time": "Unit",
+                "attrs": {
+                    "key": "WFMeasurementUnit",
+                    "ask_each_time": "Unit",
+                    "default": "___",
+                    "options": []
+                },
+                "default": "___",
+                "options": []
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.measurement.create": {
+        "class": "measurement_create",
+        "name": "Measurement",
+        "result": "Measurement",
+        "UUID": "null",
+        "glyph": "Math.svg",
+        "category": "MEASUREMENT",
+        "title": [
+            {
+                "class": "choose",
+                "key": "WFMeasurementUnitType",
+                "ask_each_time": "Type",
+                "attrs": {
+                    "key": "WFMeasurementUnitType",
+                    "ask_each_time": "Type",
+                    "default": "Length",
+                    "options": [
+                        "Acceleration",
+                        "Angle",
+                        "Area",
+                        "Concentration Mass",
+                        "Dispersion",
+                        "Duration",
+                        "Electric Charge",
+                        "Electric Current",
+                        "Electric Potential Difference",
+                        "Electric Resistance",
+                        "Energy",
+                        "Frequency",
+                        "Fuel Efficiency",
+                        "Illuminance",
+                        "Information Storage",
+                        "Length",
+                        "Mass",
+                        "Power",
+                        "Pressure",
+                        "Speed",
+                        "Temperature",
+                        "Volume"
+                    ]
+                },
+                "default": "Length",
+                "options": [
+                    "Acceleration",
+                    "Angle",
+                    "Area",
+                    "Concentration Mass",
+                    "Dispersion",
+                    "Duration",
+                    "Electric Charge",
+                    "Electric Current",
+                    "Electric Potential Difference",
+                    "Electric Resistance",
+                    "Energy",
+                    "Frequency",
+                    "Fuel Efficiency",
+                    "Illuminance",
+                    "Information Storage",
+                    "Length",
+                    "Mass",
+                    "Power",
+                    "Pressure",
+                    "Speed",
+                    "Temperature",
+                    "Volume"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.number.random": {
+        "class": "random",
+        "name": "Random Number",
+        "result": "Random Number",
+        "UUID": "null",
+        "glyph": "Math.svg",
+        "category": "MATHS",
+        "title": [
+            {
+                "class": "text",
+                "text": "Random number between"
+            },
+            {
+                "class": "number",
+                "default": null,
+                "blank_text": "Minimum",
+                "key": "WFRandomNumberMinimum",
+                "ask_each_time": "Minimum",
+                "attrs": {
+                    "key": "WFRandomNumberMinimum",
+                    "default": null,
+                    "ask_each_time": "Minimum",
+                    "blank_text": "Minimum"
+                }
+            },
+            {
+                "class": "text",
+                "text": "and"
+            },
+            {
+                "class": "number",
+                "default": null,
+                "blank_text": "Maximum",
+                "key": "WFRandomNumberMaximum",
+                "ask_each_time": "Maximum",
+                "attrs": {
+                    "key": "WFRandomNumberMaximum",
+                    "default": null,
+                    "ask_each_time": "Maximum",
+                    "blank_text": "Maximum"
+                }
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.number": {
+        "class": "number_",
+        "name": "number",
+        "result": "Number",
+        "UUID": "null",
+        "glyph": "Math.svg",
+        "category": "NUMBER",
+        "title": [
+            {
+                "class": "number",
+                "default": null,
+                "blank_text": "42",
+                "key": "WFNumberActionNumber",
+                "ask_each_time": "Number",
+                "attrs": {
+                    "key": "WFNumberActionNumber",
+                    "default": null,
+                    "ask_each_time": "Number",
+                    "blank_text": "42"
+                }
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.date": {
+        "class": "date",
+        "name": "Date",
+        "result": "Date",
+        "UUID": "null",
+        "glyph": "Date.svg",
+        "category": "DATE",
+        "title": [
+            {
+                "class": "choose",
+                "key": "WFDateActionMode",
+                "ask_each_time": "Ask Each Time",
+                "attrs": {
+                    "key": "WFDateActionMode",
+                    "ask_each_time": "Ask Each Time",
+                    "default": "Current Date",
+                    "options": [
+                        "Current Date",
+                        "Specified Date"
+                    ]
+                },
+                "default": "Current Date",
+                "options": [
+                    "Current Date",
+                    "Specified Date"
+                ]
+            },
+            {
+                "class": "inline",
+                "key": "WFDateActionDate",
+                "ask_each_time": "Date",
+                "attrs": {
+                    "key": "WFDateActionDate",
+                    "ask_each_time": "Date",
+                    "blank_text": "29 June 2007"
+                },
+                "blank_text": "29 June 2007"
+            }
+        ],
+        "lines": [
+            {
+                "class": "line_choose",
+                "label": "Use",
+                "leftify": false,
+                "key": "WFDateActionMode",
+                "ask_each_time": "Ask Each Time",
+                "attrs": {
+                    "key": "WFDateActionMode",
+                    "ask_each_time": "Ask Each Time",
+                    "default": "Current Date",
+                    "options": [
+                        "Current Date",
+                        "Specified Date"
+                    ]
+                },
+                "default": "Current Date",
+                "options": [
+                    "Current Date",
+                    "Specified Date"
+                ]
+            }
+        ]
+    },
+    "is.workflow.actions.adjustdate": {
+        "class": "adjustdate",
+        "name": "Adjust Date",
+        "result": "Adjusted Date",
+        "UUID": "null",
+        "glyph": "Date.svg",
+        "category": "CALENDAR",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.gettimebetweendates": {
+        "class": "gettimebetweendates",
+        "name": "Get Time Between Dates",
+        "result": "Time Between Dates",
+        "UUID": "null",
+        "glyph": "Date.svg",
+        "category": "CALENDAR",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.getcurrentsong": {
+        "class": "getcurrentsong",
+        "name": "Get Current Song",
+        "result": "Current Song",
+        "UUID": "null",
+        "glyph": "system/Music.png",
+        "category": "MUSIC",
+        "title": [
+            {
+                "class": "text",
+                "text": "Get current song"
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.playmusic": {
+        "class": "playmusic",
+        "name": "Play Music",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Music.png",
+        "category": "MUSIC",
+        "title": [
+            {
+                "class": "text",
+                "text": "Play"
+            },
+            {
+                "class": "music",
+                "key": "WFMediaItems",
+                "ask_each_time": "Music",
+                "attrs": {
+                    "key": "WFMediaItems",
+                    "ask_each_time": "Music",
+                    "blank_text": "Music"
+                },
+                "blank_text": "Music"
+            }
+        ],
+        "lines": [
+            {
+                "class": "line_pill",
+                "label": "Shuffle",
+                "leftify": false,
+                "key": "WFPlayMusicActionShuffle",
+                "ask_each_time": "Ask Each Time",
+                "attrs": {
+                    "key": "WFPlayMusicActionShuffle",
+                    "ask_each_time": "Ask Each Time",
+                    "default": "",
+                    "options": [
+                        "Off",
+                        "Songs"
+                    ]
+                },
+                "default": "",
+                "options": [
+                    "Off",
+                    "Songs"
+                ]
+            },
+            {
+                "class": "line_pill",
+                "label": "Repeat",
+                "leftify": false,
+                "key": "WFPlayMusicActionRepeat",
+                "ask_each_time": "Ask Each Time",
+                "attrs": {
+                    "key": "WFPlayMusicActionRepeat",
+                    "ask_each_time": "Ask Each Time",
+                    "default": "",
+                    "options": [
+                        "None",
+                        "One",
+                        "All"
+                    ]
+                },
+                "default": "",
+                "options": [
+                    "None",
+                    "One",
+                    "All"
+                ]
+            }
+        ]
+    },
+    "is.workflow.actions.pausemusic": {
+        "class": "pausemusic",
+        "name": "Play/Pause",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Play-Pause.svg",
+        "category": "NOW PLAYING",
+        "title": [
+            {
+                "class": "choose",
+                "key": "WFPlayPauseBehavior",
+                "ask_each_time": "Ask Each Time",
+                "attrs": {
+                    "key": "WFPlayPauseBehavior",
+                    "ask_each_time": "Ask Each Time",
+                    "default": "Play/Pause",
+                    "options": [
+                        "Play/Pause",
+                        "Play",
+                        "Pause"
+                    ]
+                },
+                "default": "Play/Pause",
+                "options": [
+                    "Play/Pause",
+                    "Play",
+                    "Pause"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "on"
+            },
+            {
+                "class": "choose",
+                "key": "WFMediaRoute",
+                "ask_each_time": "Device",
+                "attrs": {
+                    "key": "WFMediaRoute",
+                    "ask_each_time": "Device",
+                    "default": "iPhone",
+                    "options": [
+                        "iPhone"
+                    ]
+                },
+                "default": "iPhone",
+                "options": [
+                    "iPhone"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.skipback": {
+        "class": "skipback",
+        "name": "Skip Back",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Skip-Back.svg",
+        "category": "NOW PLAYING",
+        "title": [
+            {
+                "class": "text",
+                "text": "Skip back to the"
+            },
+            {
+                "class": "choose",
+                "key": "WFSkipBackBehavior",
+                "ask_each_time": "Skip To",
+                "attrs": {
+                    "key": "WFSkipBackBehavior",
+                    "ask_each_time": "Skip To",
+                    "default": "Beginning",
+                    "options": [
+                        "Beginning",
+                        "Previous Song"
+                    ]
+                },
+                "default": "Beginning",
+                "options": [
+                    "Beginning",
+                    "Previous Song"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "on"
+            },
+            {
+                "class": "choose",
+                "key": "WFMediaRoute",
+                "ask_each_time": "Device",
+                "attrs": {
+                    "key": "WFMediaRoute",
+                    "ask_each_time": "Device",
+                    "default": "iPhone",
+                    "options": [
+                        "iPhone"
+                    ]
+                },
+                "default": "iPhone",
+                "options": [
+                    "iPhone"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.skipforward": {
+        "class": "skipforward",
+        "name": "Skip Forward",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Skip-Forward.svg",
+        "category": "NOW PLAYING",
+        "title": [
+            {
+                "class": "text",
+                "text": "Skip forwards on"
+            },
+            {
+                "class": "choose",
+                "key": "WFMediaRoute",
+                "ask_each_time": "Device",
+                "attrs": {
+                    "key": "WFMediaRoute",
+                    "ask_each_time": "Device",
+                    "default": "iPhone",
+                    "options": [
+                        "iPhone"
+                    ]
+                },
+                "default": "iPhone",
+                "options": [
+                    "iPhone"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.exportsong": {
+        "class": "exportsong",
+        "name": "Select Music",
+        "result": "Music",
+        "UUID": "null",
+        "glyph": "system/Music.png",
+        "category": "MUSIC",
+        "title": [
+            {
+                "class": "text",
+                "text": "Select music"
+            }
+        ],
+        "lines": [
+            {
+                "class": "line_toggle",
+                "default": false,
+                "label": "Select Multiple Songs",
+                "leftify": false,
+                "key": "WFExportSongActionSelectMultiple",
+                "ask_each_time": "Ask Each Time",
+                "attrs": {
+                    "key": "WFExportSongActionSelectMultiple",
+                    "default": false,
+                    "ask_each_time": "Ask Each Time"
+                }
+            }
+        ]
+    },
+    "is.workflow.actions.addtoplaylist": {
+        "class": "addtoplaylist",
+        "name": "Add to Playlist",
+        "result": "Updated Playlist",
+        "UUID": "null",
+        "glyph": "system/Music.png",
+        "category": "MUSIC",
+        "title": [
+            {
+                "class": "text",
+                "text": "Add"
+            },
+            {
+                "class": "magic",
+                "key": "WFInput",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "WFInput",
+                    "ask_each_time": null,
+                    "blank_text": "Music"
+                },
+                "blank_text": "Music"
+            },
+            {
+                "class": "text",
+                "text": "to"
+            },
+            {
+                "class": "choose",
+                "key": "WFPlaylistName",
+                "ask_each_time": "Playlist",
+                "attrs": {
+                    "key": "WFPlaylistName",
+                    "ask_each_time": "Playlist",
+                    "default": "My Music Library",
+                    "options": [
+                        "My Music Library"
+                    ]
+                },
+                "default": "My Music Library",
+                "options": [
+                    "My Music Library"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.createplaylist": {
+        "class": "createplaylist",
+        "name": "Create Playlist",
+        "result": "New Playlist",
+        "UUID": "null",
+        "glyph": "system/Music.png",
+        "category": "MUSIC",
+        "title": [
+            {
+                "class": "text",
+                "text": "Create playlist"
+            },
+            {
+                "class": "inline",
+                "key": "WFPlaylistName",
+                "ask_each_time": "Text",
+                "attrs": {
+                    "key": "WFPlaylistName",
+                    "ask_each_time": "Text",
+                    "blank_text": "Playlist Name"
+                },
+                "blank_text": "Playlist Name"
+            },
+            {
+                "class": "text",
+                "text": "with"
+            },
+            {
+                "class": "magic",
+                "key": "WFPlaylistItems",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "WFPlaylistItems",
+                    "ask_each_time": null,
+                    "blank_text": "Music"
+                },
+                "blank_text": "Music"
+            }
+        ],
+        "lines": [
+            {
+                "class": "line_inline",
+                "label": "Author",
+                "leftify": false,
+                "key": "WFPlaylistAuthor",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "WFPlaylistAuthor",
+                    "ask_each_time": null,
+                    "blank_text": "Shortcuts"
+                },
+                "blank_text": "Shortcuts"
+            },
+            {
+                "class": "line_inline",
+                "label": "Description",
+                "leftify": false,
+                "key": "WFPlaylistDescription",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "WFPlaylistDescription",
+                    "ask_each_time": null,
+                    "blank_text": "All my favorites"
+                },
+                "blank_text": "All my favorites"
+            }
+        ]
+    },
+    "is.workflow.actions.get.playlist": {
+        "class": "get_playlist",
+        "name": "Get Playlist",
+        "result": "Playlist",
+        "UUID": "null",
+        "glyph": "system/Music.png",
+        "category": "MUSIC",
+        "title": [
+            {
+                "class": "text",
+                "text": "Get songs in"
+            },
+            {
+                "class": "magic",
+                "key": "WFPlaylistName",
+                "ask_each_time": "Playlist",
+                "attrs": {
+                    "key": "WFPlaylistName",
+                    "ask_each_time": "Playlist",
+                    "blank_text": "Playlist"
+                },
+                "blank_text": "Playlist"
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.addmusictoupnext": {
+        "class": "addmusictoupnext",
+        "name": "Add to Up Next",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Music.png",
+        "category": "MUSIC",
+        "title": [
+            {
+                "class": "text",
+                "text": "Add"
+            },
+            {
+                "class": "music",
+                "key": "WFMusic",
+                "ask_each_time": "Music",
+                "attrs": {
+                    "key": "WFMusic",
+                    "ask_each_time": "Music",
+                    "blank_text": "Music"
+                },
+                "blank_text": "Music"
+            },
+            {
+                "class": "text",
+                "text": "to"
+            },
+            {
+                "class": "choose",
+                "key": "WFWhenToPlay",
+                "ask_each_time": "Play",
+                "attrs": {
+                    "key": "WFWhenToPlay",
+                    "ask_each_time": "Play",
+                    "default": "Next",
+                    "options": [
+                        "Next",
+                        "Later"
+                    ]
+                },
+                "default": "Next",
+                "options": [
+                    "Next",
+                    "Later"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "of Up Next"
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.clearupnext": {
+        "class": "clearupnext",
+        "name": "Clear Up Next",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Music.png",
+        "category": "MUSIC",
+        "title": [
+            {
+                "class": "text",
+                "text": "Clear Up Next"
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.getdistance": {
+        "class": "getdistance",
+        "name": "Get Distance",
+        "result": "Distance",
+        "UUID": "null",
+        "glyph": "system/Maps.png",
+        "category": "MAPS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.gethalfwaypoint": {
+        "class": "gethalfwaypoint",
+        "name": "Get Halfway Point",
+        "result": "Halfway Point",
+        "UUID": "null",
+        "glyph": "system/Maps.png",
+        "category": "MAPS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.gettraveltime": {
+        "class": "gettraveltime",
+        "name": "Search Travel Time",
+        "result": "Travel Time",
+        "UUID": "null",
+        "glyph": "system/Maps.png",
+        "category": "MAPS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.address": {
+        "class": "address",
+        "name": "Street Address",
+        "result": "Street Address",
+        "UUID": "null",
+        "glyph": "system/Maps.png",
+        "category": "STREET ADDRESS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.getmapslink": {
+        "class": "getmapslink",
+        "name": "Get Maps URL",
+        "result": "Maps URL",
+        "UUID": "null",
+        "glyph": "system/Maps.png",
+        "category": "MAPS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.getdirections": {
+        "class": "getdirections",
+        "name": "Show Directions",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Maps.png",
+        "category": "MAPS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.searchmaps": {
+        "class": "searchmaps",
+        "name": "Show in Maps",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Maps.png",
+        "category": "MAPS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.searchlocalbusinesses": {
+        "class": "searchlocalbusinesses",
+        "name": "Search Local Businesses",
+        "result": "Local Businesses",
+        "UUID": "null",
+        "glyph": "system/Maps.png",
+        "category": "MAPS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.unzip": {
+        "class": "unzip",
+        "name": "Extract Archive",
+        "result": "Files",
+        "UUID": "null",
+        "glyph": "File.svg",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.makezip": {
+        "class": "makezip",
+        "name": "Make Archive",
+        "result": "Archive",
+        "UUID": "null",
+        "glyph": "File.svg",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.speaktext": {
+        "class": "speaktext",
+        "name": "Speak Text",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Volume.svg",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.avairyeditphoto": {
+        "class": "avairyeditphoto",
+        "name": "Markup",
+        "result": "Markup Result",
+        "UUID": "null",
+        "glyph": "Markup.svg",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.openin": {
+        "class": "openin",
+        "name": "Open In...",
+        "result": null,
+        "UUID": "null",
+        "glyph": "App.svg",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.previewdocument": {
+        "class": "previewdocument",
+        "name": "Quick Look",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Quicklook.svg",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.makepdf": {
+        "class": "makepdf",
+        "name": "Make PDF",
+        "result": "PDF",
+        "UUID": "null",
+        "glyph": "Make-PDF.svg",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.print": {
+        "class": "print_",
+        "name": "Print",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Print.svg",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.generatebarcode": {
+        "class": "generatebarcode",
+        "name": "Generate QR Code",
+        "result": "QR Code",
+        "UUID": "null",
+        "glyph": "QR.png",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.scanbarcode": {
+        "class": "scanbarcode",
+        "name": "Scan QR/Barcode",
+        "result": "QR/Barcode",
+        "UUID": "null",
+        "glyph": "QR.png",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.getrichtextfrommarkdown": {
+        "class": "getrichtextfrommarkdown",
+        "name": "Make Rich Text from Markdown",
+        "result": "Rich Text from Markdown",
+        "UUID": "null",
+        "glyph": "RichText.png",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.getrichtextfromhtml": {
+        "class": "getrichtextfromhtml",
+        "name": "Make Rich Text from HTML",
+        "result": "Rich Text from HTML",
+        "UUID": "null",
+        "glyph": "RichText.png",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.gethtmlfromrichtext": {
+        "class": "gethtmlfromrichtext",
+        "name": "Make HTML from Rich Text",
+        "result": "HTML from Rich Text",
+        "UUID": "null",
+        "glyph": "RichText.png",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.getmarkdownfromrichtext": {
+        "class": "getmarkdownfromrichtext",
+        "name": "Make Markdown from Rich Text",
+        "result": "Markdown from Rich Text",
+        "UUID": "null",
+        "glyph": "RichText.png",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.dictatetext": {
+        "class": "dictatetext",
+        "name": "Dictate Text",
+        "result": "Dictated Text",
+        "UUID": "null",
+        "glyph": "Dictate.svg",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.getnameofemoji": {
+        "class": "getnameofemoji",
+        "name": "Get Name of Emoji",
+        "result": "Name of Emoji",
+        "UUID": "null",
+        "glyph": "Emoji.svg",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.showdefinition": {
+        "class": "showdefinition",
+        "name": "Show Definition",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Definition.svg",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.correctspelling": {
+        "class": "correctspelling",
+        "name": "Correct Spelling",
+        "result": "Corrected Spelling",
+        "UUID": "null",
+        "glyph": "Note.svg",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.file.createfolder": {
+        "class": "file_createfolder",
+        "name": "Create Folder",
+        "result": null,
+        "UUID": "null",
+        "glyph": "File.svg",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.file.append": {
+        "class": "file_append",
+        "name": "Append to File",
+        "result": "Appended File",
+        "UUID": "null",
+        "glyph": "File.svg",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.file.delete": {
+        "class": "file_delete",
+        "name": "Delete Files",
+        "result": null,
+        "UUID": "null",
+        "glyph": "File.svg",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.file.getlink": {
+        "class": "file_getlink",
+        "name": "Get Link to File",
+        "result": "Link to File",
+        "UUID": "null",
+        "glyph": "File.svg",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.documentpicker.open": {
+        "class": "documentpicker_open",
+        "name": "Get File",
+        "result": "File",
+        "UUID": "null",
+        "glyph": "File.svg",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.documentpicker.save": {
+        "class": "documentpicker_save",
+        "name": "Save File",
+        "result": "Saved File",
+        "UUID": "null",
+        "glyph": "File.svg",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.gettext": {
+        "class": "gettext",
+        "name": "",
+        "result": "Text",
+        "UUID": "null",
+        "glyph": "Note.svg",
+        "category": "TEXT",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.text.replace": {
+        "class": "text_replace",
+        "name": "",
+        "result": "Updated Text",
+        "UUID": "null",
+        "glyph": "Note.svg",
+        "category": "DOCUMENTS",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.text.combine": {
+        "class": "text_combine",
+        "name": "",
+        "result": "Combined Text",
+        "UUID": "null",
+        "glyph": "Note.svg",
+        "category": "TEXT",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.text.split": {
+        "class": "text_split",
+        "name": "",
+        "result": "Split Text",
+        "UUID": "null",
+        "glyph": "Note.svg",
+        "category": "TEXT",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.text.changecase": {
+        "class": "text_changecase",
+        "name": "",
+        "result": "Updated Text",
+        "UUID": "null",
+        "glyph": "Note.svg",
+        "category": "TEXT",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.text.match": {
+        "class": "text_match",
+        "name": "",
+        "result": "Matches",
+        "UUID": "null",
+        "glyph": "Note.svg",
+        "category": "TEXT",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.text.match.getgroup": {
+        "class": "text_match_getgroup",
+        "name": "",
+        "result": "Text",
+        "UUID": "null",
+        "glyph": "Note.svg",
+        "category": "TEXT",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.text.translate": {
+        "class": "text_translate",
+        "name": "Translate Text with Microsoft",
+        "result": "Translated Text",
+        "UUID": "null",
+        "glyph": "Language.svg",
+        "category": "MICROSOFT COGNITIVE SERVICES",
+        "title": [
+            {
+                "class": "text",
+                "text": "Translate"
+            },
+            {
+                "class": "inline",
+                "key": "WFInputText",
+                "ask_each_time": "Text",
+                "attrs": {
+                    "key": "WFInputText",
+                    "ask_each_time": "Text",
+                    "blank_text": "Text"
+                },
+                "blank_text": "Text"
+            },
+            {
+                "class": "text",
+                "text": "from"
+            },
+            {
+                "class": "choose",
+                "key": "WFSelectedFromLanguage",
+                "ask_each_time": "Language",
+                "attrs": {
+                    "key": "WFSelectedFromLanguage",
+                    "ask_each_time": "Language",
+                    "default": "Detected Language",
+                    "options": [
+                        "Detected Language",
+                        "Afrikaans",
+                        "Arabic",
+                        "Bangla",
+                        "Bosnian",
+                        "Bulgarian",
+                        "Cantonese (Traditional)",
+                        "Catalan",
+                        "Chinese Simplified",
+                        "Chinese Traditional",
+                        "Croation",
+                        "Czech",
+                        "Danish",
+                        "Dutch",
+                        "English",
+                        "Estonian",
+                        "Fijian",
+                        "Filipino",
+                        "Finnish",
+                        "French",
+                        "German",
+                        "Greek",
+                        "Haitian Creole",
+                        "Hebrew",
+                        "Hindi",
+                        "Hmong Daw",
+                        "Hungarian",
+                        "Icelandic",
+                        "Indonesian",
+                        "Italian",
+                        "Japanese",
+                        "Kiswahili",
+                        "Klingon",
+                        "Korean",
+                        "Latvian",
+                        "Lithuanian",
+                        "Malagasy",
+                        "Malay",
+                        "Maltese",
+                        "Maori",
+                        "Norwegian",
+                        "Persian",
+                        "Polish",
+                        "Portuguese",
+                        "Quer\u00e9taro Otomi",
+                        "Romanian",
+                        "Russian",
+                        "Samoan",
+                        "Serbian (Cyrillic)",
+                        "Serbian (Latin)",
+                        "Slovak",
+                        "Slovenian",
+                        "Spanish",
+                        "Swedish",
+                        "Tahitian",
+                        "Tamil",
+                        "Telugu",
+                        "Thai",
+                        "Tongan",
+                        "Turkish",
+                        "Ukranian",
+                        "Urdu",
+                        "Vietnamese",
+                        "Welsh",
+                        "Yucatec Maya"
+                    ]
+                },
+                "default": "Detected Language",
+                "options": [
+                    "Detected Language",
+                    "Afrikaans",
+                    "Arabic",
+                    "Bangla",
+                    "Bosnian",
+                    "Bulgarian",
+                    "Cantonese (Traditional)",
+                    "Catalan",
+                    "Chinese Simplified",
+                    "Chinese Traditional",
+                    "Croation",
+                    "Czech",
+                    "Danish",
+                    "Dutch",
+                    "English",
+                    "Estonian",
+                    "Fijian",
+                    "Filipino",
+                    "Finnish",
+                    "French",
+                    "German",
+                    "Greek",
+                    "Haitian Creole",
+                    "Hebrew",
+                    "Hindi",
+                    "Hmong Daw",
+                    "Hungarian",
+                    "Icelandic",
+                    "Indonesian",
+                    "Italian",
+                    "Japanese",
+                    "Kiswahili",
+                    "Klingon",
+                    "Korean",
+                    "Latvian",
+                    "Lithuanian",
+                    "Malagasy",
+                    "Malay",
+                    "Maltese",
+                    "Maori",
+                    "Norwegian",
+                    "Persian",
+                    "Polish",
+                    "Portuguese",
+                    "Quer\u00e9taro Otomi",
+                    "Romanian",
+                    "Russian",
+                    "Samoan",
+                    "Serbian (Cyrillic)",
+                    "Serbian (Latin)",
+                    "Slovak",
+                    "Slovenian",
+                    "Spanish",
+                    "Swedish",
+                    "Tahitian",
+                    "Tamil",
+                    "Telugu",
+                    "Thai",
+                    "Tongan",
+                    "Turkish",
+                    "Ukranian",
+                    "Urdu",
+                    "Vietnamese",
+                    "Welsh",
+                    "Yucatec Maya"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "to"
+            },
+            {
+                "class": "choose",
+                "key": "WFSelectedLanguage",
+                "ask_each_time": "To",
+                "attrs": {
+                    "key": "WFSelectedLanguage",
+                    "ask_each_time": "To",
+                    "default": "English",
+                    "options": [
+                        "Detected Language",
+                        "Afrikaans",
+                        "Arabic",
+                        "Bangla",
+                        "Bosnian",
+                        "Bulgarian",
+                        "Cantonese (Traditional)",
+                        "Catalan",
+                        "Chinese Simplified",
+                        "Chinese Traditional",
+                        "Croation",
+                        "Czech",
+                        "Danish",
+                        "Dutch",
+                        "English",
+                        "Estonian",
+                        "Fijian",
+                        "Filipino",
+                        "Finnish",
+                        "French",
+                        "German",
+                        "Greek",
+                        "Haitian Creole",
+                        "Hebrew",
+                        "Hindi",
+                        "Hmong Daw",
+                        "Hungarian",
+                        "Icelandic",
+                        "Indonesian",
+                        "Italian",
+                        "Japanese",
+                        "Kiswahili",
+                        "Klingon",
+                        "Korean",
+                        "Latvian",
+                        "Lithuanian",
+                        "Malagasy",
+                        "Malay",
+                        "Maltese",
+                        "Maori",
+                        "Norwegian",
+                        "Persian",
+                        "Polish",
+                        "Portuguese",
+                        "Quer\u00e9taro Otomi",
+                        "Romanian",
+                        "Russian",
+                        "Samoan",
+                        "Serbian (Cyrillic)",
+                        "Serbian (Latin)",
+                        "Slovak",
+                        "Slovenian",
+                        "Spanish",
+                        "Swedish",
+                        "Tahitian",
+                        "Tamil",
+                        "Telugu",
+                        "Thai",
+                        "Tongan",
+                        "Turkish",
+                        "Ukranian",
+                        "Urdu",
+                        "Vietnamese",
+                        "Welsh",
+                        "Yucatec Maya"
+                    ]
+                },
+                "default": "English",
+                "options": [
+                    "Detected Language",
+                    "Afrikaans",
+                    "Arabic",
+                    "Bangla",
+                    "Bosnian",
+                    "Bulgarian",
+                    "Cantonese (Traditional)",
+                    "Catalan",
+                    "Chinese Simplified",
+                    "Chinese Traditional",
+                    "Croation",
+                    "Czech",
+                    "Danish",
+                    "Dutch",
+                    "English",
+                    "Estonian",
+                    "Fijian",
+                    "Filipino",
+                    "Finnish",
+                    "French",
+                    "German",
+                    "Greek",
+                    "Haitian Creole",
+                    "Hebrew",
+                    "Hindi",
+                    "Hmong Daw",
+                    "Hungarian",
+                    "Icelandic",
+                    "Indonesian",
+                    "Italian",
+                    "Japanese",
+                    "Kiswahili",
+                    "Klingon",
+                    "Korean",
+                    "Latvian",
+                    "Lithuanian",
+                    "Malagasy",
+                    "Malay",
+                    "Maltese",
+                    "Maori",
+                    "Norwegian",
+                    "Persian",
+                    "Polish",
+                    "Portuguese",
+                    "Quer\u00e9taro Otomi",
+                    "Romanian",
+                    "Russian",
+                    "Samoan",
+                    "Serbian (Cyrillic)",
+                    "Serbian (Latin)",
+                    "Slovak",
+                    "Slovenian",
+                    "Spanish",
+                    "Swedish",
+                    "Tahitian",
+                    "Tamil",
+                    "Telugu",
+                    "Thai",
+                    "Tongan",
+                    "Turkish",
+                    "Ukranian",
+                    "Urdu",
+                    "Vietnamese",
+                    "Welsh",
+                    "Yucatec Maya"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.getcurrentlocation": {
+        "class": "getcurrentlocation",
+        "name": "",
+        "result": "Current Location",
+        "UUID": "null",
+        "glyph": "Location.svg",
+        "category": "LOCATION",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.location": {
+        "class": "location",
+        "name": "",
+        "result": "Location",
+        "UUID": "null",
+        "glyph": "Location.svg",
+        "category": "LOCATION",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.weather.currentconditions": {
+        "class": "weather_currentconditions",
+        "name": "",
+        "result": "___",
+        "UUID": "null",
+        "glyph": "system/Weather.png",
+        "category": "LOCATION",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.weather.forecast": {
+        "class": "weather_forecast",
+        "name": "",
+        "result": "___",
+        "UUID": "null",
+        "glyph": "system/Weather.png",
+        "category": "LOCATION",
+        "title": [],
+        "lines": []
+    },
+    "is.workflow.actions.searchweb": {
+        "class": "searchweb",
+        "name": "Search Web",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Safari.jpg",
+        "category": "SAFARI",
+        "title": [
+            {
+                "class": "text",
+                "text": "Search"
+            },
+            {
+                "class": "choose",
+                "key": "WFSearchWebDestination",
+                "ask_each_time": "Service",
+                "attrs": {
+                    "key": "WFSearchWebDestination",
+                    "ask_each_time": "Service",
+                    "default": "Google",
+                    "options": [
+                        "Amazon",
+                        "Bing",
+                        "DuckDuckGo",
+                        "eBay",
+                        "Google",
+                        "Reddit",
+                        "Twitter",
+                        "Yahoo!",
+                        "YouTube"
+                    ]
+                },
+                "default": "Google",
+                "options": [
+                    "Amazon",
+                    "Bing",
+                    "DuckDuckGo",
+                    "eBay",
+                    "Google",
+                    "Reddit",
+                    "Twitter",
+                    "Yahoo!",
+                    "YouTube"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "for"
+            },
+            {
+                "class": "inline",
+                "key": "WFInputText",
+                "ask_each_time": "Text",
+                "attrs": {
+                    "key": "WFInputText",
+                    "ask_each_time": "Text",
+                    "blank_text": "Text"
+                },
+                "blank_text": "Text"
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.showwebpage": {
+        "class": "showwebpage",
+        "name": "Show Web Page",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Safari.jpg",
+        "category": "SAFARI",
+        "title": [
+            {
+                "class": "text",
+                "text": "Show web page at"
+            },
+            {
+                "class": "inline",
+                "key": "WFURL",
+                "ask_each_time": "Text",
+                "attrs": {
+                    "key": "WFURL",
+                    "ask_each_time": "Text",
+                    "blank_text": "URL"
+                },
+                "blank_text": "URL"
+            }
+        ],
+        "lines": [
+            {
+                "class": "line_toggle",
+                "default": false,
+                "label": "Enter Safari Reader",
+                "leftify": false,
+                "key": "WFEnterSafariReader",
+                "ask_each_time": "Ask Each Time",
+                "attrs": {
+                    "key": "WFEnterSafariReader",
+                    "default": false,
+                    "ask_each_time": "Ask Each Time"
+                }
+            }
+        ]
+    },
+    "is.workflow.actions.readinglist": {
+        "class": "readinglist",
+        "name": "Add to Reading List",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Safari.jpg",
+        "category": "SAFARI",
+        "title": [
+            {
+                "class": "text",
+                "text": "Add"
+            },
+            {
+                "class": "list_inline",
+                "key": "WFURL",
+                "ask_each_time": "Text",
+                "attrs": {
+                    "key": "WFURL",
+                    "ask_each_time": "Text",
+                    "blank_text": "URL"
+                },
+                "blank_text": "URL"
+            },
+            {
+                "class": "text",
+                "text": "to Reading List"
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.openurl": {
+        "class": "openurl",
+        "name": "Open URLs",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Safari.jpg",
+        "category": "SAFARI",
+        "title": [
+            {
+                "class": "text",
+                "text": "Open"
+            },
+            {
+                "class": "list_inline",
+                "key": "WFInput",
+                "ask_each_time": "Text",
+                "attrs": {
+                    "key": "WFInput",
+                    "ask_each_time": "Text",
+                    "blank_text": "URL"
+                },
+                "blank_text": "URL"
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.runjavascriptonwebpage": {
+        "class": "runjavascriptonwebpage",
+        "name": "Run JavaScript on Web Page",
+        "result": "JavaScript Result",
+        "UUID": "null",
+        "glyph": "system/Safari.jpg",
+        "category": "SAFARI",
+        "title": [
+            {
+                "class": "text",
+                "text": "Run JavaScript on"
+            },
+            {
+                "class": "magic",
+                "key": "WFInput",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "WFInput",
+                    "ask_each_time": null,
+                    "blank_text": "Web page"
+                },
+                "blank_text": "Web page"
+            }
+        ],
+        "lines": [
+            {
+                "class": "line_code",
+                "label": "",
+                "leftify": true,
+                "key": "WFJavaScript",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "WFJavaScript",
+                    "ask_each_time": null,
+                    "blank_text": "JavaScript",
+                    "default": "var result = [];\n// Get all links from the page\nvar elements = document.querySelectorAll(\"a\");\nfor (let element of elements) {\n\tresult.push({\n\t\t\"url\": element.href,\n\t\t\"text\": element.innerText\n\t});\n}\n\n// Call completion to finish\ncompletion(result);"
+                },
+                "blank_text": "JavaScript",
+                "default": "var result = [];\n// Get all links from the page\nvar elements = document.querySelectorAll(\"a\");\nfor (let element of elements) {\n\tresult.push({\n\t\t\"url\": element.href,\n\t\t\"text\": element.innerText\n\t});\n}\n\n// Call completion to finish\ncompletion(result);"
+            }
+        ]
+    },
+    "is.workflow.actions.getwebpagecontents": {
+        "class": "getwebpagecontents",
+        "name": "Get Contents of Web Page",
+        "result": "Contents of Web Page",
+        "UUID": "null",
+        "glyph": "system/Safari.jpg",
+        "category": "SAFARI",
+        "title": [
+            {
+                "class": "text",
+                "text": "Get contents of web page at"
+            },
+            {
+                "class": "inline",
+                "key": "WFInput",
+                "ask_each_time": "Text",
+                "attrs": {
+                    "key": "WFInput",
+                    "ask_each_time": "Text",
+                    "blank_text": "URL"
+                },
+                "blank_text": "URL"
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.getarticle": {
+        "class": "getarticle",
+        "name": "Get Article using Safari Reader",
+        "result": "Article",
+        "UUID": "null",
+        "glyph": "system/Safari.jpg",
+        "category": "SAFARI",
+        "title": [
+            {
+                "class": "text",
+                "text": "Get article from"
+            },
+            {
+                "class": "inline",
+                "key": "WFWebPage",
+                "ask_each_time": "Text",
+                "attrs": {
+                    "key": "WFWebPage",
+                    "ask_each_time": "Text",
+                    "blank_text": "URL"
+                },
+                "blank_text": "URL"
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.encodemedia": {
+        "class": "encodemedia",
+        "name": "Encode Media",
+        "result": "Encoded Media",
+        "UUID": "null",
+        "glyph": "QuickTime.png",
+        "category": "MEDIA",
+        "title": [
+            {
+                "class": "text",
+                "text": "Encode"
+            },
+            {
+                "class": "magic",
+                "key": "WFMedia",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "WFMedia",
+                    "ask_each_time": null,
+                    "blank_text": "Media"
+                },
+                "blank_text": "Media"
+            }
+        ],
+        "lines": [
+            {
+                "class": "line_toggle",
+                "default": false,
+                "label": "Audio Only",
+                "leftify": false,
+                "key": "WFMediaAudioOnly",
+                "ask_each_time": "Ask Each Time",
+                "attrs": {
+                    "key": "WFMediaAudioOnly",
+                    "default": false,
+                    "ask_each_time": "Ask Each Time"
+                }
+            },
+            {
+                "class": "line_choose",
+                "label": "Size",
+                "leftify": false,
+                "key": "WFMediaSize",
+                "ask_each_time": "Ask Each Time",
+                "attrs": {
+                    "key": "WFMediaSize",
+                    "ask_each_time": "Ask Each Time",
+                    "default": "Passthrough",
+                    "options": [
+                        "640x480",
+                        "960x540",
+                        "1280x720",
+                        "1920x1080",
+                        "HEVC 1920x1080",
+                        "HEVC 3840x2160",
+                        "Passthrough"
+                    ]
+                },
+                "default": "Passthrough",
+                "options": [
+                    "640x480",
+                    "960x540",
+                    "1280x720",
+                    "1920x1080",
+                    "HEVC 1920x1080",
+                    "HEVC 3840x2160",
+                    "Passthrough"
+                ]
+            },
+            {
+                "class": "line_choose",
+                "label": "Speed",
+                "leftify": false,
+                "key": "WFMediaSpeed",
+                "ask_each_time": "Ask Each Time",
+                "attrs": {
+                    "key": "WFMediaSpeed",
+                    "ask_each_time": "Ask Each Time",
+                    "default": "Normal",
+                    "options": [
+                        "0.5X",
+                        "Normal",
+                        "2X",
+                        "Custom"
+                    ]
+                },
+                "default": "Normal",
+                "options": [
+                    "0.5X",
+                    "Normal",
+                    "2X",
+                    "Custom"
+                ]
+            },
+            {
+                "class": "line_pill",
+                "label": "Format",
+                "leftify": false,
+                "key": "WFMediaAudioFormat",
+                "ask_each_time": "Ask Each Time",
+                "attrs": {
+                    "key": "WFMediaAudioFormat",
+                    "ask_each_time": "Ask Each Time",
+                    "default": "M4A",
+                    "options": [
+                        "M4A",
+                        "AIFF"
+                    ]
+                },
+                "default": "M4A",
+                "options": [
+                    "M4A",
+                    "AIFF"
+                ]
+            },
+            {
+                "class": "line_number",
+                "label": "Custom Speed",
+                "leftify": false,
+                "default": null,
+                "blank_text": "1.0",
+                "key": "WFMediaCustomSpeed",
+                "ask_each_time": "Ask Each Time",
+                "attrs": {
+                    "key": "WFMediaCustomSpeed",
+                    "default": null,
+                    "ask_each_time": "Ask Each Time",
+                    "blank_text": "1.0"
+                }
+            },
+            {
+                "class": "line_inline",
+                "label": "Title",
+                "leftify": false,
+                "key": "WFMetadataTitle",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "WFMetadataTitle",
+                    "ask_each_time": null,
+                    "blank_text": "My Great Track"
+                },
+                "blank_text": "My Great Track"
+            },
+            {
+                "class": "line_inline",
+                "label": "Artist",
+                "leftify": false,
+                "key": "WFMetadataArtist",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "WFMetadataArtist",
+                    "ask_each_time": null,
+                    "blank_text": "Nicholas Fryingpan"
+                },
+                "blank_text": "Nicholas Fryingpan"
+            },
+            {
+                "class": "line_inline",
+                "label": "Album",
+                "leftify": false,
+                "key": "WFMetadataAlbum",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "WFMetadataAlbum",
+                    "ask_each_time": null,
+                    "blank_text": "Abbey Road"
+                },
+                "blank_text": "Abbey Road"
+            },
+            {
+                "class": "line_inline",
+                "label": "Genre",
+                "leftify": false,
+                "key": "WFMetadataGenre",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "WFMetadataGenre",
+                    "ask_each_time": null,
+                    "blank_text": "Indie"
+                },
+                "blank_text": "Indie"
+            },
+            {
+                "class": "line_inline",
+                "label": "Year",
+                "leftify": false,
+                "key": "WFMetadataYear",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "WFMetadataYear",
+                    "ask_each_time": null,
+                    "blank_text": "2001"
+                },
+                "blank_text": "2001"
+            },
+            {
+                "class": "line_choose",
+                "label": "Artwork",
+                "leftify": false,
+                "key": "WFMetadataArtwork",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "WFMetadataArtwork",
+                    "ask_each_time": null,
+                    "default": "Choose Variable",
+                    "options": [
+                        "Choose Variable"
+                    ]
+                },
+                "default": "Choose Variable",
+                "options": [
+                    "Choose Variable"
+                ]
+            }
+        ]
+    },
+    "is.workflow.actions.trimvideo": {
+        "class": "trimvideo",
+        "name": "Trim Media",
+        "result": "Trimmed Media",
+        "UUID": "null",
+        "glyph": "QuickTime.png",
+        "category": "MEDIA",
+        "title": [
+            {
+                "class": "text",
+                "text": "Trim"
+            },
+            {
+                "class": "magic",
+                "key": "WFInputMedia",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "WFInputMedia",
+                    "ask_each_time": null,
+                    "blank_text": "Media"
+                },
+                "blank_text": "Media"
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.detectlanguage": {
+        "class": "detectlanguage",
+        "name": "Detect Language with Microsoft",
+        "result": "Language",
+        "UUID": "null",
+        "glyph": "Language.svg",
+        "category": "MICROSOFT COGNITIVE SERVICES",
+        "title": [
+            {
+                "class": "text",
+                "text": "Detect language of"
+            },
+            {
+                "class": "inline",
+                "key": "WFInput",
+                "ask_each_time": "Text",
+                "attrs": {
+                    "key": "WFInput",
+                    "ask_each_time": "Text",
+                    "blank_text": "Text"
+                },
+                "blank_text": "Text"
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.airdropdocument": {
+        "class": "airdropdocument",
+        "name": "Airdrop",
+        "result": null,
+        "UUID": "null",
+        "glyph": "Airdrop.svg",
+        "category": "AIRDROP",
+        "title": [
+            {
+                "class": "text",
+                "text": "Airdrop"
+            },
+            {
+                "class": "magic",
+                "key": "WFInput",
+                "ask_each_time": null,
+                "attrs": {
+                    "key": "WFInput",
+                    "ask_each_time": null,
+                    "blank_text": "Content"
+                },
+                "blank_text": "Content"
+            }
+        ],
+        "lines": []
+    },
+    "is.workflow.actions.___": {
+        "class": "___",
+        "name": "___",
+        "result": "___",
+        "UUID": "null",
+        "glyph": "___",
+        "category": "___",
+        "title": [],
+        "lines": []
+    },
+    "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXToggleSwitchControlIntent": {
+        "class": "AXToggleSwitchControlIntent",
+        "name": "Set Switch Control",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Settings.png",
+        "category": "SETTINGS",
+        "title": [
+            {
+                "class": "choose",
+                "key": "operation",
+                "ask_each_time": "Operation",
+                "attrs": {
+                    "key": "operation",
+                    "ask_each_time": "Operation",
+                    "default": "Turn",
+                    "options": [
+                        "Turn",
+                        "Toggle"
+                    ]
+                },
+                "default": "Turn",
+                "options": [
+                    "Turn",
+                    "Toggle"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "Switch Control"
+            },
+            {
+                "class": "choose",
+                "key": "state",
+                "ask_each_time": "State",
+                "attrs": {
+                    "key": "state",
+                    "ask_each_time": "State",
+                    "default": 1,
+                    "options": [
+                        "on",
+                        "off"
+                    ]
+                },
+                "default": 1,
+                "options": [
+                    "on",
+                    "off"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXToggleLEDFlashIntent": {
+        "class": "AXToggleLEDFlashIntent",
+        "name": "Set LED Flash",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Settings.png",
+        "category": "SETTINGS",
+        "title": [
+            {
+                "class": "choose",
+                "key": "operation",
+                "ask_each_time": "Operation",
+                "attrs": {
+                    "key": "operation",
+                    "ask_each_time": "Operation",
+                    "default": "Turn",
+                    "options": [
+                        "Turn",
+                        "Toggle"
+                    ]
+                },
+                "default": "Turn",
+                "options": [
+                    "Turn",
+                    "Toggle"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "LED Flash"
+            },
+            {
+                "class": "choose",
+                "key": "state",
+                "ask_each_time": "State",
+                "attrs": {
+                    "key": "state",
+                    "ask_each_time": "State",
+                    "default": 1,
+                    "options": [
+                        "on",
+                        "off"
+                    ]
+                },
+                "default": 1,
+                "options": [
+                    "on",
+                    "off"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXToggleAssistiveTouchIntent": {
+        "class": "AXToggleAssistiveTouchIntent",
+        "name": "Set AssistiveTouch",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Settings.png",
+        "category": "SETTINGS",
+        "title": [
+            {
+                "class": "choose",
+                "key": "operation",
+                "ask_each_time": "Operation",
+                "attrs": {
+                    "key": "operation",
+                    "ask_each_time": "Operation",
+                    "default": "Turn",
+                    "options": [
+                        "Turn",
+                        "Toggle"
+                    ]
+                },
+                "default": "Turn",
+                "options": [
+                    "Turn",
+                    "Toggle"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "AssistiveTouch"
+            },
+            {
+                "class": "choose",
+                "key": "state",
+                "ask_each_time": "State",
+                "attrs": {
+                    "key": "state",
+                    "ask_each_time": "State",
+                    "default": 1,
+                    "options": [
+                        "on",
+                        "off"
+                    ]
+                },
+                "default": 1,
+                "options": [
+                    "on",
+                    "off"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXToggleAudioDescriptionsIntent": {
+        "class": "AXToggleAudioDescriptionsIntent",
+        "name": "Set Audio Descriptions",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Settings.png",
+        "category": "SETTINGS",
+        "title": [
+            {
+                "class": "choose",
+                "key": "operation",
+                "ask_each_time": "Operation",
+                "attrs": {
+                    "key": "operation",
+                    "ask_each_time": "Operation",
+                    "default": "Turn",
+                    "options": [
+                        "Turn",
+                        "Toggle"
+                    ]
+                },
+                "default": "Turn",
+                "options": [
+                    "Turn",
+                    "Toggle"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "Audio Descriptions"
+            },
+            {
+                "class": "choose",
+                "key": "state",
+                "ask_each_time": "State",
+                "attrs": {
+                    "key": "state",
+                    "ask_each_time": "State",
+                    "default": 1,
+                    "options": [
+                        "on",
+                        "off"
+                    ]
+                },
+                "default": 1,
+                "options": [
+                    "on",
+                    "off"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXToggleClassicInvertIntent": {
+        "class": "AXToggleClassicInvertIntent",
+        "name": "Set Classic Invert",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Settings.png",
+        "category": "SETTINGS",
+        "title": [
+            {
+                "class": "choose",
+                "key": "operation",
+                "ask_each_time": "Operation",
+                "attrs": {
+                    "key": "operation",
+                    "ask_each_time": "Operation",
+                    "default": "Turn",
+                    "options": [
+                        "Turn",
+                        "Toggle"
+                    ]
+                },
+                "default": "Turn",
+                "options": [
+                    "Turn",
+                    "Toggle"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "Classic Invert"
+            },
+            {
+                "class": "choose",
+                "key": "state",
+                "ask_each_time": "State",
+                "attrs": {
+                    "key": "state",
+                    "ask_each_time": "State",
+                    "default": 0,
+                    "options": [
+                        "on",
+                        "off"
+                    ]
+                },
+                "default": 0,
+                "options": [
+                    "on",
+                    "off"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXToggleSmartInvertIntent": {
+        "class": "AXToggleSmartInvertIntent",
+        "name": "Set Smart Invert",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Settings.png",
+        "category": "SETTINGS",
+        "title": [
+            {
+                "class": "choose",
+                "key": "operation",
+                "ask_each_time": "Operation",
+                "attrs": {
+                    "key": "operation",
+                    "ask_each_time": "Operation",
+                    "default": "Turn",
+                    "options": [
+                        "Turn",
+                        "Toggle"
+                    ]
+                },
+                "default": "Turn",
+                "options": [
+                    "Turn",
+                    "Toggle"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "Smart Invert"
+            },
+            {
+                "class": "choose",
+                "key": "state",
+                "ask_each_time": "State",
+                "attrs": {
+                    "key": "state",
+                    "ask_each_time": "State",
+                    "default": 1,
+                    "options": [
+                        "on",
+                        "off"
+                    ]
+                },
+                "default": 1,
+                "options": [
+                    "on",
+                    "off"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXToggleCaptionsIntent": {
+        "class": "AXToggleCaptionsIntent",
+        "name": "Set Closed Captions+SDH",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Settings.png",
+        "category": "SETTINGS",
+        "title": [
+            {
+                "class": "choose",
+                "key": "operation",
+                "ask_each_time": "Operation",
+                "attrs": {
+                    "key": "operation",
+                    "ask_each_time": "Operation",
+                    "default": "Turn",
+                    "options": [
+                        "Turn",
+                        "Toggle"
+                    ]
+                },
+                "default": "Turn",
+                "options": [
+                    "Turn",
+                    "Toggle"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "Closed Captions+SDH"
+            },
+            {
+                "class": "choose",
+                "key": "state",
+                "ask_each_time": "State",
+                "attrs": {
+                    "key": "state",
+                    "ask_each_time": "State",
+                    "default": 1,
+                    "options": [
+                        "on",
+                        "off"
+                    ]
+                },
+                "default": 1,
+                "options": [
+                    "on",
+                    "off"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXToggleContrastIntent": {
+        "class": "AXToggleContrastIntent",
+        "name": "Set Increase Contrast",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Settings.png",
+        "category": "SETTINGS",
+        "title": [
+            {
+                "class": "choose",
+                "key": "operation",
+                "ask_each_time": "Operation",
+                "attrs": {
+                    "key": "operation",
+                    "ask_each_time": "Operation",
+                    "default": "Turn",
+                    "options": [
+                        "Turn",
+                        "Toggle"
+                    ]
+                },
+                "default": "Turn",
+                "options": [
+                    "Turn",
+                    "Toggle"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "Increase Contrast"
+            },
+            {
+                "class": "choose",
+                "key": "state",
+                "ask_each_time": "State",
+                "attrs": {
+                    "key": "state",
+                    "ask_each_time": "State",
+                    "default": 1,
+                    "options": [
+                        "on",
+                        "off"
+                    ]
+                },
+                "default": 1,
+                "options": [
+                    "on",
+                    "off"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXToggleMonoAudioIntent": {
+        "class": "AXToggleMonoAudioIntent",
+        "name": "Set Mono Audio",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Settings.png",
+        "category": "SETTINGS",
+        "title": [
+            {
+                "class": "choose",
+                "key": "operation",
+                "ask_each_time": "Operation",
+                "attrs": {
+                    "key": "operation",
+                    "ask_each_time": "Operation",
+                    "default": "Turn",
+                    "options": [
+                        "Turn",
+                        "Toggle"
+                    ]
+                },
+                "default": "Turn",
+                "options": [
+                    "Turn",
+                    "Toggle"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "Mono Audio"
+            },
+            {
+                "class": "choose",
+                "key": "state",
+                "ask_each_time": "State",
+                "attrs": {
+                    "key": "state",
+                    "ask_each_time": "State",
+                    "default": 1,
+                    "options": [
+                        "on",
+                        "off"
+                    ]
+                },
+                "default": 1,
+                "options": [
+                    "on",
+                    "off"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXToggleReduceMotionIntent": {
+        "class": "AXToggleReduceMotionIntent",
+        "name": "Set Reduce Motion",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Settings.png",
+        "category": "SETTINGS",
+        "title": [
+            {
+                "class": "choose",
+                "key": "operation",
+                "ask_each_time": "Operation",
+                "attrs": {
+                    "key": "operation",
+                    "ask_each_time": "Operation",
+                    "default": "Turn",
+                    "options": [
+                        "Turn",
+                        "Toggle"
+                    ]
+                },
+                "default": "Turn",
+                "options": [
+                    "Turn",
+                    "Toggle"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "Reduce Motion"
+            },
+            {
+                "class": "choose",
+                "key": "state",
+                "ask_each_time": "State",
+                "attrs": {
+                    "key": "state",
+                    "ask_each_time": "State",
+                    "default": 0,
+                    "options": [
+                        "on",
+                        "off"
+                    ]
+                },
+                "default": 0,
+                "options": [
+                    "on",
+                    "off"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXToggleTransparencyIntent": {
+        "class": "AXToggleTransparencyIntent",
+        "name": "Set Reduce Transparency",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Settings.png",
+        "category": "SETTINGS",
+        "title": [
+            {
+                "class": "choose",
+                "key": "operation",
+                "ask_each_time": "Operation",
+                "attrs": {
+                    "key": "operation",
+                    "ask_each_time": "Operation",
+                    "default": "Turn",
+                    "options": [
+                        "Turn",
+                        "Toggle"
+                    ]
+                },
+                "default": "Turn",
+                "options": [
+                    "Turn",
+                    "Toggle"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "Reduce Transparency"
+            },
+            {
+                "class": "choose",
+                "key": "state",
+                "ask_each_time": "State",
+                "attrs": {
+                    "key": "state",
+                    "ask_each_time": "State",
+                    "default": 1,
+                    "options": [
+                        "on",
+                        "off"
+                    ]
+                },
+                "default": 1,
+                "options": [
+                    "on",
+                    "off"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXToggleVoiceControlIntent": {
+        "class": "AXToggleVoiceControlIntent",
+        "name": "Set Voice Control",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Settings.png",
+        "category": "SETTINGS",
+        "title": [
+            {
+                "class": "choose",
+                "key": "operation",
+                "ask_each_time": "Operation",
+                "attrs": {
+                    "key": "operation",
+                    "ask_each_time": "Operation",
+                    "default": "Turn",
+                    "options": [
+                        "Turn",
+                        "Toggle"
+                    ]
+                },
+                "default": "Turn",
+                "options": [
+                    "Turn",
+                    "Toggle"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "Voice Control"
+            },
+            {
+                "class": "choose",
+                "key": "state",
+                "ask_each_time": "State",
+                "attrs": {
+                    "key": "state",
+                    "ask_each_time": "State",
+                    "default": 1,
+                    "options": [
+                        "on",
+                        "off"
+                    ]
+                },
+                "default": 1,
+                "options": [
+                    "on",
+                    "off"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXToggleVoiceOverIntent": {
+        "class": "AXToggleVoiceOverIntent",
+        "name": "Set VoiceOver",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Settings.png",
+        "category": "SETTINGS",
+        "title": [
+            {
+                "class": "choose",
+                "key": "operation",
+                "ask_each_time": "Operation",
+                "attrs": {
+                    "key": "operation",
+                    "ask_each_time": "Operation",
+                    "default": "Turn",
+                    "options": [
+                        "Turn",
+                        "Toggle"
+                    ]
+                },
+                "default": "Turn",
+                "options": [
+                    "Turn",
+                    "Toggle"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "VoiceOver"
+            },
+            {
+                "class": "choose",
+                "key": "state",
+                "ask_each_time": "State",
+                "attrs": {
+                    "key": "state",
+                    "ask_each_time": "State",
+                    "default": 1,
+                    "options": [
+                        "on",
+                        "off"
+                    ]
+                },
+                "default": 1,
+                "options": [
+                    "on",
+                    "off"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXToggleWhitePointIntent": {
+        "class": "AXToggleWhitePointIntent",
+        "name": "Set White Point",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Settings.png",
+        "category": "SETTINGS",
+        "title": [
+            {
+                "class": "choose",
+                "key": "operation",
+                "ask_each_time": "Operation",
+                "attrs": {
+                    "key": "operation",
+                    "ask_each_time": "Operation",
+                    "default": "Turn",
+                    "options": [
+                        "Turn",
+                        "Toggle"
+                    ]
+                },
+                "default": "Turn",
+                "options": [
+                    "Turn",
+                    "Toggle"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "White Point"
+            },
+            {
+                "class": "choose",
+                "key": "state",
+                "ask_each_time": "State",
+                "attrs": {
+                    "key": "state",
+                    "ask_each_time": "State",
+                    "default": 1,
+                    "options": [
+                        "on",
+                        "off"
+                    ]
+                },
+                "default": 1,
+                "options": [
+                    "on",
+                    "off"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXToggleZoomIntent": {
+        "class": "AXToggleZoomIntent",
+        "name": "Set Zoom",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Settings.png",
+        "category": "SETTINGS",
+        "title": [
+            {
+                "class": "choose",
+                "key": "operation",
+                "ask_each_time": "Operation",
+                "attrs": {
+                    "key": "operation",
+                    "ask_each_time": "Operation",
+                    "default": "Turn",
+                    "options": [
+                        "Turn",
+                        "Toggle"
+                    ]
+                },
+                "default": "Turn",
+                "options": [
+                    "Turn",
+                    "Toggle"
+                ]
+            },
+            {
+                "class": "text",
+                "text": "Zoom"
+            },
+            {
+                "class": "choose",
+                "key": "state",
+                "ask_each_time": "State",
+                "attrs": {
+                    "key": "state",
+                    "ask_each_time": "State",
+                    "default": 1,
+                    "options": [
+                        "on",
+                        "off"
+                    ]
+                },
+                "default": 1,
+                "options": [
+                    "on",
+                    "off"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXSetLargeTextIntent": {
+        "class": "AXSetLargeTextIntent",
+        "name": "Set Text Size",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Settings.png",
+        "category": "SETTINGS",
+        "title": [
+            {
+                "class": "text",
+                "text": "Set text size to"
+            },
+            {
+                "class": "choose",
+                "key": "textSize",
+                "ask_each_time": "Text Size",
+                "attrs": {
+                    "key": "textSize",
+                    "ask_each_time": "Text Size",
+                    "default": "extra small",
+                    "options": [
+                        "extra small",
+                        "small",
+                        "medium",
+                        "default",
+                        "extra large",
+                        "extra extra large",
+                        "extra extra extra large",
+                        "accessibility medium",
+                        "accessibility large",
+                        "accessibility extra large",
+                        "accessibility extra extra large",
+                        "accessibility extra extra extra large"
+                    ]
+                },
+                "default": "extra small",
+                "options": [
+                    "extra small",
+                    "small",
+                    "medium",
+                    "default",
+                    "extra large",
+                    "extra extra large",
+                    "extra extra extra large",
+                    "accessibility medium",
+                    "accessibility large",
+                    "accessibility extra large",
+                    "accessibility extra extra large",
+                    "accessibility extra extra extra large"
+                ]
+            }
+        ],
+        "lines": []
+    },
+    "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXStartMagnifierIntent": {
+        "class": "AXStartMagnifierIntent",
+        "name": "Open Magnifier",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Settings.png",
+        "category": "SETTINGS",
+        "title": [
+            {
+                "class": "text",
+                "text": "Open Magnifier"
+            }
+        ],
+        "lines": []
+    },
+    "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXStartGuidedAccessIntent": {
+        "class": "AXStartGuidedAccessIntent",
+        "name": "Start Guided Access",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Settings.png",
+        "category": "SETTINGS",
+        "title": [
+            {
+                "class": "text",
+                "text": "Start Guided Access"
+            }
+        ],
+        "lines": []
+    },
+    "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXStartSpeakScreenIntent": {
+        "class": "AXStartSpeakScreenIntent",
+        "name": "Start Speak Screen",
+        "result": null,
+        "UUID": "null",
+        "glyph": "system/Settings.png",
+        "category": "SETTINGS",
+        "title": [
+            {
+                "class": "text",
+                "text": "Start Speak Screen"
+            }
+        ],
+        "lines": []
+    }
+}
