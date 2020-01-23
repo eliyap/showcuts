@@ -1152,21 +1152,21 @@ def format_action(component: action, indent_level: int) -> (dict, int):
             title_elem = ['Get current location'] 
         elif "location" == sub_name:
             title_elem = [make_location(component.parameters, 'WFLocation', 'Location')] 
-        elif "address" == sub_name:
-            title_elem = []
-            line_elems = [
-                {**{'label':'Line 1'},   **make_specify(component.parameters,'WFAddressLine1','44 Planter Road', align_left=True)},
-                {**{'label':'Line 2'},   **make_specify(component.parameters,'WFAddressLine2','Text', align_left=True)},
-                {**{'label':'Town/City'},**make_specify(component.parameters,'WFCity','Swindon', align_left=True)},
-                {**{'label':'County'},   **make_specify(component.parameters,'WFState','Wiltshire', align_left=True)},
-                {**{'label':'Postcode'}, **make_specify(component.parameters,'WFPostalCode','SN2 7BP', align_left=True)},
-                {**{'label':'Region'},   **make_specify(component.parameters,'WFCountry','United Kingdom', align_left=True)},
-            ] 
-        elif "getmapslink" == sub_name:
-            title_elem = [
-                'Get maps URL from',
-                make_location(component.parameters, 'WFInput', 'Location'),
-            ] 
+        # elif "address" == sub_name:
+        #     title_elem = []
+        #     line_elems = [
+        #         {**{'label':'Line 1'},   **make_specify(component.parameters,'WFAddressLine1','44 Planter Road', align_left=True)},
+        #         {**{'label':'Line 2'},   **make_specify(component.parameters,'WFAddressLine2','Text', align_left=True)},
+        #         {**{'label':'Town/City'},**make_specify(component.parameters,'WFCity','Swindon', align_left=True)},
+        #         {**{'label':'County'},   **make_specify(component.parameters,'WFState','Wiltshire', align_left=True)},
+        #         {**{'label':'Postcode'}, **make_specify(component.parameters,'WFPostalCode','SN2 7BP', align_left=True)},
+        #         {**{'label':'Region'},   **make_specify(component.parameters,'WFCountry','United Kingdom', align_left=True)},
+        #     ] 
+        # elif "getmapslink" == sub_name:
+        #     title_elem = [
+        #         'Get maps URL from',
+        #         make_location(component.parameters, 'WFInput', 'Location'),
+        #     ] 
         elif "getdirections" == sub_name:
             title_elem = [
                 'Show',
@@ -1180,33 +1180,33 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 make_location(component.parameters, 'WFInput', 'Location'),
                 'in Maps',
             ] 
-        elif "getdistance" == sub_name:
-            title_elem = [
-                'Get distance from',
-                make_location(component.parameters, 'WFGetDirectionsCustomLocation', 'Current Location', default_blank=False, ask_text='Start Location'),
-                'to',
-                make_location(component.parameters, 'WFGetDistanceDestination', 'End Location', ask_text='End Location'),
-            ] 
-            line_elems = [
-                {**{'label':'Route Type'},**make_pill(component.parameters, 'WFGetDirectionsActionMode', ['Direct','Driving', 'Walking'], default='Direct')},
-                {**{'label':'Unit'},**make_pill(component.parameters, 'WFDistanceUnit', ['Miles','Kilometers'], default='Kilometers')},
-            ]
-        elif "gethalfwaypoint" == sub_name:
-            title_elem = [
-                'Get halfway point between',
-                make_location(component.parameters, 'WFGetHalfwayPointFirstLocation', 'First Location'),
-                'and',
-                make_location(component.parameters, 'WFGetHalfwayPointSecondLocation', 'Second Location'),
-            ] 
-        elif "gettraveltime" == sub_name:
-            title_elem = [
-                'Get',
-                make_magic(component.parameters, 'WFGetDirectionsActionMode', 'Driving', default_blank=False, ask_text='Mode'),
-                'time from',
-                make_location(component.parameters, 'WFGetDirectionsCustomLocation', 'Current Location', default_blank=False, ask_text='Start Location'),
-                'to',
-                make_location(component.parameters, 'WFDestination', 'End Location',  ask_text='End Location'),
-            ] 
+        # elif "getdistance" == sub_name:
+        #     title_elem = [
+        #         'Get distance from',
+        #         make_location(component.parameters, 'WFGetDirectionsCustomLocation', 'Current Location', default_blank=False, ask_text='Start Location'),
+        #         'to',
+        #         make_location(component.parameters, 'WFGetDistanceDestination', 'End Location', ask_text='End Location'),
+        #     ] 
+        #     line_elems = [
+        #         {**{'label':'Route Type'},**make_pill(component.parameters, 'WFGetDirectionsActionMode', ['Direct','Driving', 'Walking'], default='Direct')},
+        #         {**{'label':'Unit'},**make_pill(component.parameters, 'WFDistanceUnit', ['Miles','Kilometers'], default='Kilometers')},
+        #     ]
+        # elif "gethalfwaypoint" == sub_name:
+        #     title_elem = [
+        #         'Get halfway point between',
+        #         make_location(component.parameters, 'WFGetHalfwayPointFirstLocation', 'First Location'),
+        #         'and',
+        #         make_location(component.parameters, 'WFGetHalfwayPointSecondLocation', 'Second Location'),
+        #     ] 
+        # elif "gettraveltime" == sub_name:
+        #     title_elem = [
+        #         'Get',
+        #         make_magic(component.parameters, 'WFGetDirectionsActionMode', 'Driving', default_blank=False, ask_text='Mode'),
+        #         'time from',
+        #         make_location(component.parameters, 'WFGetDirectionsCustomLocation', 'Current Location', default_blank=False, ask_text='Start Location'),
+        #         'to',
+        #         make_location(component.parameters, 'WFDestination', 'End Location',  ask_text='End Location'),
+        #     ] 
         elif "searchlocalbusinesses" == sub_name:
             title_elem = [
                 'Search for',
@@ -1448,11 +1448,11 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 'from',
                 make_magic(component.parameters, 'WFInstapaperFolder', 'Folder'),
             ]
-        elif "unzip"== sub_name: 
-            title_elem=[
-                'Extract',
-                make_magic(component.parameters, 'WFArchive', 'Archive'),
-            ]
+        # elif "unzip"== sub_name: 
+        #     title_elem=[
+        #         'Extract',
+        #         make_magic(component.parameters, 'WFArchive', 'Archive'),
+        #     ]
         elif "file.createfolder"== sub_name: 
             title_elem=['Create Folder']
             service_elem = make_choose(component.parameters, 'WFFileStorageService', 'iCloud Drive')
@@ -1596,15 +1596,15 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 'Make Markdown from',
                 make_magic(component.parameters, 'WFInput', 'Rich Text'),
             ]
-        elif 'gettimebetweendates' == sub_name:
-            title_elem = [
-                'Get time between',
-                make_magic(component.parameters, 'WFTimeUntilFromDate', 'First Date', ask_text='Date'),
-                'and',
-                make_magic(component.parameters, 'WFInput', 'Second Date', ask_text='Date'),
-                'in',
-                make_magic(component.parameters, 'WFTimeUntilUnit', 'Minutes', default_blank=False, ask_text='In'),
-            ]
+        # elif 'gettimebetweendates' == sub_name:
+        #     title_elem = [
+        #         'Get time between',
+        #         make_magic(component.parameters, 'WFTimeUntilFromDate', 'First Date', ask_text='Date'),
+        #         'and',
+        #         make_magic(component.parameters, 'WFInput', 'Second Date', ask_text='Date'),
+        #         'in',
+        #         make_magic(component.parameters, 'WFTimeUntilUnit', 'Minutes', default_blank=False, ask_text='In'),
+        #     ]
         elif "speaktext"== sub_name: 
             title_elem=[
                 'Speak',
