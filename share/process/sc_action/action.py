@@ -83,8 +83,8 @@ class action:
 
         self.title = self.__class__.title
         self.lines = self.__class__.lines
-        self.items = self.__class__.items
-        
+        self.items = self.__class__.items   
+
     def to_django(
         self, 
         UUID_glyphs:dict,
