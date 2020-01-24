@@ -49,15 +49,8 @@ div {
 .empty {
   color: lightgray;
 }
-.leftify {
-  & > .line-label {
-    flex: initial;
-    padding-right: 0.5rem;
-  }
-  & > .inline-line {
-    flex: 1 !important;
-    /* overrides flex:initial, so that the content aligns nicely left */
-  }
+span[leftify=True]{
+    flex:5;
 }
 .choose {
   color: $magic-ink;
