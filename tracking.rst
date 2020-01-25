@@ -131,6 +131,8 @@ Street Address
 
 `Search Local Businesses` implements a Health-like line-measurement system. Come back to it later.
 
+`Show Directions` incorrectly displays `Public Transport` as `Transit`.
+
 Date
 ======
 
@@ -163,24 +165,28 @@ Documents
    "Print",                        "✅", "❌", "f48382f13c4c448c8f567936f704c53f"
    "Generate QR Code",             "✅", "❌", "dc8a38bb8dc44ddc8d8a40c4f605e31b"
    "Scan QR/Barcode",              "✅", "👁", "d920c5ae8aec4011b87aa7cc99e6e0ab"
-   "Make Rich Text from Markdown", "❌", "❌", ""
-   "Make Rich Text from HTML",     "❌", "❌", ""
-   "Make HTML from Rich Text",     "❌", "❌", ""
-   "Make Markdown from Rich Text", "❌", "❌", ""
-   "Dictate Text",                 "❌", "❌", ""
-   "Get Name of Emoji",            "❌", "❌", ""
+   "Make Rich Text from Markdown", "✅", "❌", "d9cc94ca45ee4030845806ae3dcbce0a"
+   "Make Rich Text from HTML",     "✅", "❌", "e4a881d837e745bdb279b3f86dcb3f37"
+   "Make HTML from Rich Text",     "✅", "❌", "30de89c7b4fd4cf6962afe61de838b2c"
+   "Make Markdown from Rich Text", "✅", "❌", "1b36f8a2e318485ebcacf1689ead8ad7"
+   "Dictate Text",                 "❌", "❌", "0ba66dc253dd40ce9ceb5db6f4a842b4"
+   "Get Name of Emoji",            "✅", "❌", "dfb23af4a279414ba5d53976d7e20222"
    "Show Definition",              "❌", "❌", ""
    "Create Folder",                "❌", "❌", ""
-   "Append to File",               "❌", "❌", ""
+   "Append to File",               "✅", "❌", "91a845131f634e828955ce7e36bfb18e"
    "Delete Files",                 "❌", "❌", ""
    "Get Link to File",             "❌", "❌", ""
    "Correct Spelling",             "❌", "❌", ""
    "Get File",                     "❌", "❌", ""
    "Save File",                    "❌", "❌", ""
    
-`Make Archive` stores `Format` without the leading `.`. Need to account for this when encoding the Shortcut.
+`Make Archive` stores ``Format`` without the leading ``.``. Need to account for this when encoding the Shortcut.
 
 `Open In...` needs to have an App selector, as well as support for decoding app URLs. Needs further testing.
+
+`Dictate Text` is missing crucial line elements. Need to make code up the languages.
+
+`Append to File` is missing glyphs for ``Service``, also displays wrong ``Ask`` text
 
 Safari
 =========
@@ -243,6 +249,22 @@ Scripting
    "Run Script Over SSH",       "❌", "❌", ""
    "Open X-Callback URL",       "❌", "❌", ""
    "URL Encode",                "❌", "❌", ""
+
+Text
+=========
+
+.. csv-table::
+   :header: "Action", "Class Written", "Test Written", "Test ID"
+   :widths: 30, 10, 10, 50
+   
+   "Text",                        "❌", "❌", ""
+   "Replace Text",                "❌", "❌", ""
+   "Combine Text",                "❌", "❌", ""
+   "Split Text",                  "❌", "❌", ""
+   "Change Case",                 "❌", "❌", ""
+   "Match Text",                  "❌", "❌", ""
+   "Get Group from Matched Text", "❌", "❌", ""
+
 
 Undocumented
 ============
