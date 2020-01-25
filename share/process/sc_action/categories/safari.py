@@ -74,6 +74,11 @@ class openurl(_base):
             ask_each_time='Text',
         ),
     ]
+    # also found this code:
+    # title_elem = [
+    #     'Open',
+    #     make_magic(component.parameters, 'WFInput', 'Safari web page'),
+    # ]
 
 class runjavascriptonwebpage(_base):
     name = 'Run JavaScript on Web Page'
