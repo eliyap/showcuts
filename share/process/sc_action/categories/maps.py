@@ -170,7 +170,6 @@ class getdirections(_base):
         ),
     ]
 
-
 class searchmaps(_base):
     name = 'Show in Maps'
     title = [

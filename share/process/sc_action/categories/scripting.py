@@ -243,16 +243,6 @@ class runsshscript(_base):
     name = 'Run Script Over SSH'
     result = 'Shell Script Result'
 
-class openxcallbackurl(_base):
-    name = 'Open X-Callback URL'
-    glyph = 'Link.svg'
-    result = 'X-Callback Result'
-
-class urlencode(_base):
-    name = 'URL Encode'
-    glyph = 'Link.svg'
-    result = 'URL Encoded Text'
-
 class handoff(_base):
     name = '___'
     glyph = 'Handoff.svg'

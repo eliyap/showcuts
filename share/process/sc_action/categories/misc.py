@@ -84,12 +84,10 @@ class encodemedia(action):
             'WFMetadataYear',
             blank_text='2001',
         ),
-        line_choose(
+        line_magic(
             'Artwork',
             'WFMetadataArtwork',
-            ask_each_time=None,
-            default='Choose Variable',
-            options=['Choose Variable'], # NOTE revise this, 'Choose Variable' is not a real option!
+            blank_text='Choose Variable',
         ),
     ]
     result = 'Encoded Media'
@@ -242,6 +240,153 @@ class airdropdocument(action):
             ask_each_time=None,
         ),
     ]
+
+class rss(action):
+    name = 'Get Items from RSS Feed'
+    category = 'WEB'
+    glyph = 'RSS.svg'
+    title = [
+        text('Get'),
+        counter(
+            'WFRSSItemQuantity',
+            'item',
+            ask_each_time='Ask Each Time',
+            default=10,
+        ),
+        text('from'),
+        inline( # DETAILS UNKNOWN
+            'WFRSSFeedURL',
+            blank_text='UNKNOWN',
+            ask_each_time='Ask Each Time',
+        ), # NOTE: this seems to have default value https://www.apple.com/uk/newsroom/rss-feed.rss?
+    ]
+    result = 'Items from RSS Feed'
+
+class rss_extract(action):
+    name = 'Get RSS Feeds from Page'
+    category = 'WEB'
+    glyph = 'RSS.svg'
+    title = [
+        text('Get RSS feeds from'),
+        magic(
+            'WFURLs',
+            blank_text='Page',
+            ask_each_time='Ask Each Time',
+        ),
+    ]
+    result = 'RSS Feeds from Page'
+
+# actions below this line are not documented
+class setclipboard(action):
+    name = 'Copy to Clipboard'
+    category = 'SHARING'
+    glyph = 'Clipboard.svg'
+    title = [
+        text('Copy'),
+        magic(
+            'WFInput',
+            'Content',
+            ask_each_time='Ask Each Time',
+        ),
+        text('to clipboard'),
+    ]
+    lines = [
+        line_toggle(
+            'Local Only',
+            'WFLocalOnly',
+            default=False,
+            ask_each_time='Ask Each Time',
+        ),
+        line_inline(
+            'Expire At',
+            'WFExpirationDate',
+            blank_text='Today at 3 pm',
+        ),
+    ]
+
+class getclipboard(action):
+    name = 'Get Clipboard'
+    category = 'SHARING'
+    glyph = 'Clipboard.svg'
+    result = 'Clipboard'
+
+class ___(action):
+    name = '___'
+    category = '___'
+    glyph = '___'
+    result = '___'
+
+class ___(action):
+    name = '___'
+    category = '___'
+    glyph = '___'
+    result = '___'
+
+class ___(action):
+    name = '___'
+    category = '___'
+    glyph = '___'
+    result = '___'
+
+class ___(action):
+    name = '___'
+    category = '___'
+    glyph = '___'
+    result = '___'
+
+class ___(action):
+    name = '___'
+    category = '___'
+    glyph = '___'
+    result = '___'
+
+class ___(action):
+    name = '___'
+    category = '___'
+    glyph = '___'
+    result = '___'
+
+class ___(action):
+    name = '___'
+    category = '___'
+    glyph = '___'
+    result = '___'
+
+class ___(action):
+    name = '___'
+    category = '___'
+    glyph = '___'
+    result = '___'
+
+class ___(action):
+    name = '___'
+    category = '___'
+    glyph = '___'
+    result = '___'
+
+class ___(action):
+    name = '___'
+    category = '___'
+    glyph = '___'
+    result = '___'
+
+class ___(action):
+    name = '___'
+    category = '___'
+    glyph = '___'
+    result = '___'
+
+class ___(action):
+    name = '___'
+    category = '___'
+    glyph = '___'
+    result = '___'
+
+class ___(action):
+    name = '___'
+    category = '___'
+    glyph = '___'
+    result = '___'
 
 class ___(action):
     name = '___'
