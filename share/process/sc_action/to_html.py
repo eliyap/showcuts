@@ -862,11 +862,11 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 make_magic(component.parameters, 'WFInput', 'Image'),
                 make_magic(component.parameters, 'WFImageFlipDirection', 'Horizontally', default_blank=False),
             ]
-        elif "avairyeditphoto" == sub_name:
-            title_elem = [
-                'Mark up',
-                make_magic(component.parameters, 'WFDocument', 'Document'),
-            ]
+        # elif "avairyeditphoto" == sub_name:
+        #     title_elem = [
+        #         'Mark up',
+        #         make_magic(component.parameters, 'WFDocument', 'Document'),
+        #     ]
         elif "image.mask" == sub_name:
             mask_elem = make_magic(component.parameters, 'WFMaskType', 'Rounded Rectangle', default_blank=False)
             title_elem = [
@@ -1064,60 +1064,60 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 make_magic(component.parameters, 'WFInput', 'Input'),
             ]
             line_elems = [{**{'label':'Archive Name'},**make_specify(component.parameters, 'WFZIPName', 'optional')}]
-        elif "openin" == sub_name:
-            title_elem = [
-                'Open',
-                make_magic(component.parameters, 'WFInput', 'File'),
-            ]
-            menu_elem = make_toggle(component.parameters, 'WFOpenInAskWhenRun', True)
-            line_elems = [{**{'label':'Show Open In Menu'},**menu_elem}]
-            if 'on' in menu_elem['class']:
-                title_elem += [
-                    'in',
-                    make_magic(component.parameters, 'WFOpenInAppIdentifier', 'Choose'),
-                ]
-        elif "previewdocument" == sub_name:
-            title_elem = [
-                'Show',
-                make_magic(component.parameters, 'WFInput', 'Input'),
-                'in Quick Look',
-            ]
-        elif "makepdf" == sub_name:
-            title_elem = [
-                'Make PDF from',
-                make_magic(component.parameters, 'WFInput', 'Input'),
-            ]
-            line_elems = [{**{'label':'Include Margin'},**make_toggle(component.parameters, 'WFPDFIncludeMargin', False)}]
-            page_elem = make_magic(component.parameters, 'WFPDFIncludedPages', 'All Pages', default_blank=False)
-            page_elem['class'] = 'choose-var'
-            line_elems = [{**{'label':'Include'},**page_elem}]
-            if 'All Pages' == page_elem['value']:
-                pass
-            elif 'Single Page' == page_elem['value']:
-                line_elems += [{**{'label':'Page No.'},**make_specify(component.parameters, 'WFPDFSinglePage', '1')}]
-            elif 'Page Range' == page_elem['value']:
-                line_elems += [
-                    {**{'label':'Start Page No.'},**make_specify(component.parameters, 'WFPDFPageRangeStart', '1')},
-                    {**{'label':'End Page No.'},**make_specify(component.parameters, 'WFPDFPageRangeEnd', '3')},
-                ]
-        elif "generatebarcode" == sub_name:
-            title_elem = [
-                'Generate QR code from',
-                make_magic(component.parameters, 'WFText', 'Text'),
-            ]
-            error_elem = make_magic(component.parameters, 'WFQRErrorCorrectionLevel', 'Medium', default_blank=False)
-            error_elem['class'] = 'choose-var'
-            line_elems = [{**{'label':'Error Correction'},**error_elem}]
+        # elif "openin" == sub_name:
+        #     title_elem = [
+        #         'Open',
+        #         make_magic(component.parameters, 'WFInput', 'File'),
+        #     ]
+        #     menu_elem = make_toggle(component.parameters, 'WFOpenInAskWhenRun', True)
+        #     line_elems = [{**{'label':'Show Open In Menu'},**menu_elem}]
+        #     if 'on' in menu_elem['class']:
+        #         title_elem += [
+        #             'in',
+        #             make_magic(component.parameters, 'WFOpenInAppIdentifier', 'Choose'),
+        #         ]
+        # elif "previewdocument" == sub_name:
+        #     title_elem = [
+        #         'Show',
+        #         make_magic(component.parameters, 'WFInput', 'Input'),
+        #         'in Quick Look',
+        #     ]
+        # elif "makepdf" == sub_name:
+        #     title_elem = [
+        #         'Make PDF from',
+        #         make_magic(component.parameters, 'WFInput', 'Input'),
+        #     ]
+        #     line_elems = [{**{'label':'Include Margin'},**make_toggle(component.parameters, 'WFPDFIncludeMargin', False)}]
+        #     page_elem = make_magic(component.parameters, 'WFPDFIncludedPages', 'All Pages', default_blank=False)
+        #     page_elem['class'] = 'choose-var'
+        #     line_elems = [{**{'label':'Include'},**page_elem}]
+        #     if 'All Pages' == page_elem['value']:
+        #         pass
+        #     elif 'Single Page' == page_elem['value']:
+        #         line_elems += [{**{'label':'Page No.'},**make_specify(component.parameters, 'WFPDFSinglePage', '1')}]
+        #     elif 'Page Range' == page_elem['value']:
+        #         line_elems += [
+        #             {**{'label':'Start Page No.'},**make_specify(component.parameters, 'WFPDFPageRangeStart', '1')},
+        #             {**{'label':'End Page No.'},**make_specify(component.parameters, 'WFPDFPageRangeEnd', '3')},
+        #         ]
+        # elif "generatebarcode" == sub_name:
+        #     title_elem = [
+        #         'Generate QR code from',
+        #         make_magic(component.parameters, 'WFText', 'Text'),
+        #     ]
+        #     error_elem = make_magic(component.parameters, 'WFQRErrorCorrectionLevel', 'Medium', default_blank=False)
+        #     error_elem['class'] = 'choose-var'
+        #     line_elems = [{**{'label':'Error Correction'},**error_elem}]
         elif "url.getheaders" == sub_name:
             title_elem = [
                 'Get headers from',
                 make_magic(component.parameters, 'WFInput', 'URL'),
             ]
-        elif "getrichtextfrommarkdown" == sub_name:
-            title_elem = [
-                'Make rich text from',
-                make_magic(component.parameters, 'WFInput', 'Markdown Text'),
-            ]
+        # elif "getrichtextfrommarkdown" == sub_name:
+        #     title_elem = [
+        #         'Make rich text from',
+        #         make_magic(component.parameters, 'WFInput', 'Markdown Text'),
+        #     ]
         elif "dictatetext" == sub_name:
             title_elem = ['Dictate Text']
             lang_elem = make_magic(component.parameters, 'WFSpeechLanguage', 'English') # device lang is set
@@ -1127,16 +1127,16 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 {**{'label':'Language'},**lang_elem},
                 {**{'label':'Stop Listening'},**stop_elem},
             ]
-        elif "getnameofemoji" == sub_name:
-            title_elem = [
-                'Get name of emoji in',
-                make_magic(component.parameters, 'WFInput', 'Text'),
-            ]
-        elif "showdefinition" == sub_name:
-            title_elem = [
-                'Show definition of',
-                make_magic(component.parameters, 'Word', 'word'),
-            ]
+        # elif "getnameofemoji" == sub_name:
+        #     title_elem = [
+        #         'Get name of emoji in',
+        #         make_magic(component.parameters, 'WFInput', 'Text'),
+        #     ]
+        # elif "showdefinition" == sub_name:
+        #     title_elem = [
+        #         'Show definition of',
+        #         make_magic(component.parameters, 'Word', 'word'),
+        #     ]
         # REFACTORED
         # elif "detectlanguage" == sub_name:
         #     title_elem = [
@@ -1148,10 +1148,10 @@ def format_action(component: action, indent_level: int) -> (dict, int):
         #         'Airdrop',
         #         make_magic(component.parameters, 'WFInput', 'Content'),
         #     ]
-        elif "getcurrentlocation" == sub_name:
-            title_elem = ['Get current location'] 
-        elif "location" == sub_name:
-            title_elem = [make_location(component.parameters, 'WFLocation', 'Location')] 
+        # elif "getcurrentlocation" == sub_name:
+        #     title_elem = ['Get current location'] 
+        # elif "location" == sub_name:
+        #     title_elem = [make_location(component.parameters, 'WFLocation', 'Location')] 
         # elif "address" == sub_name:
         #     title_elem = []
         #     line_elems = [
@@ -1167,19 +1167,19 @@ def format_action(component: action, indent_level: int) -> (dict, int):
         #         'Get maps URL from',
         #         make_location(component.parameters, 'WFInput', 'Location'),
         #     ] 
-        elif "getdirections" == sub_name:
-            title_elem = [
-                'Show',
-                make_magic(component.parameters, 'WFGetDirectionsActionMode', 'Driving', default_blank=False, ask_text='Mode'),
-                'directions to',
-                make_location(component.parameters, 'WFDestination', 'Destination', ask_text='Destination'),
-            ] 
-        elif "searchmaps" == sub_name:
-            title_elem = [
-                'Show',
-                make_location(component.parameters, 'WFInput', 'Location'),
-                'in Maps',
-            ] 
+        # elif "getdirections" == sub_name:
+        #     title_elem = [
+        #         'Show',
+        #         make_magic(component.parameters, 'WFGetDirectionsActionMode', 'Driving', default_blank=False, ask_text='Mode'),
+        #         'directions to',
+        #         make_location(component.parameters, 'WFDestination', 'Destination', ask_text='Destination'),
+        #     ] 
+        # elif "searchmaps" == sub_name:
+        #     title_elem = [
+        #         'Show',
+        #         make_location(component.parameters, 'WFInput', 'Location'),
+        #         'in Maps',
+        #     ] 
         # elif "getdistance" == sub_name:
         #     title_elem = [
         #         'Get distance from',
@@ -1226,39 +1226,39 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 'forecast at',
                 make_location(component.parameters, 'WFWeatherCustomLocation', 'Current Location', default_blank=False),
             ] 
-        elif "text.split" == sub_name:
-            sep_elem = make_magic(component.parameters, 'WFTextSeparator', 'New Lines', default_blank=False)
-            title_elem = [
-                'Split',
-                make_magic(component.parameters, 'text', 'Text'),
-                'by',
-                sep_elem,
-            ]
-            if sep_elem['value'] == 'Custom':
-                title_elem += [make_magic(component.parameters, 'WFTextCustomSeparator', 'Custom Separator')]
-        elif "text.combine" == sub_name:
-            separator_elem = make_magic(component.parameters, 'WFTextSeparator', 'New Lines', default_blank=False,ask_text='Separator')
-            title_elem = [
-                'Combine',
-                make_magic(component.parameters, 'text', 'Text List'),
-                'with',
-                separator_elem,
-            ]
-            if separator_elem['value'] == 'Custom':
-                title_elem += [make_magic(component.parameters, 'WFTextCustomSeparator', 'Text'),]
-        elif "text.replace" == sub_name:
-            title_elem = [
-                'Replace',
-                make_magic(component.parameters, 'WFReplaceTextFind', 'Hello'),
-                'with',
-                make_magic(component.parameters, 'WFReplaceTextReplace', 'World'),
-                'in',
-                make_magic(component.parameters, 'WFInput', 'Text'),
-            ]
-            line_elems = [
-                {**{'label':'Case Sensitive'},**make_toggle(component.parameters, 'WFReplaceTextCaseSensitive', True)},
-                {**{'label':'Regular Expression'},**make_toggle(component.parameters, 'WFReplaceTextRegularExpression', False)},
-            ]
+        # elif "text.split" == sub_name:
+        #     sep_elem = make_magic(component.parameters, 'WFTextSeparator', 'New Lines', default_blank=False)
+        #     title_elem = [
+        #         'Split',
+        #         make_magic(component.parameters, 'text', 'Text'),
+        #         'by',
+        #         sep_elem,
+        #     ]
+        #     if sep_elem['value'] == 'Custom':
+        #         title_elem += [make_magic(component.parameters, 'WFTextCustomSeparator', 'Custom Separator')]
+        # elif "text.combine" == sub_name:
+        #     separator_elem = make_magic(component.parameters, 'WFTextSeparator', 'New Lines', default_blank=False,ask_text='Separator')
+        #     title_elem = [
+        #         'Combine',
+        #         make_magic(component.parameters, 'text', 'Text List'),
+        #         'with',
+        #         separator_elem,
+        #     ]
+        #     if separator_elem['value'] == 'Custom':
+        #         title_elem += [make_magic(component.parameters, 'WFTextCustomSeparator', 'Text'),]
+        # elif "text.replace" == sub_name:
+        #     title_elem = [
+        #         'Replace',
+        #         make_magic(component.parameters, 'WFReplaceTextFind', 'Hello'),
+        #         'with',
+        #         make_magic(component.parameters, 'WFReplaceTextReplace', 'World'),
+        #         'in',
+        #         make_magic(component.parameters, 'WFInput', 'Text'),
+        #     ]
+        #     line_elems = [
+        #         {**{'label':'Case Sensitive'},**make_toggle(component.parameters, 'WFReplaceTextCaseSensitive', True)},
+        #         {**{'label':'Regular Expression'},**make_toggle(component.parameters, 'WFReplaceTextRegularExpression', False)},
+        #     ]
         elif "downloadurl" == sub_name:
             title_elem = [
                 'Get contents of',
@@ -1282,16 +1282,16 @@ def format_action(component: action, indent_level: int) -> (dict, int):
             title_elem = [make_magic(component.parameters, 'WFTextActionText', 'Text', force_magic=False)]
             #title_elem = [{'class':'empty specify', 'value':'Text'}] old default
             special += ' text'
-        elif "setclipboard" == sub_name:
-            title_elem = [
-                'Copy',
-                make_magic(component.parameters, 'WFInput', 'Content'),
-                'to clipboard',
-            ]
-            line_elems = [
-                {**{'label':'Local Only'},**make_toggle(component.parameters,'WFLocalOnly',False)},
-                {**{'label':'Expire At'},**make_specify(component.parameters,'WFExpirationDate','Today at 3 pm')},
-            ]
+        # elif "setclipboard" == sub_name:
+            # title_elem = [
+            #     'Copy',
+            #     make_magic(component.parameters, 'WFInput', 'Content'),
+            #     'to clipboard',
+            # ]
+            # line_elems = [
+            #     {**{'label':'Local Only'},**make_toggle(component.parameters,'WFLocalOnly',False)},
+            #     {**{'label':'Expire At'},**make_specify(component.parameters,'WFExpirationDate','Today at 3 pm')},
+            # ]
         elif "sendemail"== sub_name: 
             title_elem=[
                 'Send',
@@ -1316,36 +1316,36 @@ def format_action(component: action, indent_level: int) -> (dict, int):
         #         'Get article from',
         #         make_magic(component.parameters, 'WFWebPage', 'URL'),
         #     ]
-        elif "rss" == sub_name:
-            item_elem = make_magic(component.parameters, 'WFRSSItemQuantity', '10')
-            try: # coerce to int
-                item_count = int(float(item_elem['value']))
-                item_elem['value'] = f'{item_count} item' + ('' if item_count == 1 else 's')
-            except ValueError:
-                pass
+        # elif "rss" == sub_name:
+        #     item_elem = make_magic(component.parameters, 'WFRSSItemQuantity', '10')
+        #     try: # coerce to int
+        #         item_count = int(float(item_elem['value']))
+        #         item_elem['value'] = f'{item_count} item' + ('' if item_count == 1 else 's')
+        #     except ValueError:
+        #         pass
             
-            title_elem = [
-                'Get',
-                item_elem,
-                'from',
-                make_magic(component.parameters, 'WFRSSFeedURL', 'https://www.apple.com/uk/newsroom/rss-feed.rss',default_blank=False),
-            ]
-        elif "rss.extract" == sub_name:
-            title_elem = [
-                'Get RSS feeds from',
-                make_magic(component.parameters, 'WFURLs', 'Page'),
-            ]
+        #     title_elem = [
+        #         'Get',
+        #         item_elem,
+        #         'from',
+        #         make_magic(component.parameters, 'WFRSSFeedURL', 'https://www.apple.com/uk/newsroom/rss-feed.rss',default_blank=False),
+        #     ]
+        # elif "rss.extract" == sub_name:
+        #     title_elem = [
+        #         'Get RSS feeds from',
+        #         make_magic(component.parameters, 'WFURLs', 'Page'),
+        #     ]
         # elif "readinglist" == sub_name:
         #     title_elem = [
         #         'Add',
         #         make_magic(component.parameters, 'WFURL', 'URL'),
         #         'to Reading List',
         #     ]
-        elif "openurl" == sub_name:
-            title_elem = [
-                'Open',
-                make_magic(component.parameters, 'WFInput', 'Safari web page'),
-            ]
+        # elif "openurl" == sub_name:
+        #     title_elem = [
+        #         'Open',
+        #         make_magic(component.parameters, 'WFInput', 'Safari web page'),
+        #     ]
         # elif "runjavascriptonwebpage" == sub_name:
         #     title_elem = [
         #         'Run JavaScript on',
@@ -1368,25 +1368,25 @@ def format_action(component: action, indent_level: int) -> (dict, int):
         #         make_magic(component.parameters, 'WFURL', 'URL'),
         #     ]
         #     line_elems = [{**{'label':'Enter Safari Reader'},**make_toggle(component.parameters, 'WFEnterSafariReader',False)}]
-        elif "url.expand" == sub_name:
-            title_elem = [
-                'Expand',
-                make_magic(component.parameters, 'URL', 'URL'),
-            ]
-        elif "geturlcomponent" == sub_name:
-            title_elem = [
-                'Get',
-                make_magic(component.parameters, 'WFURLComponents', 'Scheme',default_blank=False),
-                'from',
-                make_magic(component.parameters, 'WFURL', 'URL'),
-            ]
-        elif "url" == sub_name:
-            title_elem = [make_magic(component.parameters, 'WFURLActionURL', 'apple.com'),]
-        elif "getwebpagecontents" == sub_name:
-            title_elem = [
-                'Get contents of web page at',
-                make_magic(component.parameters, 'WFInput', 'URL'),
-            ]
+        # elif "url.expand" == sub_name:
+        #     title_elem = [
+        #         'Expand',
+        #         make_magic(component.parameters, 'URL', 'URL'),
+        #     ]
+        # elif "geturlcomponent" == sub_name:
+        #     title_elem = [
+        #         'Get',
+        #         make_magic(component.parameters, 'WFURLComponents', 'Scheme',default_blank=False),
+        #         'from',
+        #         make_magic(component.parameters, 'WFURL', 'URL'),
+        #     ]
+        # elif "url" == sub_name:
+        #     title_elem = [make_magic(component.parameters, 'WFURLActionURL', 'apple.com'),]
+        # elif "getwebpagecontents" == sub_name:
+        #     title_elem = [
+        #         'Get contents of web page at',
+        #         make_magic(component.parameters, 'WFInput', 'URL'),
+        #     ]
         elif "venmo.request"== sub_name: 
             title_elem=[
                 'Request $',
@@ -1464,108 +1464,108 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 {**{'label':'Service'},**service_elem},
                 {**{'label':'Path'},**path_elem},
             ]
-        elif "file.append"== sub_name: 
-            service_elem = make_choose(component.parameters, 'WFFileStorageService', 'iCloud Drive')
-            path_elem = make_specify(component.parameters, 'WFFilePath', '/example.txt',align_left=True)
-            title_elem=[
-                make_magic(component.parameters, 'WFAppendFileWriteMode', 'Append', default_blank=False, ask_text='Mode'),
-                make_magic(component.parameters, 'WFInput', 'Text'),
-            ]
+        # elif "file.append"== sub_name: 
+        #     service_elem = make_choose(component.parameters, 'WFFileStorageService', 'iCloud Drive')
+        #     path_elem = make_specify(component.parameters, 'WFFilePath', '/example.txt',align_left=True)
+        #     title_elem=[
+        #         make_magic(component.parameters, 'WFAppendFileWriteMode', 'Append', default_blank=False, ask_text='Mode'),
+        #         make_magic(component.parameters, 'WFInput', 'Text'),
+        #     ]
             
-            line_elems = [
-                {**{'label':'Service'},**service_elem},
-                {**{'label':'File Path'},**path_elem},
-                {**{'label':'Make New Line'},**make_toggle(component.parameters, 'WFAppendOnNewLine', True)},
-            ]
-        elif "file.delete"== sub_name: 
-            title_elem=[
-                'Delete',
-                make_magic(component.parameters, 'WFInput', 'Files'),
-            ]
-            line_elems = [{**{'label':'Confirm Before Deleting'},**make_toggle(component.parameters,'WFDeleteFileConfirmDeletion',True)}]
-        elif "documentpicker.open"== sub_name: 
-            title_elem=['Get File']
-            service_elem = make_choose(component.parameters, 'WFFileStorageService', 'iCloud Drive')
-            picker_elem = make_toggle(component.parameters, 'WFShowFilePicker', True)
-            line_elems = [
-                {**{'label':'Service'},**service_elem},
-                {**{'label':'Show Document Picker'},**picker_elem},
-            ]
+        #     line_elems = [
+        #         {**{'label':'Service'},**service_elem},
+        #         {**{'label':'File Path'},**path_elem},
+        #         {**{'label':'Make New Line'},**make_toggle(component.parameters, 'WFAppendOnNewLine', True)},
+        #     ]
+        # elif "file.delete"== sub_name: 
+        #     title_elem=[
+        #         'Delete',
+        #         make_magic(component.parameters, 'WFInput', 'Files'),
+        #     ]
+        #     line_elems = [{**{'label':'Confirm Before Deleting'},**make_toggle(component.parameters,'WFDeleteFileConfirmDeletion',True)}]
+        # elif "documentpicker.open"== sub_name: 
+        #     title_elem=['Get File']
+        #     service_elem = make_choose(component.parameters, 'WFFileStorageService', 'iCloud Drive')
+        #     picker_elem = make_toggle(component.parameters, 'WFShowFilePicker', True)
+        #     line_elems = [
+        #         {**{'label':'Service'},**service_elem},
+        #         {**{'label':'Show Document Picker'},**picker_elem},
+        #     ]
 
-            if 'Ask Each Time' in picker_elem['value']:
-                pass # no further questions
-            elif 'off' in picker_elem['class']:
-                path_elem = make_specify(component.parameters, 'WFFilePath', 'example.txt',align_left=True)
-                if service_elem['value'] == 'iCloud Drive':
+        #     if 'Ask Each Time' in picker_elem['value']:
+        #         pass # no further questions
+        #     elif 'off' in picker_elem['class']:
+        #         path_elem = make_specify(component.parameters, 'WFFilePath', 'example.txt',align_left=True)
+        #         if service_elem['value'] == 'iCloud Drive':
 
-                    path_elem['value'] = iCloud_path(path_elem['value'])
-                    # path_elem['value'] = [text_elem('/Shortcuts/')] + path_elem['value']
-                line_elems += [
-                    {**{'label':'File Path'},**path_elem},
-                    {**{'label':'Error If Not Found'},**make_toggle(component.parameters, 'WFFileErrorIfNotFound', True)},
-                ]
-            elif 'on' in picker_elem['class']:
-                line_elems += [{**{'label':'Select Multiple'},**make_toggle(component.parameters, 'SelectMultiple', False)}]
-                if service_elem['value'] == 'Dropbox':
-                    line_elems += [{**{'label':'Initial Path'},**make_specify(component.parameters, 'WFGetFileInitialDirectoryPath', 'optional',align_left=True)}]
-        elif "documentpicker.save"== sub_name: 
-            title_elem=[
-                'Save',
-                make_magic(component.parameters, 'WFInput', 'File'),
-            ]
-            service_elem = make_choose(component.parameters, 'WFFileStorageService', 'iCloud Drive')
-            picker_elem = make_toggle(component.parameters, 'WFAskWhereToSave', True)
-            line_elems = [
-                {**{'label':'Service'},**service_elem},
-                {**{'label':'Ask Where to Save'},**picker_elem},
-            ]
-            if 'off' in picker_elem['class']:
-                if 'iCloud Drive' == service_elem['value']:
-                    dest_elem = make_specify(component.parameters, 'WFFileDestinationPath', 'Text',align_left=True)
-                    dest_elem['value'] = iCloud_path(dest_elem['value'])
-                    # dest_elem['value'] = '/Shortcuts/' + dest_elem['value']
-                elif 'Dropbox' == service_elem['value']:
-                    dest_elem = make_specify(component.parameters, 'WFFileDestinationPath', 'optional',align_left=True)
-                line_elems += [
-                    {**{'label':'Destination Path'},**dest_elem},
-                    {**{'label':'Overwrite If File Exists'},**make_toggle(component.parameters, 'WFSaveFileOverwrite', False)},
-                ]
-        elif "file.getlink"== sub_name: 
-            title_elem=[
-                'Get link to',
-                make_magic(component.parameters, 'WFFile', 'File'),
-            ]
-        elif "text.match.getgroup"== sub_name: 
-            idx_elem = make_magic(component.parameters, 'WFGetGroupType', 'Group At Index', default_blank=False)
-            title_elem=[
-                'Get',
-                idx_elem,
-                'in',
-                make_magic(component.parameters, 'matches', 'Matches'),
-            ]
-            if 'Group At Index' == idx_elem['value']:
-                # NOTE: left blank -> 'Group Index', not specified -> '1'. My code does not account for this, but it is more likely that a shared shortcut would be trying to get the first element, as blank -> error
-                title_elem.insert(2, make_magic(component.parameters, 'WFGroupIndex', '1',default_blank=False,ask_text='Group Index'))
-        elif "text.match"== sub_name: 
-            title_elem=[
-                'Match',
-                make_magic(component.parameters, 'WFMatchTextPattern', 'Pattern'),
-                'in',
-                make_magic(component.parameters, 'text', 'Text'),
-            ]
-            line_elems = [{**{'label':'Case Sensitive'},**make_toggle(component.parameters,'WFMatchTextCaseSensitive',True)}]
-        elif "text.changecase"== sub_name: 
-            title_elem=[
-                'Change',
-                make_magic(component.parameters, 'text', 'Text'),
-                'to',
-                make_magic(component.parameters, 'WFCaseType', 'UPPERCASE',default_blank=False,ask_text = 'Case'),
-            ]
-        elif "correctspelling"== sub_name: 
-            title_elem=[
-                'Correct spelling of',
-                make_magic(component.parameters, 'text', 'Text'),
-            ]
+        #             path_elem['value'] = iCloud_path(path_elem['value'])
+        #             # path_elem['value'] = [text_elem('/Shortcuts/')] + path_elem['value']
+        #         line_elems += [
+        #             {**{'label':'File Path'},**path_elem},
+        #             {**{'label':'Error If Not Found'},**make_toggle(component.parameters, 'WFFileErrorIfNotFound', True)},
+        #         ]
+        #     elif 'on' in picker_elem['class']:
+        #         line_elems += [{**{'label':'Select Multiple'},**make_toggle(component.parameters, 'SelectMultiple', False)}]
+        #         if service_elem['value'] == 'Dropbox':
+        #             line_elems += [{**{'label':'Initial Path'},**make_specify(component.parameters, 'WFGetFileInitialDirectoryPath', 'optional',align_left=True)}]
+        # elif "documentpicker.save"== sub_name: 
+        #     title_elem=[
+        #         'Save',
+        #         make_magic(component.parameters, 'WFInput', 'File'),
+        #     ]
+        #     service_elem = make_choose(component.parameters, 'WFFileStorageService', 'iCloud Drive')
+        #     picker_elem = make_toggle(component.parameters, 'WFAskWhereToSave', True)
+        #     line_elems = [
+        #         {**{'label':'Service'},**service_elem},
+        #         {**{'label':'Ask Where to Save'},**picker_elem},
+        #     ]
+        #     if 'off' in picker_elem['class']:
+        #         if 'iCloud Drive' == service_elem['value']:
+        #             dest_elem = make_specify(component.parameters, 'WFFileDestinationPath', 'Text',align_left=True)
+        #             dest_elem['value'] = iCloud_path(dest_elem['value'])
+        #             # dest_elem['value'] = '/Shortcuts/' + dest_elem['value']
+        #         elif 'Dropbox' == service_elem['value']:
+        #             dest_elem = make_specify(component.parameters, 'WFFileDestinationPath', 'optional',align_left=True)
+        #         line_elems += [
+        #             {**{'label':'Destination Path'},**dest_elem},
+        #             {**{'label':'Overwrite If File Exists'},**make_toggle(component.parameters, 'WFSaveFileOverwrite', False)},
+        #         ]
+        # elif "file.getlink"== sub_name: 
+        #     title_elem=[
+        #         'Get link to',
+        #         make_magic(component.parameters, 'WFFile', 'File'),
+        #     ]
+        # elif "text.match.getgroup"== sub_name: 
+        #     idx_elem = make_magic(component.parameters, 'WFGetGroupType', 'Group At Index', default_blank=False)
+        #     title_elem=[
+        #         'Get',
+        #         idx_elem,
+        #         'in',
+        #         make_magic(component.parameters, 'matches', 'Matches'),
+        #     ]
+        #     if 'Group At Index' == idx_elem['value']:
+        #         # NOTE: left blank -> 'Group Index', not specified -> '1'. My code does not account for this, but it is more likely that a shared shortcut would be trying to get the first element, as blank -> error
+        #         title_elem.insert(2, make_magic(component.parameters, 'WFGroupIndex', '1',default_blank=False,ask_text='Group Index'))
+        # elif "text.match"== sub_name: 
+        #     title_elem=[
+        #         'Match',
+        #         make_magic(component.parameters, 'WFMatchTextPattern', 'Pattern'),
+        #         'in',
+        #         make_magic(component.parameters, 'text', 'Text'),
+        #     ]
+        #     line_elems = [{**{'label':'Case Sensitive'},**make_toggle(component.parameters,'WFMatchTextCaseSensitive',True)}]
+        # elif "text.changecase"== sub_name: 
+        #     title_elem=[
+        #         'Change',
+        #         make_magic(component.parameters, 'text', 'Text'),
+        #         'to',
+        #         make_magic(component.parameters, 'WFCaseType', 'UPPERCASE',default_blank=False,ask_text = 'Case'),
+        #     ]
+        # elif "correctspelling"== sub_name: 
+        #     title_elem=[
+        #         'Correct spelling of',
+        #         make_magic(component.parameters, 'text', 'Text'),
+        #     ]
         elif "gettypeaction"== sub_name: 
             title_elem = [
                 'Get file of type',
@@ -1573,17 +1573,17 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 'from',
                 make_magic(component.parameters, 'WFInput', 'Input'),
             ]
-        elif "getrichtextfromhtml"== sub_name: 
-            title_elem=[
-                'Make rich text from',
-                make_magic(component.parameters, 'WFHTML', 'HTML'),
-            ]
-        elif "gethtmlfromrichtext"== sub_name: 
-            title_elem=[
-                'Make HTML from',
-                make_magic(component.parameters, 'WFInput', 'Rich Text'),
-            ]
-            line_elems = [{**{'label':'Make Full Document'},**make_toggle(component.parameters, 'WFMakeFullDocument', False)}]
+        # elif "getrichtextfromhtml"== sub_name: 
+        #     title_elem=[
+        #         'Make rich text from',
+        #         make_magic(component.parameters, 'WFHTML', 'HTML'),
+        #     ]
+        # elif "gethtmlfromrichtext"== sub_name: 
+        #     title_elem=[
+        #         'Make HTML from',
+        #         make_magic(component.parameters, 'WFInput', 'Rich Text'),
+        #     ]
+        #     line_elems = [{**{'label':'Make Full Document'},**make_toggle(component.parameters, 'WFMakeFullDocument', False)}]
         elif "handoffplayback"== sub_name: 
             title_elem = [
                 'Hand off playback from',
@@ -1591,11 +1591,11 @@ def format_action(component: action, indent_level: int) -> (dict, int):
                 'to',
                 make_magic(component.parameters, 'WFDestinationMediaRoute', 'Destination', ask_text= 'Destination'),
             ]
-        elif "getmarkdownfromrichtext"== sub_name: 
-            title_elem = [
-                'Make Markdown from',
-                make_magic(component.parameters, 'WFInput', 'Rich Text'),
-            ]
+        # elif "getmarkdownfromrichtext"== sub_name: 
+        #     title_elem = [
+        #         'Make Markdown from',
+        #         make_magic(component.parameters, 'WFInput', 'Rich Text'),
+        #     ]
         # elif 'gettimebetweendates' == sub_name:
         #     title_elem = [
         #         'Get time between',

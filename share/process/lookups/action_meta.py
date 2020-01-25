@@ -566,16 +566,16 @@ dct = {
         "category": "NETWORK",
         "result":'Contents of URL',
     },
-    "is.workflow.actions.setclipboard": {
-        "glyph": "Clipboard.svg",
-        "category": "SHARING",
-        "result":None,
-    },
-    "is.workflow.actions.getclipboard": {
-        "glyph": "Clipboard.svg",
-        "category": "SHARING",
-        "result":'Clipboard',
-    },
+    # "is.workflow.actions.setclipboard": {
+    #     "glyph": "Clipboard.svg",
+    #     "category": "SHARING",
+    #     "result":None,
+    # },
+    # "is.workflow.actions.getclipboard": {
+    #     "glyph": "Clipboard.svg",
+    #     "category": "SHARING",
+    #     "result":'Clipboard',
+    # },
     "is.workflow.actions.properties.locations": {
         "glyph": "Location.svg",
         "category": "LOCATION",
@@ -674,41 +674,41 @@ dct = {
         "category": "SAFARI",
         "result":None, # handled elsewhere
     },
-    "is.workflow.actions.rss": {
-        "glyph": "RSS.svg",
-        "category": "WEB",
-        "result":'Items from RSS Feed',
-    },
-    "is.workflow.actions.rss.extract": {
-        "glyph": "RSS.svg",
-        "category": "WEB",
-        "result":'RSS Feeds from Page',
-    },
+    # "is.workflow.actions.rss": {
+    #     "glyph": "RSS.svg",
+    #     "category": "WEB",
+    #     "result":'Items from RSS Feed',
+    # },
+    # "is.workflow.actions.rss.extract": {
+    #     "glyph": "RSS.svg",
+    #     "category": "WEB",
+    #     "result":'RSS Feeds from Page',
+    # },
     "is.workflow.actions.properties.safariwebpage": {
         "glyph": "system/Safari.jpg",
         "category": "SAFARI",
         "result":None, # handled elsewhere
     },
-    "is.workflow.actions.url.expand": {
-        "glyph": "Link.svg",
-        "category": "WEB",
-        "result":'Expanded URL',
-    },
-    "is.workflow.actions.geturlcomponent": {
-        "glyph": "Link.svg",
-        "category": "URL",
-        "result":'Component of URL',
-    },
-    "is.workflow.actions.detect.link": {
-        "glyph": "Link.svg",
-        "category": "WEB",
-        "result":'URLs',
-    },
-    "is.workflow.actions.url": {
-        "glyph": "Link.svg",
-        "category": "URL",
-        "result":'URL',
-    },
+    # "is.workflow.actions.url.expand": {
+    #     "glyph": "Link.svg",
+    #     "category": "WEB",
+    #     "result":'Expanded URL',
+    # },
+    # "is.workflow.actions.geturlcomponent": {
+    #     "glyph": "Link.svg",
+    #     "category": "URL",
+    #     "result":'Component of URL',
+    # },
+    # "is.workflow.actions.detect.link": {
+    #     "glyph": "Link.svg",
+    #     "category": "WEB",
+    #     "result":'URLs',
+    # },
+    # "is.workflow.actions.url": {
+    #     "glyph": "Link.svg",
+    #     "category": "URL",
+    #     "result":'URL',
+    # },
     "com.google.chrome.ios.openurl": {
         "glyph": "others/Chrome",
         "category": "GOOGLE CHROME",
