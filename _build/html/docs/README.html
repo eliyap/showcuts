@@ -44,8 +44,18 @@
 This takes a few steps, which developers may find useful:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li><p>Download the shortcut’s <code class="docutils literal notranslate"><span class="pre">.plist</span></code> file (and some details) via the iCloud API, as documented by <a class="reference external" href="https://github.com/sharecuts/website/blob/master/Docs/Download%20shortcut%20shared%20as%20a%20link.txt">Sharecuts</a></p></li>
-<li><p>Turn the <code class="docutils literal notranslate"><span class="pre">.plist</span></code> file into JSON using Python’s <a class="reference external" href="https://docs.python.org/2/library/plistlib.html">plistlib library</a></p></li>
+<li><p>Download the shortcut’s <code class="docutils literal notranslate"><span class="pre">.plist</span></code> file (and some details)</p></li>
+</ol>
+<blockquote>
+<div><p>via the iCloud API, as documented by <a class="reference external" href="https://github.com/sharecuts/website/blob/master/Docs/Download%20shortcut%20shared%20as%20a%20link.txt">Sharecuts</a></p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Turn the <code class="docutils literal notranslate"><span class="pre">.plist</span></code> file into JSON using Python’s</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference external" href="https://docs.python.org/2/library/plistlib.html">plistlib library</a></p>
+</div></blockquote>
+<ol class="arabic simple">
 <li><p>Parse the shortcut’s actions as Python objects</p></li>
 <li><p>Turn those objects into HTML via Django’s templating engine</p></li>
 </ol>
@@ -70,7 +80,8 @@ This takes a few steps, which developers may find useful:</p>
 <li><p>have a native iOS app (it would be kind of pointless)</p></li>
 <li><p>support iOS 12</p></li>
 <li><p>allow users to edit Shortcuts (yet!)</p></li>
-<li><p>have an installation, as I don’t think anyone has a use for this code (happy to be proven wrong there!)</p></li>
+<li><p>have an installation, as I don’t think anyone has
+a use for this code (happy to be proven wrong there!)</p></li>
 </ul>
 </div></blockquote>
 </div>

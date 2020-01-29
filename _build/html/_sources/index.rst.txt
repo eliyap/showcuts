@@ -6,6 +6,8 @@
 Welcome to the Showcuts documentation!
 ======================================
 
+docs/README
+
 .. toctree::
    :maxdepth: 2
    :caption: Action & Parameter Classes:
@@ -19,6 +21,12 @@ Welcome to the Showcuts documentation!
    :caption: Supported Actions:
 
    tracking
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Roadmap:
+
+   roadmap
 
 Indices and tables
 ==================

@@ -6,6 +6,11 @@
 Welcome to the Showcuts documentation!
 ======================================
 
+Welcome to the code behind `showcuts.app <https://showcuts.app/share/view>`_,
+a web viewer for the `iOS Shortcuts App <https://apps.apple.com/us/app/shortcuts/id915249334>`_.
+
+Showcuts is based on Python & Django.
+
 .. toctree::
    :maxdepth: 2
    :caption: Action & Parameter Classes:
@@ -19,6 +24,19 @@ Welcome to the Showcuts documentation!
    :caption: Supported Actions:
 
    tracking
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Roadmap:
+
+   roadmap
+
+Dependencies
+============
+* plistlib (Python)
+* jQuery
+* screenshot
+* save file
 
 Indices and tables
 ==================

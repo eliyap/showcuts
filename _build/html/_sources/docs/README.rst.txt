@@ -12,8 +12,10 @@ Welcome to the code behind `showcuts.app <https://showcuts.app/share/view>`_, a 
 Showcuts turns an iCloud link into a web approximation of the iOS viewer.
 This takes a few steps, which developers may find useful:
 
-   #. Download the shortcut's ``.plist`` file (and some details) via the iCloud API, as documented by `Sharecuts <https://github.com/sharecuts/website/blob/master/Docs/Download%20shortcut%20shared%20as%20a%20link.txt>`_
-   #. Turn the ``.plist`` file into JSON using Python's `plistlib library <https://docs.python.org/2/library/plistlib.html>`_
+   #. Download the shortcut's ``.plist`` file (and some details)
+     via the iCloud API, as documented by `Sharecuts <https://github.com/sharecuts/website/blob/master/Docs/Download%20shortcut%20shared%20as%20a%20link.txt>`_
+   #. Turn the ``.plist`` file into JSON using Python's
+     `plistlib library <https://docs.python.org/2/library/plistlib.html>`_
    #. Parse the shortcut's actions as Python objects
    #. Turn those objects into HTML via Django's templating engine
 
@@ -34,7 +36,8 @@ Showcuts does not:
    * have a native iOS app (it would be kind of pointless)
    * support iOS 12
    * allow users to edit Shortcuts (yet!)
-   * have an installation, as I don't think anyone has a use for this code (happy to be proven wrong there!)
+   * have an installation, as I don't think anyone has
+     a use for this code (happy to be proven wrong there!)
 
 Status
 ######
