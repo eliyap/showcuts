@@ -46,11 +46,11 @@ $(document).ready(function () {
 
     $("#show-magic").click(function toggleOutput() {
         if (output_shown) {
-            $(".output").removeClass("shown").addClass("hidden");
+            $(".output").removeClass("shown").addClass("collapsed");
             output_shown = false;
         }
         else {
-            $(".output").removeClass("hidden").addClass("shown");
+            $(".output").removeClass("collapsed").addClass("shown");
             output_shown = true;
         }
     });
