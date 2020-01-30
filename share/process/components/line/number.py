@@ -30,12 +30,13 @@ class line_number(line, number):
 
     def missing(self):
         if self.default == None: # NOTE: do not allow falsy values (0, '', etc.)
+            return self.blank()
+        else:
             return value_dct(
                 self.default, 
                 attrs=self.attrs,
                 empty=False,
             )
-        return self.blank()
 
     def blank(self):
         return value_dct(

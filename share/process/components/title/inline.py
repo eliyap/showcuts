@@ -143,7 +143,7 @@ class list_inline(inline):
     @AddField('inline')
     def to_html(self, params, UUID_glyphs):
         inline_list = self.list_inline_handler(params,UUID_glyphs)
-        inline_list.append(magic_dct('+',key='None'))
+        inline_list.append(magic_dct('+',attrs={}))
         return [{
             'class':['list-inline-magic'],
             'value':inline_list,

@@ -15,6 +15,7 @@ from share.process.sc_action.categories import (
     accessibility, 
     safari, 
     misc,
+    url,
 )
 from .action import action
 from ..lookups.placeholder import *
@@ -33,6 +34,7 @@ lookup = {
         'dictionary':scripting.detect_dictionary,
         'number':scripting.detect_number,
         'date':date.detect_date,
+        'link':url.detect_link,
     },
     
     # format
@@ -83,8 +85,6 @@ lookup = {
     'showresult':scripting.showresult,
     'vibrate':scripting.vibrate,
     'runsshscript':scripting.runsshscript,
-    'openxcallbackurl':scripting.openxcallbackurl,
-    'urlencode':scripting.urlencode,
     'handoff':scripting.handoff,
     'viewresult':scripting.viewresult,
 
@@ -175,7 +175,7 @@ lookup = {
 
     # LOCATION
     'getcurrentlocation':location.getcurrentlocation,
-    'location':location.location,
+    'location':location._location,
     'weather.':{
         'currentconditions':location.weather_currentconditions,
         'forecast':location.weather_forecast,
@@ -190,12 +190,25 @@ lookup = {
     'getwebpagecontents':safari.getwebpagecontents,
     'getarticle':safari.getarticle,
 
+    # URL
+    'openxcallbackurl':url.openxcallbackurl,
+    'geturlcomponent':url.geturlcomponent,
+    'url':{
+        '':url.url,
+        'encode':url.urlencode,
+        '.expand':url.url_expand,
+    },
+
+
     # MISC
     'encodemedia':misc.encodemedia,
     'trimvideo':misc.trimvideo,
     'detectlanguage':misc.detectlanguage,
     'airdropdocument':misc.airdropdocument,
-    '___':misc.___,
+    'rss':{
+        '':misc.rss,
+        '.extract':misc.rss_extract,
+    },
     '___':misc.___,
     '___':misc.___,
     '___':misc.___,

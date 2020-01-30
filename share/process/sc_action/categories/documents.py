@@ -426,7 +426,7 @@ class correctspelling(_base):
     glyph = 'Note.svg'
     title = [
         text('Correct spelling of'),
-        inline(
+        list_inline(
             'text',
             blank_text='Text',
             ask_each_time='Text',
@@ -473,7 +473,7 @@ class documentpicker_open(_base):
             'WFGetFileInitialDirectoryPath',
             blank_text='optional',
             leftify=True,
-        )
+        ),
     ]
     result = 'File'
 

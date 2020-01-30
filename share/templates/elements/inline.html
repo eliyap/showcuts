@@ -13,10 +13,9 @@
 {% else %}
 
 
-{# HASH LINK TO ACTION THAT PROVIDED RESULT #}
 <span class="{{elem.class|join:' '}}" field="{{elem.field}}" {% for key, val in elem.attrs.items %}{{key}}='{{val}}'{% endfor %}>
   {% if elem.glyph %}
-  <img class="inline-glyph" src="{% static elem.glyph %}" />
+  <img class="inline-glyph" src="{% static elem.glyph %}" UUID="{{elem.UUID}}" />
   {% endif %}
 
   {# PILL MENU #}
