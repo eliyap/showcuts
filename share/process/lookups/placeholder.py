@@ -12,7 +12,13 @@ def error_action():
 
 class NOT_IMPLEMENTED_ACTION(action.action):
     def modify(self):
-        self.title = [{'value':'Action Under Construction','class':'not-implemented'}]
+        self.title = [{
+            'value':'Action Under Construction',
+            'class':'not-implemented',
+            'attrs':{
+                'key':None,
+            },
+        }]
         self.glyph = 'assets/cat/Missing.svg'
         self.category = 'MISSING'
 
