@@ -181,7 +181,7 @@ class format_filesize(_base):
 
     def modify(self):
         if self.title[3]['value'] != 'Closest Unit':
-            self.hide_line('Include Units')
+            self.hide_line('WFFileSizeIncludeUnits')
 
 class format_number(_base):
     name = 'Format Number'
