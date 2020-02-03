@@ -41,53 +41,41 @@
 <a class="reference external image-reference" href="https://showcuts.readthedocs.io/en/latest/?badge=latest"><img alt="Documentation Status" src="https://readthedocs.org/projects/showcuts/badge/?version=latest" /></a>
 <p>Welcome to the code behind <a class="reference external" href="https://showcuts.app/share/view">showcuts.app</a>, a web viewer for the <a class="reference external" href="https://apps.apple.com/us/app/shortcuts/id915249334">iOS Shortcuts App</a>.</p>
 <p>Showcuts turns an iCloud link into a web approximation of the iOS viewer.
-This takes a few steps, which developers may find useful:</p>
+This takes a few steps, which developers may find interesting:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li><p>Download the shortcut’s <code class="docutils literal notranslate"><span class="pre">.plist</span></code> file (and some details)</p></li>
+<li><p>Downloading the shortcut’s <code class="docutils literal notranslate"><span class="pre">.plist</span></code> file (and some metadata) via the iCloud API, as documented by <a class="reference external" href="https://github.com/sharecuts/website/blob/master/Docs/Download%20shortcut%20shared%20as%20a%20link.txt">Sharecuts</a></p></li>
+<li><p>Turning the <code class="docutils literal notranslate"><span class="pre">.plist</span></code> file into JSON using Python’s <a class="reference external" href="https://docs.python.org/2/library/plistlib.html">plistlib library</a></p></li>
+<li><p>Parsing the shortcut’s actions as Python objects</p></li>
+<li><p>Displaying those objects as HTML via Django, with
+CSS styles that approximate the appearance of Shortcuts on iOS</p></li>
 </ol>
-<blockquote>
-<div><p>via the iCloud API, as documented by <a class="reference external" href="https://github.com/sharecuts/website/blob/master/Docs/Download%20shortcut%20shared%20as%20a%20link.txt">Sharecuts</a></p>
-</div></blockquote>
-<ol class="arabic simple">
-<li><p>Turn the <code class="docutils literal notranslate"><span class="pre">.plist</span></code> file into JSON using Python’s</p></li>
-</ol>
-<blockquote>
-<div><p><a class="reference external" href="https://docs.python.org/2/library/plistlib.html">plistlib library</a></p>
-</div></blockquote>
-<ol class="arabic simple">
-<li><p>Parse the shortcut’s actions as Python objects</p></li>
-<li><p>Turn those objects into HTML via Django’s templating engine</p></li>
-</ol>
-<ul class="simple">
-<li><p>also, CSS styles that approximate the appearance of Shortcuts on iOS</p></li>
-</ul>
 </div></blockquote>
 <p><strong>Characteristics</strong></p>
-<p>Other Shortcuts projects and products exist. Showcuts is special because it:</p>
+<p>Other Shortcuts projects and products exist. Showcuts is distinguished by:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>shows the individual actions and parameters of shortcuts</p></li>
-<li><p>aims to look like Shortcuts on iOS</p></li>
-<li><p>allows others to embed it’s viewer in their sites (<a class="reference external" href="https://jsfiddle.net/7ok5xfgd/1/">JS Fiddle</a>)</p></li>
-<li><p>supports Shortcuts for iOS 13 (not iOS 12)</p></li>
+<li><p>shows individual actions and parameters of shortcuts</p></li>
+<li><p>visual similarity to Shortcuts on iOS</p></li>
+<li><p>allowing embeds of it’s viewer (<a class="reference external" href="https://jsfiddle.net/7ok5xfgd/1/">JS Fiddle</a>)</p></li>
+<li><p>supports Shortcuts for iOS 13</p></li>
 <li><p>is free and open source (premium tier / a tip jar is planned)</p></li>
 </ul>
 </div></blockquote>
 <p>Showcuts does not:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>have a native iOS app (it would be kind of pointless)</p></li>
+<li><p>have a native iOS app (kind of pointless)</p></li>
 <li><p>support iOS 12</p></li>
-<li><p>allow users to edit Shortcuts (yet!)</p></li>
-<li><p>have an installation, as I don’t think anyone has
-a use for this code (happy to be proven wrong there!)</p></li>
+<li><p>allow users to edit Shortcuts (this is planned)</p></li>
+<li><p>have an installation / package. I don’t think anyone has
+a use for this code, as far as I know.</p></li>
 </ul>
 </div></blockquote>
 </div>
 <div class="section" id="status">
 <h1>Status<a class="headerlink" href="#status" title="Permalink to this headline">¶</a></h1>
-<p>Showcuts was in active development from November 2019 - January 2020.</p>
+<p>Showcuts was in active development from November 2019 - February 2020.</p>
 <p>Development slowed as the author entered college, and may have ceased entirely.</p>
 </div>
 
