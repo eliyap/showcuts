@@ -31,12 +31,25 @@ Showcuts is based on Python & Django.
 
    roadmap
 
-Dependencies
-============
-* plistlib (Python)
-* jQuery
-* screenshot
-* save file
+Showcuts Dependencies
+=====================
+* Python & Packages
+    * Django 2.x
+    * social-django `https://github.com/python-social-auth/social-app-django`
+    * django-compressor `https://pypi.org/project/django-compressor/`
+    * postgres, for some reason. https://pypi.org/project/psycopg2/
+    * django-libsass
+    * django_compressor
+    * plistlib (Python)
+* JS
+    * jQuery
+    * screenshot
+    * save file
+
+Docs Dependencies
+=================
+* sphinx
+* recommonmark
 
 Indices and tables
 ==================
