@@ -1,5 +1,5 @@
 codes = {
-    59771:'car.svg', # not accurate
+    59452:'car.svg', # not accurate
     59678:'bus.svg',
     59783:'motorcycle.svg',
     59652:'ambulance.svg',
@@ -133,7 +133,7 @@ codes = {
     59838:'food.svg',
     59683:'carrot.svg',
     59665:'bath.svg',
-    5684:'dog2.svg',
+    59684:'dog2.svg',
     59728:'dog.svg',
     59651:'alien.svg',
     59666:'bed.svg',
