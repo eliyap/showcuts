@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'^oauth/', include('social_django.urls', namespace='social')),
     
     path('share/', include('share.urls')),
+    path('api/', include('api.urls')),
     
     # misc static pages
     path('about/', misc.about, name='about'),

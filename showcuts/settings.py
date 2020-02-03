@@ -28,6 +28,7 @@ SECRET_KEY = 'bnphip=1c_tmjei*$%qk4a2v4(o8+svyokq!9e7m!$d0ak(xw#'
 INSTALLED_APPS = [
     'social_django', # must be ABOVE django.contrib.admin to override templates
     'share',
+    'api',
     'compressor', # sassy CSS compressor
     
     'django.contrib.admin',
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
