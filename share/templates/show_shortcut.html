@@ -24,8 +24,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.contextMenu.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.contextMenu.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.ui.position.js"></script>
-<!-- make elements editable DISABLLED--> 
-<!-- <script defer src="{% static 'js/interactive.js' %}"></script> -->
+<!-- make elements editable (UNSTABLE!!!)-->  
+<script defer type="module" src="{% static 'js/editor/edit.js' %}"></script>
+<script defer type="module" src="{% static 'js/interactive.js' %}"></script>
 {% endblock %}
 
 {% block scss %}
@@ -56,7 +57,7 @@
     </span>
 
     <!-- ## Shortcut Icon -->
-    <div id="glyph-bg" style="background-color:rgb{{color_code}}">
+    <div id="glyph-bg" style="background-color:#{{color_code}}">
       <img id='glyph-icon' class='hack-centre' src="{% static glyph_icon %}" />
     </div>
 

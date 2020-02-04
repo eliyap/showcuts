@@ -1,5 +1,6 @@
 import {edit_input, save_input} from "./editor/edit.js";
 
+window.magic = [];
 
 $(document).ready(function () {
     let globals = { // values may be manipulated by reference
@@ -8,7 +9,7 @@ $(document).ready(function () {
 
     
     $("span[field='number']").click(function(event){
-        edit_input(globals, $(event.currentTarget)); // pass as a JS object, coerced using $()
+        edit_input(globals, $(event.currentTarget)); // pass as a JS object, using $()
     });
     $(document).on('blur', '#magic_input', function(){
         save_input(globals);

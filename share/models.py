@@ -10,6 +10,10 @@ from django.core.serializers.json import DjangoJSONEncoder
 import json
 from share.process.sc_action.action import action
 
+# serializer
+from share.process.lookups._directory import color_codes, icon_codes
+
+
 def byt_catcher(o):
     if isinstance(o, datetime):
         return o.__str__()
@@ -140,6 +144,15 @@ class Shortcut(models.Model):
     def get_absolute_url(self):
         # URL is linked to hexademical ID, nothing needed here
         pass
+    
+    def get_actions(self):
+        return [i.__dict__ for i in self.action_blocks['blocks']]
+
+    def get_icon(self):
+        return {
+            'colorID':self.colorID,
+            'glyphID':self.glyphID,
+        }
 
     class Meta:
         ordering = ['-created_on']
@@ -170,4 +183,3 @@ class Tag(models.Model):
     )
     def __str__(self):
         return self.name
-

@@ -26,7 +26,7 @@ class action:
     #: UUID string identifying the ``result`` variable produced by the action.
     #: 
     #: Used to link result variables to their origin.
-    UUID     = 'null'
+    UUID     = None
     
     #: List of element objects composing the title (large head text).
     #: 
@@ -61,7 +61,7 @@ class action:
             self.UUID = dct['WFWorkflowActionParameters']['UUID']
             dct['WFWorkflowActionParameters'].pop('UUID')
         except:
-            self.UUID = 'null'
+            self.UUID = None
 
         self.parameters = dct['WFWorkflowActionParameters']
     
@@ -136,6 +136,7 @@ class action:
 
         Raises ValueError if the label does not a match a line.
         '''
+        return # formatting now handled by Angular
         for line in self.lines:
             if line['attrs']['key'] == key: # NOTE: line SHOULD HAVE 'attrs'
                 if 'hidden' not in line['class']: # prevent duplicates
@@ -150,7 +151,7 @@ class action:
 
         Raises ValueError if the label does not a match an element.
         '''
-
+        return # formatting now handled by Angular
         for elem in self.title:
             if ('attrs' in elem) and (elem['attrs']['key'] == key):
                 if 'hidden' not in elem['class']: # prevent duplicates
@@ -165,7 +166,7 @@ class action:
 
         Raises ValueError if the value does not a match any text.
         '''
-
+        return # formatting now handled by Angular
         for elem in self.title:
             if elem['value'] == value:
                 if 'hidden' not in elem['class']: # prevent duplicates
@@ -271,11 +272,11 @@ class control:
         }[self.flow_mode()]
 
         # add `control` class to remove category and glyph
-        self.css_class += {
-            0: [],
-            1: ['control'],
-            2: ['control'],
-        }[self.flow_mode()]
+        # self.css_class += {
+        #     0: [],
+        #     1: ['control'],
+        #     2: ['control'],
+        # }[self.flow_mode()]
 
         # Returns the correct `indent_delta` value based on the `flow_mode`
         self.indent_delta = {
