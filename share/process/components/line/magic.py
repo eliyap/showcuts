@@ -38,5 +38,5 @@ class line_magic(base_magic, line):
             self.blank_text,
             attrs=self.attrs,
             css_class=['choose'],
-            empty=False,
+            # empty=False,
         )

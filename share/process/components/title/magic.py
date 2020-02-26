@@ -34,7 +34,7 @@ class magic(base_magic):
 
     def blank(self):
         return magic_dct(
-            self.blank_text, 
+            None, 
             attrs=self.attrs,
             empty=True
         )

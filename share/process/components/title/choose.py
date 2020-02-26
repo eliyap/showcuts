@@ -38,7 +38,7 @@ class choose(base_magic):
 
     def blank(self):
         return magic_dct(
-            self.default,
+            None,
             attrs=self.attrs, 
             empty=False,
         )

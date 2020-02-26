@@ -7,8 +7,5 @@ class text:
     def to_html(self, *_, **__) -> dict:
         return [{
             'value': self.text, 
-            'class': ['text'], 
-            'attrs':{
-                'key':None,
-            },
+            'attrs':{},
         }]

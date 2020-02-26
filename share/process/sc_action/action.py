@@ -271,13 +271,6 @@ class control:
             2: -1,
         }[self.flow_mode()]
 
-        # add `control` class to remove category and glyph
-        # self.css_class += {
-        #     0: [],
-        #     1: ['control'],
-        #     2: ['control'],
-        # }[self.flow_mode()]
-
         # Returns the correct `indent_delta` value based on the `flow_mode`
         self.indent_delta = {
             0: +1, # head block, indents everything inside

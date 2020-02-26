@@ -52,9 +52,9 @@ class makezip(_base):
     ]
     result = 'Archive'
 
-    def modify(self):
+    def modify(self): 
         fmt = self.get_title('WFArchiveFormat')['value']
-        if fmt[0] != '.' and fmt != 'Format': # check not  Ask_Each_Time
+        if fmt and fmt[0] != '.' and fmt != 'Format': # check not  Ask_Each_Time
             self.get_title('WFArchiveFormat')['value'] = f'.{fmt}'
 
 class speaktext(_base):
